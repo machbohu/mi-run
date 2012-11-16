@@ -1,5 +1,14 @@
 package cz.cvut.fit.mirun.lemavm.core;
 
+import java.io.IOException;
+
+import org.antlr.runtime.ANTLRFileStream;
+import org.antlr.runtime.TokenRewriteStream;
+import org.apache.log4j.Logger;
+
+import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMLex;
+import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMParse;
+
 /**
  * This is the main entry point of the LeMaVM virtual machine.
  * 
@@ -8,12 +17,26 @@ package cz.cvut.fit.mirun.lemavm.core;
  */
 public class VirtualMachine {
 
+	private static final Logger LOG = Logger.getLogger(VirtualMachine.class);
+
 	/**
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+		if (args.length == 0) {
+			LOG.error("Insuficient number of arguments. You have to specify at least the name of the file to run.");
+			System.exit(1);
+		}
+		final String file = args[0];
+		try {
+			final ANTLRFileStream fs = new ANTLRFileStream(file);
+			LeMaVMLex lex = new LeMaVMLex(fs);
+			TokenRewriteStream tokens = new TokenRewriteStream(lex);
+			LeMaVMParse grammar = new LeMaVMParse(tokens);
+			// TODO Get the AST from the grammar
+		} catch (IOException e) {
+			LOG.error("Unable to read the specified file.", e);
+			System.exit(2);
+		}
 	}
-
 }
