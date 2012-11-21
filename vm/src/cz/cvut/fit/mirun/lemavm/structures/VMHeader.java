@@ -6,7 +6,7 @@ package cz.cvut.fit.mirun.lemavm.structures;
  * @author kidney
  * 
  */
-public class Header {
+public class VMHeader {
 
 	private static long ID_CNT = 0;
 
@@ -15,7 +15,7 @@ public class Header {
 	// Needed by GC
 	private byte age;
 
-	public Header() {
+	public VMHeader() {
 		this.id = ++ID_CNT;
 	}
 
@@ -41,8 +41,8 @@ public class Header {
 
 	@Override
 	public boolean equals(Object other) {
-		if (other instanceof Header) {
-			final Header h = (Header) other;
+		if (other instanceof VMHeader) {
+			final VMHeader h = (VMHeader) other;
 			return (id == h.getId());
 		}
 		return false;
@@ -51,5 +51,12 @@ public class Header {
 	@Override
 	public int hashCode() {
 		return Long.valueOf(id).hashCode();
+	}
+
+	@Override
+	public String toString() {
+		String out = "VMHeader: id = " + id + ", type = " + type + ", age = "
+				+ age;
+		return out;
 	}
 }

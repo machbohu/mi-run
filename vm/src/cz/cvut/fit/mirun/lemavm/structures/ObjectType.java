@@ -10,5 +10,5 @@ package cz.cvut.fit.mirun.lemavm.structures;
  * 
  */
 public enum ObjectType {
-	META_CLASS, OBJECT, METHOD, PRIMITIVE, OPERATOR, NULL, LITERAL
+	META_CLASS, OBJECT, METHOD, NUMBER, STRING, BOOLEAN, OPERATOR, NULL
 }

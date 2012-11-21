@@ -1,0 +1,57 @@
+package cz.cvut.fit.mirun.lemavm.structures;
+
+import cz.cvut.fit.mirun.lemavm.core.VMParsingException;
+
+public class VMBoolean extends VMPrimitive {
+
+	private static final String STR_TRUE = "true";
+	private static final String STR_FALSE = "false";
+
+	private static final VMBoolean TRUE = new VMBoolean(true);
+	private static final VMBoolean FALSE = new VMBoolean(false);
+
+	private final boolean value;
+
+	private VMBoolean(boolean value) {
+		super(ObjectType.BOOLEAN);
+		this.value = value;
+	}
+
+	/**
+	 * Create new {@code VMBoolean} from the specified string. </p>
+	 * 
+	 * This is the only way to get the {@code VMBoolean} values, since there can
+	 * be only one one true and one false entity in the VM.
+	 * 
+	 * @param value
+	 *            The value to parse
+	 * @return VMBoolean
+	 * @throws VMParsingException
+	 */
+	public static VMBoolean valueOf(String value) {
+		switch (value) {
+		case STR_TRUE:
+			return TRUE;
+		case STR_FALSE:
+			return FALSE;
+		default:
+			throw new VMParsingException("Unknown VMBoolean value " + value);
+		}
+	}
+
+	/**
+	 * Get the value of this object.
+	 * 
+	 * @return boolean value
+	 */
+	public boolean getValue() {
+		return value;
+	}
+
+	@Override
+	public String toString() {
+		String out = super.toString();
+		out += ". Value = " + value;
+		return out;
+	}
+}

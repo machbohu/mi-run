@@ -7,6 +7,6 @@ public interface Recognizable {
 	 * 
 	 * @return {@code Header}
 	 */
-	public Header getHeader();
+	public VMHeader getHeader();
 
 }

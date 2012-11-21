@@ -9,9 +9,9 @@ package cz.cvut.fit.mirun.lemavm.structures;
  * @author kidney
  * 
  */
-public abstract class VMObject implements Recognizable {
+public abstract class VMObject implements Recognizable, Evaluable {
 
-	private final Header header;
+	private final VMHeader header;
 
 	/** Used by GC to be able to get the previous reference of this object */
 	private VMObject oldReference;
@@ -19,12 +19,12 @@ public abstract class VMObject implements Recognizable {
 	public VMObject(ObjectType type) {
 		super();
 		assert type != null;
-		this.header = new Header();
+		this.header = new VMHeader();
 		header.setType(type);
 	}
 
 	@Override
-	public final Header getHeader() {
+	public final VMHeader getHeader() {
 		return header;
 	}
 
@@ -49,5 +49,10 @@ public abstract class VMObject implements Recognizable {
 	public int hashCode() {
 		int hash = 31 * header.hashCode();
 		return hash;
+	}
+
+	@Override
+	public String toString() {
+		return header.toString();
 	}
 }
