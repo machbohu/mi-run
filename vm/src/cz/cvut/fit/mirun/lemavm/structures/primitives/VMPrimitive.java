@@ -1,4 +1,7 @@
-package cz.cvut.fit.mirun.lemavm.structures;
+package cz.cvut.fit.mirun.lemavm.structures.primitives;
+
+import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
+import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 
 /**
  * VMPrimitives represent primitive values in the VM - numbers, strings,

@@ -1,10 +1,10 @@
-package cz.cvut.fit.mirun.lemavm.structures;
+package cz.cvut.fit.mirun.lemavm.structures.primitives;
 
 import cz.cvut.fit.mirun.lemavm.core.VMParsingException;
 
-public class VMShort extends VMNumber {
+public final class VMShort extends VMNumber {
 
-	private final short value;
+	private short value;
 
 	public VMShort(short value) {
 		super();
@@ -31,4 +31,15 @@ public class VMShort extends VMNumber {
 		out += ". Value = " + value;
 		return out;
 	}
+
+	@Override
+	public void increment() {
+		value++;
+	}
+
+	@Override
+	public void decrement() {
+		value--;
+	}
+
 }

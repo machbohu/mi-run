@@ -1,4 +1,6 @@
-package cz.cvut.fit.mirun.lemavm.structures;
+package cz.cvut.fit.mirun.lemavm.structures.primitives;
+
+import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 
 /**
  * There is only one {@code VMNull} in the VM.
@@ -6,7 +8,7 @@ package cz.cvut.fit.mirun.lemavm.structures;
  * @author kidney
  * 
  */
-public class VMNull extends VMPrimitive {
+public final class VMNull extends VMPrimitive {
 
 	private static final VMNull instance = new VMNull();
 

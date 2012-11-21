@@ -1,10 +1,10 @@
-package cz.cvut.fit.mirun.lemavm.structures;
+package cz.cvut.fit.mirun.lemavm.structures.primitives;
 
 import cz.cvut.fit.mirun.lemavm.core.VMParsingException;
 
-public class VMInteger extends VMNumber {
+public final class VMInteger extends VMNumber {
 
-	private final int value;
+	private int value;
 
 	public VMInteger(int value) {
 		super();
@@ -30,5 +30,15 @@ public class VMInteger extends VMNumber {
 		String out = super.toString();
 		out += ". Value = " + value;
 		return out;
+	}
+
+	@Override
+	public void increment() {
+		value++;
+	}
+
+	@Override
+	public void decrement() {
+		value--;
 	}
 }

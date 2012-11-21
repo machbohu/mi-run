@@ -1,10 +1,10 @@
-package cz.cvut.fit.mirun.lemavm.structures;
+package cz.cvut.fit.mirun.lemavm.structures.primitives;
 
 import cz.cvut.fit.mirun.lemavm.core.VMParsingException;
 
-public class VMDouble extends VMNumber {
+public final class VMDouble extends VMNumber {
 
-	private final double value;
+	private double value;
 
 	public VMDouble(double value) {
 		super();
@@ -30,5 +30,27 @@ public class VMDouble extends VMNumber {
 		String out = super.toString();
 		out += ". Value = " + value;
 		return out;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Note that using increment operator on double values is generally not a
+	 * good idea.
+	 */
+	@Override
+	public void increment() {
+		value++;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 * 
+	 * Note that using decrement operator on double values is generally not a
+	 * good idea.
+	 */
+	@Override
+	public void decrement() {
+		value--;
 	}
 }

@@ -1,14 +1,15 @@
-package cz.cvut.fit.mirun.lemavm.structures;
+package cz.cvut.fit.mirun.lemavm.structures.primitives;
 
 import cz.cvut.fit.mirun.lemavm.core.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 
-public class VMBoolean extends VMPrimitive {
+public final class VMBoolean extends VMPrimitive {
 
 	private static final String STR_TRUE = "true";
 	private static final String STR_FALSE = "false";
 
-	private static final VMBoolean TRUE = new VMBoolean(true);
-	private static final VMBoolean FALSE = new VMBoolean(false);
+	public static final VMBoolean TRUE = new VMBoolean(true);
+	public static final VMBoolean FALSE = new VMBoolean(false);
 
 	private final boolean value;
 

@@ -36,6 +36,18 @@ public abstract class VMObject implements Recognizable, Evaluable {
 		this.oldReference = oldReference;
 	}
 
+	/**
+	 * Get type of this object. </p>
+	 * 
+	 * This is a shorthand for calling {@link #getHeader()} and then getting the
+	 * type.
+	 * 
+	 * @return Type of this object
+	 */
+	public ObjectType getType() {
+		return header.getType();
+	}
+
 	@Override
 	public boolean equals(Object other) {
 		if (other instanceof VMObject) {

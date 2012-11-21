@@ -1,6 +1,8 @@
-package cz.cvut.fit.mirun.lemavm.structures;
+package cz.cvut.fit.mirun.lemavm.structures.primitives;
 
-public class VMString extends VMPrimitive {
+import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
+
+public final class VMString extends VMPrimitive {
 
 	private final String value;
 
