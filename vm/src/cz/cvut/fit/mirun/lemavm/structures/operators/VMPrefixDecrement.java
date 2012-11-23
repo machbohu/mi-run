@@ -24,28 +24,23 @@ public final class VMPrefixDecrement extends VMUnaryOperator {
 					"PrefixDecrement is not applicable for operand of type "
 							+ op.getType());
 		}
-		VMObject toReturn = null;
 		if (op instanceof VMShort) {
 			final VMShort n = (VMShort) op;
-			toReturn = new VMShort(n.getValue());
 			n.decrement();
 		} else if (op instanceof VMInteger) {
 			final VMInteger n = (VMInteger) op;
-			toReturn = new VMInteger(n.getValue());
 			n.decrement();
 		} else if (op instanceof VMLong) {
 			final VMLong n = (VMLong) op;
-			toReturn = new VMLong(n.getValue());
 			n.decrement();
 		} else if (op instanceof VMDouble) {
 			final VMDouble n = (VMDouble) op;
-			toReturn = new VMDouble(n.getValue());
 			n.decrement();
 		} else {
 			throw new VMEvaluationException(
 					"PrefixDecrement is not applicable for operand of type "
 							+ op.getType());
 		}
-		return toReturn;
+		return op;
 	}
 }

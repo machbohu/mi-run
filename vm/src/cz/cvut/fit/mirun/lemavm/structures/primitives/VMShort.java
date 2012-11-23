@@ -11,6 +11,11 @@ public final class VMShort extends VMNumber {
 		this.value = value;
 	}
 
+	public VMShort(int value) {
+		super();
+		this.value = (short) value;
+	}
+
 	public VMShort(String value) {
 		super();
 		try {
