@@ -21,8 +21,8 @@ public final class VMBoolean extends VMPrimitive {
 	/**
 	 * Create new {@code VMBoolean} from the specified string. </p>
 	 * 
-	 * This is the only way to get the {@code VMBoolean} values, since there can
-	 * be only one one true and one false entity in the VM.
+	 * This is one the two ways to get the {@code VMBoolean} values, since there
+	 * can be only one one true and one false entity in the VM.
 	 * 
 	 * @param value
 	 *            The value to parse
@@ -38,6 +38,17 @@ public final class VMBoolean extends VMPrimitive {
 		default:
 			throw new VMParsingException("Unknown VMBoolean value " + value);
 		}
+	}
+
+	/**
+	 * Get {@code VBoolean} for the specified {@code boolean} value. </p>
+	 * 
+	 * @param value
+	 *            The value to parse
+	 * @return VMBoolean
+	 */
+	public static VMBoolean valueOf(boolean value) {
+		return (value ? TRUE : FALSE);
 	}
 
 	/**
@@ -70,7 +81,7 @@ public final class VMBoolean extends VMPrimitive {
 			// Double is the widest type, so this should work for all other
 			// primitives
 			final double d = ((VMNumber) other).doubleValue();
-			return value == true ? (d != 0) : (d == 0);
+			return (value ? (d != 0) : (d == 0));
 		}
 		return false;
 	}

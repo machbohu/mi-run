@@ -4,14 +4,14 @@ import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMBoolean;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMPrimitive;
 
-public final class VMEquals extends VMBinaryOperator {
+public final class VMEqualsOperator extends VMBinaryOperator {
 
-	public VMEquals(VMObject operandOne, VMObject operandTwo) {
+	public VMEqualsOperator(VMObject operandOne, VMObject operandTwo) {
 		super(operandOne, operandTwo);
 	}
 
 	@Override
-	protected VMObject evaluateImpl(VMObject opOne, VMObject opTwo) {
+	protected VMBoolean evaluateImpl(VMObject opOne, VMObject opTwo) {
 		if (LOG.isTraceEnabled()) {
 			LOG.trace("Equality operator evaluating: " + opOne + " == " + opTwo);
 		}
