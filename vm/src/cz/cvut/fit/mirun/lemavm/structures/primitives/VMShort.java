@@ -47,4 +47,28 @@ public final class VMShort extends VMNumber {
 		value--;
 	}
 
+	@Override
+	public short shortValue() {
+		return value;
+	}
+
+	@Override
+	public int intValue() {
+		return (int) value;
+	}
+
+	@Override
+	public long longValue() {
+		return (long) value;
+	}
+
+	@Override
+	public double doubleValue() {
+		return (double) value;
+	}
+
+	@Override
+	public String printValue() {
+		return Short.toString(value);
+	}
 }

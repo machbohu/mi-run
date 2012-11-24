@@ -55,4 +55,9 @@ public final class VMBoolean extends VMPrimitive {
 		out += ". Value = " + value;
 		return out;
 	}
+
+	@Override
+	public String printValue() {
+		return Boolean.toString(value);
+	}
 }

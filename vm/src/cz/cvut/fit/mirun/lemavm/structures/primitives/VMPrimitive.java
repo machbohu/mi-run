@@ -1,6 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures.primitives;
 
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
+import cz.cvut.fit.mirun.lemavm.structures.Printable;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 
 /**
@@ -18,7 +19,7 @@ import cz.cvut.fit.mirun.lemavm.structures.VMObject;
  * @author kidney
  * 
  */
-public abstract class VMPrimitive extends VMObject {
+public abstract class VMPrimitive extends VMObject implements Printable {
 
 	public VMPrimitive(ObjectType type) {
 		super(type);

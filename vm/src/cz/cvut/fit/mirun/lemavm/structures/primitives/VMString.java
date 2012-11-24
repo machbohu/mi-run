@@ -21,4 +21,9 @@ public final class VMString extends VMPrimitive {
 		out += ". Value = " + value;
 		return out;
 	}
+
+	@Override
+	public String printValue() {
+		return value;
+	}
 }

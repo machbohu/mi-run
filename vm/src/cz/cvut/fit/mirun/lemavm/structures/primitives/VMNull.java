@@ -10,6 +10,8 @@ import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
  */
 public final class VMNull extends VMPrimitive {
 
+	private static final String STR_NULL = "null";
+
 	private static final VMNull instance = new VMNull();
 
 	private VMNull() {
@@ -18,5 +20,10 @@ public final class VMNull extends VMPrimitive {
 
 	public static VMNull getInstance() {
 		return instance;
+	}
+
+	@Override
+	public String printValue() {
+		return STR_NULL;
 	}
 }

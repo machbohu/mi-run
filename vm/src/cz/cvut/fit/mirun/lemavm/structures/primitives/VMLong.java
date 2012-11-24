@@ -41,4 +41,29 @@ public final class VMLong extends VMNumber {
 	public void decrement() {
 		value--;
 	}
+
+	@Override
+	public short shortValue() {
+		return (short) value;
+	}
+
+	@Override
+	public int intValue() {
+		return (int) value;
+	}
+
+	@Override
+	public long longValue() {
+		return value;
+	}
+
+	@Override
+	public double doubleValue() {
+		return (double) value;
+	}
+
+	@Override
+	public String printValue() {
+		return Long.toString(value);
+	}
 }

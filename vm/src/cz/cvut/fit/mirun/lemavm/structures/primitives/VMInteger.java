@@ -41,4 +41,29 @@ public final class VMInteger extends VMNumber {
 	public void decrement() {
 		value--;
 	}
+
+	@Override
+	public short shortValue() {
+		return (short) value;
+	}
+
+	@Override
+	public int intValue() {
+		return value;
+	}
+
+	@Override
+	public long longValue() {
+		return (long) value;
+	}
+
+	@Override
+	public double doubleValue() {
+		return (double) value;
+	}
+
+	@Override
+	public String printValue() {
+		return Integer.toString(value);
+	}
 }

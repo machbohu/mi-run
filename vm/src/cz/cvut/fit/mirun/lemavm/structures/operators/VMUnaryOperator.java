@@ -1,6 +1,8 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators;
 
+import cz.cvut.fit.mirun.lemavm.core.VMNullPointerException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+import cz.cvut.fit.mirun.lemavm.structures.primitives.VMNull;
 
 public abstract class VMUnaryOperator extends VMOperator {
 
@@ -21,6 +23,9 @@ public abstract class VMUnaryOperator extends VMOperator {
 		}
 		final VMObject op = operand.evaluate();
 		assert op != null;
+		if (op.equals(VMNull.getInstance())) {
+			throw new VMNullPointerException();
+		}
 		return evaulateImpl(op);
 	}
 
