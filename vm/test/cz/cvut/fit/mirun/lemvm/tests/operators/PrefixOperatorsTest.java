@@ -7,6 +7,7 @@ import static org.junit.Assert.fail;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import cz.cvut.fit.mirun.lemavm.core.VMNullPointerException;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMPrefixDecrement;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMPrefixIncrement;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMInteger;
@@ -59,7 +60,7 @@ public class PrefixOperatorsTest {
 		assertEquals(exp, longTest.getValue());
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test(expected = VMNullPointerException.class)
 	public void testConstructor() {
 		increment = new VMPrefixIncrement(null);
 		fail("This line should not have been reached.");

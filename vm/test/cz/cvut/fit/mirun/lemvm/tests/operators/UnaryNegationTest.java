@@ -7,6 +7,7 @@ import static org.junit.Assert.assertTrue;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import cz.cvut.fit.mirun.lemavm.core.VMNullPointerException;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMUnaryNegation;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMBoolean;
 
@@ -44,7 +45,7 @@ public class UnaryNegationTest {
 		assertTrue(resOne == resTwo);
 	}
 
-	@Test(expected = NullPointerException.class)
+	@Test(expected = VMNullPointerException.class)
 	public void testConstructor() {
 		negation = new VMUnaryNegation(null);
 	}
