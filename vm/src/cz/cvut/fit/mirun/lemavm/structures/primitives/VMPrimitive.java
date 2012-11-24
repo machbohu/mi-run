@@ -29,4 +29,16 @@ public abstract class VMPrimitive extends VMObject implements Printable {
 	public VMObject evaluate() {
 		return this;
 	}
+
+	/**
+	 * Compare values of primitives. </p>
+	 * 
+	 * This method, in contrast to the {@code equals} method compares values of
+	 * object.
+	 * 
+	 * @param other
+	 *            The object to compare this object to
+	 * @return true if the values are equal, false otherwise
+	 */
+	public abstract boolean valueEquals(VMPrimitive other);
 }

@@ -60,4 +60,18 @@ public final class VMBoolean extends VMPrimitive {
 	public String printValue() {
 		return Boolean.toString(value);
 	}
+
+	@Override
+	public boolean valueEquals(VMPrimitive other) {
+		if (other instanceof VMBoolean) {
+			return this.equals(other);
+		}
+		if (other instanceof VMNumber) {
+			// Double is the widest type, so this should work for all other
+			// primitives
+			final double d = ((VMNumber) other).doubleValue();
+			return value == true ? (d != 0) : (d == 0);
+		}
+		return false;
+	}
 }

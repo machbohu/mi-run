@@ -26,4 +26,9 @@ public final class VMNull extends VMPrimitive {
 	public String printValue() {
 		return STR_NULL;
 	}
+
+	@Override
+	public boolean valueEquals(VMPrimitive other) {
+		return equals(other);
+	}
 }

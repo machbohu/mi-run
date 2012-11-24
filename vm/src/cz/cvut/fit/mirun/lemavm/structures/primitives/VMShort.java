@@ -71,4 +71,16 @@ public final class VMShort extends VMNumber {
 	public String printValue() {
 		return Short.toString(value);
 	}
+
+	@Override
+	public boolean valueEquals(VMPrimitive other) {
+		if (other instanceof VMNumber) {
+			final short d = ((VMNumber) other).shortValue();
+			return value == d;
+		} else if (other instanceof VMBoolean) {
+			return ((VMBoolean) other).valueEquals(this);
+		} else {
+			return false;
+		}
+	}
 }

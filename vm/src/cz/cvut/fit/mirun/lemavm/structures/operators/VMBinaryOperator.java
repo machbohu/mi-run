@@ -1,5 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators;
 
+import cz.cvut.fit.mirun.lemavm.core.VMNullPointerException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 
 public abstract class VMBinaryOperator extends VMOperator {
@@ -10,10 +11,10 @@ public abstract class VMBinaryOperator extends VMOperator {
 	public VMBinaryOperator(VMObject operandOne, VMObject operandTwo) {
 		super();
 		if (operandOne == null) {
-			throw new NullPointerException("Operand one is null.");
+			throw new VMNullPointerException("Operand one is null.");
 		}
 		if (operandTwo == null) {
-			throw new NullPointerException("Operand two is null.");
+			throw new VMNullPointerException("Operand two is null.");
 		}
 		this.operandOne = operandOne;
 		this.operandTwo = operandTwo;

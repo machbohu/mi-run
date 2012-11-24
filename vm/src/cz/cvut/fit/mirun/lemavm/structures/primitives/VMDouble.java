@@ -78,4 +78,16 @@ public final class VMDouble extends VMNumber {
 	public String printValue() {
 		return Double.toString(value);
 	}
+
+	@Override
+	public boolean valueEquals(VMPrimitive other) {
+		if (other instanceof VMNumber) {
+			final double d = ((VMNumber) other).doubleValue();
+			return value == d;
+		} else if (other instanceof VMBoolean) {
+			return ((VMBoolean) other).valueEquals(this);
+		} else {
+			return false;
+		}
+	}
 }

@@ -26,4 +26,14 @@ public final class VMString extends VMPrimitive {
 	public String printValue() {
 		return value;
 	}
+
+	@Override
+	public boolean valueEquals(VMPrimitive other) {
+		if (other instanceof VMString) {
+			final String s = ((VMString) other).getValue();
+			return value.equals(s);
+		} else {
+			return false;
+		}
+	}
 }

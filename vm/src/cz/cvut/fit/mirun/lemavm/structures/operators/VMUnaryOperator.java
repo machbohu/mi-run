@@ -11,7 +11,7 @@ public abstract class VMUnaryOperator extends VMOperator {
 	public VMUnaryOperator(VMObject operand) {
 		super();
 		if (operand == null) {
-			throw new NullPointerException("Operand is null.");
+			throw new VMNullPointerException("Operand is null.");
 		}
 		this.operand = operand;
 	}

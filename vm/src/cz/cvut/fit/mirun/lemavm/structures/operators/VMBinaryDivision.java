@@ -24,23 +24,20 @@ public final class VMBinaryDivision extends VMBinaryOperator {
 		}
 		VMObject toReturn = null;
 		if (opOne instanceof VMNumber && opTwo instanceof VMNumber) {
-			try {
-				final VMNumber nOne = (VMNumber) opOne;
-				final VMNumber nTwo = (VMNumber) opTwo;
-				if (nOne instanceof VMDouble || nTwo instanceof VMDouble) {
-					double result = nOne.doubleValue() / nTwo.doubleValue();
-					toReturn = new VMDouble(result);
-				} else if (nOne instanceof VMLong || nTwo instanceof VMLong) {
-					toReturn = new VMLong(nOne.longValue() / nTwo.longValue());
-				} else if (nOne instanceof VMInteger
-						|| nTwo instanceof VMInteger) {
-					toReturn = new VMInteger(nOne.intValue() / nTwo.intValue());
-				} else {
-					toReturn = new VMShort(nOne.shortValue()
-							/ nTwo.shortValue());
-				}
-			} catch (ArithmeticException e) {
+			final VMNumber nOne = (VMNumber) opOne;
+			final VMNumber nTwo = (VMNumber) opTwo;
+			if (nTwo.doubleValue() == 0) {
 				throw new VMDivisionByZeroException();
+			}
+			if (nOne instanceof VMDouble || nTwo instanceof VMDouble) {
+				double result = nOne.doubleValue() / nTwo.doubleValue();
+				toReturn = new VMDouble(result);
+			} else if (nOne instanceof VMLong || nTwo instanceof VMLong) {
+				toReturn = new VMLong(nOne.longValue() / nTwo.longValue());
+			} else if (nOne instanceof VMInteger || nTwo instanceof VMInteger) {
+				toReturn = new VMInteger(nOne.intValue() / nTwo.intValue());
+			} else {
+				toReturn = new VMShort(nOne.shortValue() / nTwo.shortValue());
 			}
 		} else {
 			if (opOne.equals(VMNull.getInstance())

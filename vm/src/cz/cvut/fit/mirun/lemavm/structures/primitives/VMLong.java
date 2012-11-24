@@ -66,4 +66,16 @@ public final class VMLong extends VMNumber {
 	public String printValue() {
 		return Long.toString(value);
 	}
+
+	@Override
+	public boolean valueEquals(VMPrimitive other) {
+		if (other instanceof VMNumber) {
+			final long d = ((VMNumber) other).longValue();
+			return value == d;
+		} else if (other instanceof VMBoolean) {
+			return ((VMBoolean) other).valueEquals(this);
+		} else {
+			return false;
+		}
+	}
 }
