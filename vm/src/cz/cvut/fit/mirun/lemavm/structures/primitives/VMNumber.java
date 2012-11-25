@@ -4,8 +4,8 @@ import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 
 public abstract class VMNumber extends VMPrimitive {
 
-	public VMNumber() {
-		super(ObjectType.NUMBER);
+	public VMNumber(ObjectType type) {
+		super(type);
 	}
 
 	/**

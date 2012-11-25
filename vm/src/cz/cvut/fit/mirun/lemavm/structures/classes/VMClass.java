@@ -9,14 +9,22 @@ import cz.cvut.fit.mirun.lemavm.core.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 
+/**
+ * Meta class representing classes defined in the VM.
+ * 
+ * @author kidney
+ * 
+ */
 public final class VMClass extends VMObject {
 
 	private static Map<String, VMClass> classes = new HashMap<>();
 
 	private final String name;
 	private final VMClass superClass;
-	private final Map<String, VMField> fields;
+	private final Map<String, VMVisibilityModifier> fields;
 	private final Map<String, VMMethod> methods;
+
+	// TODO What about static fields and methods?
 
 	private VMClass(String name, VMClass superClass) {
 		super(ObjectType.META_CLASS);
@@ -27,7 +35,8 @@ public final class VMClass extends VMObject {
 	}
 
 	private VMClass(String name, VMClass superClass,
-			Map<String, VMField> fields, Map<String, VMMethod> methods) {
+			Map<String, VMVisibilityModifier> fields,
+			Map<String, VMMethod> methods) {
 		super(ObjectType.META_CLASS);
 		this.name = name;
 		this.superClass = superClass;
@@ -43,11 +52,6 @@ public final class VMClass extends VMObject {
 		}
 	}
 
-	@Override
-	public VMObject evaluate() {
-		return this;
-	}
-
 	public String getName() {
 		return name;
 	}
@@ -56,7 +60,7 @@ public final class VMClass extends VMObject {
 		return superClass;
 	}
 
-	public Map<String, VMField> getFields() {
+	public Map<String, VMVisibilityModifier> getFields() {
 		return fields;
 	}
 
@@ -68,15 +72,15 @@ public final class VMClass extends VMObject {
 	 * @throws VMParsingException
 	 *             If this class already contains a field of that name
 	 */
-	public void addField(VMField newField) {
+	public void addField(String newField, VMVisibilityModifier visibility) {
 		if (newField == null) {
 			throw new VMNullPointerException();
 		}
-		if (fields.containsKey(newField.getName())) {
-			throw new VMParsingException("Field with name "
-					+ newField.getName() + " already exists in class " + name);
+		if (fields.containsKey(newField)) {
+			throw new VMParsingException("Field with name " + newField
+					+ " already exists in class " + name);
 		}
-		fields.put(newField.getName(), newField);
+		fields.put(newField, visibility);
 	}
 
 	public Map<String, VMMethod> getMethods() {
@@ -131,7 +135,8 @@ public final class VMClass extends VMObject {
 	 * @see #createClass(String, VMClass)
 	 */
 	public static VMClass createClass(String name, VMClass superClass,
-			Map<String, VMField> fields, Map<String, VMMethod> methods) {
+			Map<String, VMVisibilityModifier> fields,
+			Map<String, VMMethod> methods) {
 		if (name == null || name.isEmpty()) {
 			throw new VMParsingException(
 					"Invalid VMClass constructor parameters: " + name);
@@ -151,5 +156,10 @@ public final class VMClass extends VMObject {
 	 */
 	public static Map<String, VMClass> getClasses() {
 		return classes;
+	}
+
+	@Override
+	public VMObject evaluate() {
+		return this;
 	}
 }

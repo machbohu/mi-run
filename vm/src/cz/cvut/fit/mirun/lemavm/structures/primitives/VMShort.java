@@ -1,23 +1,24 @@
 package cz.cvut.fit.mirun.lemavm.structures.primitives;
 
 import cz.cvut.fit.mirun.lemavm.core.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 
 public final class VMShort extends VMNumber {
 
 	private short value;
 
 	public VMShort(short value) {
-		super();
+		super(ObjectType.SHORT);
 		this.value = value;
 	}
 
 	public VMShort(int value) {
-		super();
+		super(ObjectType.SHORT);
 		this.value = (short) value;
 	}
 
 	public VMShort(String value) {
-		super();
+		super(ObjectType.SHORT);
 		try {
 			this.value = Short.parseShort(value);
 		} catch (NumberFormatException e) {

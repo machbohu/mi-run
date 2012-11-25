@@ -2,6 +2,7 @@ package cz.cvut.fit.mirun.lemavm.structures.classes;
 
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 
 import cz.cvut.fit.mirun.lemavm.core.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
@@ -11,14 +12,15 @@ public class VMMethod extends VMObject {
 
 	private final String name;
 	private VMClass owner;
-	private final List<VMObject> arguments;
+	private final Map<String, VMObject> arguments;
 	private final boolean methodStatic;
 	private final VMVisibilityModifier visibility;
 
+	// TODO This may not be the best representation of a code block
 	private final List<VMObject> code;
 
 	public VMMethod(String name, VMClass owner, boolean methodStatic,
-			VMVisibilityModifier visibility, List<VMObject> arguments,
+			VMVisibilityModifier visibility, Map<String, VMObject> arguments,
 			List<VMObject> code) {
 		super(ObjectType.METHOD);
 		if (name == null || name.isEmpty() || visibility == null) {
@@ -31,17 +33,11 @@ public class VMMethod extends VMObject {
 		this.methodStatic = methodStatic;
 		this.visibility = visibility;
 		if (arguments == null) {
-			this.arguments = Collections.emptyList();
+			this.arguments = Collections.emptyMap();
 		} else {
 			this.arguments = arguments;
 		}
 		this.code = code;
-	}
-
-	@Override
-	public VMObject evaluate() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 	public String getName() {
@@ -60,7 +56,15 @@ public class VMMethod extends VMObject {
 		return arguments.size();
 	}
 
-	public List<VMObject> getArguments() {
+	/**
+	 * Get arguments of this method. </p>
+	 * 
+	 * The {@code Map} representing the arguments consists of pairs (argument
+	 * name, argument type).
+	 * 
+	 * @return Map of argument names and types
+	 */
+	public Map<String, VMObject> getArguments() {
 		return arguments;
 	}
 
@@ -74,5 +78,10 @@ public class VMMethod extends VMObject {
 
 	public List<VMObject> getCode() {
 		return code;
+	}
+
+	@Override
+	public VMObject evaluate() {
+		return this;
 	}
 }

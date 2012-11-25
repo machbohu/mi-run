@@ -1,18 +1,19 @@
 package cz.cvut.fit.mirun.lemavm.structures.primitives;
 
 import cz.cvut.fit.mirun.lemavm.core.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 
 public final class VMInteger extends VMNumber {
 
 	private int value;
 
 	public VMInteger(int value) {
-		super();
+		super(ObjectType.INTEGER);
 		this.value = value;
 	}
 
 	public VMInteger(String value) {
-		super();
+		super(ObjectType.INTEGER);
 		try {
 			this.value = Integer.parseInt(value);
 		} catch (NumberFormatException e) {

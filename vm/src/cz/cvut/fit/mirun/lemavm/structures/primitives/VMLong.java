@@ -1,18 +1,19 @@
 package cz.cvut.fit.mirun.lemavm.structures.primitives;
 
 import cz.cvut.fit.mirun.lemavm.core.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 
 public final class VMLong extends VMNumber {
 
 	private long value;
 
 	public VMLong(long value) {
-		super();
+		super(ObjectType.LONG);
 		this.value = value;
 	}
 
 	public VMLong(String value) {
-		super();
+		super(ObjectType.LONG);
 		try {
 			this.value = Long.parseLong(value);
 		} catch (NumberFormatException e) {

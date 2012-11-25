@@ -1,18 +1,19 @@
 package cz.cvut.fit.mirun.lemavm.structures.primitives;
 
 import cz.cvut.fit.mirun.lemavm.core.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 
 public final class VMDouble extends VMNumber {
 
 	private double value;
 
 	public VMDouble(double value) {
-		super();
+		super(ObjectType.DOUBLE);
 		this.value = value;
 	}
 
 	public VMDouble(String value) {
-		super();
+		super(ObjectType.DOUBLE);
 		try {
 			this.value = Double.parseDouble(value);
 		} catch (NumberFormatException e) {
