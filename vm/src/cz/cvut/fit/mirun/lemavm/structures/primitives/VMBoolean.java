@@ -21,13 +21,14 @@ public final class VMBoolean extends VMPrimitive {
 	/**
 	 * Create new {@code VMBoolean} from the specified string. </p>
 	 * 
-	 * This is one the two ways to get the {@code VMBoolean} values, since there
-	 * can be only one one true and one false entity in the VM.
+	 * This is one of the two ways to get the {@code VMBoolean} values, since
+	 * there can be only one one true and one false entity in the VM.
 	 * 
 	 * @param value
 	 *            The value to parse
 	 * @return VMBoolean
 	 * @throws VMParsingException
+	 * @see {@link #valueOf(boolean)}
 	 */
 	public static VMBoolean valueOf(String value) {
 		switch (value) {
