@@ -1,11 +1,11 @@
 package cz.cvut.fit.mirun.lemavm.structures.classes;
 
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 
 import cz.cvut.fit.mirun.lemavm.core.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
+import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 
 public class VMMethod extends VMObject {
@@ -17,11 +17,11 @@ public class VMMethod extends VMObject {
 	private final VMVisibilityModifier visibility;
 
 	// TODO This may not be the best representation of a code block
-	private final List<VMObject> code;
+	private final VMCodeBlock code;
 
 	public VMMethod(String name, VMClass owner, boolean methodStatic,
 			VMVisibilityModifier visibility, Map<String, VMObject> arguments,
-			List<VMObject> code) {
+			VMCodeBlock code) {
 		super(ObjectType.METHOD);
 		if (name == null || name.isEmpty() || visibility == null) {
 			throw new VMParsingException(
@@ -76,7 +76,7 @@ public class VMMethod extends VMObject {
 		return visibility;
 	}
 
-	public List<VMObject> getCode() {
+	public VMCodeBlock getCode() {
 		return code;
 	}
 
