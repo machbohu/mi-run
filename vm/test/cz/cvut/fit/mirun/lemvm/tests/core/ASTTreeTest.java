@@ -7,11 +7,13 @@ import org.antlr.runtime.Token;
 import org.antlr.runtime.TokenRewriteStream;
 import org.antlr.runtime.tree.CommonTree;
 import org.antlr.runtime.tree.CommonTreeAdaptor;
+import org.antlr.runtime.tree.CommonTreeNodeStream;
+import org.antlr.runtime.tree.Tree;
 import org.antlr.runtime.tree.TreeAdaptor;
 import org.junit.Test;
 
-import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMLex;
-import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMParse;
+import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMLexer;
+import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMParser;
 
 public class ASTTreeTest {
 
@@ -34,15 +36,17 @@ public class ASTTreeTest {
 	@Test
 	public void test() {
 		CharStream chs = new ANTLRStringStream(
-			"class Test {\n" +
+			"package test;\nclass Test {\n" +
 			"    int b = 5 + 6 + 6; \n" +
 			"    class Inside {\n" +
 			"    }\n" +
 			"}"
 		);
-		LeMaVMLex lex = new LeMaVMLex(chs);
+		LeMaVMLexer lex = new LeMaVMLexer(chs);
 		TokenRewriteStream tokens = new TokenRewriteStream(lex);
-		LeMaVMParse grammar = new LeMaVMParse(tokens);
+		LeMaVMParser grammar = new LeMaVMParser(tokens);
+		
+		
 		
 		final TreeAdaptor adaptor = new CommonTreeAdaptor() {
 			public Object create(Token payload) {
@@ -52,8 +56,10 @@ public class ASTTreeTest {
 		
 		try{
 			grammar.setTreeAdaptor(adaptor);
-			LeMaVMParse.compilationUnit_return ret = grammar.compilationUnit();
+			LeMaVMParser.javaSource_return ret = grammar.javaSource();
 			CommonTree tree = (CommonTree)ret.getTree();
+			
+			 CommonTreeNodeStream nodes = new CommonTreeNodeStream((Tree)ret.getTree());
 			
 			System.out.println(tree.getChildCount());
 			printTree(tree, 0);

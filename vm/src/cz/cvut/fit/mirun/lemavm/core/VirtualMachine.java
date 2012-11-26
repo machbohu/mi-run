@@ -6,8 +6,8 @@ import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.TokenRewriteStream;
 import org.apache.log4j.Logger;
 
-import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMLex;
-import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMParse;
+import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMLexer;
+import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMParser;
 
 /**
  * This is the main entry point of the LeMaVM virtual machine.
@@ -30,9 +30,9 @@ public class VirtualMachine {
 		final String file = args[0];
 		try {
 			final ANTLRFileStream fs = new ANTLRFileStream(file);
-			LeMaVMLex lex = new LeMaVMLex(fs);
+			LeMaVMLexer lex = new LeMaVMLexer(fs);
 			TokenRewriteStream tokens = new TokenRewriteStream(lex);
-			LeMaVMParse grammar = new LeMaVMParse(tokens);
+			LeMaVMParser grammar = new LeMaVMParser(tokens);
 			// TODO Get the AST from the grammar
 		} catch (IOException e) {
 			LOG.error("Unable to read the specified file.", e);
