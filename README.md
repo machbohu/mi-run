@@ -10,8 +10,8 @@ Solution:
     2. ANTLR -> token tree
     4. AST interpreter
 
-    Implemented:
-    ------------
+    Must have:
+    ----------
     - int, long, short, double
     - boolean
     - string
@@ -26,8 +26,8 @@ Solution:
     - final
     - static methods
 
-    TODO:
-    -----
+    Nice to have:
+    -------------
     - switch
     - inheritance
     - imports
