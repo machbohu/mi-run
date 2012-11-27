@@ -2,8 +2,8 @@ package cz.cvut.fit.mirun.lemvm.tests.core;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
-import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
+import org.antlr.runtime.TokenRewriteStream;
 import org.antlr.runtime.tree.CommonTree;
 import org.junit.Test;
 
@@ -38,7 +38,8 @@ public class ASTTreeTest {
 			"}"
 		);
 		LeMaVMLexer lexer = new LeMaVMLexer(chs);
-		LeMaVMParser parser = new LeMaVMParser(new CommonTokenStream(lexer));
+		TokenRewriteStream tokens = new TokenRewriteStream(lexer);
+		LeMaVMParser parser = new LeMaVMParser(tokens);
         try {
 			CommonTree tree = (CommonTree)parser.javaSource().getTree();
 			printTree(tree, 0);
