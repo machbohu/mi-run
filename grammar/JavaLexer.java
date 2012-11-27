@@ -1,6 +1,6 @@
 // $ANTLR 3.2 Sep 23, 2009 12:02:23 Java.g 2012-11-27 13:17:14
 
-package cz.cvut.fit.mirun.lemavm.antlr;
+package com.habelitz.jsobjectizer.unmarshaller.antlrbridge.generated;
 
 
 import org.antlr.runtime.*;
@@ -8,7 +8,7 @@ import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
 
-public class LeMaVMLexer extends Lexer {
+public class JavaLexer extends Lexer {
     public static final int PACKAGE=84;
     public static final int EXPONENT=173;
     public static final int STAR=49;
@@ -205,11 +205,11 @@ public class LeMaVMLexer extends Lexer {
     // delegates
     // delegators
 
-    public LeMaVMLexer() {;} 
-    public LeMaVMLexer(CharStream input) {
+    public JavaLexer() {;} 
+    public JavaLexer(CharStream input) {
         this(input, new RecognizerSharedState());
     }
-    public LeMaVMLexer(CharStream input, RecognizerSharedState state) {
+    public JavaLexer(CharStream input, RecognizerSharedState state) {
         super(input,state);
 
     }

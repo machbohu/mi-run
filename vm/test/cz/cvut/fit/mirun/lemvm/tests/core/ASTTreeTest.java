@@ -2,14 +2,9 @@ package cz.cvut.fit.mirun.lemvm.tests.core;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
+import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.Token;
-import org.antlr.runtime.TokenRewriteStream;
 import org.antlr.runtime.tree.CommonTree;
-import org.antlr.runtime.tree.CommonTreeAdaptor;
-import org.antlr.runtime.tree.CommonTreeNodeStream;
-import org.antlr.runtime.tree.Tree;
-import org.antlr.runtime.tree.TreeAdaptor;
 import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMLexer;
@@ -36,36 +31,47 @@ public class ASTTreeTest {
 	@Test
 	public void test() {
 		CharStream chs = new ANTLRStringStream(
-			"package test;\nclass Test {\n" +
+			"class Test {\n" +
 			"    int b = 5 + 6 + 6; \n" +
 			"    class Inside {\n" +
 			"    }\n" +
 			"}"
 		);
-		LeMaVMLexer lex = new LeMaVMLexer(chs);
-		TokenRewriteStream tokens = new TokenRewriteStream(lex);
-		LeMaVMParser grammar = new LeMaVMParser(tokens);
-		
-		
-		
-		final TreeAdaptor adaptor = new CommonTreeAdaptor() {
-			public Object create(Token payload) {
-				return new CommonTree(payload);
-			}
-		};
-		
-		try{
-			grammar.setTreeAdaptor(adaptor);
-			LeMaVMParser.javaSource_return ret = grammar.javaSource();
-			CommonTree tree = (CommonTree)ret.getTree();
-			
-			 CommonTreeNodeStream nodes = new CommonTreeNodeStream((Tree)ret.getTree());
-			
-			System.out.println(tree.getChildCount());
+		LeMaVMLexer lexer = new LeMaVMLexer(chs);
+		LeMaVMParser parser = new LeMaVMParser(new CommonTokenStream(lexer));
+        try {
+			CommonTree tree = (CommonTree)parser.javaSource().getTree();
 			printTree(tree, 0);
 		} catch (RecognitionException e) {
 			e.printStackTrace();
 		}
+		
+//		LeMaVMLexer lex = new LeMaVMLexer(chs);
+//		TokenRewriteStream tokens = new TokenRewriteStream(lex);
+//		CommonTokenStream tokens = new CommonTokenStream();
+//		tokens.setTokenSource(lex);
+//		LeMaVMParser grammar = new LeMaVMParser(tokens);
+//		
+//		
+//		
+//		final TreeAdaptor adaptor = new CommonTreeAdaptor() {
+//			public Object create(Token payload) {
+//				return new CommonTree(payload);
+//			}
+//		};
+//		
+//		try{
+//			grammar.setTreeAdaptor(adaptor);
+//			LeMaVMParser.compilationUnit_return ret = grammar.compilationUnit();
+//			CommonTree tree = (CommonTree)ret.getTree();
+//			
+//			CommonTreeNodeStream nodes = new CommonTreeNodeStream((Tree)ret.getTree());
+//			
+//			System.out.println(tree.getChildCount());
+//			printTree(tree, 0);
+//		} catch (RecognitionException e) {
+//			e.printStackTrace();
+//		}
 	}
 
 }

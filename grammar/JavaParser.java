@@ -1,31 +1,16 @@
 // $ANTLR 3.2 Sep 23, 2009 12:02:23 Java.g 2012-11-27 13:17:12
 
-package cz.cvut.fit.mirun.lemavm.antlr;
+package com.habelitz.jsobjectizer.unmarshaller.antlrbridge.generated;
 
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import org.antlr.runtime.*;
+import java.util.Stack;
 import java.util.List;
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.HashMap;
 
-import org.antlr.runtime.BaseRecognizer;
-import org.antlr.runtime.BitSet;
-import org.antlr.runtime.DFA;
-import org.antlr.runtime.EarlyExitException;
-import org.antlr.runtime.IntStream;
-import org.antlr.runtime.MismatchedSetException;
-import org.antlr.runtime.NoViableAltException;
-import org.antlr.runtime.Parser;
-import org.antlr.runtime.ParserRuleReturnScope;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.RecognizerSharedState;
-import org.antlr.runtime.Token;
-import org.antlr.runtime.TokenStream;
-import org.antlr.runtime.tree.CommonTree;
-import org.antlr.runtime.tree.CommonTreeAdaptor;
-import org.antlr.runtime.tree.RewriteEarlyExitException;
-import org.antlr.runtime.tree.RewriteRuleSubtreeStream;
-import org.antlr.runtime.tree.RewriteRuleTokenStream;
-import org.antlr.runtime.tree.TreeAdaptor;
+import org.antlr.runtime.tree.*;
 
 /**
  * An ANTLRv3 capable Java 1.5 grammar for building ASTs.
@@ -82,7 +67,7 @@ import org.antlr.runtime.tree.TreeAdaptor;
  * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  *
  */
-public class LeMaVMParser extends Parser {
+public class JavaParser extends Parser {
     public static final String[] tokenNames = new String[] {
         "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "AND_ASSIGN", "ASSIGN", "AT", "BIT_SHIFT_RIGHT", "BIT_SHIFT_RIGHT_ASSIGN", "COLON", "COMMA", "DEC", "DIV", "DIV_ASSIGN", "DOT", "DOTSTAR", "ELLIPSIS", "EQUAL", "GREATER_OR_EQUAL", "GREATER_THAN", "INC", "LBRACK", "LCURLY", "LESS_OR_EQUAL", "LESS_THAN", "LOGICAL_AND", "LOGICAL_NOT", "LOGICAL_OR", "LPAREN", "MINUS", "MINUS_ASSIGN", "MOD", "MOD_ASSIGN", "NOT", "NOT_EQUAL", "OR", "OR_ASSIGN", "PLUS", "PLUS_ASSIGN", "QUESTION", "RBRACK", "RCURLY", "RPAREN", "SEMI", "SHIFT_LEFT", "SHIFT_LEFT_ASSIGN", "SHIFT_RIGHT", "SHIFT_RIGHT_ASSIGN", "STAR", "STAR_ASSIGN", "XOR", "XOR_ASSIGN", "ABSTRACT", "ASSERT", "BOOLEAN", "BREAK", "BYTE", "CASE", "CATCH", "CHAR", "CLASS", "CONTINUE", "DEFAULT", "DO", "DOUBLE", "ELSE", "ENUM", "EXTENDS", "FALSE", "FINAL", "FINALLY", "FLOAT", "FOR", "IF", "IMPLEMENTS", "INSTANCEOF", "INTERFACE", "IMPORT", "INT", "LONG", "NATIVE", "NEW", "NULL", "PACKAGE", "PRIVATE", "PROTECTED", "PUBLIC", "RETURN", "SHORT", "STATIC", "STRICTFP", "SUPER", "SWITCH", "SYNCHRONIZED", "THIS", "THROW", "THROWS", "TRANSIENT", "TRUE", "TRY", "VOID", "VOLATILE", "WHILE", "ANNOTATION_INIT_ARRAY_ELEMENT", "ANNOTATION_INIT_BLOCK", "ANNOTATION_INIT_DEFAULT_KEY", "ANNOTATION_INIT_KEY_LIST", "ANNOTATION_LIST", "ANNOTATION_METHOD_DECL", "ANNOTATION_SCOPE", "ANNOTATION_TOP_LEVEL_SCOPE", "ARGUMENT_LIST", "ARRAY_DECLARATOR", "ARRAY_DECLARATOR_LIST", "ARRAY_ELEMENT_ACCESS", "ARRAY_INITIALIZER", "BLOCK_SCOPE", "CAST_EXPR", "CATCH_CLAUSE_LIST", "CLASS_CONSTRUCTOR_CALL", "CLASS_INSTANCE_INITIALIZER", "CLASS_STATIC_INITIALIZER", "CLASS_TOP_LEVEL_SCOPE", "CONSTRUCTOR_DECL", "ENUM_TOP_LEVEL_SCOPE", "EXPR", "EXTENDS_BOUND_LIST", "EXTENDS_CLAUSE", "FOR_CONDITION", "FOR_EACH", "FOR_INIT", "FOR_UPDATE", "FORMAL_PARAM_LIST", "FORMAL_PARAM_STD_DECL", "FORMAL_PARAM_VARARG_DECL", "FUNCTION_METHOD_DECL", "GENERIC_TYPE_ARG_LIST", "GENERIC_TYPE_PARAM_LIST", "INTERFACE_TOP_LEVEL_SCOPE", "IMPLEMENTS_CLAUSE", "LABELED_STATEMENT", "LOCAL_MODIFIER_LIST", "JAVA_SOURCE", "METHOD_CALL", "MODIFIER_LIST", "PARENTESIZED_EXPR", "POST_DEC", "POST_INC", "PRE_DEC", "PRE_INC", "QUALIFIED_TYPE_IDENT", "STATIC_ARRAY_CREATOR", "SUPER_CONSTRUCTOR_CALL", "SWITCH_BLOCK_LABEL_LIST", "THIS_CONSTRUCTOR_CALL", "THROWS_CLAUSE", "TYPE", "UNARY_MINUS", "UNARY_PLUS", "VAR_DECLARATION", "VAR_DECLARATOR", "VAR_DECLARATOR_LIST", "VOID_METHOD_DECL", "IDENT", "HEX_LITERAL", "OCTAL_LITERAL", "DECIMAL_LITERAL", "FLOATING_POINT_LITERAL", "CHARACTER_LITERAL", "STRING_LITERAL", "HEX_DIGIT", "INTEGER_TYPE_SUFFIX", "EXPONENT", "FLOAT_TYPE_SUFFIX", "ESCAPE_SEQUENCE", "UNICODE_ESCAPE", "OCTAL_ESCAPE", "JAVA_ID_START", "JAVA_ID_PART", "WS", "COMMENT", "LINE_COMMENT"
     };
@@ -271,10 +256,10 @@ public class LeMaVMParser extends Parser {
     // delegators
 
 
-        public LeMaVMParser(TokenStream input) {
+        public JavaParser(TokenStream input) {
             this(input, new RecognizerSharedState());
         }
-        public LeMaVMParser(TokenStream input, RecognizerSharedState state) {
+        public JavaParser(TokenStream input, RecognizerSharedState state) {
             super(input, state);
             this.state.ruleMemo = new HashMap[355+1];
              
@@ -290,7 +275,7 @@ public class LeMaVMParser extends Parser {
         return adaptor;
     }
 
-    public String[] getTokenNames() { return LeMaVMParser.tokenNames; }
+    public String[] getTokenNames() { return JavaParser.tokenNames; }
     public String getGrammarFileName() { return "Java.g"; }
 
 
@@ -364,13 +349,13 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "javaSource"
     // Java.g:324:1: javaSource : compilationUnit -> ^( JAVA_SOURCE compilationUnit ) ;
-    public final LeMaVMParser.javaSource_return javaSource() throws RecognitionException {
-        LeMaVMParser.javaSource_return retval = new LeMaVMParser.javaSource_return();
+    public final JavaParser.javaSource_return javaSource() throws RecognitionException {
+        JavaParser.javaSource_return retval = new JavaParser.javaSource_return();
         retval.start = input.LT(1);
         int javaSource_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.compilationUnit_return compilationUnit1 = null;
+        JavaParser.compilationUnit_return compilationUnit1 = null;
 
 
         RewriteRuleSubtreeStream stream_compilationUnit=new RewriteRuleSubtreeStream(adaptor,"rule compilationUnit");
@@ -444,19 +429,19 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "compilationUnit"
     // Java.g:329:1: compilationUnit : annotationList ( packageDeclaration )? ( importDeclaration )* ( typeDecls )* ;
-    public final LeMaVMParser.compilationUnit_return compilationUnit() throws RecognitionException {
-        LeMaVMParser.compilationUnit_return retval = new LeMaVMParser.compilationUnit_return();
+    public final JavaParser.compilationUnit_return compilationUnit() throws RecognitionException {
+        JavaParser.compilationUnit_return retval = new JavaParser.compilationUnit_return();
         retval.start = input.LT(1);
         int compilationUnit_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.annotationList_return annotationList2 = null;
+        JavaParser.annotationList_return annotationList2 = null;
 
-        LeMaVMParser.packageDeclaration_return packageDeclaration3 = null;
+        JavaParser.packageDeclaration_return packageDeclaration3 = null;
 
-        LeMaVMParser.importDeclaration_return importDeclaration4 = null;
+        JavaParser.importDeclaration_return importDeclaration4 = null;
 
-        LeMaVMParser.typeDecls_return typeDecls5 = null;
+        JavaParser.typeDecls_return typeDecls5 = null;
 
 
 
@@ -587,14 +572,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "typeDecls"
     // Java.g:336:1: typeDecls : ( typeDeclaration | SEMI );
-    public final LeMaVMParser.typeDecls_return typeDecls() throws RecognitionException {
-        LeMaVMParser.typeDecls_return retval = new LeMaVMParser.typeDecls_return();
+    public final JavaParser.typeDecls_return typeDecls() throws RecognitionException {
+        JavaParser.typeDecls_return retval = new JavaParser.typeDecls_return();
         retval.start = input.LT(1);
         int typeDecls_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token SEMI7=null;
-        LeMaVMParser.typeDeclaration_return typeDeclaration6 = null;
+        JavaParser.typeDeclaration_return typeDeclaration6 = null;
 
 
         CommonTree SEMI7_tree=null;
@@ -672,15 +657,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "packageDeclaration"
     // Java.g:341:1: packageDeclaration : PACKAGE qualifiedIdentifier SEMI ;
-    public final LeMaVMParser.packageDeclaration_return packageDeclaration() throws RecognitionException {
-        LeMaVMParser.packageDeclaration_return retval = new LeMaVMParser.packageDeclaration_return();
+    public final JavaParser.packageDeclaration_return packageDeclaration() throws RecognitionException {
+        JavaParser.packageDeclaration_return retval = new JavaParser.packageDeclaration_return();
         retval.start = input.LT(1);
         int packageDeclaration_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token PACKAGE8=null;
         Token SEMI10=null;
-        LeMaVMParser.qualifiedIdentifier_return qualifiedIdentifier9 = null;
+        JavaParser.qualifiedIdentifier_return qualifiedIdentifier9 = null;
 
 
         CommonTree PACKAGE8_tree=null;
@@ -736,8 +721,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "importDeclaration"
     // Java.g:345:1: importDeclaration : IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI ;
-    public final LeMaVMParser.importDeclaration_return importDeclaration() throws RecognitionException {
-        LeMaVMParser.importDeclaration_return retval = new LeMaVMParser.importDeclaration_return();
+    public final JavaParser.importDeclaration_return importDeclaration() throws RecognitionException {
+        JavaParser.importDeclaration_return retval = new JavaParser.importDeclaration_return();
         retval.start = input.LT(1);
         int importDeclaration_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -746,7 +731,7 @@ public class LeMaVMParser extends Parser {
         Token STATIC12=null;
         Token DOTSTAR14=null;
         Token SEMI15=null;
-        LeMaVMParser.qualifiedIdentifier_return qualifiedIdentifier13 = null;
+        JavaParser.qualifiedIdentifier_return qualifiedIdentifier13 = null;
 
 
         CommonTree IMPORT11_tree=null;
@@ -848,21 +833,21 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "typeDeclaration"
     // Java.g:349:1: typeDeclaration : modifierList ( classTypeDeclaration[$modifierList.tree] | interfaceTypeDeclaration[$modifierList.tree] | enumTypeDeclaration[$modifierList.tree] | annotationTypeDeclaration[$modifierList.tree] ) ;
-    public final LeMaVMParser.typeDeclaration_return typeDeclaration() throws RecognitionException {
-        LeMaVMParser.typeDeclaration_return retval = new LeMaVMParser.typeDeclaration_return();
+    public final JavaParser.typeDeclaration_return typeDeclaration() throws RecognitionException {
+        JavaParser.typeDeclaration_return retval = new JavaParser.typeDeclaration_return();
         retval.start = input.LT(1);
         int typeDeclaration_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.modifierList_return modifierList16 = null;
+        JavaParser.modifierList_return modifierList16 = null;
 
-        LeMaVMParser.classTypeDeclaration_return classTypeDeclaration17 = null;
+        JavaParser.classTypeDeclaration_return classTypeDeclaration17 = null;
 
-        LeMaVMParser.interfaceTypeDeclaration_return interfaceTypeDeclaration18 = null;
+        JavaParser.interfaceTypeDeclaration_return interfaceTypeDeclaration18 = null;
 
-        LeMaVMParser.enumTypeDeclaration_return enumTypeDeclaration19 = null;
+        JavaParser.enumTypeDeclaration_return enumTypeDeclaration19 = null;
 
-        LeMaVMParser.annotationTypeDeclaration_return annotationTypeDeclaration20 = null;
+        JavaParser.annotationTypeDeclaration_return annotationTypeDeclaration20 = null;
 
 
 
@@ -992,21 +977,21 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "classTypeDeclaration"
     // Java.g:358:1: classTypeDeclaration[CommonTree modifiers] : CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody -> ^( CLASS IDENT ( genericTypeParameterList )? ( classExtendsClause )? ( implementsClause )? classBody ) ;
-    public final LeMaVMParser.classTypeDeclaration_return classTypeDeclaration(CommonTree modifiers) throws RecognitionException {
-        LeMaVMParser.classTypeDeclaration_return retval = new LeMaVMParser.classTypeDeclaration_return();
+    public final JavaParser.classTypeDeclaration_return classTypeDeclaration(CommonTree modifiers) throws RecognitionException {
+        JavaParser.classTypeDeclaration_return retval = new JavaParser.classTypeDeclaration_return();
         retval.start = input.LT(1);
         int classTypeDeclaration_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token CLASS21=null;
         Token IDENT22=null;
-        LeMaVMParser.genericTypeParameterList_return genericTypeParameterList23 = null;
+        JavaParser.genericTypeParameterList_return genericTypeParameterList23 = null;
 
-        LeMaVMParser.classExtendsClause_return classExtendsClause24 = null;
+        JavaParser.classExtendsClause_return classExtendsClause24 = null;
 
-        LeMaVMParser.implementsClause_return implementsClause25 = null;
+        JavaParser.implementsClause_return implementsClause25 = null;
 
-        LeMaVMParser.classBody_return classBody26 = null;
+        JavaParser.classBody_return classBody26 = null;
 
 
         CommonTree CLASS21_tree=null;
@@ -1182,14 +1167,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "classExtendsClause"
     // Java.g:363:1: classExtendsClause : EXTENDS type -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type ) ;
-    public final LeMaVMParser.classExtendsClause_return classExtendsClause() throws RecognitionException {
-        LeMaVMParser.classExtendsClause_return retval = new LeMaVMParser.classExtendsClause_return();
+    public final JavaParser.classExtendsClause_return classExtendsClause() throws RecognitionException {
+        JavaParser.classExtendsClause_return retval = new JavaParser.classExtendsClause_return();
         retval.start = input.LT(1);
         int classExtendsClause_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token EXTENDS27=null;
-        LeMaVMParser.type_return type28 = null;
+        JavaParser.type_return type28 = null;
 
 
         CommonTree EXTENDS27_tree=null;
@@ -1268,14 +1253,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "interfaceExtendsClause"
     // Java.g:368:1: interfaceExtendsClause : EXTENDS typeList -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] typeList ) ;
-    public final LeMaVMParser.interfaceExtendsClause_return interfaceExtendsClause() throws RecognitionException {
-        LeMaVMParser.interfaceExtendsClause_return retval = new LeMaVMParser.interfaceExtendsClause_return();
+    public final JavaParser.interfaceExtendsClause_return interfaceExtendsClause() throws RecognitionException {
+        JavaParser.interfaceExtendsClause_return retval = new JavaParser.interfaceExtendsClause_return();
         retval.start = input.LT(1);
         int interfaceExtendsClause_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token EXTENDS29=null;
-        LeMaVMParser.typeList_return typeList30 = null;
+        JavaParser.typeList_return typeList30 = null;
 
 
         CommonTree EXTENDS29_tree=null;
@@ -1354,14 +1339,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "implementsClause"
     // Java.g:373:1: implementsClause : IMPLEMENTS typeList -> ^( IMPLEMENTS_CLAUSE[$IMPLEMENTS, \"IMPLEMENTS_CLAUSE\"] typeList ) ;
-    public final LeMaVMParser.implementsClause_return implementsClause() throws RecognitionException {
-        LeMaVMParser.implementsClause_return retval = new LeMaVMParser.implementsClause_return();
+    public final JavaParser.implementsClause_return implementsClause() throws RecognitionException {
+        JavaParser.implementsClause_return retval = new JavaParser.implementsClause_return();
         retval.start = input.LT(1);
         int implementsClause_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token IMPLEMENTS31=null;
-        LeMaVMParser.typeList_return typeList32 = null;
+        JavaParser.typeList_return typeList32 = null;
 
 
         CommonTree IMPLEMENTS31_tree=null;
@@ -1440,19 +1425,19 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "genericTypeParameterList"
     // Java.g:378:1: genericTypeParameterList : LESS_THAN genericTypeParameter ( COMMA genericTypeParameter )* genericTypeListClosing -> ^( GENERIC_TYPE_PARAM_LIST[$LESS_THAN, \"GENERIC_TYPE_PARAM_LIST\"] ( genericTypeParameter )+ ) ;
-    public final LeMaVMParser.genericTypeParameterList_return genericTypeParameterList() throws RecognitionException {
-        LeMaVMParser.genericTypeParameterList_return retval = new LeMaVMParser.genericTypeParameterList_return();
+    public final JavaParser.genericTypeParameterList_return genericTypeParameterList() throws RecognitionException {
+        JavaParser.genericTypeParameterList_return retval = new JavaParser.genericTypeParameterList_return();
         retval.start = input.LT(1);
         int genericTypeParameterList_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token LESS_THAN33=null;
         Token COMMA35=null;
-        LeMaVMParser.genericTypeParameter_return genericTypeParameter34 = null;
+        JavaParser.genericTypeParameter_return genericTypeParameter34 = null;
 
-        LeMaVMParser.genericTypeParameter_return genericTypeParameter36 = null;
+        JavaParser.genericTypeParameter_return genericTypeParameter36 = null;
 
-        LeMaVMParser.genericTypeListClosing_return genericTypeListClosing37 = null;
+        JavaParser.genericTypeListClosing_return genericTypeListClosing37 = null;
 
 
         CommonTree LESS_THAN33_tree=null;
@@ -1580,8 +1565,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "genericTypeListClosing"
     // Java.g:383:1: genericTypeListClosing : ( GREATER_THAN | SHIFT_RIGHT | BIT_SHIFT_RIGHT | );
-    public final LeMaVMParser.genericTypeListClosing_return genericTypeListClosing() throws RecognitionException {
-        LeMaVMParser.genericTypeListClosing_return retval = new LeMaVMParser.genericTypeListClosing_return();
+    public final JavaParser.genericTypeListClosing_return genericTypeListClosing() throws RecognitionException {
+        JavaParser.genericTypeListClosing_return retval = new JavaParser.genericTypeListClosing_return();
         retval.start = input.LT(1);
         int genericTypeListClosing_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -1791,14 +1776,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "genericTypeParameter"
     // Java.g:393:1: genericTypeParameter : IDENT ( bound )? -> ^( IDENT ( bound )? ) ;
-    public final LeMaVMParser.genericTypeParameter_return genericTypeParameter() throws RecognitionException {
-        LeMaVMParser.genericTypeParameter_return retval = new LeMaVMParser.genericTypeParameter_return();
+    public final JavaParser.genericTypeParameter_return genericTypeParameter() throws RecognitionException {
+        JavaParser.genericTypeParameter_return retval = new JavaParser.genericTypeParameter_return();
         retval.start = input.LT(1);
         int genericTypeParameter_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token IDENT41=null;
-        LeMaVMParser.bound_return bound42 = null;
+        JavaParser.bound_return bound42 = null;
 
 
         CommonTree IDENT41_tree=null;
@@ -1914,17 +1899,17 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "bound"
     // Java.g:398:1: bound : EXTENDS type ( AND type )* -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ ) ;
-    public final LeMaVMParser.bound_return bound() throws RecognitionException {
-        LeMaVMParser.bound_return retval = new LeMaVMParser.bound_return();
+    public final JavaParser.bound_return bound() throws RecognitionException {
+        JavaParser.bound_return retval = new JavaParser.bound_return();
         retval.start = input.LT(1);
         int bound_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token EXTENDS43=null;
         Token AND45=null;
-        LeMaVMParser.type_return type44 = null;
+        JavaParser.type_return type44 = null;
 
-        LeMaVMParser.type_return type46 = null;
+        JavaParser.type_return type46 = null;
 
 
         CommonTree EXTENDS43_tree=null;
@@ -2045,17 +2030,17 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "enumTypeDeclaration"
     // Java.g:403:1: enumTypeDeclaration[CommonTree modifiers] : ENUM IDENT ( implementsClause )? enumBody -> ^( ENUM IDENT ( implementsClause )? enumBody ) ;
-    public final LeMaVMParser.enumTypeDeclaration_return enumTypeDeclaration(CommonTree modifiers) throws RecognitionException {
-        LeMaVMParser.enumTypeDeclaration_return retval = new LeMaVMParser.enumTypeDeclaration_return();
+    public final JavaParser.enumTypeDeclaration_return enumTypeDeclaration(CommonTree modifiers) throws RecognitionException {
+        JavaParser.enumTypeDeclaration_return retval = new JavaParser.enumTypeDeclaration_return();
         retval.start = input.LT(1);
         int enumTypeDeclaration_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token ENUM47=null;
         Token IDENT48=null;
-        LeMaVMParser.implementsClause_return implementsClause49 = null;
+        JavaParser.implementsClause_return implementsClause49 = null;
 
-        LeMaVMParser.enumBody_return enumBody50 = null;
+        JavaParser.enumBody_return enumBody50 = null;
 
 
         CommonTree ENUM47_tree=null;
@@ -2171,15 +2156,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "enumBody"
     // Java.g:408:1: enumBody : LCURLY enumScopeDeclarations RCURLY -> ^( ENUM_TOP_LEVEL_SCOPE[$LCURLY, \"ENUM_TOP_LEVEL_SCOPE\"] enumScopeDeclarations ) ;
-    public final LeMaVMParser.enumBody_return enumBody() throws RecognitionException {
-        LeMaVMParser.enumBody_return retval = new LeMaVMParser.enumBody_return();
+    public final JavaParser.enumBody_return enumBody() throws RecognitionException {
+        JavaParser.enumBody_return retval = new JavaParser.enumBody_return();
         retval.start = input.LT(1);
         int enumBody_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token LCURLY51=null;
         Token RCURLY53=null;
-        LeMaVMParser.enumScopeDeclarations_return enumScopeDeclarations52 = null;
+        JavaParser.enumScopeDeclarations_return enumScopeDeclarations52 = null;
 
 
         CommonTree LCURLY51_tree=null;
@@ -2263,16 +2248,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "enumScopeDeclarations"
     // Java.g:413:1: enumScopeDeclarations : enumConstants ( COMMA )? ( enumClassScopeDeclarations )? ;
-    public final LeMaVMParser.enumScopeDeclarations_return enumScopeDeclarations() throws RecognitionException {
-        LeMaVMParser.enumScopeDeclarations_return retval = new LeMaVMParser.enumScopeDeclarations_return();
+    public final JavaParser.enumScopeDeclarations_return enumScopeDeclarations() throws RecognitionException {
+        JavaParser.enumScopeDeclarations_return retval = new JavaParser.enumScopeDeclarations_return();
         retval.start = input.LT(1);
         int enumScopeDeclarations_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token COMMA55=null;
-        LeMaVMParser.enumConstants_return enumConstants54 = null;
+        JavaParser.enumConstants_return enumConstants54 = null;
 
-        LeMaVMParser.enumClassScopeDeclarations_return enumClassScopeDeclarations56 = null;
+        JavaParser.enumClassScopeDeclarations_return enumClassScopeDeclarations56 = null;
 
 
         CommonTree COMMA55_tree=null;
@@ -2362,14 +2347,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "enumClassScopeDeclarations"
     // Java.g:417:1: enumClassScopeDeclarations : SEMI ( classScopeDeclarations )* -> ^( CLASS_TOP_LEVEL_SCOPE[$SEMI, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) ;
-    public final LeMaVMParser.enumClassScopeDeclarations_return enumClassScopeDeclarations() throws RecognitionException {
-        LeMaVMParser.enumClassScopeDeclarations_return retval = new LeMaVMParser.enumClassScopeDeclarations_return();
+    public final JavaParser.enumClassScopeDeclarations_return enumClassScopeDeclarations() throws RecognitionException {
+        JavaParser.enumClassScopeDeclarations_return retval = new JavaParser.enumClassScopeDeclarations_return();
         retval.start = input.LT(1);
         int enumClassScopeDeclarations_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token SEMI57=null;
-        LeMaVMParser.classScopeDeclarations_return classScopeDeclarations58 = null;
+        JavaParser.classScopeDeclarations_return classScopeDeclarations58 = null;
 
 
         CommonTree SEMI57_tree=null;
@@ -2477,16 +2462,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "enumConstants"
     // Java.g:422:1: enumConstants : enumConstant ( COMMA enumConstant )* ;
-    public final LeMaVMParser.enumConstants_return enumConstants() throws RecognitionException {
-        LeMaVMParser.enumConstants_return retval = new LeMaVMParser.enumConstants_return();
+    public final JavaParser.enumConstants_return enumConstants() throws RecognitionException {
+        JavaParser.enumConstants_return retval = new JavaParser.enumConstants_return();
         retval.start = input.LT(1);
         int enumConstants_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token COMMA60=null;
-        LeMaVMParser.enumConstant_return enumConstant59 = null;
+        JavaParser.enumConstant_return enumConstant59 = null;
 
-        LeMaVMParser.enumConstant_return enumConstant61 = null;
+        JavaParser.enumConstant_return enumConstant61 = null;
 
 
         CommonTree COMMA60_tree=null;
@@ -2572,18 +2557,18 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "enumConstant"
     // Java.g:426:1: enumConstant : annotationList IDENT ( arguments )? ( classBody )? ;
-    public final LeMaVMParser.enumConstant_return enumConstant() throws RecognitionException {
-        LeMaVMParser.enumConstant_return retval = new LeMaVMParser.enumConstant_return();
+    public final JavaParser.enumConstant_return enumConstant() throws RecognitionException {
+        JavaParser.enumConstant_return retval = new JavaParser.enumConstant_return();
         retval.start = input.LT(1);
         int enumConstant_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token IDENT63=null;
-        LeMaVMParser.annotationList_return annotationList62 = null;
+        JavaParser.annotationList_return annotationList62 = null;
 
-        LeMaVMParser.arguments_return arguments64 = null;
+        JavaParser.arguments_return arguments64 = null;
 
-        LeMaVMParser.classBody_return classBody65 = null;
+        JavaParser.classBody_return classBody65 = null;
 
 
         CommonTree IDENT63_tree=null;
@@ -2683,19 +2668,19 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "interfaceTypeDeclaration"
     // Java.g:430:1: interfaceTypeDeclaration[CommonTree modifiers] : INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody -> ^( INTERFACE IDENT ( genericTypeParameterList )? ( interfaceExtendsClause )? interfaceBody ) ;
-    public final LeMaVMParser.interfaceTypeDeclaration_return interfaceTypeDeclaration(CommonTree modifiers) throws RecognitionException {
-        LeMaVMParser.interfaceTypeDeclaration_return retval = new LeMaVMParser.interfaceTypeDeclaration_return();
+    public final JavaParser.interfaceTypeDeclaration_return interfaceTypeDeclaration(CommonTree modifiers) throws RecognitionException {
+        JavaParser.interfaceTypeDeclaration_return retval = new JavaParser.interfaceTypeDeclaration_return();
         retval.start = input.LT(1);
         int interfaceTypeDeclaration_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token INTERFACE66=null;
         Token IDENT67=null;
-        LeMaVMParser.genericTypeParameterList_return genericTypeParameterList68 = null;
+        JavaParser.genericTypeParameterList_return genericTypeParameterList68 = null;
 
-        LeMaVMParser.interfaceExtendsClause_return interfaceExtendsClause69 = null;
+        JavaParser.interfaceExtendsClause_return interfaceExtendsClause69 = null;
 
-        LeMaVMParser.interfaceBody_return interfaceBody70 = null;
+        JavaParser.interfaceBody_return interfaceBody70 = null;
 
 
         CommonTree INTERFACE66_tree=null;
@@ -2841,16 +2826,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "typeList"
     // Java.g:435:1: typeList : type ( COMMA type )* ;
-    public final LeMaVMParser.typeList_return typeList() throws RecognitionException {
-        LeMaVMParser.typeList_return retval = new LeMaVMParser.typeList_return();
+    public final JavaParser.typeList_return typeList() throws RecognitionException {
+        JavaParser.typeList_return retval = new JavaParser.typeList_return();
         retval.start = input.LT(1);
         int typeList_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token COMMA72=null;
-        LeMaVMParser.type_return type71 = null;
+        JavaParser.type_return type71 = null;
 
-        LeMaVMParser.type_return type73 = null;
+        JavaParser.type_return type73 = null;
 
 
         CommonTree COMMA72_tree=null;
@@ -2930,15 +2915,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "classBody"
     // Java.g:439:1: classBody : LCURLY ( classScopeDeclarations )* RCURLY -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) ;
-    public final LeMaVMParser.classBody_return classBody() throws RecognitionException {
-        LeMaVMParser.classBody_return retval = new LeMaVMParser.classBody_return();
+    public final JavaParser.classBody_return classBody() throws RecognitionException {
+        JavaParser.classBody_return retval = new JavaParser.classBody_return();
         retval.start = input.LT(1);
         int classBody_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token LCURLY74=null;
         Token RCURLY76=null;
-        LeMaVMParser.classScopeDeclarations_return classScopeDeclarations75 = null;
+        JavaParser.classScopeDeclarations_return classScopeDeclarations75 = null;
 
 
         CommonTree LCURLY74_tree=null;
@@ -3051,15 +3036,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "interfaceBody"
     // Java.g:444:1: interfaceBody : LCURLY ( interfaceScopeDeclarations )* RCURLY -> ^( INTERFACE_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( interfaceScopeDeclarations )* ) ;
-    public final LeMaVMParser.interfaceBody_return interfaceBody() throws RecognitionException {
-        LeMaVMParser.interfaceBody_return retval = new LeMaVMParser.interfaceBody_return();
+    public final JavaParser.interfaceBody_return interfaceBody() throws RecognitionException {
+        JavaParser.interfaceBody_return retval = new JavaParser.interfaceBody_return();
         retval.start = input.LT(1);
         int interfaceBody_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token LCURLY77=null;
         Token RCURLY79=null;
-        LeMaVMParser.interfaceScopeDeclarations_return interfaceScopeDeclarations78 = null;
+        JavaParser.interfaceScopeDeclarations_return interfaceScopeDeclarations78 = null;
 
 
         CommonTree LCURLY77_tree=null;
@@ -3172,8 +3157,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "classScopeDeclarations"
     // Java.g:449:1: classScopeDeclarations : ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ( block )? ) | VOID IDENT formalParameterList ( throwsClause )? ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ( block )? ) | ident= IDENT formalParameterList ( throwsClause )? block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList ( genericTypeParameterList )? formalParameterList ( throwsClause )? block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI );
-    public final LeMaVMParser.classScopeDeclarations_return classScopeDeclarations() throws RecognitionException {
-        LeMaVMParser.classScopeDeclarations_return retval = new LeMaVMParser.classScopeDeclarations_return();
+    public final JavaParser.classScopeDeclarations_return classScopeDeclarations() throws RecognitionException {
+        JavaParser.classScopeDeclarations_return retval = new JavaParser.classScopeDeclarations_return();
         retval.start = input.LT(1);
         int classScopeDeclarations_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -3187,41 +3172,41 @@ public class LeMaVMParser extends Parser {
         Token SEMI97=null;
         Token SEMI103=null;
         Token SEMI105=null;
-        LeMaVMParser.block_return block80 = null;
+        JavaParser.block_return block80 = null;
 
-        LeMaVMParser.block_return block82 = null;
+        JavaParser.block_return block82 = null;
 
-        LeMaVMParser.modifierList_return modifierList83 = null;
+        JavaParser.modifierList_return modifierList83 = null;
 
-        LeMaVMParser.genericTypeParameterList_return genericTypeParameterList84 = null;
+        JavaParser.genericTypeParameterList_return genericTypeParameterList84 = null;
 
-        LeMaVMParser.type_return type85 = null;
+        JavaParser.type_return type85 = null;
 
-        LeMaVMParser.formalParameterList_return formalParameterList87 = null;
+        JavaParser.formalParameterList_return formalParameterList87 = null;
 
-        LeMaVMParser.arrayDeclaratorList_return arrayDeclaratorList88 = null;
+        JavaParser.arrayDeclaratorList_return arrayDeclaratorList88 = null;
 
-        LeMaVMParser.throwsClause_return throwsClause89 = null;
+        JavaParser.throwsClause_return throwsClause89 = null;
 
-        LeMaVMParser.block_return block90 = null;
+        JavaParser.block_return block90 = null;
 
-        LeMaVMParser.formalParameterList_return formalParameterList94 = null;
+        JavaParser.formalParameterList_return formalParameterList94 = null;
 
-        LeMaVMParser.throwsClause_return throwsClause95 = null;
+        JavaParser.throwsClause_return throwsClause95 = null;
 
-        LeMaVMParser.block_return block96 = null;
+        JavaParser.block_return block96 = null;
 
-        LeMaVMParser.formalParameterList_return formalParameterList98 = null;
+        JavaParser.formalParameterList_return formalParameterList98 = null;
 
-        LeMaVMParser.throwsClause_return throwsClause99 = null;
+        JavaParser.throwsClause_return throwsClause99 = null;
 
-        LeMaVMParser.block_return block100 = null;
+        JavaParser.block_return block100 = null;
 
-        LeMaVMParser.type_return type101 = null;
+        JavaParser.type_return type101 = null;
 
-        LeMaVMParser.classFieldDeclaratorList_return classFieldDeclaratorList102 = null;
+        JavaParser.classFieldDeclaratorList_return classFieldDeclaratorList102 = null;
 
-        LeMaVMParser.typeDeclaration_return typeDeclaration104 = null;
+        JavaParser.typeDeclaration_return typeDeclaration104 = null;
 
 
         CommonTree ident_tree=null;
@@ -3977,8 +3962,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "interfaceScopeDeclarations"
     // Java.g:468:1: interfaceScopeDeclarations : ( modifierList ( ( genericTypeParameterList )? ( type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? SEMI -> ^( FUNCTION_METHOD_DECL modifierList ( genericTypeParameterList )? type IDENT formalParameterList ( arrayDeclaratorList )? ( throwsClause )? ) | VOID IDENT formalParameterList ( throwsClause )? SEMI -> ^( VOID_METHOD_DECL modifierList ( genericTypeParameterList )? IDENT formalParameterList ( throwsClause )? ) ) | type interfaceFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type interfaceFieldDeclaratorList ) ) | typeDeclaration | SEMI );
-    public final LeMaVMParser.interfaceScopeDeclarations_return interfaceScopeDeclarations() throws RecognitionException {
-        LeMaVMParser.interfaceScopeDeclarations_return retval = new LeMaVMParser.interfaceScopeDeclarations_return();
+    public final JavaParser.interfaceScopeDeclarations_return interfaceScopeDeclarations() throws RecognitionException {
+        JavaParser.interfaceScopeDeclarations_return retval = new JavaParser.interfaceScopeDeclarations_return();
         retval.start = input.LT(1);
         int interfaceScopeDeclarations_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -3990,27 +3975,27 @@ public class LeMaVMParser extends Parser {
         Token SEMI118=null;
         Token SEMI121=null;
         Token SEMI123=null;
-        LeMaVMParser.modifierList_return modifierList106 = null;
+        JavaParser.modifierList_return modifierList106 = null;
 
-        LeMaVMParser.genericTypeParameterList_return genericTypeParameterList107 = null;
+        JavaParser.genericTypeParameterList_return genericTypeParameterList107 = null;
 
-        LeMaVMParser.type_return type108 = null;
+        JavaParser.type_return type108 = null;
 
-        LeMaVMParser.formalParameterList_return formalParameterList110 = null;
+        JavaParser.formalParameterList_return formalParameterList110 = null;
 
-        LeMaVMParser.arrayDeclaratorList_return arrayDeclaratorList111 = null;
+        JavaParser.arrayDeclaratorList_return arrayDeclaratorList111 = null;
 
-        LeMaVMParser.throwsClause_return throwsClause112 = null;
+        JavaParser.throwsClause_return throwsClause112 = null;
 
-        LeMaVMParser.formalParameterList_return formalParameterList116 = null;
+        JavaParser.formalParameterList_return formalParameterList116 = null;
 
-        LeMaVMParser.throwsClause_return throwsClause117 = null;
+        JavaParser.throwsClause_return throwsClause117 = null;
 
-        LeMaVMParser.type_return type119 = null;
+        JavaParser.type_return type119 = null;
 
-        LeMaVMParser.interfaceFieldDeclaratorList_return interfaceFieldDeclaratorList120 = null;
+        JavaParser.interfaceFieldDeclaratorList_return interfaceFieldDeclaratorList120 = null;
 
-        LeMaVMParser.typeDeclaration_return typeDeclaration122 = null;
+        JavaParser.typeDeclaration_return typeDeclaration122 = null;
 
 
         CommonTree IDENT109_tree=null;
@@ -4473,16 +4458,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "classFieldDeclaratorList"
     // Java.g:483:1: classFieldDeclaratorList : classFieldDeclarator ( COMMA classFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ ) ;
-    public final LeMaVMParser.classFieldDeclaratorList_return classFieldDeclaratorList() throws RecognitionException {
-        LeMaVMParser.classFieldDeclaratorList_return retval = new LeMaVMParser.classFieldDeclaratorList_return();
+    public final JavaParser.classFieldDeclaratorList_return classFieldDeclaratorList() throws RecognitionException {
+        JavaParser.classFieldDeclaratorList_return retval = new JavaParser.classFieldDeclaratorList_return();
         retval.start = input.LT(1);
         int classFieldDeclaratorList_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token COMMA125=null;
-        LeMaVMParser.classFieldDeclarator_return classFieldDeclarator124 = null;
+        JavaParser.classFieldDeclarator_return classFieldDeclarator124 = null;
 
-        LeMaVMParser.classFieldDeclarator_return classFieldDeclarator126 = null;
+        JavaParser.classFieldDeclarator_return classFieldDeclarator126 = null;
 
 
         CommonTree COMMA125_tree=null;
@@ -4598,16 +4583,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "classFieldDeclarator"
     // Java.g:488:1: classFieldDeclarator : variableDeclaratorId ( ASSIGN variableInitializer )? -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) ;
-    public final LeMaVMParser.classFieldDeclarator_return classFieldDeclarator() throws RecognitionException {
-        LeMaVMParser.classFieldDeclarator_return retval = new LeMaVMParser.classFieldDeclarator_return();
+    public final JavaParser.classFieldDeclarator_return classFieldDeclarator() throws RecognitionException {
+        JavaParser.classFieldDeclarator_return retval = new JavaParser.classFieldDeclarator_return();
         retval.start = input.LT(1);
         int classFieldDeclarator_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token ASSIGN128=null;
-        LeMaVMParser.variableDeclaratorId_return variableDeclaratorId127 = null;
+        JavaParser.variableDeclaratorId_return variableDeclaratorId127 = null;
 
-        LeMaVMParser.variableInitializer_return variableInitializer129 = null;
+        JavaParser.variableInitializer_return variableInitializer129 = null;
 
 
         CommonTree ASSIGN128_tree=null;
@@ -4716,16 +4701,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "interfaceFieldDeclaratorList"
     // Java.g:493:1: interfaceFieldDeclaratorList : interfaceFieldDeclarator ( COMMA interfaceFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( interfaceFieldDeclarator )+ ) ;
-    public final LeMaVMParser.interfaceFieldDeclaratorList_return interfaceFieldDeclaratorList() throws RecognitionException {
-        LeMaVMParser.interfaceFieldDeclaratorList_return retval = new LeMaVMParser.interfaceFieldDeclaratorList_return();
+    public final JavaParser.interfaceFieldDeclaratorList_return interfaceFieldDeclaratorList() throws RecognitionException {
+        JavaParser.interfaceFieldDeclaratorList_return retval = new JavaParser.interfaceFieldDeclaratorList_return();
         retval.start = input.LT(1);
         int interfaceFieldDeclaratorList_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token COMMA131=null;
-        LeMaVMParser.interfaceFieldDeclarator_return interfaceFieldDeclarator130 = null;
+        JavaParser.interfaceFieldDeclarator_return interfaceFieldDeclarator130 = null;
 
-        LeMaVMParser.interfaceFieldDeclarator_return interfaceFieldDeclarator132 = null;
+        JavaParser.interfaceFieldDeclarator_return interfaceFieldDeclarator132 = null;
 
 
         CommonTree COMMA131_tree=null;
@@ -4841,16 +4826,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "interfaceFieldDeclarator"
     // Java.g:498:1: interfaceFieldDeclarator : variableDeclaratorId ASSIGN variableInitializer -> ^( VAR_DECLARATOR variableDeclaratorId variableInitializer ) ;
-    public final LeMaVMParser.interfaceFieldDeclarator_return interfaceFieldDeclarator() throws RecognitionException {
-        LeMaVMParser.interfaceFieldDeclarator_return retval = new LeMaVMParser.interfaceFieldDeclarator_return();
+    public final JavaParser.interfaceFieldDeclarator_return interfaceFieldDeclarator() throws RecognitionException {
+        JavaParser.interfaceFieldDeclarator_return retval = new JavaParser.interfaceFieldDeclarator_return();
         retval.start = input.LT(1);
         int interfaceFieldDeclarator_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token ASSIGN134=null;
-        LeMaVMParser.variableDeclaratorId_return variableDeclaratorId133 = null;
+        JavaParser.variableDeclaratorId_return variableDeclaratorId133 = null;
 
-        LeMaVMParser.variableInitializer_return variableInitializer135 = null;
+        JavaParser.variableInitializer_return variableInitializer135 = null;
 
 
         CommonTree ASSIGN134_tree=null;
@@ -4937,14 +4922,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "variableDeclaratorId"
     // Java.g:503:1: variableDeclaratorId : IDENT ( arrayDeclaratorList )? ;
-    public final LeMaVMParser.variableDeclaratorId_return variableDeclaratorId() throws RecognitionException {
-        LeMaVMParser.variableDeclaratorId_return retval = new LeMaVMParser.variableDeclaratorId_return();
+    public final JavaParser.variableDeclaratorId_return variableDeclaratorId() throws RecognitionException {
+        JavaParser.variableDeclaratorId_return retval = new JavaParser.variableDeclaratorId_return();
         retval.start = input.LT(1);
         int variableDeclaratorId_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token IDENT136=null;
-        LeMaVMParser.arrayDeclaratorList_return arrayDeclaratorList137 = null;
+        JavaParser.arrayDeclaratorList_return arrayDeclaratorList137 = null;
 
 
         CommonTree IDENT136_tree=null;
@@ -5015,15 +5000,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "variableInitializer"
     // Java.g:507:1: variableInitializer : ( arrayInitializer | expression );
-    public final LeMaVMParser.variableInitializer_return variableInitializer() throws RecognitionException {
-        LeMaVMParser.variableInitializer_return retval = new LeMaVMParser.variableInitializer_return();
+    public final JavaParser.variableInitializer_return variableInitializer() throws RecognitionException {
+        JavaParser.variableInitializer_return retval = new JavaParser.variableInitializer_return();
         retval.start = input.LT(1);
         int variableInitializer_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.arrayInitializer_return arrayInitializer138 = null;
+        JavaParser.arrayInitializer_return arrayInitializer138 = null;
 
-        LeMaVMParser.expression_return expression139 = null;
+        JavaParser.expression_return expression139 = null;
 
 
 
@@ -5105,8 +5090,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "arrayDeclarator"
     // Java.g:512:1: arrayDeclarator : LBRACK RBRACK -> ^( ARRAY_DECLARATOR ) ;
-    public final LeMaVMParser.arrayDeclarator_return arrayDeclarator() throws RecognitionException {
-        LeMaVMParser.arrayDeclarator_return retval = new LeMaVMParser.arrayDeclarator_return();
+    public final JavaParser.arrayDeclarator_return arrayDeclarator() throws RecognitionException {
+        JavaParser.arrayDeclarator_return retval = new JavaParser.arrayDeclarator_return();
         retval.start = input.LT(1);
         int arrayDeclarator_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -5187,13 +5172,13 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "arrayDeclaratorList"
     // Java.g:517:1: arrayDeclaratorList : ( arrayDeclarator )+ -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ ) ;
-    public final LeMaVMParser.arrayDeclaratorList_return arrayDeclaratorList() throws RecognitionException {
-        LeMaVMParser.arrayDeclaratorList_return retval = new LeMaVMParser.arrayDeclaratorList_return();
+    public final JavaParser.arrayDeclaratorList_return arrayDeclaratorList() throws RecognitionException {
+        JavaParser.arrayDeclaratorList_return retval = new JavaParser.arrayDeclaratorList_return();
         retval.start = input.LT(1);
         int arrayDeclaratorList_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.arrayDeclarator_return arrayDeclarator142 = null;
+        JavaParser.arrayDeclarator_return arrayDeclarator142 = null;
 
 
         RewriteRuleSubtreeStream stream_arrayDeclarator=new RewriteRuleSubtreeStream(adaptor,"rule arrayDeclarator");
@@ -5310,8 +5295,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "arrayInitializer"
     // Java.g:522:1: arrayInitializer : LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* ) ;
-    public final LeMaVMParser.arrayInitializer_return arrayInitializer() throws RecognitionException {
-        LeMaVMParser.arrayInitializer_return retval = new LeMaVMParser.arrayInitializer_return();
+    public final JavaParser.arrayInitializer_return arrayInitializer() throws RecognitionException {
+        JavaParser.arrayInitializer_return retval = new JavaParser.arrayInitializer_return();
         retval.start = input.LT(1);
         int arrayInitializer_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -5320,9 +5305,9 @@ public class LeMaVMParser extends Parser {
         Token COMMA145=null;
         Token COMMA147=null;
         Token RCURLY148=null;
-        LeMaVMParser.variableInitializer_return variableInitializer144 = null;
+        JavaParser.variableInitializer_return variableInitializer144 = null;
 
-        LeMaVMParser.variableInitializer_return variableInitializer146 = null;
+        JavaParser.variableInitializer_return variableInitializer146 = null;
 
 
         CommonTree LCURLY143_tree=null;
@@ -5490,14 +5475,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "throwsClause"
     // Java.g:527:1: throwsClause : THROWS qualifiedIdentList -> ^( THROWS_CLAUSE[$THROWS, \"THROWS_CLAUSE\"] qualifiedIdentList ) ;
-    public final LeMaVMParser.throwsClause_return throwsClause() throws RecognitionException {
-        LeMaVMParser.throwsClause_return retval = new LeMaVMParser.throwsClause_return();
+    public final JavaParser.throwsClause_return throwsClause() throws RecognitionException {
+        JavaParser.throwsClause_return retval = new JavaParser.throwsClause_return();
         retval.start = input.LT(1);
         int throwsClause_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token THROWS149=null;
-        LeMaVMParser.qualifiedIdentList_return qualifiedIdentList150 = null;
+        JavaParser.qualifiedIdentList_return qualifiedIdentList150 = null;
 
 
         CommonTree THROWS149_tree=null;
@@ -5576,13 +5561,13 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "modifierList"
     // Java.g:532:1: modifierList : ( modifier )* -> ^( MODIFIER_LIST ( modifier )* ) ;
-    public final LeMaVMParser.modifierList_return modifierList() throws RecognitionException {
-        LeMaVMParser.modifierList_return retval = new LeMaVMParser.modifierList_return();
+    public final JavaParser.modifierList_return modifierList() throws RecognitionException {
+        JavaParser.modifierList_return retval = new JavaParser.modifierList_return();
         retval.start = input.LT(1);
         int modifierList_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.modifier_return modifier151 = null;
+        JavaParser.modifier_return modifier151 = null;
 
 
         RewriteRuleSubtreeStream stream_modifier=new RewriteRuleSubtreeStream(adaptor,"rule modifier");
@@ -5694,8 +5679,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "modifier"
     // Java.g:537:1: modifier : ( PUBLIC | PROTECTED | PRIVATE | STATIC | ABSTRACT | NATIVE | SYNCHRONIZED | TRANSIENT | VOLATILE | STRICTFP | localModifier );
-    public final LeMaVMParser.modifier_return modifier() throws RecognitionException {
-        LeMaVMParser.modifier_return retval = new LeMaVMParser.modifier_return();
+    public final JavaParser.modifier_return modifier() throws RecognitionException {
+        JavaParser.modifier_return retval = new JavaParser.modifier_return();
         retval.start = input.LT(1);
         int modifier_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -5710,7 +5695,7 @@ public class LeMaVMParser extends Parser {
         Token TRANSIENT159=null;
         Token VOLATILE160=null;
         Token STRICTFP161=null;
-        LeMaVMParser.localModifier_return localModifier162 = null;
+        JavaParser.localModifier_return localModifier162 = null;
 
 
         CommonTree PUBLIC152_tree=null;
@@ -5968,13 +5953,13 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "localModifierList"
     // Java.g:551:1: localModifierList : ( localModifier )* -> ^( LOCAL_MODIFIER_LIST ( localModifier )* ) ;
-    public final LeMaVMParser.localModifierList_return localModifierList() throws RecognitionException {
-        LeMaVMParser.localModifierList_return retval = new LeMaVMParser.localModifierList_return();
+    public final JavaParser.localModifierList_return localModifierList() throws RecognitionException {
+        JavaParser.localModifierList_return retval = new JavaParser.localModifierList_return();
         retval.start = input.LT(1);
         int localModifierList_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.localModifier_return localModifier163 = null;
+        JavaParser.localModifier_return localModifier163 = null;
 
 
         RewriteRuleSubtreeStream stream_localModifier=new RewriteRuleSubtreeStream(adaptor,"rule localModifier");
@@ -6077,14 +6062,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "localModifier"
     // Java.g:556:1: localModifier : ( FINAL | annotation );
-    public final LeMaVMParser.localModifier_return localModifier() throws RecognitionException {
-        LeMaVMParser.localModifier_return retval = new LeMaVMParser.localModifier_return();
+    public final JavaParser.localModifier_return localModifier() throws RecognitionException {
+        JavaParser.localModifier_return retval = new JavaParser.localModifier_return();
         retval.start = input.LT(1);
         int localModifier_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token FINAL164=null;
-        LeMaVMParser.annotation_return annotation165 = null;
+        JavaParser.annotation_return annotation165 = null;
 
 
         CommonTree FINAL164_tree=null;
@@ -6166,15 +6151,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "type"
     // Java.g:561:1: type : ( simpleType | objectType );
-    public final LeMaVMParser.type_return type() throws RecognitionException {
-        LeMaVMParser.type_return retval = new LeMaVMParser.type_return();
+    public final JavaParser.type_return type() throws RecognitionException {
+        JavaParser.type_return retval = new JavaParser.type_return();
         retval.start = input.LT(1);
         int type_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.simpleType_return simpleType166 = null;
+        JavaParser.simpleType_return simpleType166 = null;
 
-        LeMaVMParser.objectType_return objectType167 = null;
+        JavaParser.objectType_return objectType167 = null;
 
 
 
@@ -6256,15 +6241,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "simpleType"
     // Java.g:566:1: simpleType : primitiveType ( arrayDeclaratorList )? -> ^( TYPE primitiveType ( arrayDeclaratorList )? ) ;
-    public final LeMaVMParser.simpleType_return simpleType() throws RecognitionException {
-        LeMaVMParser.simpleType_return retval = new LeMaVMParser.simpleType_return();
+    public final JavaParser.simpleType_return simpleType() throws RecognitionException {
+        JavaParser.simpleType_return retval = new JavaParser.simpleType_return();
         retval.start = input.LT(1);
         int simpleType_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.primitiveType_return primitiveType168 = null;
+        JavaParser.primitiveType_return primitiveType168 = null;
 
-        LeMaVMParser.arrayDeclaratorList_return arrayDeclaratorList169 = null;
+        JavaParser.arrayDeclaratorList_return arrayDeclaratorList169 = null;
 
 
         RewriteRuleSubtreeStream stream_arrayDeclaratorList=new RewriteRuleSubtreeStream(adaptor,"rule arrayDeclaratorList");
@@ -6376,15 +6361,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "objectType"
     // Java.g:571:1: objectType : qualifiedTypeIdent ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? ) ;
-    public final LeMaVMParser.objectType_return objectType() throws RecognitionException {
-        LeMaVMParser.objectType_return retval = new LeMaVMParser.objectType_return();
+    public final JavaParser.objectType_return objectType() throws RecognitionException {
+        JavaParser.objectType_return retval = new JavaParser.objectType_return();
         retval.start = input.LT(1);
         int objectType_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.qualifiedTypeIdent_return qualifiedTypeIdent170 = null;
+        JavaParser.qualifiedTypeIdent_return qualifiedTypeIdent170 = null;
 
-        LeMaVMParser.arrayDeclaratorList_return arrayDeclaratorList171 = null;
+        JavaParser.arrayDeclaratorList_return arrayDeclaratorList171 = null;
 
 
         RewriteRuleSubtreeStream stream_arrayDeclaratorList=new RewriteRuleSubtreeStream(adaptor,"rule arrayDeclaratorList");
@@ -6492,15 +6477,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "objectTypeSimplified"
     // Java.g:576:1: objectTypeSimplified : qualifiedTypeIdentSimplified ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? ) ;
-    public final LeMaVMParser.objectTypeSimplified_return objectTypeSimplified() throws RecognitionException {
-        LeMaVMParser.objectTypeSimplified_return retval = new LeMaVMParser.objectTypeSimplified_return();
+    public final JavaParser.objectTypeSimplified_return objectTypeSimplified() throws RecognitionException {
+        JavaParser.objectTypeSimplified_return retval = new JavaParser.objectTypeSimplified_return();
         retval.start = input.LT(1);
         int objectTypeSimplified_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.qualifiedTypeIdentSimplified_return qualifiedTypeIdentSimplified172 = null;
+        JavaParser.qualifiedTypeIdentSimplified_return qualifiedTypeIdentSimplified172 = null;
 
-        LeMaVMParser.arrayDeclaratorList_return arrayDeclaratorList173 = null;
+        JavaParser.arrayDeclaratorList_return arrayDeclaratorList173 = null;
 
 
         RewriteRuleSubtreeStream stream_arrayDeclaratorList=new RewriteRuleSubtreeStream(adaptor,"rule arrayDeclaratorList");
@@ -6604,16 +6589,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "qualifiedTypeIdent"
     // Java.g:581:1: qualifiedTypeIdent : typeIdent ( DOT typeIdent )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) ;
-    public final LeMaVMParser.qualifiedTypeIdent_return qualifiedTypeIdent() throws RecognitionException {
-        LeMaVMParser.qualifiedTypeIdent_return retval = new LeMaVMParser.qualifiedTypeIdent_return();
+    public final JavaParser.qualifiedTypeIdent_return qualifiedTypeIdent() throws RecognitionException {
+        JavaParser.qualifiedTypeIdent_return retval = new JavaParser.qualifiedTypeIdent_return();
         retval.start = input.LT(1);
         int qualifiedTypeIdent_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token DOT175=null;
-        LeMaVMParser.typeIdent_return typeIdent174 = null;
+        JavaParser.typeIdent_return typeIdent174 = null;
 
-        LeMaVMParser.typeIdent_return typeIdent176 = null;
+        JavaParser.typeIdent_return typeIdent176 = null;
 
 
         CommonTree DOT175_tree=null;
@@ -6735,16 +6720,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "qualifiedTypeIdentSimplified"
     // Java.g:586:1: qualifiedTypeIdentSimplified : typeIdentSimplified ( DOT typeIdentSimplified )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ ) ;
-    public final LeMaVMParser.qualifiedTypeIdentSimplified_return qualifiedTypeIdentSimplified() throws RecognitionException {
-        LeMaVMParser.qualifiedTypeIdentSimplified_return retval = new LeMaVMParser.qualifiedTypeIdentSimplified_return();
+    public final JavaParser.qualifiedTypeIdentSimplified_return qualifiedTypeIdentSimplified() throws RecognitionException {
+        JavaParser.qualifiedTypeIdentSimplified_return retval = new JavaParser.qualifiedTypeIdentSimplified_return();
         retval.start = input.LT(1);
         int qualifiedTypeIdentSimplified_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token DOT178=null;
-        LeMaVMParser.typeIdentSimplified_return typeIdentSimplified177 = null;
+        JavaParser.typeIdentSimplified_return typeIdentSimplified177 = null;
 
-        LeMaVMParser.typeIdentSimplified_return typeIdentSimplified179 = null;
+        JavaParser.typeIdentSimplified_return typeIdentSimplified179 = null;
 
 
         CommonTree DOT178_tree=null;
@@ -6860,14 +6845,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "typeIdent"
     // Java.g:591:1: typeIdent : IDENT ( genericTypeArgumentList )? ;
-    public final LeMaVMParser.typeIdent_return typeIdent() throws RecognitionException {
-        LeMaVMParser.typeIdent_return retval = new LeMaVMParser.typeIdent_return();
+    public final JavaParser.typeIdent_return typeIdent() throws RecognitionException {
+        JavaParser.typeIdent_return retval = new JavaParser.typeIdent_return();
         retval.start = input.LT(1);
         int typeIdent_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token IDENT180=null;
-        LeMaVMParser.genericTypeArgumentList_return genericTypeArgumentList181 = null;
+        JavaParser.genericTypeArgumentList_return genericTypeArgumentList181 = null;
 
 
         CommonTree IDENT180_tree=null;
@@ -6938,14 +6923,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "typeIdentSimplified"
     // Java.g:595:1: typeIdentSimplified : IDENT ( genericTypeArgumentListSimplified )? ;
-    public final LeMaVMParser.typeIdentSimplified_return typeIdentSimplified() throws RecognitionException {
-        LeMaVMParser.typeIdentSimplified_return retval = new LeMaVMParser.typeIdentSimplified_return();
+    public final JavaParser.typeIdentSimplified_return typeIdentSimplified() throws RecognitionException {
+        JavaParser.typeIdentSimplified_return retval = new JavaParser.typeIdentSimplified_return();
         retval.start = input.LT(1);
         int typeIdentSimplified_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token IDENT182=null;
-        LeMaVMParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified183 = null;
+        JavaParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified183 = null;
 
 
         CommonTree IDENT182_tree=null;
@@ -7016,8 +7001,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "primitiveType"
     // Java.g:599:1: primitiveType : ( BOOLEAN | CHAR | BYTE | SHORT | INT | LONG | FLOAT | DOUBLE );
-    public final LeMaVMParser.primitiveType_return primitiveType() throws RecognitionException {
-        LeMaVMParser.primitiveType_return retval = new LeMaVMParser.primitiveType_return();
+    public final JavaParser.primitiveType_return primitiveType() throws RecognitionException {
+        JavaParser.primitiveType_return retval = new JavaParser.primitiveType_return();
         retval.start = input.LT(1);
         int primitiveType_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -7076,19 +7061,19 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "genericTypeArgumentList"
     // Java.g:610:1: genericTypeArgumentList : LESS_THAN genericTypeArgument ( COMMA genericTypeArgument )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgument )+ ) ;
-    public final LeMaVMParser.genericTypeArgumentList_return genericTypeArgumentList() throws RecognitionException {
-        LeMaVMParser.genericTypeArgumentList_return retval = new LeMaVMParser.genericTypeArgumentList_return();
+    public final JavaParser.genericTypeArgumentList_return genericTypeArgumentList() throws RecognitionException {
+        JavaParser.genericTypeArgumentList_return retval = new JavaParser.genericTypeArgumentList_return();
         retval.start = input.LT(1);
         int genericTypeArgumentList_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token LESS_THAN185=null;
         Token COMMA187=null;
-        LeMaVMParser.genericTypeArgument_return genericTypeArgument186 = null;
+        JavaParser.genericTypeArgument_return genericTypeArgument186 = null;
 
-        LeMaVMParser.genericTypeArgument_return genericTypeArgument188 = null;
+        JavaParser.genericTypeArgument_return genericTypeArgument188 = null;
 
-        LeMaVMParser.genericTypeListClosing_return genericTypeListClosing189 = null;
+        JavaParser.genericTypeListClosing_return genericTypeListClosing189 = null;
 
 
         CommonTree LESS_THAN185_tree=null;
@@ -7222,16 +7207,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "genericTypeArgument"
     // Java.g:615:1: genericTypeArgument : ( type | QUESTION ( genericWildcardBoundType )? -> ^( QUESTION ( genericWildcardBoundType )? ) );
-    public final LeMaVMParser.genericTypeArgument_return genericTypeArgument() throws RecognitionException {
-        LeMaVMParser.genericTypeArgument_return retval = new LeMaVMParser.genericTypeArgument_return();
+    public final JavaParser.genericTypeArgument_return genericTypeArgument() throws RecognitionException {
+        JavaParser.genericTypeArgument_return retval = new JavaParser.genericTypeArgument_return();
         retval.start = input.LT(1);
         int genericTypeArgument_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token QUESTION191=null;
-        LeMaVMParser.type_return type190 = null;
+        JavaParser.type_return type190 = null;
 
-        LeMaVMParser.genericWildcardBoundType_return genericWildcardBoundType192 = null;
+        JavaParser.genericWildcardBoundType_return genericWildcardBoundType192 = null;
 
 
         CommonTree QUESTION191_tree=null;
@@ -7388,14 +7373,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "genericWildcardBoundType"
     // Java.g:621:1: genericWildcardBoundType : ( EXTENDS | SUPER ) type ;
-    public final LeMaVMParser.genericWildcardBoundType_return genericWildcardBoundType() throws RecognitionException {
-        LeMaVMParser.genericWildcardBoundType_return retval = new LeMaVMParser.genericWildcardBoundType_return();
+    public final JavaParser.genericWildcardBoundType_return genericWildcardBoundType() throws RecognitionException {
+        JavaParser.genericWildcardBoundType_return retval = new JavaParser.genericWildcardBoundType_return();
         retval.start = input.LT(1);
         int genericWildcardBoundType_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token set193=null;
-        LeMaVMParser.type_return type194 = null;
+        JavaParser.type_return type194 = null;
 
 
         CommonTree set193_tree=null;
@@ -7457,19 +7442,19 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "genericTypeArgumentListSimplified"
     // Java.g:625:1: genericTypeArgumentListSimplified : LESS_THAN genericTypeArgumentSimplified ( COMMA genericTypeArgumentSimplified )* genericTypeListClosing -> ^( GENERIC_TYPE_ARG_LIST[$LESS_THAN, \"GENERIC_TYPE_ARG_LIST\"] ( genericTypeArgumentSimplified )+ ) ;
-    public final LeMaVMParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified() throws RecognitionException {
-        LeMaVMParser.genericTypeArgumentListSimplified_return retval = new LeMaVMParser.genericTypeArgumentListSimplified_return();
+    public final JavaParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified() throws RecognitionException {
+        JavaParser.genericTypeArgumentListSimplified_return retval = new JavaParser.genericTypeArgumentListSimplified_return();
         retval.start = input.LT(1);
         int genericTypeArgumentListSimplified_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token LESS_THAN195=null;
         Token COMMA197=null;
-        LeMaVMParser.genericTypeArgumentSimplified_return genericTypeArgumentSimplified196 = null;
+        JavaParser.genericTypeArgumentSimplified_return genericTypeArgumentSimplified196 = null;
 
-        LeMaVMParser.genericTypeArgumentSimplified_return genericTypeArgumentSimplified198 = null;
+        JavaParser.genericTypeArgumentSimplified_return genericTypeArgumentSimplified198 = null;
 
-        LeMaVMParser.genericTypeListClosing_return genericTypeListClosing199 = null;
+        JavaParser.genericTypeListClosing_return genericTypeListClosing199 = null;
 
 
         CommonTree LESS_THAN195_tree=null;
@@ -7597,14 +7582,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "genericTypeArgumentSimplified"
     // Java.g:630:1: genericTypeArgumentSimplified : ( type | QUESTION );
-    public final LeMaVMParser.genericTypeArgumentSimplified_return genericTypeArgumentSimplified() throws RecognitionException {
-        LeMaVMParser.genericTypeArgumentSimplified_return retval = new LeMaVMParser.genericTypeArgumentSimplified_return();
+    public final JavaParser.genericTypeArgumentSimplified_return genericTypeArgumentSimplified() throws RecognitionException {
+        JavaParser.genericTypeArgumentSimplified_return retval = new JavaParser.genericTypeArgumentSimplified_return();
         retval.start = input.LT(1);
         int genericTypeArgumentSimplified_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token QUESTION201=null;
-        LeMaVMParser.type_return type200 = null;
+        JavaParser.type_return type200 = null;
 
 
         CommonTree QUESTION201_tree=null;
@@ -7686,16 +7671,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "qualifiedIdentList"
     // Java.g:635:1: qualifiedIdentList : qualifiedIdentifier ( COMMA qualifiedIdentifier )* ;
-    public final LeMaVMParser.qualifiedIdentList_return qualifiedIdentList() throws RecognitionException {
-        LeMaVMParser.qualifiedIdentList_return retval = new LeMaVMParser.qualifiedIdentList_return();
+    public final JavaParser.qualifiedIdentList_return qualifiedIdentList() throws RecognitionException {
+        JavaParser.qualifiedIdentList_return retval = new JavaParser.qualifiedIdentList_return();
         retval.start = input.LT(1);
         int qualifiedIdentList_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token COMMA203=null;
-        LeMaVMParser.qualifiedIdentifier_return qualifiedIdentifier202 = null;
+        JavaParser.qualifiedIdentifier_return qualifiedIdentifier202 = null;
 
-        LeMaVMParser.qualifiedIdentifier_return qualifiedIdentifier204 = null;
+        JavaParser.qualifiedIdentifier_return qualifiedIdentifier204 = null;
 
 
         CommonTree COMMA203_tree=null;
@@ -7775,8 +7760,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "formalParameterList"
     // Java.g:639:1: formalParameterList : LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* ( COMMA formalParameterVarArgDecl )? -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ( formalParameterVarArgDecl )? ) | formalParameterVarArgDecl -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] formalParameterVarArgDecl ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN ;
-    public final LeMaVMParser.formalParameterList_return formalParameterList() throws RecognitionException {
-        LeMaVMParser.formalParameterList_return retval = new LeMaVMParser.formalParameterList_return();
+    public final JavaParser.formalParameterList_return formalParameterList() throws RecognitionException {
+        JavaParser.formalParameterList_return retval = new JavaParser.formalParameterList_return();
         retval.start = input.LT(1);
         int formalParameterList_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -7785,13 +7770,13 @@ public class LeMaVMParser extends Parser {
         Token COMMA207=null;
         Token COMMA209=null;
         Token RPAREN212=null;
-        LeMaVMParser.formalParameterStandardDecl_return formalParameterStandardDecl206 = null;
+        JavaParser.formalParameterStandardDecl_return formalParameterStandardDecl206 = null;
 
-        LeMaVMParser.formalParameterStandardDecl_return formalParameterStandardDecl208 = null;
+        JavaParser.formalParameterStandardDecl_return formalParameterStandardDecl208 = null;
 
-        LeMaVMParser.formalParameterVarArgDecl_return formalParameterVarArgDecl210 = null;
+        JavaParser.formalParameterVarArgDecl_return formalParameterVarArgDecl210 = null;
 
-        LeMaVMParser.formalParameterVarArgDecl_return formalParameterVarArgDecl211 = null;
+        JavaParser.formalParameterVarArgDecl_return formalParameterVarArgDecl211 = null;
 
 
         CommonTree LPAREN205_tree=null;
@@ -8137,17 +8122,17 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "formalParameterStandardDecl"
     // Java.g:653:1: formalParameterStandardDecl : localModifierList type variableDeclaratorId -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) ;
-    public final LeMaVMParser.formalParameterStandardDecl_return formalParameterStandardDecl() throws RecognitionException {
-        LeMaVMParser.formalParameterStandardDecl_return retval = new LeMaVMParser.formalParameterStandardDecl_return();
+    public final JavaParser.formalParameterStandardDecl_return formalParameterStandardDecl() throws RecognitionException {
+        JavaParser.formalParameterStandardDecl_return retval = new JavaParser.formalParameterStandardDecl_return();
         retval.start = input.LT(1);
         int formalParameterStandardDecl_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.localModifierList_return localModifierList213 = null;
+        JavaParser.localModifierList_return localModifierList213 = null;
 
-        LeMaVMParser.type_return type214 = null;
+        JavaParser.type_return type214 = null;
 
-        LeMaVMParser.variableDeclaratorId_return variableDeclaratorId215 = null;
+        JavaParser.variableDeclaratorId_return variableDeclaratorId215 = null;
 
 
         RewriteRuleSubtreeStream stream_variableDeclaratorId=new RewriteRuleSubtreeStream(adaptor,"rule variableDeclaratorId");
@@ -8237,18 +8222,18 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "formalParameterVarArgDecl"
     // Java.g:658:1: formalParameterVarArgDecl : localModifierList type ELLIPSIS variableDeclaratorId -> ^( FORMAL_PARAM_VARARG_DECL localModifierList type variableDeclaratorId ) ;
-    public final LeMaVMParser.formalParameterVarArgDecl_return formalParameterVarArgDecl() throws RecognitionException {
-        LeMaVMParser.formalParameterVarArgDecl_return retval = new LeMaVMParser.formalParameterVarArgDecl_return();
+    public final JavaParser.formalParameterVarArgDecl_return formalParameterVarArgDecl() throws RecognitionException {
+        JavaParser.formalParameterVarArgDecl_return retval = new JavaParser.formalParameterVarArgDecl_return();
         retval.start = input.LT(1);
         int formalParameterVarArgDecl_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token ELLIPSIS218=null;
-        LeMaVMParser.localModifierList_return localModifierList216 = null;
+        JavaParser.localModifierList_return localModifierList216 = null;
 
-        LeMaVMParser.type_return type217 = null;
+        JavaParser.type_return type217 = null;
 
-        LeMaVMParser.variableDeclaratorId_return variableDeclaratorId219 = null;
+        JavaParser.variableDeclaratorId_return variableDeclaratorId219 = null;
 
 
         CommonTree ELLIPSIS218_tree=null;
@@ -8343,8 +8328,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "qualifiedIdentifier"
     // Java.g:663:1: qualifiedIdentifier : ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )* ;
-    public final LeMaVMParser.qualifiedIdentifier_return qualifiedIdentifier() throws RecognitionException {
-        LeMaVMParser.qualifiedIdentifier_return retval = new LeMaVMParser.qualifiedIdentifier_return();
+    public final JavaParser.qualifiedIdentifier_return qualifiedIdentifier() throws RecognitionException {
+        JavaParser.qualifiedIdentifier_return retval = new JavaParser.qualifiedIdentifier_return();
         retval.start = input.LT(1);
         int qualifiedIdentifier_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -8496,13 +8481,13 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "annotationList"
     // Java.g:672:1: annotationList : ( annotation )* -> ^( ANNOTATION_LIST ( annotation )* ) ;
-    public final LeMaVMParser.annotationList_return annotationList() throws RecognitionException {
-        LeMaVMParser.annotationList_return retval = new LeMaVMParser.annotationList_return();
+    public final JavaParser.annotationList_return annotationList() throws RecognitionException {
+        JavaParser.annotationList_return retval = new JavaParser.annotationList_return();
         retval.start = input.LT(1);
         int annotationList_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.annotation_return annotation222 = null;
+        JavaParser.annotation_return annotation222 = null;
 
 
         RewriteRuleSubtreeStream stream_annotation=new RewriteRuleSubtreeStream(adaptor,"rule annotation");
@@ -8617,16 +8602,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "annotation"
     // Java.g:677:1: annotation : AT qualifiedIdentifier ( annotationInit )? ;
-    public final LeMaVMParser.annotation_return annotation() throws RecognitionException {
-        LeMaVMParser.annotation_return retval = new LeMaVMParser.annotation_return();
+    public final JavaParser.annotation_return annotation() throws RecognitionException {
+        JavaParser.annotation_return retval = new JavaParser.annotation_return();
         retval.start = input.LT(1);
         int annotation_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token AT223=null;
-        LeMaVMParser.qualifiedIdentifier_return qualifiedIdentifier224 = null;
+        JavaParser.qualifiedIdentifier_return qualifiedIdentifier224 = null;
 
-        LeMaVMParser.annotationInit_return annotationInit225 = null;
+        JavaParser.annotationInit_return annotationInit225 = null;
 
 
         CommonTree AT223_tree=null;
@@ -8703,15 +8688,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "annotationInit"
     // Java.g:681:1: annotationInit : LPAREN annotationInitializers RPAREN -> ^( ANNOTATION_INIT_BLOCK[$LPAREN, \"ANNOTATION_INIT_BLOCK\"] annotationInitializers ) ;
-    public final LeMaVMParser.annotationInit_return annotationInit() throws RecognitionException {
-        LeMaVMParser.annotationInit_return retval = new LeMaVMParser.annotationInit_return();
+    public final JavaParser.annotationInit_return annotationInit() throws RecognitionException {
+        JavaParser.annotationInit_return retval = new JavaParser.annotationInit_return();
         retval.start = input.LT(1);
         int annotationInit_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token LPAREN226=null;
         Token RPAREN228=null;
-        LeMaVMParser.annotationInitializers_return annotationInitializers227 = null;
+        JavaParser.annotationInitializers_return annotationInitializers227 = null;
 
 
         CommonTree LPAREN226_tree=null;
@@ -8795,18 +8780,18 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "annotationInitializers"
     // Java.g:686:1: annotationInitializers : ( annotationInitializer ( COMMA annotationInitializer )* -> ^( ANNOTATION_INIT_KEY_LIST ( annotationInitializer )+ ) | annotationElementValue -> ^( ANNOTATION_INIT_DEFAULT_KEY annotationElementValue ) );
-    public final LeMaVMParser.annotationInitializers_return annotationInitializers() throws RecognitionException {
-        LeMaVMParser.annotationInitializers_return retval = new LeMaVMParser.annotationInitializers_return();
+    public final JavaParser.annotationInitializers_return annotationInitializers() throws RecognitionException {
+        JavaParser.annotationInitializers_return retval = new JavaParser.annotationInitializers_return();
         retval.start = input.LT(1);
         int annotationInitializers_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token COMMA230=null;
-        LeMaVMParser.annotationInitializer_return annotationInitializer229 = null;
+        JavaParser.annotationInitializer_return annotationInitializer229 = null;
 
-        LeMaVMParser.annotationInitializer_return annotationInitializer231 = null;
+        JavaParser.annotationInitializer_return annotationInitializer231 = null;
 
-        LeMaVMParser.annotationElementValue_return annotationElementValue232 = null;
+        JavaParser.annotationElementValue_return annotationElementValue232 = null;
 
 
         CommonTree COMMA230_tree=null;
@@ -8997,15 +8982,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "annotationInitializer"
     // Java.g:693:1: annotationInitializer : IDENT ASSIGN annotationElementValue ;
-    public final LeMaVMParser.annotationInitializer_return annotationInitializer() throws RecognitionException {
-        LeMaVMParser.annotationInitializer_return retval = new LeMaVMParser.annotationInitializer_return();
+    public final JavaParser.annotationInitializer_return annotationInitializer() throws RecognitionException {
+        JavaParser.annotationInitializer_return retval = new JavaParser.annotationInitializer_return();
         retval.start = input.LT(1);
         int annotationInitializer_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token IDENT233=null;
         Token ASSIGN234=null;
-        LeMaVMParser.annotationElementValue_return annotationElementValue235 = null;
+        JavaParser.annotationElementValue_return annotationElementValue235 = null;
 
 
         CommonTree IDENT233_tree=null;
@@ -9061,17 +9046,17 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "annotationElementValue"
     // Java.g:697:1: annotationElementValue : ( annotationElementValueExpression | annotation | annotationElementValueArrayInitializer );
-    public final LeMaVMParser.annotationElementValue_return annotationElementValue() throws RecognitionException {
-        LeMaVMParser.annotationElementValue_return retval = new LeMaVMParser.annotationElementValue_return();
+    public final JavaParser.annotationElementValue_return annotationElementValue() throws RecognitionException {
+        JavaParser.annotationElementValue_return retval = new JavaParser.annotationElementValue_return();
         retval.start = input.LT(1);
         int annotationElementValue_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.annotationElementValueExpression_return annotationElementValueExpression236 = null;
+        JavaParser.annotationElementValueExpression_return annotationElementValueExpression236 = null;
 
-        LeMaVMParser.annotation_return annotation237 = null;
+        JavaParser.annotation_return annotation237 = null;
 
-        LeMaVMParser.annotationElementValueArrayInitializer_return annotationElementValueArrayInitializer238 = null;
+        JavaParser.annotationElementValueArrayInitializer_return annotationElementValueArrayInitializer238 = null;
 
 
 
@@ -9205,13 +9190,13 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "annotationElementValueExpression"
     // Java.g:703:1: annotationElementValueExpression : conditionalExpression -> ^( EXPR conditionalExpression ) ;
-    public final LeMaVMParser.annotationElementValueExpression_return annotationElementValueExpression() throws RecognitionException {
-        LeMaVMParser.annotationElementValueExpression_return retval = new LeMaVMParser.annotationElementValueExpression_return();
+    public final JavaParser.annotationElementValueExpression_return annotationElementValueExpression() throws RecognitionException {
+        JavaParser.annotationElementValueExpression_return retval = new JavaParser.annotationElementValueExpression_return();
         retval.start = input.LT(1);
         int annotationElementValueExpression_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.conditionalExpression_return conditionalExpression239 = null;
+        JavaParser.conditionalExpression_return conditionalExpression239 = null;
 
 
         RewriteRuleSubtreeStream stream_conditionalExpression=new RewriteRuleSubtreeStream(adaptor,"rule conditionalExpression");
@@ -9285,8 +9270,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "annotationElementValueArrayInitializer"
     // Java.g:708:1: annotationElementValueArrayInitializer : LCURLY ( annotationElementValue ( COMMA annotationElementValue )* )? ( COMMA )? RCURLY -> ^( ANNOTATION_INIT_ARRAY_ELEMENT[$LCURLY, \"ANNOTATION_ELEM_VALUE_ARRAY_INIT\"] ( annotationElementValue )* ) ;
-    public final LeMaVMParser.annotationElementValueArrayInitializer_return annotationElementValueArrayInitializer() throws RecognitionException {
-        LeMaVMParser.annotationElementValueArrayInitializer_return retval = new LeMaVMParser.annotationElementValueArrayInitializer_return();
+    public final JavaParser.annotationElementValueArrayInitializer_return annotationElementValueArrayInitializer() throws RecognitionException {
+        JavaParser.annotationElementValueArrayInitializer_return retval = new JavaParser.annotationElementValueArrayInitializer_return();
         retval.start = input.LT(1);
         int annotationElementValueArrayInitializer_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -9295,9 +9280,9 @@ public class LeMaVMParser extends Parser {
         Token COMMA242=null;
         Token COMMA244=null;
         Token RCURLY245=null;
-        LeMaVMParser.annotationElementValue_return annotationElementValue241 = null;
+        JavaParser.annotationElementValue_return annotationElementValue241 = null;
 
-        LeMaVMParser.annotationElementValue_return annotationElementValue243 = null;
+        JavaParser.annotationElementValue_return annotationElementValue243 = null;
 
 
         CommonTree LCURLY240_tree=null;
@@ -9465,8 +9450,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "annotationTypeDeclaration"
     // Java.g:713:1: annotationTypeDeclaration[CommonTree modifiers] : AT INTERFACE IDENT annotationBody -> ^( AT IDENT annotationBody ) ;
-    public final LeMaVMParser.annotationTypeDeclaration_return annotationTypeDeclaration(CommonTree modifiers) throws RecognitionException {
-        LeMaVMParser.annotationTypeDeclaration_return retval = new LeMaVMParser.annotationTypeDeclaration_return();
+    public final JavaParser.annotationTypeDeclaration_return annotationTypeDeclaration(CommonTree modifiers) throws RecognitionException {
+        JavaParser.annotationTypeDeclaration_return retval = new JavaParser.annotationTypeDeclaration_return();
         retval.start = input.LT(1);
         int annotationTypeDeclaration_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -9474,7 +9459,7 @@ public class LeMaVMParser extends Parser {
         Token AT246=null;
         Token INTERFACE247=null;
         Token IDENT248=null;
-        LeMaVMParser.annotationBody_return annotationBody249 = null;
+        JavaParser.annotationBody_return annotationBody249 = null;
 
 
         CommonTree AT246_tree=null;
@@ -9565,15 +9550,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "annotationBody"
     // Java.g:718:1: annotationBody : LCURLY ( annotationScopeDeclarations )* RCURLY -> ^( ANNOTATION_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( annotationScopeDeclarations )* ) ;
-    public final LeMaVMParser.annotationBody_return annotationBody() throws RecognitionException {
-        LeMaVMParser.annotationBody_return retval = new LeMaVMParser.annotationBody_return();
+    public final JavaParser.annotationBody_return annotationBody() throws RecognitionException {
+        JavaParser.annotationBody_return retval = new JavaParser.annotationBody_return();
         retval.start = input.LT(1);
         int annotationBody_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token LCURLY250=null;
         Token RCURLY252=null;
-        LeMaVMParser.annotationScopeDeclarations_return annotationScopeDeclarations251 = null;
+        JavaParser.annotationScopeDeclarations_return annotationScopeDeclarations251 = null;
 
 
         CommonTree LCURLY250_tree=null;
@@ -9686,8 +9671,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "annotationScopeDeclarations"
     // Java.g:723:1: annotationScopeDeclarations : ( modifierList type ( IDENT LPAREN RPAREN ( annotationDefaultValue )? SEMI -> ^( ANNOTATION_METHOD_DECL modifierList type IDENT ( annotationDefaultValue )? ) | classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration );
-    public final LeMaVMParser.annotationScopeDeclarations_return annotationScopeDeclarations() throws RecognitionException {
-        LeMaVMParser.annotationScopeDeclarations_return retval = new LeMaVMParser.annotationScopeDeclarations_return();
+    public final JavaParser.annotationScopeDeclarations_return annotationScopeDeclarations() throws RecognitionException {
+        JavaParser.annotationScopeDeclarations_return retval = new JavaParser.annotationScopeDeclarations_return();
         retval.start = input.LT(1);
         int annotationScopeDeclarations_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -9697,15 +9682,15 @@ public class LeMaVMParser extends Parser {
         Token RPAREN257=null;
         Token SEMI259=null;
         Token SEMI261=null;
-        LeMaVMParser.modifierList_return modifierList253 = null;
+        JavaParser.modifierList_return modifierList253 = null;
 
-        LeMaVMParser.type_return type254 = null;
+        JavaParser.type_return type254 = null;
 
-        LeMaVMParser.annotationDefaultValue_return annotationDefaultValue258 = null;
+        JavaParser.annotationDefaultValue_return annotationDefaultValue258 = null;
 
-        LeMaVMParser.classFieldDeclaratorList_return classFieldDeclaratorList260 = null;
+        JavaParser.classFieldDeclaratorList_return classFieldDeclaratorList260 = null;
 
-        LeMaVMParser.typeDeclaration_return typeDeclaration262 = null;
+        JavaParser.typeDeclaration_return typeDeclaration262 = null;
 
 
         CommonTree IDENT255_tree=null;
@@ -9943,14 +9928,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "annotationDefaultValue"
     // Java.g:733:1: annotationDefaultValue : DEFAULT annotationElementValue ;
-    public final LeMaVMParser.annotationDefaultValue_return annotationDefaultValue() throws RecognitionException {
-        LeMaVMParser.annotationDefaultValue_return retval = new LeMaVMParser.annotationDefaultValue_return();
+    public final JavaParser.annotationDefaultValue_return annotationDefaultValue() throws RecognitionException {
+        JavaParser.annotationDefaultValue_return retval = new JavaParser.annotationDefaultValue_return();
         retval.start = input.LT(1);
         int annotationDefaultValue_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token DEFAULT263=null;
-        LeMaVMParser.annotationElementValue_return annotationElementValue264 = null;
+        JavaParser.annotationElementValue_return annotationElementValue264 = null;
 
 
         CommonTree DEFAULT263_tree=null;
@@ -10004,15 +9989,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "block"
     // Java.g:739:1: block : LCURLY ( blockStatement )* RCURLY -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* ) ;
-    public final LeMaVMParser.block_return block() throws RecognitionException {
-        LeMaVMParser.block_return retval = new LeMaVMParser.block_return();
+    public final JavaParser.block_return block() throws RecognitionException {
+        JavaParser.block_return retval = new JavaParser.block_return();
         retval.start = input.LT(1);
         int block_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token LCURLY265=null;
         Token RCURLY267=null;
-        LeMaVMParser.blockStatement_return blockStatement266 = null;
+        JavaParser.blockStatement_return blockStatement266 = null;
 
 
         CommonTree LCURLY265_tree=null;
@@ -10125,18 +10110,18 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "blockStatement"
     // Java.g:744:1: blockStatement : ( localVariableDeclaration SEMI | typeDeclaration | statement );
-    public final LeMaVMParser.blockStatement_return blockStatement() throws RecognitionException {
-        LeMaVMParser.blockStatement_return retval = new LeMaVMParser.blockStatement_return();
+    public final JavaParser.blockStatement_return blockStatement() throws RecognitionException {
+        JavaParser.blockStatement_return retval = new JavaParser.blockStatement_return();
         retval.start = input.LT(1);
         int blockStatement_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token SEMI269=null;
-        LeMaVMParser.localVariableDeclaration_return localVariableDeclaration268 = null;
+        JavaParser.localVariableDeclaration_return localVariableDeclaration268 = null;
 
-        LeMaVMParser.typeDeclaration_return typeDeclaration270 = null;
+        JavaParser.typeDeclaration_return typeDeclaration270 = null;
 
-        LeMaVMParser.statement_return statement271 = null;
+        JavaParser.statement_return statement271 = null;
 
 
         CommonTree SEMI269_tree=null;
@@ -10220,17 +10205,17 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "localVariableDeclaration"
     // Java.g:750:1: localVariableDeclaration : localModifierList type classFieldDeclaratorList -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList ) ;
-    public final LeMaVMParser.localVariableDeclaration_return localVariableDeclaration() throws RecognitionException {
-        LeMaVMParser.localVariableDeclaration_return retval = new LeMaVMParser.localVariableDeclaration_return();
+    public final JavaParser.localVariableDeclaration_return localVariableDeclaration() throws RecognitionException {
+        JavaParser.localVariableDeclaration_return retval = new JavaParser.localVariableDeclaration_return();
         retval.start = input.LT(1);
         int localVariableDeclaration_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.localModifierList_return localModifierList272 = null;
+        JavaParser.localModifierList_return localModifierList272 = null;
 
-        LeMaVMParser.type_return type273 = null;
+        JavaParser.type_return type273 = null;
 
-        LeMaVMParser.classFieldDeclaratorList_return classFieldDeclaratorList274 = null;
+        JavaParser.classFieldDeclaratorList_return classFieldDeclaratorList274 = null;
 
 
         RewriteRuleSubtreeStream stream_localModifierList=new RewriteRuleSubtreeStream(adaptor,"rule localModifierList");
@@ -10320,8 +10305,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "statement"
     // Java.g:756:1: statement : ( block | ASSERT expr1= expression ( COLON expr2= expression SEMI -> ^( ASSERT $expr1 $expr2) | SEMI -> ^( ASSERT $expr1) ) | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | TRY block ( catches ( finallyClause )? | finallyClause ) -> ^( TRY block ( catches )? ( finallyClause )? ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | SYNCHRONIZED parenthesizedExpression block -> ^( SYNCHRONIZED parenthesizedExpression block ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | THROW expression SEMI -> ^( THROW expression ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI );
-    public final LeMaVMParser.statement_return statement() throws RecognitionException {
-        LeMaVMParser.statement_return retval = new LeMaVMParser.statement_return();
+    public final JavaParser.statement_return statement() throws RecognitionException {
+        JavaParser.statement_return retval = new JavaParser.statement_return();
         retval.start = input.LT(1);
         int statement_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -10363,65 +10348,65 @@ public class LeMaVMParser extends Parser {
         Token COLON333=null;
         Token SEMI336=null;
         Token SEMI337=null;
-        LeMaVMParser.expression_return expr1 = null;
+        JavaParser.expression_return expr1 = null;
 
-        LeMaVMParser.expression_return expr2 = null;
+        JavaParser.expression_return expr2 = null;
 
-        LeMaVMParser.statement_return ifStat = null;
+        JavaParser.statement_return ifStat = null;
 
-        LeMaVMParser.statement_return elseStat = null;
+        JavaParser.statement_return elseStat = null;
 
-        LeMaVMParser.block_return block275 = null;
+        JavaParser.block_return block275 = null;
 
-        LeMaVMParser.parenthesizedExpression_return parenthesizedExpression281 = null;
+        JavaParser.parenthesizedExpression_return parenthesizedExpression281 = null;
 
-        LeMaVMParser.forInit_return forInit285 = null;
+        JavaParser.forInit_return forInit285 = null;
 
-        LeMaVMParser.forCondition_return forCondition287 = null;
+        JavaParser.forCondition_return forCondition287 = null;
 
-        LeMaVMParser.forUpdater_return forUpdater289 = null;
+        JavaParser.forUpdater_return forUpdater289 = null;
 
-        LeMaVMParser.statement_return statement291 = null;
+        JavaParser.statement_return statement291 = null;
 
-        LeMaVMParser.localModifierList_return localModifierList292 = null;
+        JavaParser.localModifierList_return localModifierList292 = null;
 
-        LeMaVMParser.type_return type293 = null;
+        JavaParser.type_return type293 = null;
 
-        LeMaVMParser.expression_return expression296 = null;
+        JavaParser.expression_return expression296 = null;
 
-        LeMaVMParser.statement_return statement298 = null;
+        JavaParser.statement_return statement298 = null;
 
-        LeMaVMParser.parenthesizedExpression_return parenthesizedExpression300 = null;
+        JavaParser.parenthesizedExpression_return parenthesizedExpression300 = null;
 
-        LeMaVMParser.statement_return statement301 = null;
+        JavaParser.statement_return statement301 = null;
 
-        LeMaVMParser.statement_return statement303 = null;
+        JavaParser.statement_return statement303 = null;
 
-        LeMaVMParser.parenthesizedExpression_return parenthesizedExpression305 = null;
+        JavaParser.parenthesizedExpression_return parenthesizedExpression305 = null;
 
-        LeMaVMParser.block_return block308 = null;
+        JavaParser.block_return block308 = null;
 
-        LeMaVMParser.catches_return catches309 = null;
+        JavaParser.catches_return catches309 = null;
 
-        LeMaVMParser.finallyClause_return finallyClause310 = null;
+        JavaParser.finallyClause_return finallyClause310 = null;
 
-        LeMaVMParser.finallyClause_return finallyClause311 = null;
+        JavaParser.finallyClause_return finallyClause311 = null;
 
-        LeMaVMParser.parenthesizedExpression_return parenthesizedExpression313 = null;
+        JavaParser.parenthesizedExpression_return parenthesizedExpression313 = null;
 
-        LeMaVMParser.switchBlockLabels_return switchBlockLabels315 = null;
+        JavaParser.switchBlockLabels_return switchBlockLabels315 = null;
 
-        LeMaVMParser.parenthesizedExpression_return parenthesizedExpression318 = null;
+        JavaParser.parenthesizedExpression_return parenthesizedExpression318 = null;
 
-        LeMaVMParser.block_return block319 = null;
+        JavaParser.block_return block319 = null;
 
-        LeMaVMParser.expression_return expression321 = null;
+        JavaParser.expression_return expression321 = null;
 
-        LeMaVMParser.expression_return expression324 = null;
+        JavaParser.expression_return expression324 = null;
 
-        LeMaVMParser.statement_return statement334 = null;
+        JavaParser.statement_return statement334 = null;
 
-        LeMaVMParser.expression_return expression335 = null;
+        JavaParser.expression_return expression335 = null;
 
 
         CommonTree ASSERT276_tree=null;
@@ -11618,13 +11603,13 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "catches"
     // Java.g:785:1: catches : ( catchClause )+ -> ^( CATCH_CLAUSE_LIST ( catchClause )+ ) ;
-    public final LeMaVMParser.catches_return catches() throws RecognitionException {
-        LeMaVMParser.catches_return retval = new LeMaVMParser.catches_return();
+    public final JavaParser.catches_return catches() throws RecognitionException {
+        JavaParser.catches_return retval = new JavaParser.catches_return();
         retval.start = input.LT(1);
         int catches_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.catchClause_return catchClause338 = null;
+        JavaParser.catchClause_return catchClause338 = null;
 
 
         RewriteRuleSubtreeStream stream_catchClause=new RewriteRuleSubtreeStream(adaptor,"rule catchClause");
@@ -11735,8 +11720,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "catchClause"
     // Java.g:790:1: catchClause : CATCH LPAREN formalParameterStandardDecl RPAREN block ;
-    public final LeMaVMParser.catchClause_return catchClause() throws RecognitionException {
-        LeMaVMParser.catchClause_return retval = new LeMaVMParser.catchClause_return();
+    public final JavaParser.catchClause_return catchClause() throws RecognitionException {
+        JavaParser.catchClause_return retval = new JavaParser.catchClause_return();
         retval.start = input.LT(1);
         int catchClause_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -11744,9 +11729,9 @@ public class LeMaVMParser extends Parser {
         Token CATCH339=null;
         Token LPAREN340=null;
         Token RPAREN342=null;
-        LeMaVMParser.formalParameterStandardDecl_return formalParameterStandardDecl341 = null;
+        JavaParser.formalParameterStandardDecl_return formalParameterStandardDecl341 = null;
 
-        LeMaVMParser.block_return block343 = null;
+        JavaParser.block_return block343 = null;
 
 
         CommonTree CATCH339_tree=null;
@@ -11810,14 +11795,14 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "finallyClause"
     // Java.g:794:1: finallyClause : FINALLY block -> block ;
-    public final LeMaVMParser.finallyClause_return finallyClause() throws RecognitionException {
-        LeMaVMParser.finallyClause_return retval = new LeMaVMParser.finallyClause_return();
+    public final JavaParser.finallyClause_return finallyClause() throws RecognitionException {
+        JavaParser.finallyClause_return retval = new JavaParser.finallyClause_return();
         retval.start = input.LT(1);
         int finallyClause_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token FINALLY344=null;
-        LeMaVMParser.block_return block345 = null;
+        JavaParser.block_return block345 = null;
 
 
         CommonTree FINALLY344_tree=null;
@@ -11888,17 +11873,17 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "switchBlockLabels"
     // Java.g:799:1: switchBlockLabels : switchCaseLabels ( switchDefaultLabel )? switchCaseLabels -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels ) ;
-    public final LeMaVMParser.switchBlockLabels_return switchBlockLabels() throws RecognitionException {
-        LeMaVMParser.switchBlockLabels_return retval = new LeMaVMParser.switchBlockLabels_return();
+    public final JavaParser.switchBlockLabels_return switchBlockLabels() throws RecognitionException {
+        JavaParser.switchBlockLabels_return retval = new JavaParser.switchBlockLabels_return();
         retval.start = input.LT(1);
         int switchBlockLabels_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.switchCaseLabels_return switchCaseLabels346 = null;
+        JavaParser.switchCaseLabels_return switchCaseLabels346 = null;
 
-        LeMaVMParser.switchDefaultLabel_return switchDefaultLabel347 = null;
+        JavaParser.switchDefaultLabel_return switchDefaultLabel347 = null;
 
-        LeMaVMParser.switchCaseLabels_return switchCaseLabels348 = null;
+        JavaParser.switchCaseLabels_return switchCaseLabels348 = null;
 
 
         RewriteRuleSubtreeStream stream_switchDefaultLabel=new RewriteRuleSubtreeStream(adaptor,"rule switchDefaultLabel");
@@ -12009,13 +11994,13 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "switchCaseLabels"
     // Java.g:804:1: switchCaseLabels : ( switchCaseLabel )* ;
-    public final LeMaVMParser.switchCaseLabels_return switchCaseLabels() throws RecognitionException {
-        LeMaVMParser.switchCaseLabels_return retval = new LeMaVMParser.switchCaseLabels_return();
+    public final JavaParser.switchCaseLabels_return switchCaseLabels() throws RecognitionException {
+        JavaParser.switchCaseLabels_return retval = new JavaParser.switchCaseLabels_return();
         retval.start = input.LT(1);
         int switchCaseLabels_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.switchCaseLabel_return switchCaseLabel349 = null;
+        JavaParser.switchCaseLabel_return switchCaseLabel349 = null;
 
 
 
@@ -12093,17 +12078,17 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "switchCaseLabel"
     // Java.g:808:1: switchCaseLabel : CASE expression COLON ( blockStatement )* ;
-    public final LeMaVMParser.switchCaseLabel_return switchCaseLabel() throws RecognitionException {
-        LeMaVMParser.switchCaseLabel_return retval = new LeMaVMParser.switchCaseLabel_return();
+    public final JavaParser.switchCaseLabel_return switchCaseLabel() throws RecognitionException {
+        JavaParser.switchCaseLabel_return retval = new JavaParser.switchCaseLabel_return();
         retval.start = input.LT(1);
         int switchCaseLabel_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token CASE350=null;
         Token COLON352=null;
-        LeMaVMParser.expression_return expression351 = null;
+        JavaParser.expression_return expression351 = null;
 
-        LeMaVMParser.blockStatement_return blockStatement353 = null;
+        JavaParser.blockStatement_return blockStatement353 = null;
 
 
         CommonTree CASE350_tree=null;
@@ -12189,15 +12174,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "switchDefaultLabel"
     // Java.g:812:1: switchDefaultLabel : DEFAULT COLON ( blockStatement )* ;
-    public final LeMaVMParser.switchDefaultLabel_return switchDefaultLabel() throws RecognitionException {
-        LeMaVMParser.switchDefaultLabel_return retval = new LeMaVMParser.switchDefaultLabel_return();
+    public final JavaParser.switchDefaultLabel_return switchDefaultLabel() throws RecognitionException {
+        JavaParser.switchDefaultLabel_return retval = new JavaParser.switchDefaultLabel_return();
         retval.start = input.LT(1);
         int switchDefaultLabel_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token DEFAULT354=null;
         Token COLON355=null;
-        LeMaVMParser.blockStatement_return blockStatement356 = null;
+        JavaParser.blockStatement_return blockStatement356 = null;
 
 
         CommonTree DEFAULT354_tree=null;
@@ -12277,15 +12262,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "forInit"
     // Java.g:816:1: forInit : ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) );
-    public final LeMaVMParser.forInit_return forInit() throws RecognitionException {
-        LeMaVMParser.forInit_return retval = new LeMaVMParser.forInit_return();
+    public final JavaParser.forInit_return forInit() throws RecognitionException {
+        JavaParser.forInit_return retval = new JavaParser.forInit_return();
         retval.start = input.LT(1);
         int forInit_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.localVariableDeclaration_return localVariableDeclaration357 = null;
+        JavaParser.localVariableDeclaration_return localVariableDeclaration357 = null;
 
-        LeMaVMParser.expressionList_return expressionList358 = null;
+        JavaParser.expressionList_return expressionList358 = null;
 
 
         RewriteRuleSubtreeStream stream_expressionList=new RewriteRuleSubtreeStream(adaptor,"rule expressionList");
@@ -12437,13 +12422,13 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "forCondition"
     // Java.g:822:1: forCondition : ( expression )? -> ^( FOR_CONDITION ( expression )? ) ;
-    public final LeMaVMParser.forCondition_return forCondition() throws RecognitionException {
-        LeMaVMParser.forCondition_return retval = new LeMaVMParser.forCondition_return();
+    public final JavaParser.forCondition_return forCondition() throws RecognitionException {
+        JavaParser.forCondition_return retval = new JavaParser.forCondition_return();
         retval.start = input.LT(1);
         int forCondition_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.expression_return expression359 = null;
+        JavaParser.expression_return expression359 = null;
 
 
         RewriteRuleSubtreeStream stream_expression=new RewriteRuleSubtreeStream(adaptor,"rule expression");
@@ -12539,13 +12524,13 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "forUpdater"
     // Java.g:827:1: forUpdater : ( expressionList )? -> ^( FOR_UPDATE ( expressionList )? ) ;
-    public final LeMaVMParser.forUpdater_return forUpdater() throws RecognitionException {
-        LeMaVMParser.forUpdater_return retval = new LeMaVMParser.forUpdater_return();
+    public final JavaParser.forUpdater_return forUpdater() throws RecognitionException {
+        JavaParser.forUpdater_return retval = new JavaParser.forUpdater_return();
         retval.start = input.LT(1);
         int forUpdater_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.expressionList_return expressionList360 = null;
+        JavaParser.expressionList_return expressionList360 = null;
 
 
         RewriteRuleSubtreeStream stream_expressionList=new RewriteRuleSubtreeStream(adaptor,"rule expressionList");
@@ -12641,15 +12626,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "parenthesizedExpression"
     // Java.g:834:1: parenthesizedExpression : LPAREN expression RPAREN -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression ) ;
-    public final LeMaVMParser.parenthesizedExpression_return parenthesizedExpression() throws RecognitionException {
-        LeMaVMParser.parenthesizedExpression_return retval = new LeMaVMParser.parenthesizedExpression_return();
+    public final JavaParser.parenthesizedExpression_return parenthesizedExpression() throws RecognitionException {
+        JavaParser.parenthesizedExpression_return retval = new JavaParser.parenthesizedExpression_return();
         retval.start = input.LT(1);
         int parenthesizedExpression_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token LPAREN361=null;
         Token RPAREN363=null;
-        LeMaVMParser.expression_return expression362 = null;
+        JavaParser.expression_return expression362 = null;
 
 
         CommonTree LPAREN361_tree=null;
@@ -12733,16 +12718,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "expressionList"
     // Java.g:839:1: expressionList : expression ( COMMA expression )* ;
-    public final LeMaVMParser.expressionList_return expressionList() throws RecognitionException {
-        LeMaVMParser.expressionList_return retval = new LeMaVMParser.expressionList_return();
+    public final JavaParser.expressionList_return expressionList() throws RecognitionException {
+        JavaParser.expressionList_return retval = new JavaParser.expressionList_return();
         retval.start = input.LT(1);
         int expressionList_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token COMMA365=null;
-        LeMaVMParser.expression_return expression364 = null;
+        JavaParser.expression_return expression364 = null;
 
-        LeMaVMParser.expression_return expression366 = null;
+        JavaParser.expression_return expression366 = null;
 
 
         CommonTree COMMA365_tree=null;
@@ -12822,13 +12807,13 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "expression"
     // Java.g:843:1: expression : assignmentExpression -> ^( EXPR assignmentExpression ) ;
-    public final LeMaVMParser.expression_return expression() throws RecognitionException {
-        LeMaVMParser.expression_return retval = new LeMaVMParser.expression_return();
+    public final JavaParser.expression_return expression() throws RecognitionException {
+        JavaParser.expression_return retval = new JavaParser.expression_return();
         retval.start = input.LT(1);
         int expression_StartIndex = input.index();
         CommonTree root_0 = null;
 
-        LeMaVMParser.assignmentExpression_return assignmentExpression367 = null;
+        JavaParser.assignmentExpression_return assignmentExpression367 = null;
 
 
         RewriteRuleSubtreeStream stream_assignmentExpression=new RewriteRuleSubtreeStream(adaptor,"rule assignmentExpression");
@@ -12902,8 +12887,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "assignmentExpression"
     // Java.g:848:1: assignmentExpression : conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT_ASSIGN | BIT_SHIFT_RIGHT_ASSIGN ) assignmentExpression )? ;
-    public final LeMaVMParser.assignmentExpression_return assignmentExpression() throws RecognitionException {
-        LeMaVMParser.assignmentExpression_return retval = new LeMaVMParser.assignmentExpression_return();
+    public final JavaParser.assignmentExpression_return assignmentExpression() throws RecognitionException {
+        JavaParser.assignmentExpression_return retval = new JavaParser.assignmentExpression_return();
         retval.start = input.LT(1);
         int assignmentExpression_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -12920,9 +12905,9 @@ public class LeMaVMParser extends Parser {
         Token SHIFT_LEFT_ASSIGN378=null;
         Token SHIFT_RIGHT_ASSIGN379=null;
         Token BIT_SHIFT_RIGHT_ASSIGN380=null;
-        LeMaVMParser.conditionalExpression_return conditionalExpression368 = null;
+        JavaParser.conditionalExpression_return conditionalExpression368 = null;
 
-        LeMaVMParser.assignmentExpression_return assignmentExpression381 = null;
+        JavaParser.assignmentExpression_return assignmentExpression381 = null;
 
 
         CommonTree ASSIGN369_tree=null;
@@ -13212,19 +13197,19 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "conditionalExpression"
     // Java.g:866:1: conditionalExpression : logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )? ;
-    public final LeMaVMParser.conditionalExpression_return conditionalExpression() throws RecognitionException {
-        LeMaVMParser.conditionalExpression_return retval = new LeMaVMParser.conditionalExpression_return();
+    public final JavaParser.conditionalExpression_return conditionalExpression() throws RecognitionException {
+        JavaParser.conditionalExpression_return retval = new JavaParser.conditionalExpression_return();
         retval.start = input.LT(1);
         int conditionalExpression_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token QUESTION383=null;
         Token COLON385=null;
-        LeMaVMParser.logicalOrExpression_return logicalOrExpression382 = null;
+        JavaParser.logicalOrExpression_return logicalOrExpression382 = null;
 
-        LeMaVMParser.assignmentExpression_return assignmentExpression384 = null;
+        JavaParser.assignmentExpression_return assignmentExpression384 = null;
 
-        LeMaVMParser.conditionalExpression_return conditionalExpression386 = null;
+        JavaParser.conditionalExpression_return conditionalExpression386 = null;
 
 
         CommonTree QUESTION383_tree=null;
@@ -13309,16 +13294,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "logicalOrExpression"
     // Java.g:870:1: logicalOrExpression : logicalAndExpression ( LOGICAL_OR logicalAndExpression )* ;
-    public final LeMaVMParser.logicalOrExpression_return logicalOrExpression() throws RecognitionException {
-        LeMaVMParser.logicalOrExpression_return retval = new LeMaVMParser.logicalOrExpression_return();
+    public final JavaParser.logicalOrExpression_return logicalOrExpression() throws RecognitionException {
+        JavaParser.logicalOrExpression_return retval = new JavaParser.logicalOrExpression_return();
         retval.start = input.LT(1);
         int logicalOrExpression_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token LOGICAL_OR388=null;
-        LeMaVMParser.logicalAndExpression_return logicalAndExpression387 = null;
+        JavaParser.logicalAndExpression_return logicalAndExpression387 = null;
 
-        LeMaVMParser.logicalAndExpression_return logicalAndExpression389 = null;
+        JavaParser.logicalAndExpression_return logicalAndExpression389 = null;
 
 
         CommonTree LOGICAL_OR388_tree=null;
@@ -13402,16 +13387,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "logicalAndExpression"
     // Java.g:874:1: logicalAndExpression : inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )* ;
-    public final LeMaVMParser.logicalAndExpression_return logicalAndExpression() throws RecognitionException {
-        LeMaVMParser.logicalAndExpression_return retval = new LeMaVMParser.logicalAndExpression_return();
+    public final JavaParser.logicalAndExpression_return logicalAndExpression() throws RecognitionException {
+        JavaParser.logicalAndExpression_return retval = new JavaParser.logicalAndExpression_return();
         retval.start = input.LT(1);
         int logicalAndExpression_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token LOGICAL_AND391=null;
-        LeMaVMParser.inclusiveOrExpression_return inclusiveOrExpression390 = null;
+        JavaParser.inclusiveOrExpression_return inclusiveOrExpression390 = null;
 
-        LeMaVMParser.inclusiveOrExpression_return inclusiveOrExpression392 = null;
+        JavaParser.inclusiveOrExpression_return inclusiveOrExpression392 = null;
 
 
         CommonTree LOGICAL_AND391_tree=null;
@@ -13495,16 +13480,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "inclusiveOrExpression"
     // Java.g:878:1: inclusiveOrExpression : exclusiveOrExpression ( OR exclusiveOrExpression )* ;
-    public final LeMaVMParser.inclusiveOrExpression_return inclusiveOrExpression() throws RecognitionException {
-        LeMaVMParser.inclusiveOrExpression_return retval = new LeMaVMParser.inclusiveOrExpression_return();
+    public final JavaParser.inclusiveOrExpression_return inclusiveOrExpression() throws RecognitionException {
+        JavaParser.inclusiveOrExpression_return retval = new JavaParser.inclusiveOrExpression_return();
         retval.start = input.LT(1);
         int inclusiveOrExpression_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token OR394=null;
-        LeMaVMParser.exclusiveOrExpression_return exclusiveOrExpression393 = null;
+        JavaParser.exclusiveOrExpression_return exclusiveOrExpression393 = null;
 
-        LeMaVMParser.exclusiveOrExpression_return exclusiveOrExpression395 = null;
+        JavaParser.exclusiveOrExpression_return exclusiveOrExpression395 = null;
 
 
         CommonTree OR394_tree=null;
@@ -13588,16 +13573,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "exclusiveOrExpression"
     // Java.g:882:1: exclusiveOrExpression : andExpression ( XOR andExpression )* ;
-    public final LeMaVMParser.exclusiveOrExpression_return exclusiveOrExpression() throws RecognitionException {
-        LeMaVMParser.exclusiveOrExpression_return retval = new LeMaVMParser.exclusiveOrExpression_return();
+    public final JavaParser.exclusiveOrExpression_return exclusiveOrExpression() throws RecognitionException {
+        JavaParser.exclusiveOrExpression_return retval = new JavaParser.exclusiveOrExpression_return();
         retval.start = input.LT(1);
         int exclusiveOrExpression_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token XOR397=null;
-        LeMaVMParser.andExpression_return andExpression396 = null;
+        JavaParser.andExpression_return andExpression396 = null;
 
-        LeMaVMParser.andExpression_return andExpression398 = null;
+        JavaParser.andExpression_return andExpression398 = null;
 
 
         CommonTree XOR397_tree=null;
@@ -13681,16 +13666,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "andExpression"
     // Java.g:886:1: andExpression : equalityExpression ( AND equalityExpression )* ;
-    public final LeMaVMParser.andExpression_return andExpression() throws RecognitionException {
-        LeMaVMParser.andExpression_return retval = new LeMaVMParser.andExpression_return();
+    public final JavaParser.andExpression_return andExpression() throws RecognitionException {
+        JavaParser.andExpression_return retval = new JavaParser.andExpression_return();
         retval.start = input.LT(1);
         int andExpression_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token AND400=null;
-        LeMaVMParser.equalityExpression_return equalityExpression399 = null;
+        JavaParser.equalityExpression_return equalityExpression399 = null;
 
-        LeMaVMParser.equalityExpression_return equalityExpression401 = null;
+        JavaParser.equalityExpression_return equalityExpression401 = null;
 
 
         CommonTree AND400_tree=null;
@@ -13774,17 +13759,17 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "equalityExpression"
     // Java.g:890:1: equalityExpression : instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )* ;
-    public final LeMaVMParser.equalityExpression_return equalityExpression() throws RecognitionException {
-        LeMaVMParser.equalityExpression_return retval = new LeMaVMParser.equalityExpression_return();
+    public final JavaParser.equalityExpression_return equalityExpression() throws RecognitionException {
+        JavaParser.equalityExpression_return retval = new JavaParser.equalityExpression_return();
         retval.start = input.LT(1);
         int equalityExpression_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token EQUAL403=null;
         Token NOT_EQUAL404=null;
-        LeMaVMParser.instanceOfExpression_return instanceOfExpression402 = null;
+        JavaParser.instanceOfExpression_return instanceOfExpression402 = null;
 
-        LeMaVMParser.instanceOfExpression_return instanceOfExpression405 = null;
+        JavaParser.instanceOfExpression_return instanceOfExpression405 = null;
 
 
         CommonTree EQUAL403_tree=null;
@@ -13907,16 +13892,16 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "instanceOfExpression"
     // Java.g:899:1: instanceOfExpression : relationalExpression ( INSTANCEOF type )? ;
-    public final LeMaVMParser.instanceOfExpression_return instanceOfExpression() throws RecognitionException {
-        LeMaVMParser.instanceOfExpression_return retval = new LeMaVMParser.instanceOfExpression_return();
+    public final JavaParser.instanceOfExpression_return instanceOfExpression() throws RecognitionException {
+        JavaParser.instanceOfExpression_return retval = new JavaParser.instanceOfExpression_return();
         retval.start = input.LT(1);
         int instanceOfExpression_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token INSTANCEOF407=null;
-        LeMaVMParser.relationalExpression_return relationalExpression406 = null;
+        JavaParser.relationalExpression_return relationalExpression406 = null;
 
-        LeMaVMParser.type_return type408 = null;
+        JavaParser.type_return type408 = null;
 
 
         CommonTree INSTANCEOF407_tree=null;
@@ -13993,8 +13978,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "relationalExpression"
     // Java.g:903:1: relationalExpression : shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )* ;
-    public final LeMaVMParser.relationalExpression_return relationalExpression() throws RecognitionException {
-        LeMaVMParser.relationalExpression_return retval = new LeMaVMParser.relationalExpression_return();
+    public final JavaParser.relationalExpression_return relationalExpression() throws RecognitionException {
+        JavaParser.relationalExpression_return retval = new JavaParser.relationalExpression_return();
         retval.start = input.LT(1);
         int relationalExpression_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -14003,9 +13988,9 @@ public class LeMaVMParser extends Parser {
         Token GREATER_OR_EQUAL411=null;
         Token LESS_THAN412=null;
         Token GREATER_THAN413=null;
-        LeMaVMParser.shiftExpression_return shiftExpression409 = null;
+        JavaParser.shiftExpression_return shiftExpression409 = null;
 
-        LeMaVMParser.shiftExpression_return shiftExpression414 = null;
+        JavaParser.shiftExpression_return shiftExpression414 = null;
 
 
         CommonTree LESS_OR_EQUAL410_tree=null;
@@ -14166,8 +14151,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "shiftExpression"
     // Java.g:914:1: shiftExpression : additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )* ;
-    public final LeMaVMParser.shiftExpression_return shiftExpression() throws RecognitionException {
-        LeMaVMParser.shiftExpression_return retval = new LeMaVMParser.shiftExpression_return();
+    public final JavaParser.shiftExpression_return shiftExpression() throws RecognitionException {
+        JavaParser.shiftExpression_return retval = new JavaParser.shiftExpression_return();
         retval.start = input.LT(1);
         int shiftExpression_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -14175,9 +14160,9 @@ public class LeMaVMParser extends Parser {
         Token BIT_SHIFT_RIGHT416=null;
         Token SHIFT_RIGHT417=null;
         Token SHIFT_LEFT418=null;
-        LeMaVMParser.additiveExpression_return additiveExpression415 = null;
+        JavaParser.additiveExpression_return additiveExpression415 = null;
 
-        LeMaVMParser.additiveExpression_return additiveExpression419 = null;
+        JavaParser.additiveExpression_return additiveExpression419 = null;
 
 
         CommonTree BIT_SHIFT_RIGHT416_tree=null;
@@ -14321,17 +14306,17 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "additiveExpression"
     // Java.g:924:1: additiveExpression : multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )* ;
-    public final LeMaVMParser.additiveExpression_return additiveExpression() throws RecognitionException {
-        LeMaVMParser.additiveExpression_return retval = new LeMaVMParser.additiveExpression_return();
+    public final JavaParser.additiveExpression_return additiveExpression() throws RecognitionException {
+        JavaParser.additiveExpression_return retval = new JavaParser.additiveExpression_return();
         retval.start = input.LT(1);
         int additiveExpression_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token PLUS421=null;
         Token MINUS422=null;
-        LeMaVMParser.multiplicativeExpression_return multiplicativeExpression420 = null;
+        JavaParser.multiplicativeExpression_return multiplicativeExpression420 = null;
 
-        LeMaVMParser.multiplicativeExpression_return multiplicativeExpression423 = null;
+        JavaParser.multiplicativeExpression_return multiplicativeExpression423 = null;
 
 
         CommonTree PLUS421_tree=null;
@@ -14454,8 +14439,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "multiplicativeExpression"
     // Java.g:933:1: multiplicativeExpression : unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )* ;
-    public final LeMaVMParser.multiplicativeExpression_return multiplicativeExpression() throws RecognitionException {
-        LeMaVMParser.multiplicativeExpression_return retval = new LeMaVMParser.multiplicativeExpression_return();
+    public final JavaParser.multiplicativeExpression_return multiplicativeExpression() throws RecognitionException {
+        JavaParser.multiplicativeExpression_return retval = new JavaParser.multiplicativeExpression_return();
         retval.start = input.LT(1);
         int multiplicativeExpression_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -14463,9 +14448,9 @@ public class LeMaVMParser extends Parser {
         Token STAR425=null;
         Token DIV426=null;
         Token MOD427=null;
-        LeMaVMParser.unaryExpression_return unaryExpression424 = null;
+        JavaParser.unaryExpression_return unaryExpression424 = null;
 
-        LeMaVMParser.unaryExpression_return unaryExpression428 = null;
+        JavaParser.unaryExpression_return unaryExpression428 = null;
 
 
         CommonTree STAR425_tree=null;
@@ -14609,8 +14594,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "unaryExpression"
     // Java.g:943:1: unaryExpression : ( PLUS unaryExpression -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression ) | MINUS unaryExpression -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression ) | INC postfixedExpression -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression ) | DEC postfixedExpression -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression ) | unaryExpressionNotPlusMinus );
-    public final LeMaVMParser.unaryExpression_return unaryExpression() throws RecognitionException {
-        LeMaVMParser.unaryExpression_return retval = new LeMaVMParser.unaryExpression_return();
+    public final JavaParser.unaryExpression_return unaryExpression() throws RecognitionException {
+        JavaParser.unaryExpression_return retval = new JavaParser.unaryExpression_return();
         retval.start = input.LT(1);
         int unaryExpression_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -14619,15 +14604,15 @@ public class LeMaVMParser extends Parser {
         Token MINUS431=null;
         Token INC433=null;
         Token DEC435=null;
-        LeMaVMParser.unaryExpression_return unaryExpression430 = null;
+        JavaParser.unaryExpression_return unaryExpression430 = null;
 
-        LeMaVMParser.unaryExpression_return unaryExpression432 = null;
+        JavaParser.unaryExpression_return unaryExpression432 = null;
 
-        LeMaVMParser.postfixedExpression_return postfixedExpression434 = null;
+        JavaParser.postfixedExpression_return postfixedExpression434 = null;
 
-        LeMaVMParser.postfixedExpression_return postfixedExpression436 = null;
+        JavaParser.postfixedExpression_return postfixedExpression436 = null;
 
-        LeMaVMParser.unaryExpressionNotPlusMinus_return unaryExpressionNotPlusMinus437 = null;
+        JavaParser.unaryExpressionNotPlusMinus_return unaryExpressionNotPlusMinus437 = null;
 
 
         CommonTree PLUS429_tree=null;
@@ -14920,8 +14905,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "unaryExpressionNotPlusMinus"
     // Java.g:951:1: unaryExpressionNotPlusMinus : ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression );
-    public final LeMaVMParser.unaryExpressionNotPlusMinus_return unaryExpressionNotPlusMinus() throws RecognitionException {
-        LeMaVMParser.unaryExpressionNotPlusMinus_return retval = new LeMaVMParser.unaryExpressionNotPlusMinus_return();
+    public final JavaParser.unaryExpressionNotPlusMinus_return unaryExpressionNotPlusMinus() throws RecognitionException {
+        JavaParser.unaryExpressionNotPlusMinus_return retval = new JavaParser.unaryExpressionNotPlusMinus_return();
         retval.start = input.LT(1);
         int unaryExpressionNotPlusMinus_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -14930,15 +14915,15 @@ public class LeMaVMParser extends Parser {
         Token LOGICAL_NOT440=null;
         Token LPAREN442=null;
         Token RPAREN444=null;
-        LeMaVMParser.unaryExpression_return unaryExpression439 = null;
+        JavaParser.unaryExpression_return unaryExpression439 = null;
 
-        LeMaVMParser.unaryExpression_return unaryExpression441 = null;
+        JavaParser.unaryExpression_return unaryExpression441 = null;
 
-        LeMaVMParser.type_return type443 = null;
+        JavaParser.type_return type443 = null;
 
-        LeMaVMParser.unaryExpression_return unaryExpression445 = null;
+        JavaParser.unaryExpression_return unaryExpression445 = null;
 
-        LeMaVMParser.postfixedExpression_return postfixedExpression446 = null;
+        JavaParser.postfixedExpression_return postfixedExpression446 = null;
 
 
         CommonTree NOT438_tree=null;
@@ -15140,8 +15125,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "postfixedExpression"
     // Java.g:958:1: postfixedExpression : ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( ( genericTypeArgumentListSimplified )? IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression ( genericTypeArgumentListSimplified )? arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )? ;
-    public final LeMaVMParser.postfixedExpression_return postfixedExpression() throws RecognitionException {
-        LeMaVMParser.postfixedExpression_return retval = new LeMaVMParser.postfixedExpression_return();
+    public final JavaParser.postfixedExpression_return postfixedExpression() throws RecognitionException {
+        JavaParser.postfixedExpression_return retval = new JavaParser.postfixedExpression_return();
         retval.start = input.LT(1);
         int postfixedExpression_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -15157,19 +15142,19 @@ public class LeMaVMParser extends Parser {
         Token RBRACK459=null;
         Token INC460=null;
         Token DEC461=null;
-        LeMaVMParser.primaryExpression_return primaryExpression447 = null;
+        JavaParser.primaryExpression_return primaryExpression447 = null;
 
-        LeMaVMParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified448 = null;
+        JavaParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified448 = null;
 
-        LeMaVMParser.arguments_return arguments450 = null;
+        JavaParser.arguments_return arguments450 = null;
 
-        LeMaVMParser.arguments_return arguments452 = null;
+        JavaParser.arguments_return arguments452 = null;
 
-        LeMaVMParser.arguments_return arguments455 = null;
+        JavaParser.arguments_return arguments455 = null;
 
-        LeMaVMParser.innerNewExpression_return innerNewExpression456 = null;
+        JavaParser.innerNewExpression_return innerNewExpression456 = null;
 
-        LeMaVMParser.expression_return expression458 = null;
+        JavaParser.expression_return expression458 = null;
 
 
         CommonTree outerDot_tree=null;
@@ -15840,8 +15825,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "primaryExpression"
     // Java.g:986:1: primaryExpression : ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | genericTypeArgumentListSimplified ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) genericTypeArgumentListSimplified arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT genericTypeArgumentListSimplified arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] genericTypeArgumentListSimplified arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) );
-    public final LeMaVMParser.primaryExpression_return primaryExpression() throws RecognitionException {
-        LeMaVMParser.primaryExpression_return retval = new LeMaVMParser.primaryExpression_return();
+    public final JavaParser.primaryExpression_return primaryExpression() throws RecognitionException {
+        JavaParser.primaryExpression_return retval = new JavaParser.primaryExpression_return();
         retval.start = input.LT(1);
         int primaryExpression_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -15861,33 +15846,33 @@ public class LeMaVMParser extends Parser {
         Token VOID488=null;
         Token DOT489=null;
         Token CLASS490=null;
-        LeMaVMParser.parenthesizedExpression_return parenthesizedExpression462 = null;
+        JavaParser.parenthesizedExpression_return parenthesizedExpression462 = null;
 
-        LeMaVMParser.literal_return literal463 = null;
+        JavaParser.literal_return literal463 = null;
 
-        LeMaVMParser.newExpression_return newExpression464 = null;
+        JavaParser.newExpression_return newExpression464 = null;
 
-        LeMaVMParser.qualifiedIdentExpression_return qualifiedIdentExpression465 = null;
+        JavaParser.qualifiedIdentExpression_return qualifiedIdentExpression465 = null;
 
-        LeMaVMParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified466 = null;
+        JavaParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified466 = null;
 
-        LeMaVMParser.arguments_return arguments468 = null;
+        JavaParser.arguments_return arguments468 = null;
 
-        LeMaVMParser.arguments_return arguments471 = null;
+        JavaParser.arguments_return arguments471 = null;
 
-        LeMaVMParser.arguments_return arguments473 = null;
+        JavaParser.arguments_return arguments473 = null;
 
-        LeMaVMParser.arguments_return arguments475 = null;
+        JavaParser.arguments_return arguments475 = null;
 
-        LeMaVMParser.arguments_return arguments477 = null;
+        JavaParser.arguments_return arguments477 = null;
 
-        LeMaVMParser.arguments_return arguments479 = null;
+        JavaParser.arguments_return arguments479 = null;
 
-        LeMaVMParser.arguments_return arguments483 = null;
+        JavaParser.arguments_return arguments483 = null;
 
-        LeMaVMParser.primitiveType_return primitiveType484 = null;
+        JavaParser.primitiveType_return primitiveType484 = null;
 
-        LeMaVMParser.arrayDeclarator_return arrayDeclarator485 = null;
+        JavaParser.arrayDeclarator_return arrayDeclarator485 = null;
 
 
         CommonTree SUPER467_tree=null;
@@ -16696,8 +16681,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "qualifiedIdentExpression"
     // Java.g:1017:1: qualifiedIdentExpression : ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | genericTypeArgumentListSimplified (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier genericTypeArgumentListSimplified arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) genericTypeArgumentListSimplified arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) genericTypeArgumentListSimplified arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )? ;
-    public final LeMaVMParser.qualifiedIdentExpression_return qualifiedIdentExpression() throws RecognitionException {
-        LeMaVMParser.qualifiedIdentExpression_return retval = new LeMaVMParser.qualifiedIdentExpression_return();
+    public final JavaParser.qualifiedIdentExpression_return qualifiedIdentExpression() throws RecognitionException {
+        JavaParser.qualifiedIdentExpression_return retval = new JavaParser.qualifiedIdentExpression_return();
         retval.start = input.LT(1);
         int qualifiedIdentExpression_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -16712,23 +16697,23 @@ public class LeMaVMParser extends Parser {
         Token IDENT500=null;
         Token IDENT502=null;
         Token THIS504=null;
-        LeMaVMParser.qualifiedIdentifier_return qualifiedIdentifier491 = null;
+        JavaParser.qualifiedIdentifier_return qualifiedIdentifier491 = null;
 
-        LeMaVMParser.arrayDeclarator_return arrayDeclarator492 = null;
+        JavaParser.arrayDeclarator_return arrayDeclarator492 = null;
 
-        LeMaVMParser.arguments_return arguments495 = null;
+        JavaParser.arguments_return arguments495 = null;
 
-        LeMaVMParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified497 = null;
+        JavaParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified497 = null;
 
-        LeMaVMParser.arguments_return arguments498 = null;
+        JavaParser.arguments_return arguments498 = null;
 
-        LeMaVMParser.arguments_return arguments501 = null;
+        JavaParser.arguments_return arguments501 = null;
 
-        LeMaVMParser.arguments_return arguments503 = null;
+        JavaParser.arguments_return arguments503 = null;
 
-        LeMaVMParser.arguments_return arguments505 = null;
+        JavaParser.arguments_return arguments505 = null;
 
-        LeMaVMParser.innerNewExpression_return innerNewExpression506 = null;
+        JavaParser.innerNewExpression_return innerNewExpression506 = null;
 
 
         CommonTree outerDot_tree=null;
@@ -17405,26 +17390,26 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "newExpression"
     // Java.g:1041:1: newExpression : NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? qualifiedTypeIdentSimplified arguments ( classBody )? ) ) ) ;
-    public final LeMaVMParser.newExpression_return newExpression() throws RecognitionException {
-        LeMaVMParser.newExpression_return retval = new LeMaVMParser.newExpression_return();
+    public final JavaParser.newExpression_return newExpression() throws RecognitionException {
+        JavaParser.newExpression_return retval = new JavaParser.newExpression_return();
         retval.start = input.LT(1);
         int newExpression_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token NEW507=null;
-        LeMaVMParser.primitiveType_return primitiveType508 = null;
+        JavaParser.primitiveType_return primitiveType508 = null;
 
-        LeMaVMParser.newArrayConstruction_return newArrayConstruction509 = null;
+        JavaParser.newArrayConstruction_return newArrayConstruction509 = null;
 
-        LeMaVMParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified510 = null;
+        JavaParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified510 = null;
 
-        LeMaVMParser.qualifiedTypeIdentSimplified_return qualifiedTypeIdentSimplified511 = null;
+        JavaParser.qualifiedTypeIdentSimplified_return qualifiedTypeIdentSimplified511 = null;
 
-        LeMaVMParser.newArrayConstruction_return newArrayConstruction512 = null;
+        JavaParser.newArrayConstruction_return newArrayConstruction512 = null;
 
-        LeMaVMParser.arguments_return arguments513 = null;
+        JavaParser.arguments_return arguments513 = null;
 
-        LeMaVMParser.classBody_return classBody514 = null;
+        JavaParser.classBody_return classBody514 = null;
 
 
         CommonTree NEW507_tree=null;
@@ -17721,19 +17706,19 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "innerNewExpression"
     // Java.g:1054:1: innerNewExpression : NEW ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] ( genericTypeArgumentListSimplified )? IDENT arguments ( classBody )? ) ;
-    public final LeMaVMParser.innerNewExpression_return innerNewExpression() throws RecognitionException {
-        LeMaVMParser.innerNewExpression_return retval = new LeMaVMParser.innerNewExpression_return();
+    public final JavaParser.innerNewExpression_return innerNewExpression() throws RecognitionException {
+        JavaParser.innerNewExpression_return retval = new JavaParser.innerNewExpression_return();
         retval.start = input.LT(1);
         int innerNewExpression_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token NEW515=null;
         Token IDENT517=null;
-        LeMaVMParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified516 = null;
+        JavaParser.genericTypeArgumentListSimplified_return genericTypeArgumentListSimplified516 = null;
 
-        LeMaVMParser.arguments_return arguments518 = null;
+        JavaParser.arguments_return arguments518 = null;
 
-        LeMaVMParser.classBody_return classBody519 = null;
+        JavaParser.classBody_return classBody519 = null;
 
 
         CommonTree NEW515_tree=null;
@@ -17878,8 +17863,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "newArrayConstruction"
     // Java.g:1059:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )? );
-    public final LeMaVMParser.newArrayConstruction_return newArrayConstruction() throws RecognitionException {
-        LeMaVMParser.newArrayConstruction_return retval = new LeMaVMParser.newArrayConstruction_return();
+    public final JavaParser.newArrayConstruction_return newArrayConstruction() throws RecognitionException {
+        JavaParser.newArrayConstruction_return retval = new JavaParser.newArrayConstruction_return();
         retval.start = input.LT(1);
         int newArrayConstruction_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -17888,15 +17873,15 @@ public class LeMaVMParser extends Parser {
         Token RBRACK524=null;
         Token LBRACK525=null;
         Token RBRACK527=null;
-        LeMaVMParser.arrayDeclaratorList_return arrayDeclaratorList520 = null;
+        JavaParser.arrayDeclaratorList_return arrayDeclaratorList520 = null;
 
-        LeMaVMParser.arrayInitializer_return arrayInitializer521 = null;
+        JavaParser.arrayInitializer_return arrayInitializer521 = null;
 
-        LeMaVMParser.expression_return expression523 = null;
+        JavaParser.expression_return expression523 = null;
 
-        LeMaVMParser.expression_return expression526 = null;
+        JavaParser.expression_return expression526 = null;
 
-        LeMaVMParser.arrayDeclaratorList_return arrayDeclaratorList528 = null;
+        JavaParser.arrayDeclaratorList_return arrayDeclaratorList528 = null;
 
 
         CommonTree LBRACK522_tree=null;
@@ -18054,15 +18039,15 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "arguments"
     // Java.g:1064:1: arguments : LPAREN ( expressionList )? RPAREN -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? ) ;
-    public final LeMaVMParser.arguments_return arguments() throws RecognitionException {
-        LeMaVMParser.arguments_return retval = new LeMaVMParser.arguments_return();
+    public final JavaParser.arguments_return arguments() throws RecognitionException {
+        JavaParser.arguments_return retval = new JavaParser.arguments_return();
         retval.start = input.LT(1);
         int arguments_StartIndex = input.index();
         CommonTree root_0 = null;
 
         Token LPAREN529=null;
         Token RPAREN531=null;
-        LeMaVMParser.expressionList_return expressionList530 = null;
+        JavaParser.expressionList_return expressionList530 = null;
 
 
         CommonTree LPAREN529_tree=null;
@@ -18168,8 +18153,8 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start "literal"
     // Java.g:1069:1: literal : ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL );
-    public final LeMaVMParser.literal_return literal() throws RecognitionException {
-        LeMaVMParser.literal_return retval = new LeMaVMParser.literal_return();
+    public final JavaParser.literal_return literal() throws RecognitionException {
+        JavaParser.literal_return retval = new JavaParser.literal_return();
         retval.start = input.LT(1);
         int literal_StartIndex = input.index();
         CommonTree root_0 = null;
@@ -19756,7 +19741,7 @@ public class LeMaVMParser extends Parser {
 
     // $ANTLR start synpred121_Java
     public final void synpred121_Java_fragment() throws RecognitionException {   
-        LeMaVMParser.statement_return elseStat = null;
+        JavaParser.statement_return elseStat = null;
 
 
         // Java.g:763:13: ( ELSE elseStat= statement )

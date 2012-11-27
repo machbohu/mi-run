@@ -6,7 +6,7 @@ Task:
 
 Solution:
 ---------
-    1. Gramatika
+    1. Grammar
     2. ANTLR -> token tree
     4. AST interpreter
 
