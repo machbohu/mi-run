@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 LeMaVM.g 2012-11-27 16:40:09
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 LeMaVM.g 2012-11-27 18:53:47
 
 package cz.cvut.fit.mirun.lemavm.antlr;
 
@@ -69,83 +69,83 @@ import org.antlr.runtime.tree.*;
  */
 public class LeMaVMParser extends Parser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "AND_ASSIGN", "ASSIGN", "AT", "BIT_SHIFT_RIGHT", "BIT_SHIFT_RIGHT_ASSIGN", "COLON", "COMMA", "DEC", "DIV", "DIV_ASSIGN", "DOT", "DOTSTAR", "ELLIPSIS", "EQUAL", "GREATER_OR_EQUAL", "GREATER_THAN", "INC", "LBRACK", "LCURLY", "LESS_OR_EQUAL", "LESS_THAN", "LOGICAL_AND", "LOGICAL_NOT", "LOGICAL_OR", "LPAREN", "MINUS", "MINUS_ASSIGN", "MOD", "MOD_ASSIGN", "NOT", "NOT_EQUAL", "OR", "OR_ASSIGN", "PLUS", "PLUS_ASSIGN", "QUESTION", "RBRACK", "RCURLY", "RPAREN", "SEMI", "SHIFT_LEFT", "SHIFT_LEFT_ASSIGN", "SHIFT_RIGHT", "SHIFT_RIGHT_ASSIGN", "STAR", "STAR_ASSIGN", "XOR", "XOR_ASSIGN", "BOOLEAN", "BREAK", "CASE", "CLASS", "CONTINUE", "DEFAULT", "DO", "DOUBLE", "ELSE", "EXTENDS", "FALSE", "FINAL", "FOR", "IF", "INSTANCEOF", "IMPORT", "INT", "LONG", "NEW", "NULL", "PACKAGE", "PRIVATE", "PROTECTED", "PUBLIC", "RETURN", "SHORT", "STATIC", "SUPER", "SWITCH", "THIS", "TRUE", "TRY", "VOID", "WHILE", "ARGUMENT_LIST", "ARRAY_DECLARATOR", "ARRAY_DECLARATOR_LIST", "ARRAY_ELEMENT_ACCESS", "ARRAY_INITIALIZER", "BLOCK_SCOPE", "CAST_EXPR", "CATCH_CLAUSE_LIST", "CLASS_CONSTRUCTOR_CALL", "CLASS_INSTANCE_INITIALIZER", "CLASS_STATIC_INITIALIZER", "CLASS_TOP_LEVEL_SCOPE", "CONSTRUCTOR_DECL", "ENUM_TOP_LEVEL_SCOPE", "EXPR", "EXTENDS_BOUND_LIST", "EXTENDS_CLAUSE", "FOR_CONDITION", "FOR_EACH", "FOR_INIT", "FOR_UPDATE", "FORMAL_PARAM_LIST", "FORMAL_PARAM_STD_DECL", "FUNCTION_METHOD_DECL", "LABELED_STATEMENT", "LOCAL_MODIFIER_LIST", "JAVA_SOURCE", "METHOD_CALL", "MODIFIER_LIST", "PARENTESIZED_EXPR", "POST_DEC", "POST_INC", "PRE_DEC", "PRE_INC", "QUALIFIED_TYPE_IDENT", "STATIC_ARRAY_CREATOR", "SUPER_CONSTRUCTOR_CALL", "SWITCH_BLOCK_LABEL_LIST", "THIS_CONSTRUCTOR_CALL", "TYPE", "UNARY_MINUS", "UNARY_PLUS", "VAR_DECLARATION", "VAR_DECLARATOR", "VAR_DECLARATOR_LIST", "VOID_METHOD_DECL", "IDENT", "HEX_LITERAL", "OCTAL_LITERAL", "DECIMAL_LITERAL", "FLOATING_POINT_LITERAL", "CHARACTER_LITERAL", "STRING_LITERAL", "HEX_DIGIT", "INTEGER_TYPE_SUFFIX", "EXPONENT", "FLOAT_TYPE_SUFFIX", "ESCAPE_SEQUENCE", "UNICODE_ESCAPE", "OCTAL_ESCAPE", "JAVA_ID_START", "JAVA_ID_PART", "WS", "COMMENT", "LINE_COMMENT"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "AND", "AND_ASSIGN", "ASSIGN", "AT", "BIT_SHIFT_RIGHT", "BIT_SHIFT_RIGHT_ASSIGN", "COLON", "COMMA", "DEC", "DIV", "DIV_ASSIGN", "DOT", "DOTSTAR", "ELLIPSIS", "EQUAL", "GREATER_OR_EQUAL", "GREATER_THAN", "INC", "LBRACK", "LCURLY", "LESS_OR_EQUAL", "LESS_THAN", "LOGICAL_AND", "LOGICAL_NOT", "LOGICAL_OR", "LPAREN", "MINUS", "MINUS_ASSIGN", "MOD", "MOD_ASSIGN", "NOT", "NOT_EQUAL", "OR", "OR_ASSIGN", "PLUS", "PLUS_ASSIGN", "QUESTION", "RBRACK", "RCURLY", "RPAREN", "SEMI", "SHIFT_LEFT", "SHIFT_LEFT_ASSIGN", "SHIFT_RIGHT", "SHIFT_RIGHT_ASSIGN", "STAR", "STAR_ASSIGN", "XOR", "XOR_ASSIGN", "BOOLEAN", "BREAK", "CASE", "CLASS", "CONTINUE", "DEFAULT", "DO", "DOUBLE", "ELSE", "EXTENDS", "FALSE", "FINAL", "FOR", "IF", "INSTANCEOF", "IMPORT", "INT", "LONG", "NEW", "NULL", "PACKAGE", "PRIVATE", "PROTECTED", "PUBLIC", "RETURN", "SHORT", "STATIC", "STRING", "SUPER", "SWITCH", "THIS", "TRUE", "TRY", "VOID", "WHILE", "ARGUMENT_LIST", "ARRAY_DECLARATOR", "ARRAY_DECLARATOR_LIST", "ARRAY_ELEMENT_ACCESS", "ARRAY_INITIALIZER", "BLOCK_SCOPE", "CAST_EXPR", "CATCH_CLAUSE_LIST", "CLASS_CONSTRUCTOR_CALL", "CLASS_INSTANCE_INITIALIZER", "CLASS_STATIC_INITIALIZER", "CLASS_TOP_LEVEL_SCOPE", "CONSTRUCTOR_DECL", "ENUM_TOP_LEVEL_SCOPE", "EXPR", "EXTENDS_BOUND_LIST", "EXTENDS_CLAUSE", "FOR_CONDITION", "FOR_EACH", "FOR_INIT", "FOR_UPDATE", "FORMAL_PARAM_LIST", "FORMAL_PARAM_STD_DECL", "FUNCTION_METHOD_DECL", "LABELED_STATEMENT", "LOCAL_MODIFIER_LIST", "JAVA_SOURCE", "METHOD_CALL", "MODIFIER_LIST", "PARENTESIZED_EXPR", "POST_DEC", "POST_INC", "PRE_DEC", "PRE_INC", "QUALIFIED_TYPE_IDENT", "STATIC_ARRAY_CREATOR", "SUPER_CONSTRUCTOR_CALL", "SWITCH_BLOCK_LABEL_LIST", "THIS_CONSTRUCTOR_CALL", "TYPE", "UNARY_MINUS", "UNARY_PLUS", "VAR_DECLARATION", "VAR_DECLARATOR", "VAR_DECLARATOR_LIST", "VOID_METHOD_DECL", "IDENT", "HEX_LITERAL", "OCTAL_LITERAL", "DECIMAL_LITERAL", "FLOATING_POINT_LITERAL", "CHARACTER_LITERAL", "STRING_LITERAL", "HEX_DIGIT", "INTEGER_TYPE_SUFFIX", "EXPONENT", "FLOAT_TYPE_SUFFIX", "ESCAPE_SEQUENCE", "UNICODE_ESCAPE", "OCTAL_ESCAPE", "JAVA_ID_START", "JAVA_ID_PART", "WS", "COMMENT", "LINE_COMMENT"
     };
     public static final int PACKAGE=73;
-    public static final int EXPONENT=142;
+    public static final int EXPONENT=143;
     public static final int STAR=49;
-    public static final int WHILE=86;
+    public static final int WHILE=87;
     public static final int MOD=32;
     public static final int MOD_ASSIGN=33;
     public static final int CASE=55;
     public static final int NEW=71;
     public static final int DO=59;
-    public static final int CLASS_INSTANCE_INITIALIZER=96;
-    public static final int ARRAY_ELEMENT_ACCESS=90;
-    public static final int FOR_CONDITION=104;
+    public static final int CLASS_INSTANCE_INITIALIZER=97;
+    public static final int ARRAY_ELEMENT_ACCESS=91;
+    public static final int FOR_CONDITION=105;
     public static final int NOT=34;
-    public static final int VAR_DECLARATION=129;
+    public static final int VAR_DECLARATION=130;
     public static final int EOF=-1;
     public static final int DIV_ASSIGN=14;
     public static final int LOGICAL_AND=26;
     public static final int BREAK=54;
-    public static final int UNARY_PLUS=128;
+    public static final int UNARY_PLUS=129;
     public static final int BIT_SHIFT_RIGHT_ASSIGN=9;
-    public static final int TYPE=126;
+    public static final int TYPE=127;
     public static final int RPAREN=43;
     public static final int INC=21;
     public static final int FINAL=64;
     public static final int IMPORT=68;
-    public static final int STRING_LITERAL=139;
-    public static final int FOR_UPDATE=107;
-    public static final int FLOATING_POINT_LITERAL=137;
-    public static final int CAST_EXPR=93;
+    public static final int STRING_LITERAL=140;
+    public static final int FOR_UPDATE=108;
+    public static final int FLOATING_POINT_LITERAL=138;
+    public static final int CAST_EXPR=94;
     public static final int NOT_EQUAL=35;
-    public static final int VOID_METHOD_DECL=132;
+    public static final int VOID_METHOD_DECL=133;
     public static final int RETURN=77;
-    public static final int THIS=82;
+    public static final int THIS=83;
     public static final int DOUBLE=60;
-    public static final int ENUM_TOP_LEVEL_SCOPE=100;
-    public static final int VOID=85;
-    public static final int SUPER=80;
-    public static final int COMMENT=150;
-    public static final int JAVA_ID_START=147;
-    public static final int FLOAT_TYPE_SUFFIX=143;
-    public static final int PRE_DEC=119;
+    public static final int ENUM_TOP_LEVEL_SCOPE=101;
+    public static final int VOID=86;
+    public static final int SUPER=81;
+    public static final int COMMENT=151;
+    public static final int JAVA_ID_START=148;
+    public static final int FLOAT_TYPE_SUFFIX=144;
+    public static final int PRE_DEC=120;
     public static final int RBRACK=41;
-    public static final int SWITCH_BLOCK_LABEL_LIST=124;
-    public static final int LINE_COMMENT=151;
+    public static final int SWITCH_BLOCK_LABEL_LIST=125;
+    public static final int LINE_COMMENT=152;
     public static final int PRIVATE=74;
     public static final int STATIC=79;
-    public static final int BLOCK_SCOPE=92;
-    public static final int SWITCH=81;
+    public static final int BLOCK_SCOPE=93;
+    public static final int SWITCH=82;
     public static final int NULL=72;
-    public static final int VAR_DECLARATOR=130;
+    public static final int VAR_DECLARATOR=131;
     public static final int MINUS_ASSIGN=31;
     public static final int ELSE=61;
-    public static final int CHARACTER_LITERAL=138;
-    public static final int PRE_INC=120;
+    public static final int CHARACTER_LITERAL=139;
+    public static final int PRE_INC=121;
     public static final int ELLIPSIS=17;
-    public static final int OCTAL_ESCAPE=146;
-    public static final int UNARY_MINUS=127;
+    public static final int OCTAL_ESCAPE=147;
+    public static final int UNARY_MINUS=128;
     public static final int LCURLY=23;
     public static final int INT=69;
-    public static final int METHOD_CALL=114;
-    public static final int TRY=84;
+    public static final int METHOD_CALL=115;
+    public static final int TRY=85;
     public static final int SHIFT_LEFT=45;
-    public static final int WS=149;
+    public static final int WS=150;
     public static final int SHIFT_RIGHT=47;
-    public static final int FORMAL_PARAM_STD_DECL=109;
-    public static final int LOCAL_MODIFIER_LIST=112;
+    public static final int FORMAL_PARAM_STD_DECL=110;
+    public static final int LOCAL_MODIFIER_LIST=113;
     public static final int OR=36;
     public static final int LESS_THAN=25;
     public static final int SHIFT_RIGHT_ASSIGN=48;
-    public static final int EXTENDS_BOUND_LIST=102;
-    public static final int JAVA_SOURCE=113;
+    public static final int EXTENDS_BOUND_LIST=103;
+    public static final int JAVA_SOURCE=114;
     public static final int FALSE=63;
-    public static final int INTEGER_TYPE_SUFFIX=141;
-    public static final int DECIMAL_LITERAL=136;
-    public static final int FOR_INIT=106;
+    public static final int INTEGER_TYPE_SUFFIX=142;
+    public static final int DECIMAL_LITERAL=137;
+    public static final int FOR_INIT=107;
     public static final int DEC=12;
     public static final int PROTECTED=75;
     public static final int CLASS=56;
@@ -153,73 +153,74 @@ public class LeMaVMParser extends Parser {
     public static final int BIT_SHIFT_RIGHT=8;
     public static final int GREATER_OR_EQUAL=19;
     public static final int FOR=65;
-    public static final int THIS_CONSTRUCTOR_CALL=125;
+    public static final int THIS_CONSTRUCTOR_CALL=126;
     public static final int LOGICAL_NOT=27;
     public static final int AND=4;
-    public static final int POST_DEC=117;
+    public static final int POST_DEC=118;
     public static final int AND_ASSIGN=5;
-    public static final int STATIC_ARRAY_CREATOR=122;
-    public static final int MODIFIER_LIST=115;
+    public static final int STATIC_ARRAY_CREATOR=123;
+    public static final int MODIFIER_LIST=116;
     public static final int LPAREN=29;
     public static final int IF=66;
     public static final int AT=7;
-    public static final int ESCAPE_SEQUENCE=144;
-    public static final int CONSTRUCTOR_DECL=99;
-    public static final int LABELED_STATEMENT=111;
-    public static final int UNICODE_ESCAPE=145;
-    public static final int EXPR=101;
+    public static final int ESCAPE_SEQUENCE=145;
+    public static final int CONSTRUCTOR_DECL=100;
+    public static final int LABELED_STATEMENT=112;
+    public static final int UNICODE_ESCAPE=146;
+    public static final int EXPR=102;
     public static final int BOOLEAN=53;
-    public static final int CLASS_TOP_LEVEL_SCOPE=98;
+    public static final int CLASS_TOP_LEVEL_SCOPE=99;
     public static final int CONTINUE=57;
     public static final int COMMA=11;
     public static final int EQUAL=18;
     public static final int XOR_ASSIGN=52;
     public static final int LOGICAL_OR=28;
-    public static final int IDENT=133;
-    public static final int QUALIFIED_TYPE_IDENT=121;
-    public static final int ARGUMENT_LIST=87;
+    public static final int IDENT=134;
+    public static final int QUALIFIED_TYPE_IDENT=122;
+    public static final int ARGUMENT_LIST=88;
     public static final int PLUS=38;
-    public static final int HEX_LITERAL=134;
+    public static final int HEX_LITERAL=135;
     public static final int DOT=15;
     public static final int SHIFT_LEFT_ASSIGN=46;
-    public static final int FORMAL_PARAM_LIST=108;
+    public static final int FORMAL_PARAM_LIST=109;
     public static final int DOTSTAR=16;
     public static final int XOR=51;
-    public static final int JAVA_ID_PART=148;
+    public static final int JAVA_ID_PART=149;
     public static final int GREATER_THAN=20;
-    public static final int PARENTESIZED_EXPR=116;
-    public static final int CLASS_STATIC_INITIALIZER=97;
+    public static final int PARENTESIZED_EXPR=117;
+    public static final int CLASS_STATIC_INITIALIZER=98;
     public static final int LESS_OR_EQUAL=24;
-    public static final int ARRAY_DECLARATOR_LIST=89;
+    public static final int ARRAY_DECLARATOR_LIST=90;
     public static final int DEFAULT=58;
-    public static final int OCTAL_LITERAL=135;
-    public static final int HEX_DIGIT=140;
+    public static final int OCTAL_LITERAL=136;
+    public static final int HEX_DIGIT=141;
     public static final int SHORT=78;
     public static final int INSTANCEOF=67;
     public static final int MINUS=30;
-    public static final int EXTENDS_CLAUSE=103;
+    public static final int EXTENDS_CLAUSE=104;
     public static final int SEMI=44;
-    public static final int TRUE=83;
+    public static final int TRUE=84;
     public static final int STAR_ASSIGN=50;
-    public static final int VAR_DECLARATOR_LIST=131;
+    public static final int VAR_DECLARATOR_LIST=132;
     public static final int COLON=10;
-    public static final int ARRAY_DECLARATOR=88;
+    public static final int ARRAY_DECLARATOR=89;
     public static final int OR_ASSIGN=37;
     public static final int QUESTION=40;
     public static final int RCURLY=42;
     public static final int PLUS_ASSIGN=39;
     public static final int ASSIGN=6;
-    public static final int FUNCTION_METHOD_DECL=110;
-    public static final int POST_INC=118;
+    public static final int FUNCTION_METHOD_DECL=111;
+    public static final int POST_INC=119;
     public static final int DIV=13;
-    public static final int CLASS_CONSTRUCTOR_CALL=95;
+    public static final int CLASS_CONSTRUCTOR_CALL=96;
     public static final int LONG=70;
-    public static final int FOR_EACH=105;
+    public static final int FOR_EACH=106;
     public static final int EXTENDS=62;
     public static final int PUBLIC=76;
-    public static final int ARRAY_INITIALIZER=91;
-    public static final int CATCH_CLAUSE_LIST=94;
-    public static final int SUPER_CONSTRUCTOR_CALL=123;
+    public static final int ARRAY_INITIALIZER=92;
+    public static final int CATCH_CLAUSE_LIST=95;
+    public static final int SUPER_CONSTRUCTOR_CALL=124;
+    public static final int STRING=80;
 
     // delegates
     // delegators
@@ -230,7 +231,7 @@ public class LeMaVMParser extends Parser {
         }
         public LeMaVMParser(TokenStream input, RecognizerSharedState state) {
             super(input, state);
-            this.state.ruleMemo = new HashMap[237+1];
+            this.state.ruleMemo = new HashMap[238+1];
              
              
         }
@@ -317,7 +318,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "javaSource"
-    // LeMaVM.g:293:1: javaSource : compilationUnit -> ^( JAVA_SOURCE compilationUnit ) ;
+    // LeMaVM.g:294:1: javaSource : compilationUnit -> ^( JAVA_SOURCE compilationUnit ) ;
     public final LeMaVMParser.javaSource_return javaSource() throws RecognitionException {
         LeMaVMParser.javaSource_return retval = new LeMaVMParser.javaSource_return();
         retval.start = input.LT(1);
@@ -330,10 +331,10 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_compilationUnit=new RewriteRuleSubtreeStream(adaptor,"rule compilationUnit");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 1) ) { return retval; }
-            // LeMaVM.g:294:5: ( compilationUnit -> ^( JAVA_SOURCE compilationUnit ) )
-            // LeMaVM.g:294:9: compilationUnit
+            // LeMaVM.g:295:5: ( compilationUnit -> ^( JAVA_SOURCE compilationUnit ) )
+            // LeMaVM.g:295:9: compilationUnit
             {
-            pushFollow(FOLLOW_compilationUnit_in_javaSource3790);
+            pushFollow(FOLLOW_compilationUnit_in_javaSource3808);
             compilationUnit1=compilationUnit();
 
             state._fsp--;
@@ -353,9 +354,9 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 295:9: -> ^( JAVA_SOURCE compilationUnit )
+            // 296:9: -> ^( JAVA_SOURCE compilationUnit )
             {
-                // LeMaVM.g:295:13: ^( JAVA_SOURCE compilationUnit )
+                // LeMaVM.g:296:13: ^( JAVA_SOURCE compilationUnit )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(JAVA_SOURCE, "JAVA_SOURCE"), root_1);
@@ -397,7 +398,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "compilationUnit"
-    // LeMaVM.g:298:1: compilationUnit : ( packageDeclaration )? ( importDeclaration )* ( typeDecls )* ;
+    // LeMaVM.g:299:1: compilationUnit : ( packageDeclaration )? ( importDeclaration )* ( typeDecls )* ;
     public final LeMaVMParser.compilationUnit_return compilationUnit() throws RecognitionException {
         LeMaVMParser.compilationUnit_return retval = new LeMaVMParser.compilationUnit_return();
         retval.start = input.LT(1);
@@ -414,12 +415,12 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 2) ) { return retval; }
-            // LeMaVM.g:299:5: ( ( packageDeclaration )? ( importDeclaration )* ( typeDecls )* )
-            // LeMaVM.g:299:9: ( packageDeclaration )? ( importDeclaration )* ( typeDecls )*
+            // LeMaVM.g:300:5: ( ( packageDeclaration )? ( importDeclaration )* ( typeDecls )* )
+            // LeMaVM.g:300:9: ( packageDeclaration )? ( importDeclaration )* ( typeDecls )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // LeMaVM.g:299:9: ( packageDeclaration )?
+            // LeMaVM.g:300:9: ( packageDeclaration )?
             int alt1=2;
             int LA1_0 = input.LA(1);
 
@@ -430,7 +431,7 @@ public class LeMaVMParser extends Parser {
                 case 1 :
                     // LeMaVM.g:0:0: packageDeclaration
                     {
-                    pushFollow(FOLLOW_packageDeclaration_in_compilationUnit3826);
+                    pushFollow(FOLLOW_packageDeclaration_in_compilationUnit3844);
                     packageDeclaration2=packageDeclaration();
 
                     state._fsp--;
@@ -442,7 +443,7 @@ public class LeMaVMParser extends Parser {
 
             }
 
-            // LeMaVM.g:300:9: ( importDeclaration )*
+            // LeMaVM.g:301:9: ( importDeclaration )*
             loop2:
             do {
                 int alt2=2;
@@ -457,7 +458,7 @@ public class LeMaVMParser extends Parser {
             	case 1 :
             	    // LeMaVM.g:0:0: importDeclaration
             	    {
-            	    pushFollow(FOLLOW_importDeclaration_in_compilationUnit3838);
+            	    pushFollow(FOLLOW_importDeclaration_in_compilationUnit3856);
             	    importDeclaration3=importDeclaration();
 
             	    state._fsp--;
@@ -472,13 +473,13 @@ public class LeMaVMParser extends Parser {
                 }
             } while (true);
 
-            // LeMaVM.g:301:9: ( typeDecls )*
+            // LeMaVM.g:302:9: ( typeDecls )*
             loop3:
             do {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0==SEMI||LA3_0==BOOLEAN||LA3_0==CLASS||LA3_0==DOUBLE||LA3_0==FINAL||(LA3_0>=INT && LA3_0<=LONG)||(LA3_0>=PRIVATE && LA3_0<=PUBLIC)||(LA3_0>=SHORT && LA3_0<=STATIC)||LA3_0==VOID||LA3_0==IDENT) ) {
+                if ( (LA3_0==SEMI||LA3_0==BOOLEAN||LA3_0==CLASS||LA3_0==DOUBLE||LA3_0==FINAL||(LA3_0>=INT && LA3_0<=LONG)||(LA3_0>=PRIVATE && LA3_0<=PUBLIC)||(LA3_0>=SHORT && LA3_0<=STRING)||LA3_0==VOID||LA3_0==IDENT) ) {
                     alt3=1;
                 }
 
@@ -487,7 +488,7 @@ public class LeMaVMParser extends Parser {
             	case 1 :
             	    // LeMaVM.g:0:0: typeDecls
             	    {
-            	    pushFollow(FOLLOW_typeDecls_in_compilationUnit3850);
+            	    pushFollow(FOLLOW_typeDecls_in_compilationUnit3868);
             	    typeDecls4=typeDecls();
 
             	    state._fsp--;
@@ -532,7 +533,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "typeDecls"
-    // LeMaVM.g:304:1: typeDecls : ( typeDeclaration | SEMI );
+    // LeMaVM.g:305:1: typeDecls : ( typeDeclaration | SEMI );
     public final LeMaVMParser.typeDecls_return typeDecls() throws RecognitionException {
         LeMaVMParser.typeDecls_return retval = new LeMaVMParser.typeDecls_return();
         retval.start = input.LT(1);
@@ -547,11 +548,11 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 3) ) { return retval; }
-            // LeMaVM.g:305:5: ( typeDeclaration | SEMI )
+            // LeMaVM.g:306:5: ( typeDeclaration | SEMI )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
-            if ( (LA4_0==BOOLEAN||LA4_0==CLASS||LA4_0==DOUBLE||LA4_0==FINAL||(LA4_0>=INT && LA4_0<=LONG)||(LA4_0>=PRIVATE && LA4_0<=PUBLIC)||(LA4_0>=SHORT && LA4_0<=STATIC)||LA4_0==VOID||LA4_0==IDENT) ) {
+            if ( (LA4_0==BOOLEAN||LA4_0==CLASS||LA4_0==DOUBLE||LA4_0==FINAL||(LA4_0>=INT && LA4_0<=LONG)||(LA4_0>=PRIVATE && LA4_0<=PUBLIC)||(LA4_0>=SHORT && LA4_0<=STRING)||LA4_0==VOID||LA4_0==IDENT) ) {
                 alt4=1;
             }
             else if ( (LA4_0==SEMI) ) {
@@ -566,11 +567,11 @@ public class LeMaVMParser extends Parser {
             }
             switch (alt4) {
                 case 1 :
-                    // LeMaVM.g:305:9: typeDeclaration
+                    // LeMaVM.g:306:9: typeDeclaration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_typeDeclaration_in_typeDecls3870);
+                    pushFollow(FOLLOW_typeDeclaration_in_typeDecls3888);
                     typeDeclaration5=typeDeclaration();
 
                     state._fsp--;
@@ -580,11 +581,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:306:9: SEMI
+                    // LeMaVM.g:307:9: SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SEMI6=(Token)match(input,SEMI,FOLLOW_SEMI_in_typeDecls3880); if (state.failed) return retval;
+                    SEMI6=(Token)match(input,SEMI,FOLLOW_SEMI_in_typeDecls3898); if (state.failed) return retval;
 
                     }
                     break;
@@ -617,7 +618,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "packageDeclaration"
-    // LeMaVM.g:309:1: packageDeclaration : PACKAGE qualifiedIdentifier SEMI ;
+    // LeMaVM.g:310:1: packageDeclaration : PACKAGE qualifiedIdentifier SEMI ;
     public final LeMaVMParser.packageDeclaration_return packageDeclaration() throws RecognitionException {
         LeMaVMParser.packageDeclaration_return retval = new LeMaVMParser.packageDeclaration_return();
         retval.start = input.LT(1);
@@ -634,23 +635,23 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 4) ) { return retval; }
-            // LeMaVM.g:310:5: ( PACKAGE qualifiedIdentifier SEMI )
-            // LeMaVM.g:310:9: PACKAGE qualifiedIdentifier SEMI
+            // LeMaVM.g:311:5: ( PACKAGE qualifiedIdentifier SEMI )
+            // LeMaVM.g:311:9: PACKAGE qualifiedIdentifier SEMI
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            PACKAGE7=(Token)match(input,PACKAGE,FOLLOW_PACKAGE_in_packageDeclaration3900); if (state.failed) return retval;
+            PACKAGE7=(Token)match(input,PACKAGE,FOLLOW_PACKAGE_in_packageDeclaration3918); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             PACKAGE7_tree = (CommonTree)adaptor.create(PACKAGE7);
             root_0 = (CommonTree)adaptor.becomeRoot(PACKAGE7_tree, root_0);
             }
-            pushFollow(FOLLOW_qualifiedIdentifier_in_packageDeclaration3903);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_packageDeclaration3921);
             qualifiedIdentifier8=qualifiedIdentifier();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, qualifiedIdentifier8.getTree());
-            SEMI9=(Token)match(input,SEMI,FOLLOW_SEMI_in_packageDeclaration3905); if (state.failed) return retval;
+            SEMI9=(Token)match(input,SEMI,FOLLOW_SEMI_in_packageDeclaration3923); if (state.failed) return retval;
 
             }
 
@@ -681,7 +682,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "importDeclaration"
-    // LeMaVM.g:313:1: importDeclaration : IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI ;
+    // LeMaVM.g:314:1: importDeclaration : IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI ;
     public final LeMaVMParser.importDeclaration_return importDeclaration() throws RecognitionException {
         LeMaVMParser.importDeclaration_return retval = new LeMaVMParser.importDeclaration_return();
         retval.start = input.LT(1);
@@ -702,17 +703,17 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 5) ) { return retval; }
-            // LeMaVM.g:314:5: ( IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI )
-            // LeMaVM.g:314:9: IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI
+            // LeMaVM.g:315:5: ( IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI )
+            // LeMaVM.g:315:9: IMPORT ( STATIC )? qualifiedIdentifier ( DOTSTAR )? SEMI
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IMPORT10=(Token)match(input,IMPORT,FOLLOW_IMPORT_in_importDeclaration3931); if (state.failed) return retval;
+            IMPORT10=(Token)match(input,IMPORT,FOLLOW_IMPORT_in_importDeclaration3949); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IMPORT10_tree = (CommonTree)adaptor.create(IMPORT10);
             root_0 = (CommonTree)adaptor.becomeRoot(IMPORT10_tree, root_0);
             }
-            // LeMaVM.g:314:17: ( STATIC )?
+            // LeMaVM.g:315:17: ( STATIC )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -723,7 +724,7 @@ public class LeMaVMParser extends Parser {
                 case 1 :
                     // LeMaVM.g:0:0: STATIC
                     {
-                    STATIC11=(Token)match(input,STATIC,FOLLOW_STATIC_in_importDeclaration3934); if (state.failed) return retval;
+                    STATIC11=(Token)match(input,STATIC,FOLLOW_STATIC_in_importDeclaration3952); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     STATIC11_tree = (CommonTree)adaptor.create(STATIC11);
                     adaptor.addChild(root_0, STATIC11_tree);
@@ -734,13 +735,13 @@ public class LeMaVMParser extends Parser {
 
             }
 
-            pushFollow(FOLLOW_qualifiedIdentifier_in_importDeclaration3937);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_importDeclaration3955);
             qualifiedIdentifier12=qualifiedIdentifier();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, qualifiedIdentifier12.getTree());
-            // LeMaVM.g:314:45: ( DOTSTAR )?
+            // LeMaVM.g:315:45: ( DOTSTAR )?
             int alt6=2;
             int LA6_0 = input.LA(1);
 
@@ -751,7 +752,7 @@ public class LeMaVMParser extends Parser {
                 case 1 :
                     // LeMaVM.g:0:0: DOTSTAR
                     {
-                    DOTSTAR13=(Token)match(input,DOTSTAR,FOLLOW_DOTSTAR_in_importDeclaration3939); if (state.failed) return retval;
+                    DOTSTAR13=(Token)match(input,DOTSTAR,FOLLOW_DOTSTAR_in_importDeclaration3957); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     DOTSTAR13_tree = (CommonTree)adaptor.create(DOTSTAR13);
                     adaptor.addChild(root_0, DOTSTAR13_tree);
@@ -762,7 +763,7 @@ public class LeMaVMParser extends Parser {
 
             }
 
-            SEMI14=(Token)match(input,SEMI,FOLLOW_SEMI_in_importDeclaration3942); if (state.failed) return retval;
+            SEMI14=(Token)match(input,SEMI,FOLLOW_SEMI_in_importDeclaration3960); if (state.failed) return retval;
 
             }
 
@@ -793,7 +794,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "typeDeclaration"
-    // LeMaVM.g:317:1: typeDeclaration : modifierList ( classTypeDeclaration[$modifierList.tree] ) ;
+    // LeMaVM.g:318:1: typeDeclaration : modifierList ( classTypeDeclaration[$modifierList.tree] ) ;
     public final LeMaVMParser.typeDeclaration_return typeDeclaration() throws RecognitionException {
         LeMaVMParser.typeDeclaration_return retval = new LeMaVMParser.typeDeclaration_return();
         retval.start = input.LT(1);
@@ -808,20 +809,20 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 6) ) { return retval; }
-            // LeMaVM.g:318:5: ( modifierList ( classTypeDeclaration[$modifierList.tree] ) )
-            // LeMaVM.g:318:9: modifierList ( classTypeDeclaration[$modifierList.tree] )
+            // LeMaVM.g:319:5: ( modifierList ( classTypeDeclaration[$modifierList.tree] ) )
+            // LeMaVM.g:319:9: modifierList ( classTypeDeclaration[$modifierList.tree] )
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_modifierList_in_typeDeclaration3966);
+            pushFollow(FOLLOW_modifierList_in_typeDeclaration3984);
             modifierList15=modifierList();
 
             state._fsp--;
             if (state.failed) return retval;
-            // LeMaVM.g:319:9: ( classTypeDeclaration[$modifierList.tree] )
-            // LeMaVM.g:319:13: classTypeDeclaration[$modifierList.tree]
+            // LeMaVM.g:320:9: ( classTypeDeclaration[$modifierList.tree] )
+            // LeMaVM.g:320:13: classTypeDeclaration[$modifierList.tree]
             {
-            pushFollow(FOLLOW_classTypeDeclaration_in_typeDeclaration3981);
+            pushFollow(FOLLOW_classTypeDeclaration_in_typeDeclaration3999);
             classTypeDeclaration16=classTypeDeclaration((modifierList15!=null?((CommonTree)modifierList15.tree):null));
 
             state._fsp--;
@@ -860,7 +861,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "classTypeDeclaration"
-    // LeMaVM.g:323:1: classTypeDeclaration[CommonTree modifiers] : CLASS IDENT ( classExtendsClause )? classBody -> ^( CLASS IDENT ( classExtendsClause )? classBody ) ;
+    // LeMaVM.g:324:1: classTypeDeclaration[CommonTree modifiers] : CLASS IDENT ( classExtendsClause )? classBody -> ^( CLASS IDENT ( classExtendsClause )? classBody ) ;
     public final LeMaVMParser.classTypeDeclaration_return classTypeDeclaration(CommonTree modifiers) throws RecognitionException {
         LeMaVMParser.classTypeDeclaration_return retval = new LeMaVMParser.classTypeDeclaration_return();
         retval.start = input.LT(1);
@@ -882,16 +883,16 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_classBody=new RewriteRuleSubtreeStream(adaptor,"rule classBody");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 7) ) { return retval; }
-            // LeMaVM.g:324:5: ( CLASS IDENT ( classExtendsClause )? classBody -> ^( CLASS IDENT ( classExtendsClause )? classBody ) )
-            // LeMaVM.g:324:9: CLASS IDENT ( classExtendsClause )? classBody
+            // LeMaVM.g:325:5: ( CLASS IDENT ( classExtendsClause )? classBody -> ^( CLASS IDENT ( classExtendsClause )? classBody ) )
+            // LeMaVM.g:325:9: CLASS IDENT ( classExtendsClause )? classBody
             {
-            CLASS17=(Token)match(input,CLASS,FOLLOW_CLASS_in_classTypeDeclaration4016); if (state.failed) return retval; 
+            CLASS17=(Token)match(input,CLASS,FOLLOW_CLASS_in_classTypeDeclaration4034); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_CLASS.add(CLASS17);
 
-            IDENT18=(Token)match(input,IDENT,FOLLOW_IDENT_in_classTypeDeclaration4018); if (state.failed) return retval; 
+            IDENT18=(Token)match(input,IDENT,FOLLOW_IDENT_in_classTypeDeclaration4036); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT18);
 
-            // LeMaVM.g:324:21: ( classExtendsClause )?
+            // LeMaVM.g:325:21: ( classExtendsClause )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -902,7 +903,7 @@ public class LeMaVMParser extends Parser {
                 case 1 :
                     // LeMaVM.g:0:0: classExtendsClause
                     {
-                    pushFollow(FOLLOW_classExtendsClause_in_classTypeDeclaration4020);
+                    pushFollow(FOLLOW_classExtendsClause_in_classTypeDeclaration4038);
                     classExtendsClause19=classExtendsClause();
 
                     state._fsp--;
@@ -914,7 +915,7 @@ public class LeMaVMParser extends Parser {
 
             }
 
-            pushFollow(FOLLOW_classBody_in_classTypeDeclaration4023);
+            pushFollow(FOLLOW_classBody_in_classTypeDeclaration4041);
             classBody20=classBody();
 
             state._fsp--;
@@ -923,7 +924,7 @@ public class LeMaVMParser extends Parser {
 
 
             // AST REWRITE
-            // elements: IDENT, classExtendsClause, classBody, CLASS
+            // elements: classBody, CLASS, classExtendsClause, IDENT
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -934,16 +935,16 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 325:9: -> ^( CLASS IDENT ( classExtendsClause )? classBody )
+            // 326:9: -> ^( CLASS IDENT ( classExtendsClause )? classBody )
             {
-                // LeMaVM.g:325:13: ^( CLASS IDENT ( classExtendsClause )? classBody )
+                // LeMaVM.g:326:13: ^( CLASS IDENT ( classExtendsClause )? classBody )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot(stream_CLASS.nextNode(), root_1);
 
                 adaptor.addChild(root_1, modifiers);
                 adaptor.addChild(root_1, stream_IDENT.nextNode());
-                // LeMaVM.g:325:40: ( classExtendsClause )?
+                // LeMaVM.g:326:40: ( classExtendsClause )?
                 if ( stream_classExtendsClause.hasNext() ) {
                     adaptor.addChild(root_1, stream_classExtendsClause.nextTree());
 
@@ -986,7 +987,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "classExtendsClause"
-    // LeMaVM.g:328:1: classExtendsClause : EXTENDS type -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type ) ;
+    // LeMaVM.g:329:1: classExtendsClause : EXTENDS type -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type ) ;
     public final LeMaVMParser.classExtendsClause_return classExtendsClause() throws RecognitionException {
         LeMaVMParser.classExtendsClause_return retval = new LeMaVMParser.classExtendsClause_return();
         retval.start = input.LT(1);
@@ -1002,13 +1003,13 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 8) ) { return retval; }
-            // LeMaVM.g:329:5: ( EXTENDS type -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type ) )
-            // LeMaVM.g:329:9: EXTENDS type
+            // LeMaVM.g:330:5: ( EXTENDS type -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type ) )
+            // LeMaVM.g:330:9: EXTENDS type
             {
-            EXTENDS21=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_classExtendsClause4070); if (state.failed) return retval; 
+            EXTENDS21=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_classExtendsClause4088); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_EXTENDS.add(EXTENDS21);
 
-            pushFollow(FOLLOW_type_in_classExtendsClause4072);
+            pushFollow(FOLLOW_type_in_classExtendsClause4090);
             type22=type();
 
             state._fsp--;
@@ -1028,9 +1029,9 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 330:9: -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type )
+            // 331:9: -> ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type )
             {
-                // LeMaVM.g:330:13: ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type )
+                // LeMaVM.g:331:13: ^( EXTENDS_CLAUSE[$EXTENDS, \"EXTENDS_CLAUSE\"] type )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXTENDS_CLAUSE, EXTENDS21, "EXTENDS_CLAUSE"), root_1);
@@ -1072,7 +1073,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "bound"
-    // LeMaVM.g:333:1: bound : EXTENDS type ( AND type )* -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ ) ;
+    // LeMaVM.g:334:1: bound : EXTENDS type ( AND type )* -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ ) ;
     public final LeMaVMParser.bound_return bound() throws RecognitionException {
         LeMaVMParser.bound_return retval = new LeMaVMParser.bound_return();
         retval.start = input.LT(1);
@@ -1093,19 +1094,19 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 9) ) { return retval; }
-            // LeMaVM.g:334:5: ( EXTENDS type ( AND type )* -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ ) )
-            // LeMaVM.g:334:9: EXTENDS type ( AND type )*
+            // LeMaVM.g:335:5: ( EXTENDS type ( AND type )* -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ ) )
+            // LeMaVM.g:335:9: EXTENDS type ( AND type )*
             {
-            EXTENDS23=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_bound4120); if (state.failed) return retval; 
+            EXTENDS23=(Token)match(input,EXTENDS,FOLLOW_EXTENDS_in_bound4138); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_EXTENDS.add(EXTENDS23);
 
-            pushFollow(FOLLOW_type_in_bound4122);
+            pushFollow(FOLLOW_type_in_bound4140);
             type24=type();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_type.add(type24.getTree());
-            // LeMaVM.g:334:22: ( AND type )*
+            // LeMaVM.g:335:22: ( AND type )*
             loop8:
             do {
                 int alt8=2;
@@ -1118,12 +1119,12 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt8) {
             	case 1 :
-            	    // LeMaVM.g:334:23: AND type
+            	    // LeMaVM.g:335:23: AND type
             	    {
-            	    AND25=(Token)match(input,AND,FOLLOW_AND_in_bound4125); if (state.failed) return retval; 
+            	    AND25=(Token)match(input,AND,FOLLOW_AND_in_bound4143); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_AND.add(AND25);
 
-            	    pushFollow(FOLLOW_type_in_bound4127);
+            	    pushFollow(FOLLOW_type_in_bound4145);
             	    type26=type();
 
             	    state._fsp--;
@@ -1152,9 +1153,9 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 335:9: -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ )
+            // 336:9: -> ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ )
             {
-                // LeMaVM.g:335:13: ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ )
+                // LeMaVM.g:336:13: ^( EXTENDS_BOUND_LIST[$EXTENDS, \"EXTENDS_BOUND_LIST\"] ( type )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXTENDS_BOUND_LIST, EXTENDS23, "EXTENDS_BOUND_LIST"), root_1);
@@ -1203,7 +1204,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "typeList"
-    // LeMaVM.g:338:1: typeList : type ( COMMA type )* ;
+    // LeMaVM.g:339:1: typeList : type ( COMMA type )* ;
     public final LeMaVMParser.typeList_return typeList() throws RecognitionException {
         LeMaVMParser.typeList_return retval = new LeMaVMParser.typeList_return();
         retval.start = input.LT(1);
@@ -1220,18 +1221,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 10) ) { return retval; }
-            // LeMaVM.g:339:5: ( type ( COMMA type )* )
-            // LeMaVM.g:339:9: type ( COMMA type )*
+            // LeMaVM.g:340:5: ( type ( COMMA type )* )
+            // LeMaVM.g:340:9: type ( COMMA type )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_type_in_typeList4171);
+            pushFollow(FOLLOW_type_in_typeList4189);
             type27=type();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, type27.getTree());
-            // LeMaVM.g:339:14: ( COMMA type )*
+            // LeMaVM.g:340:14: ( COMMA type )*
             loop9:
             do {
                 int alt9=2;
@@ -1244,10 +1245,10 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt9) {
             	case 1 :
-            	    // LeMaVM.g:339:15: COMMA type
+            	    // LeMaVM.g:340:15: COMMA type
             	    {
-            	    COMMA28=(Token)match(input,COMMA,FOLLOW_COMMA_in_typeList4174); if (state.failed) return retval;
-            	    pushFollow(FOLLOW_type_in_typeList4177);
+            	    COMMA28=(Token)match(input,COMMA,FOLLOW_COMMA_in_typeList4192); if (state.failed) return retval;
+            	    pushFollow(FOLLOW_type_in_typeList4195);
             	    type29=type();
 
             	    state._fsp--;
@@ -1292,7 +1293,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "classBody"
-    // LeMaVM.g:342:1: classBody : LCURLY ( classScopeDeclarations )* RCURLY -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) ;
+    // LeMaVM.g:343:1: classBody : LCURLY ( classScopeDeclarations )* RCURLY -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) ;
     public final LeMaVMParser.classBody_return classBody() throws RecognitionException {
         LeMaVMParser.classBody_return retval = new LeMaVMParser.classBody_return();
         retval.start = input.LT(1);
@@ -1311,19 +1312,19 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_classScopeDeclarations=new RewriteRuleSubtreeStream(adaptor,"rule classScopeDeclarations");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 11) ) { return retval; }
-            // LeMaVM.g:343:5: ( LCURLY ( classScopeDeclarations )* RCURLY -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) )
-            // LeMaVM.g:343:9: LCURLY ( classScopeDeclarations )* RCURLY
+            // LeMaVM.g:344:5: ( LCURLY ( classScopeDeclarations )* RCURLY -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* ) )
+            // LeMaVM.g:344:9: LCURLY ( classScopeDeclarations )* RCURLY
             {
-            LCURLY30=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_classBody4202); if (state.failed) return retval; 
+            LCURLY30=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_classBody4220); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY30);
 
-            // LeMaVM.g:343:16: ( classScopeDeclarations )*
+            // LeMaVM.g:344:16: ( classScopeDeclarations )*
             loop10:
             do {
                 int alt10=2;
                 int LA10_0 = input.LA(1);
 
-                if ( (LA10_0==LCURLY||LA10_0==SEMI||LA10_0==BOOLEAN||LA10_0==CLASS||LA10_0==DOUBLE||LA10_0==FINAL||(LA10_0>=INT && LA10_0<=LONG)||(LA10_0>=PRIVATE && LA10_0<=PUBLIC)||(LA10_0>=SHORT && LA10_0<=STATIC)||LA10_0==VOID||LA10_0==IDENT) ) {
+                if ( (LA10_0==LCURLY||LA10_0==SEMI||LA10_0==BOOLEAN||LA10_0==CLASS||LA10_0==DOUBLE||LA10_0==FINAL||(LA10_0>=INT && LA10_0<=LONG)||(LA10_0>=PRIVATE && LA10_0<=PUBLIC)||(LA10_0>=SHORT && LA10_0<=STRING)||LA10_0==VOID||LA10_0==IDENT) ) {
                     alt10=1;
                 }
 
@@ -1332,7 +1333,7 @@ public class LeMaVMParser extends Parser {
             	case 1 :
             	    // LeMaVM.g:0:0: classScopeDeclarations
             	    {
-            	    pushFollow(FOLLOW_classScopeDeclarations_in_classBody4204);
+            	    pushFollow(FOLLOW_classScopeDeclarations_in_classBody4222);
             	    classScopeDeclarations31=classScopeDeclarations();
 
             	    state._fsp--;
@@ -1347,7 +1348,7 @@ public class LeMaVMParser extends Parser {
                 }
             } while (true);
 
-            RCURLY32=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_classBody4207); if (state.failed) return retval; 
+            RCURLY32=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_classBody4225); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY32);
 
 
@@ -1364,14 +1365,14 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 344:9: -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
+            // 345:9: -> ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
             {
-                // LeMaVM.g:344:13: ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
+                // LeMaVM.g:345:13: ^( CLASS_TOP_LEVEL_SCOPE[$LCURLY, \"CLASS_TOP_LEVEL_SCOPE\"] ( classScopeDeclarations )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_TOP_LEVEL_SCOPE, LCURLY30, "CLASS_TOP_LEVEL_SCOPE"), root_1);
 
-                // LeMaVM.g:344:71: ( classScopeDeclarations )*
+                // LeMaVM.g:345:71: ( classScopeDeclarations )*
                 while ( stream_classScopeDeclarations.hasNext() ) {
                     adaptor.addChild(root_1, stream_classScopeDeclarations.nextTree());
 
@@ -1413,7 +1414,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "classScopeDeclarations"
-    // LeMaVM.g:347:1: classScopeDeclarations : ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI );
+    // LeMaVM.g:348:1: classScopeDeclarations : ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI );
     public final LeMaVMParser.classScopeDeclarations_return classScopeDeclarations() throws RecognitionException {
         LeMaVMParser.classScopeDeclarations_return retval = new LeMaVMParser.classScopeDeclarations_return();
         retval.start = input.LT(1);
@@ -1479,14 +1480,14 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_formalParameterList=new RewriteRuleSubtreeStream(adaptor,"rule formalParameterList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 12) ) { return retval; }
-            // LeMaVM.g:348:5: ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI )
+            // LeMaVM.g:349:5: ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI )
             int alt16=5;
             alt16 = dfa16.predict(input);
             switch (alt16) {
                 case 1 :
-                    // LeMaVM.g:348:9: block
+                    // LeMaVM.g:349:9: block
                     {
-                    pushFollow(FOLLOW_block_in_classScopeDeclarations4245);
+                    pushFollow(FOLLOW_block_in_classScopeDeclarations4263);
                     block33=block();
 
                     state._fsp--;
@@ -1506,9 +1507,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 348:25: -> ^( CLASS_INSTANCE_INITIALIZER block )
+                    // 349:25: -> ^( CLASS_INSTANCE_INITIALIZER block )
                     {
-                        // LeMaVM.g:348:29: ^( CLASS_INSTANCE_INITIALIZER block )
+                        // LeMaVM.g:349:29: ^( CLASS_INSTANCE_INITIALIZER block )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_INSTANCE_INITIALIZER, "CLASS_INSTANCE_INITIALIZER"), root_1);
@@ -1524,12 +1525,12 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:349:9: STATIC block
+                    // LeMaVM.g:350:9: STATIC block
                     {
-                    STATIC34=(Token)match(input,STATIC,FOLLOW_STATIC_in_classScopeDeclarations4274); if (state.failed) return retval; 
+                    STATIC34=(Token)match(input,STATIC,FOLLOW_STATIC_in_classScopeDeclarations4292); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_STATIC.add(STATIC34);
 
-                    pushFollow(FOLLOW_block_in_classScopeDeclarations4276);
+                    pushFollow(FOLLOW_block_in_classScopeDeclarations4294);
                     block35=block();
 
                     state._fsp--;
@@ -1549,9 +1550,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 349:25: -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block )
+                    // 350:25: -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block )
                     {
-                        // LeMaVM.g:349:29: ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block )
+                        // LeMaVM.g:350:29: ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_STATIC_INITIALIZER, STATIC34, "CLASS_STATIC_INITIALIZER"), root_1);
@@ -1567,22 +1568,22 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // LeMaVM.g:350:9: modifierList ( ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
+                    // LeMaVM.g:351:9: modifierList ( ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
                     {
-                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations4299);
+                    pushFollow(FOLLOW_modifierList_in_classScopeDeclarations4317);
                     modifierList36=modifierList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_modifierList.add(modifierList36.getTree());
-                    // LeMaVM.g:351:9: ( ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
+                    // LeMaVM.g:352:9: ( ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )
                     int alt15=2;
                     alt15 = dfa15.predict(input);
                     switch (alt15) {
                         case 1 :
-                            // LeMaVM.g:351:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) )
+                            // LeMaVM.g:352:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) )
                             {
-                            // LeMaVM.g:351:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) )
+                            // LeMaVM.g:352:13: ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) )
                             int alt14=3;
                             switch ( input.LA(1) ) {
                             case BOOLEAN:
@@ -1590,6 +1591,7 @@ public class LeMaVMParser extends Parser {
                             case INT:
                             case LONG:
                             case SHORT:
+                            case STRING:
                                 {
                                 alt14=1;
                                 }
@@ -1628,24 +1630,24 @@ public class LeMaVMParser extends Parser {
 
                             switch (alt14) {
                                 case 1 :
-                                    // LeMaVM.g:351:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI )
+                                    // LeMaVM.g:352:17: type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI )
                                     {
-                                    pushFollow(FOLLOW_type_in_classScopeDeclarations4317);
+                                    pushFollow(FOLLOW_type_in_classScopeDeclarations4335);
                                     type37=type();
 
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_type.add(type37.getTree());
-                                    IDENT38=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations4319); if (state.failed) return retval; 
+                                    IDENT38=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations4337); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT38);
 
-                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations4321);
+                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations4339);
                                     formalParameterList39=formalParameterList();
 
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_formalParameterList.add(formalParameterList39.getTree());
-                                    // LeMaVM.g:351:48: ( arrayDeclaratorList )?
+                                    // LeMaVM.g:352:48: ( arrayDeclaratorList )?
                                     int alt11=2;
                                     int LA11_0 = input.LA(1);
 
@@ -1656,7 +1658,7 @@ public class LeMaVMParser extends Parser {
                                         case 1 :
                                             // LeMaVM.g:0:0: arrayDeclaratorList
                                             {
-                                            pushFollow(FOLLOW_arrayDeclaratorList_in_classScopeDeclarations4323);
+                                            pushFollow(FOLLOW_arrayDeclaratorList_in_classScopeDeclarations4341);
                                             arrayDeclaratorList40=arrayDeclaratorList();
 
                                             state._fsp--;
@@ -1668,7 +1670,7 @@ public class LeMaVMParser extends Parser {
 
                                     }
 
-                                    // LeMaVM.g:351:69: ( block | SEMI )
+                                    // LeMaVM.g:352:69: ( block | SEMI )
                                     int alt12=2;
                                     int LA12_0 = input.LA(1);
 
@@ -1687,9 +1689,9 @@ public class LeMaVMParser extends Parser {
                                     }
                                     switch (alt12) {
                                         case 1 :
-                                            // LeMaVM.g:351:70: block
+                                            // LeMaVM.g:352:70: block
                                             {
-                                            pushFollow(FOLLOW_block_in_classScopeDeclarations4327);
+                                            pushFollow(FOLLOW_block_in_classScopeDeclarations4345);
                                             block41=block();
 
                                             state._fsp--;
@@ -1699,9 +1701,9 @@ public class LeMaVMParser extends Parser {
                                             }
                                             break;
                                         case 2 :
-                                            // LeMaVM.g:351:78: SEMI
+                                            // LeMaVM.g:352:78: SEMI
                                             {
-                                            SEMI42=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations4331); if (state.failed) return retval; 
+                                            SEMI42=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations4349); if (state.failed) return retval; 
                                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI42);
 
 
@@ -1713,7 +1715,7 @@ public class LeMaVMParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: block, IDENT, type, arrayDeclaratorList, modifierList, formalParameterList
+                                    // elements: type, IDENT, formalParameterList, modifierList, arrayDeclaratorList, block
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -1724,9 +1726,9 @@ public class LeMaVMParser extends Parser {
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 352:17: -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? )
+                                    // 353:17: -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? )
                                     {
-                                        // LeMaVM.g:352:21: ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? )
+                                        // LeMaVM.g:353:21: ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FUNCTION_METHOD_DECL, "FUNCTION_METHOD_DECL"), root_1);
@@ -1735,13 +1737,13 @@ public class LeMaVMParser extends Parser {
                                         adaptor.addChild(root_1, stream_type.nextTree());
                                         adaptor.addChild(root_1, stream_IDENT.nextNode());
                                         adaptor.addChild(root_1, stream_formalParameterList.nextTree());
-                                        // LeMaVM.g:352:88: ( arrayDeclaratorList )?
+                                        // LeMaVM.g:353:88: ( arrayDeclaratorList )?
                                         if ( stream_arrayDeclaratorList.hasNext() ) {
                                             adaptor.addChild(root_1, stream_arrayDeclaratorList.nextTree());
 
                                         }
                                         stream_arrayDeclaratorList.reset();
-                                        // LeMaVM.g:352:109: ( block )?
+                                        // LeMaVM.g:353:109: ( block )?
                                         if ( stream_block.hasNext() ) {
                                             adaptor.addChild(root_1, stream_block.nextTree());
 
@@ -1757,21 +1759,21 @@ public class LeMaVMParser extends Parser {
                                     }
                                     break;
                                 case 2 :
-                                    // LeMaVM.g:353:17: VOID IDENT formalParameterList ( block | SEMI )
+                                    // LeMaVM.g:354:17: VOID IDENT formalParameterList ( block | SEMI )
                                     {
-                                    VOID43=(Token)match(input,VOID,FOLLOW_VOID_in_classScopeDeclarations4387); if (state.failed) return retval; 
+                                    VOID43=(Token)match(input,VOID,FOLLOW_VOID_in_classScopeDeclarations4405); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_VOID.add(VOID43);
 
-                                    IDENT44=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations4389); if (state.failed) return retval; 
+                                    IDENT44=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations4407); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT44);
 
-                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations4391);
+                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations4409);
                                     formalParameterList45=formalParameterList();
 
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_formalParameterList.add(formalParameterList45.getTree());
-                                    // LeMaVM.g:353:48: ( block | SEMI )
+                                    // LeMaVM.g:354:48: ( block | SEMI )
                                     int alt13=2;
                                     int LA13_0 = input.LA(1);
 
@@ -1790,9 +1792,9 @@ public class LeMaVMParser extends Parser {
                                     }
                                     switch (alt13) {
                                         case 1 :
-                                            // LeMaVM.g:353:49: block
+                                            // LeMaVM.g:354:49: block
                                             {
-                                            pushFollow(FOLLOW_block_in_classScopeDeclarations4394);
+                                            pushFollow(FOLLOW_block_in_classScopeDeclarations4412);
                                             block46=block();
 
                                             state._fsp--;
@@ -1802,9 +1804,9 @@ public class LeMaVMParser extends Parser {
                                             }
                                             break;
                                         case 2 :
-                                            // LeMaVM.g:353:57: SEMI
+                                            // LeMaVM.g:354:57: SEMI
                                             {
-                                            SEMI47=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations4398); if (state.failed) return retval; 
+                                            SEMI47=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations4416); if (state.failed) return retval; 
                                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI47);
 
 
@@ -1816,7 +1818,7 @@ public class LeMaVMParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: IDENT, formalParameterList, block, modifierList
+                                    // elements: IDENT, block, modifierList, formalParameterList
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -1827,9 +1829,9 @@ public class LeMaVMParser extends Parser {
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 354:17: -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? )
+                                    // 355:17: -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? )
                                     {
-                                        // LeMaVM.g:354:21: ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? )
+                                        // LeMaVM.g:355:21: ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VOID_METHOD_DECL, "VOID_METHOD_DECL"), root_1);
@@ -1837,7 +1839,7 @@ public class LeMaVMParser extends Parser {
                                         adaptor.addChild(root_1, stream_modifierList.nextTree());
                                         adaptor.addChild(root_1, stream_IDENT.nextNode());
                                         adaptor.addChild(root_1, stream_formalParameterList.nextTree());
-                                        // LeMaVM.g:354:79: ( block )?
+                                        // LeMaVM.g:355:79: ( block )?
                                         if ( stream_block.hasNext() ) {
                                             adaptor.addChild(root_1, stream_block.nextTree());
 
@@ -1853,18 +1855,18 @@ public class LeMaVMParser extends Parser {
                                     }
                                     break;
                                 case 3 :
-                                    // LeMaVM.g:355:17: ident= IDENT formalParameterList block
+                                    // LeMaVM.g:356:17: ident= IDENT formalParameterList block
                                     {
-                                    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations4451); if (state.failed) return retval; 
+                                    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_classScopeDeclarations4469); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(ident);
 
-                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations4453);
+                                    pushFollow(FOLLOW_formalParameterList_in_classScopeDeclarations4471);
                                     formalParameterList48=formalParameterList();
 
                                     state._fsp--;
                                     if (state.failed) return retval;
                                     if ( state.backtracking==0 ) stream_formalParameterList.add(formalParameterList48.getTree());
-                                    pushFollow(FOLLOW_block_in_classScopeDeclarations4455);
+                                    pushFollow(FOLLOW_block_in_classScopeDeclarations4473);
                                     block49=block();
 
                                     state._fsp--;
@@ -1873,7 +1875,7 @@ public class LeMaVMParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: formalParameterList, modifierList, block
+                                    // elements: block, formalParameterList, modifierList
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -1884,9 +1886,9 @@ public class LeMaVMParser extends Parser {
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 356:17: -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block )
+                                    // 357:17: -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block )
                                     {
-                                        // LeMaVM.g:356:21: ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block )
+                                        // LeMaVM.g:357:21: ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CONSTRUCTOR_DECL, ident, "CONSTRUCTOR_DECL"), root_1);
@@ -1910,27 +1912,27 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // LeMaVM.g:358:13: type classFieldDeclaratorList SEMI
+                            // LeMaVM.g:359:13: type classFieldDeclaratorList SEMI
                             {
-                            pushFollow(FOLLOW_type_in_classScopeDeclarations4513);
+                            pushFollow(FOLLOW_type_in_classScopeDeclarations4531);
                             type50=type();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_type.add(type50.getTree());
-                            pushFollow(FOLLOW_classFieldDeclaratorList_in_classScopeDeclarations4515);
+                            pushFollow(FOLLOW_classFieldDeclaratorList_in_classScopeDeclarations4533);
                             classFieldDeclaratorList51=classFieldDeclaratorList();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_classFieldDeclaratorList.add(classFieldDeclaratorList51.getTree());
-                            SEMI52=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations4517); if (state.failed) return retval; 
+                            SEMI52=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations4535); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI52);
 
 
 
                             // AST REWRITE
-                            // elements: classFieldDeclaratorList, type, modifierList
+                            // elements: type, classFieldDeclaratorList, modifierList
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -1941,9 +1943,9 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 359:13: -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
+                            // 360:13: -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
                             {
-                                // LeMaVM.g:359:17: ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
+                                // LeMaVM.g:360:17: ^( VAR_DECLARATION modifierList type classFieldDeclaratorList )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATION, "VAR_DECLARATION"), root_1);
@@ -1967,11 +1969,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // LeMaVM.g:361:9: typeDeclaration
+                    // LeMaVM.g:362:9: typeDeclaration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_typeDeclaration_in_classScopeDeclarations4562);
+                    pushFollow(FOLLOW_typeDeclaration_in_classScopeDeclarations4580);
                     typeDeclaration53=typeDeclaration();
 
                     state._fsp--;
@@ -1981,11 +1983,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // LeMaVM.g:362:9: SEMI
+                    // LeMaVM.g:363:9: SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SEMI54=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations4572); if (state.failed) return retval;
+                    SEMI54=(Token)match(input,SEMI,FOLLOW_SEMI_in_classScopeDeclarations4590); if (state.failed) return retval;
 
                     }
                     break;
@@ -2018,7 +2020,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "classFieldDeclaratorList"
-    // LeMaVM.g:365:1: classFieldDeclaratorList : classFieldDeclarator ( COMMA classFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ ) ;
+    // LeMaVM.g:366:1: classFieldDeclaratorList : classFieldDeclarator ( COMMA classFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ ) ;
     public final LeMaVMParser.classFieldDeclaratorList_return classFieldDeclaratorList() throws RecognitionException {
         LeMaVMParser.classFieldDeclaratorList_return retval = new LeMaVMParser.classFieldDeclaratorList_return();
         retval.start = input.LT(1);
@@ -2036,16 +2038,16 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_classFieldDeclarator=new RewriteRuleSubtreeStream(adaptor,"rule classFieldDeclarator");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 13) ) { return retval; }
-            // LeMaVM.g:366:5: ( classFieldDeclarator ( COMMA classFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ ) )
-            // LeMaVM.g:366:9: classFieldDeclarator ( COMMA classFieldDeclarator )*
+            // LeMaVM.g:367:5: ( classFieldDeclarator ( COMMA classFieldDeclarator )* -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ ) )
+            // LeMaVM.g:367:9: classFieldDeclarator ( COMMA classFieldDeclarator )*
             {
-            pushFollow(FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList4592);
+            pushFollow(FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList4610);
             classFieldDeclarator55=classFieldDeclarator();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_classFieldDeclarator.add(classFieldDeclarator55.getTree());
-            // LeMaVM.g:366:30: ( COMMA classFieldDeclarator )*
+            // LeMaVM.g:367:30: ( COMMA classFieldDeclarator )*
             loop17:
             do {
                 int alt17=2;
@@ -2058,12 +2060,12 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt17) {
             	case 1 :
-            	    // LeMaVM.g:366:31: COMMA classFieldDeclarator
+            	    // LeMaVM.g:367:31: COMMA classFieldDeclarator
             	    {
-            	    COMMA56=(Token)match(input,COMMA,FOLLOW_COMMA_in_classFieldDeclaratorList4595); if (state.failed) return retval; 
+            	    COMMA56=(Token)match(input,COMMA,FOLLOW_COMMA_in_classFieldDeclaratorList4613); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA56);
 
-            	    pushFollow(FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList4597);
+            	    pushFollow(FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList4615);
             	    classFieldDeclarator57=classFieldDeclarator();
 
             	    state._fsp--;
@@ -2092,9 +2094,9 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 367:9: -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ )
+            // 368:9: -> ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ )
             {
-                // LeMaVM.g:367:13: ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ )
+                // LeMaVM.g:368:13: ^( VAR_DECLARATOR_LIST ( classFieldDeclarator )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATOR_LIST, "VAR_DECLARATOR_LIST"), root_1);
@@ -2143,7 +2145,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "classFieldDeclarator"
-    // LeMaVM.g:370:1: classFieldDeclarator : variableDeclaratorId ( ASSIGN variableInitializer )? -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) ;
+    // LeMaVM.g:371:1: classFieldDeclarator : variableDeclaratorId ( ASSIGN variableInitializer )? -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) ;
     public final LeMaVMParser.classFieldDeclarator_return classFieldDeclarator() throws RecognitionException {
         LeMaVMParser.classFieldDeclarator_return retval = new LeMaVMParser.classFieldDeclarator_return();
         retval.start = input.LT(1);
@@ -2162,16 +2164,16 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_variableInitializer=new RewriteRuleSubtreeStream(adaptor,"rule variableInitializer");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 14) ) { return retval; }
-            // LeMaVM.g:371:5: ( variableDeclaratorId ( ASSIGN variableInitializer )? -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) )
-            // LeMaVM.g:371:9: variableDeclaratorId ( ASSIGN variableInitializer )?
+            // LeMaVM.g:372:5: ( variableDeclaratorId ( ASSIGN variableInitializer )? -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? ) )
+            // LeMaVM.g:372:9: variableDeclaratorId ( ASSIGN variableInitializer )?
             {
-            pushFollow(FOLLOW_variableDeclaratorId_in_classFieldDeclarator4636);
+            pushFollow(FOLLOW_variableDeclaratorId_in_classFieldDeclarator4654);
             variableDeclaratorId58=variableDeclaratorId();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_variableDeclaratorId.add(variableDeclaratorId58.getTree());
-            // LeMaVM.g:371:30: ( ASSIGN variableInitializer )?
+            // LeMaVM.g:372:30: ( ASSIGN variableInitializer )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -2180,12 +2182,12 @@ public class LeMaVMParser extends Parser {
             }
             switch (alt18) {
                 case 1 :
-                    // LeMaVM.g:371:31: ASSIGN variableInitializer
+                    // LeMaVM.g:372:31: ASSIGN variableInitializer
                     {
-                    ASSIGN59=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_classFieldDeclarator4639); if (state.failed) return retval; 
+                    ASSIGN59=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_classFieldDeclarator4657); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_ASSIGN.add(ASSIGN59);
 
-                    pushFollow(FOLLOW_variableInitializer_in_classFieldDeclarator4641);
+                    pushFollow(FOLLOW_variableInitializer_in_classFieldDeclarator4659);
                     variableInitializer60=variableInitializer();
 
                     state._fsp--;
@@ -2200,7 +2202,7 @@ public class LeMaVMParser extends Parser {
 
 
             // AST REWRITE
-            // elements: variableInitializer, variableDeclaratorId
+            // elements: variableDeclaratorId, variableInitializer
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -2211,15 +2213,15 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 372:9: -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
+            // 373:9: -> ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
             {
-                // LeMaVM.g:372:13: ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
+                // LeMaVM.g:373:13: ^( VAR_DECLARATOR variableDeclaratorId ( variableInitializer )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATOR, "VAR_DECLARATOR"), root_1);
 
                 adaptor.addChild(root_1, stream_variableDeclaratorId.nextTree());
-                // LeMaVM.g:372:51: ( variableInitializer )?
+                // LeMaVM.g:373:51: ( variableInitializer )?
                 if ( stream_variableInitializer.hasNext() ) {
                     adaptor.addChild(root_1, stream_variableInitializer.nextTree());
 
@@ -2261,7 +2263,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "variableDeclaratorId"
-    // LeMaVM.g:375:1: variableDeclaratorId : IDENT ( arrayDeclaratorList )? ;
+    // LeMaVM.g:376:1: variableDeclaratorId : IDENT ( arrayDeclaratorList )? ;
     public final LeMaVMParser.variableDeclaratorId_return variableDeclaratorId() throws RecognitionException {
         LeMaVMParser.variableDeclaratorId_return retval = new LeMaVMParser.variableDeclaratorId_return();
         retval.start = input.LT(1);
@@ -2276,17 +2278,17 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 15) ) { return retval; }
-            // LeMaVM.g:376:5: ( IDENT ( arrayDeclaratorList )? )
-            // LeMaVM.g:376:9: IDENT ( arrayDeclaratorList )?
+            // LeMaVM.g:377:5: ( IDENT ( arrayDeclaratorList )? )
+            // LeMaVM.g:377:9: IDENT ( arrayDeclaratorList )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT61=(Token)match(input,IDENT,FOLLOW_IDENT_in_variableDeclaratorId4686); if (state.failed) return retval;
+            IDENT61=(Token)match(input,IDENT,FOLLOW_IDENT_in_variableDeclaratorId4704); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT61_tree = (CommonTree)adaptor.create(IDENT61);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT61_tree, root_0);
             }
-            // LeMaVM.g:376:16: ( arrayDeclaratorList )?
+            // LeMaVM.g:377:16: ( arrayDeclaratorList )?
             int alt19=2;
             int LA19_0 = input.LA(1);
 
@@ -2297,7 +2299,7 @@ public class LeMaVMParser extends Parser {
                 case 1 :
                     // LeMaVM.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_variableDeclaratorId4689);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_variableDeclaratorId4707);
                     arrayDeclaratorList62=arrayDeclaratorList();
 
                     state._fsp--;
@@ -2339,7 +2341,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "variableInitializer"
-    // LeMaVM.g:379:1: variableInitializer : ( arrayInitializer | expression );
+    // LeMaVM.g:380:1: variableInitializer : ( arrayInitializer | expression );
     public final LeMaVMParser.variableInitializer_return variableInitializer() throws RecognitionException {
         LeMaVMParser.variableInitializer_return retval = new LeMaVMParser.variableInitializer_return();
         retval.start = input.LT(1);
@@ -2354,14 +2356,14 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 16) ) { return retval; }
-            // LeMaVM.g:380:5: ( arrayInitializer | expression )
+            // LeMaVM.g:381:5: ( arrayInitializer | expression )
             int alt20=2;
             int LA20_0 = input.LA(1);
 
             if ( (LA20_0==LCURLY) ) {
                 alt20=1;
             }
-            else if ( (LA20_0==DEC||LA20_0==INC||LA20_0==LOGICAL_NOT||(LA20_0>=LPAREN && LA20_0<=MINUS)||LA20_0==NOT||LA20_0==PLUS||LA20_0==BOOLEAN||LA20_0==DOUBLE||LA20_0==FALSE||(LA20_0>=INT && LA20_0<=NULL)||LA20_0==SHORT||LA20_0==SUPER||(LA20_0>=THIS && LA20_0<=TRUE)||LA20_0==VOID||(LA20_0>=IDENT && LA20_0<=STRING_LITERAL)) ) {
+            else if ( (LA20_0==DEC||LA20_0==INC||LA20_0==LOGICAL_NOT||(LA20_0>=LPAREN && LA20_0<=MINUS)||LA20_0==NOT||LA20_0==PLUS||LA20_0==BOOLEAN||LA20_0==DOUBLE||LA20_0==FALSE||(LA20_0>=INT && LA20_0<=NULL)||LA20_0==SHORT||(LA20_0>=STRING && LA20_0<=SUPER)||(LA20_0>=THIS && LA20_0<=TRUE)||LA20_0==VOID||(LA20_0>=IDENT && LA20_0<=STRING_LITERAL)) ) {
                 alt20=2;
             }
             else {
@@ -2373,11 +2375,11 @@ public class LeMaVMParser extends Parser {
             }
             switch (alt20) {
                 case 1 :
-                    // LeMaVM.g:380:9: arrayInitializer
+                    // LeMaVM.g:381:9: arrayInitializer
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_arrayInitializer_in_variableInitializer4709);
+                    pushFollow(FOLLOW_arrayInitializer_in_variableInitializer4727);
                     arrayInitializer63=arrayInitializer();
 
                     state._fsp--;
@@ -2387,11 +2389,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:381:9: expression
+                    // LeMaVM.g:382:9: expression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_expression_in_variableInitializer4719);
+                    pushFollow(FOLLOW_expression_in_variableInitializer4737);
                     expression64=expression();
 
                     state._fsp--;
@@ -2429,7 +2431,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "arrayDeclarator"
-    // LeMaVM.g:384:1: arrayDeclarator : LBRACK RBRACK -> ^( ARRAY_DECLARATOR ) ;
+    // LeMaVM.g:385:1: arrayDeclarator : LBRACK RBRACK -> ^( ARRAY_DECLARATOR ) ;
     public final LeMaVMParser.arrayDeclarator_return arrayDeclarator() throws RecognitionException {
         LeMaVMParser.arrayDeclarator_return retval = new LeMaVMParser.arrayDeclarator_return();
         retval.start = input.LT(1);
@@ -2446,13 +2448,13 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 17) ) { return retval; }
-            // LeMaVM.g:385:5: ( LBRACK RBRACK -> ^( ARRAY_DECLARATOR ) )
-            // LeMaVM.g:385:9: LBRACK RBRACK
+            // LeMaVM.g:386:5: ( LBRACK RBRACK -> ^( ARRAY_DECLARATOR ) )
+            // LeMaVM.g:386:9: LBRACK RBRACK
             {
-            LBRACK65=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator4738); if (state.failed) return retval; 
+            LBRACK65=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_arrayDeclarator4756); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LBRACK.add(LBRACK65);
 
-            RBRACK66=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_arrayDeclarator4740); if (state.failed) return retval; 
+            RBRACK66=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_arrayDeclarator4758); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RBRACK.add(RBRACK66);
 
 
@@ -2469,9 +2471,9 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 386:9: -> ^( ARRAY_DECLARATOR )
+            // 387:9: -> ^( ARRAY_DECLARATOR )
             {
-                // LeMaVM.g:386:13: ^( ARRAY_DECLARATOR )
+                // LeMaVM.g:387:13: ^( ARRAY_DECLARATOR )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARRAY_DECLARATOR, "ARRAY_DECLARATOR"), root_1);
@@ -2511,7 +2513,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "arrayDeclaratorList"
-    // LeMaVM.g:389:1: arrayDeclaratorList : ( arrayDeclarator )+ -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ ) ;
+    // LeMaVM.g:390:1: arrayDeclaratorList : ( arrayDeclarator )+ -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ ) ;
     public final LeMaVMParser.arrayDeclaratorList_return arrayDeclaratorList() throws RecognitionException {
         LeMaVMParser.arrayDeclaratorList_return retval = new LeMaVMParser.arrayDeclaratorList_return();
         retval.start = input.LT(1);
@@ -2524,10 +2526,10 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_arrayDeclarator=new RewriteRuleSubtreeStream(adaptor,"rule arrayDeclarator");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 18) ) { return retval; }
-            // LeMaVM.g:390:5: ( ( arrayDeclarator )+ -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ ) )
-            // LeMaVM.g:390:9: ( arrayDeclarator )+
+            // LeMaVM.g:391:5: ( ( arrayDeclarator )+ -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ ) )
+            // LeMaVM.g:391:9: ( arrayDeclarator )+
             {
-            // LeMaVM.g:390:9: ( arrayDeclarator )+
+            // LeMaVM.g:391:9: ( arrayDeclarator )+
             int cnt21=0;
             loop21:
             do {
@@ -2549,7 +2551,7 @@ public class LeMaVMParser extends Parser {
             	case 1 :
             	    // LeMaVM.g:0:0: arrayDeclarator
             	    {
-            	    pushFollow(FOLLOW_arrayDeclarator_in_arrayDeclaratorList4774);
+            	    pushFollow(FOLLOW_arrayDeclarator_in_arrayDeclaratorList4792);
             	    arrayDeclarator67=arrayDeclarator();
 
             	    state._fsp--;
@@ -2583,9 +2585,9 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 391:9: -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ )
+            // 392:9: -> ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ )
             {
-                // LeMaVM.g:391:13: ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ )
+                // LeMaVM.g:392:13: ^( ARRAY_DECLARATOR_LIST ( arrayDeclarator )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARRAY_DECLARATOR_LIST, "ARRAY_DECLARATOR_LIST"), root_1);
@@ -2634,7 +2636,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "arrayInitializer"
-    // LeMaVM.g:394:1: arrayInitializer : LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* ) ;
+    // LeMaVM.g:395:1: arrayInitializer : LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* ) ;
     public final LeMaVMParser.arrayInitializer_return arrayInitializer() throws RecognitionException {
         LeMaVMParser.arrayInitializer_return retval = new LeMaVMParser.arrayInitializer_return();
         retval.start = input.LT(1);
@@ -2660,30 +2662,30 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_variableInitializer=new RewriteRuleSubtreeStream(adaptor,"rule variableInitializer");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 19) ) { return retval; }
-            // LeMaVM.g:395:5: ( LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* ) )
-            // LeMaVM.g:395:9: LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY
+            // LeMaVM.g:396:5: ( LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* ) )
+            // LeMaVM.g:396:9: LCURLY ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )? RCURLY
             {
-            LCURLY68=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_arrayInitializer4819); if (state.failed) return retval; 
+            LCURLY68=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_arrayInitializer4837); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY68);
 
-            // LeMaVM.g:395:16: ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )?
+            // LeMaVM.g:396:16: ( variableInitializer ( COMMA variableInitializer )* ( COMMA )? )?
             int alt24=2;
             int LA24_0 = input.LA(1);
 
-            if ( (LA24_0==DEC||LA24_0==INC||LA24_0==LCURLY||LA24_0==LOGICAL_NOT||(LA24_0>=LPAREN && LA24_0<=MINUS)||LA24_0==NOT||LA24_0==PLUS||LA24_0==BOOLEAN||LA24_0==DOUBLE||LA24_0==FALSE||(LA24_0>=INT && LA24_0<=NULL)||LA24_0==SHORT||LA24_0==SUPER||(LA24_0>=THIS && LA24_0<=TRUE)||LA24_0==VOID||(LA24_0>=IDENT && LA24_0<=STRING_LITERAL)) ) {
+            if ( (LA24_0==DEC||LA24_0==INC||LA24_0==LCURLY||LA24_0==LOGICAL_NOT||(LA24_0>=LPAREN && LA24_0<=MINUS)||LA24_0==NOT||LA24_0==PLUS||LA24_0==BOOLEAN||LA24_0==DOUBLE||LA24_0==FALSE||(LA24_0>=INT && LA24_0<=NULL)||LA24_0==SHORT||(LA24_0>=STRING && LA24_0<=SUPER)||(LA24_0>=THIS && LA24_0<=TRUE)||LA24_0==VOID||(LA24_0>=IDENT && LA24_0<=STRING_LITERAL)) ) {
                 alt24=1;
             }
             switch (alt24) {
                 case 1 :
-                    // LeMaVM.g:395:17: variableInitializer ( COMMA variableInitializer )* ( COMMA )?
+                    // LeMaVM.g:396:17: variableInitializer ( COMMA variableInitializer )* ( COMMA )?
                     {
-                    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer4822);
+                    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer4840);
                     variableInitializer69=variableInitializer();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_variableInitializer.add(variableInitializer69.getTree());
-                    // LeMaVM.g:395:37: ( COMMA variableInitializer )*
+                    // LeMaVM.g:396:37: ( COMMA variableInitializer )*
                     loop22:
                     do {
                         int alt22=2;
@@ -2692,7 +2694,7 @@ public class LeMaVMParser extends Parser {
                         if ( (LA22_0==COMMA) ) {
                             int LA22_1 = input.LA(2);
 
-                            if ( (LA22_1==DEC||LA22_1==INC||LA22_1==LCURLY||LA22_1==LOGICAL_NOT||(LA22_1>=LPAREN && LA22_1<=MINUS)||LA22_1==NOT||LA22_1==PLUS||LA22_1==BOOLEAN||LA22_1==DOUBLE||LA22_1==FALSE||(LA22_1>=INT && LA22_1<=NULL)||LA22_1==SHORT||LA22_1==SUPER||(LA22_1>=THIS && LA22_1<=TRUE)||LA22_1==VOID||(LA22_1>=IDENT && LA22_1<=STRING_LITERAL)) ) {
+                            if ( (LA22_1==DEC||LA22_1==INC||LA22_1==LCURLY||LA22_1==LOGICAL_NOT||(LA22_1>=LPAREN && LA22_1<=MINUS)||LA22_1==NOT||LA22_1==PLUS||LA22_1==BOOLEAN||LA22_1==DOUBLE||LA22_1==FALSE||(LA22_1>=INT && LA22_1<=NULL)||LA22_1==SHORT||(LA22_1>=STRING && LA22_1<=SUPER)||(LA22_1>=THIS && LA22_1<=TRUE)||LA22_1==VOID||(LA22_1>=IDENT && LA22_1<=STRING_LITERAL)) ) {
                                 alt22=1;
                             }
 
@@ -2702,12 +2704,12 @@ public class LeMaVMParser extends Parser {
 
                         switch (alt22) {
                     	case 1 :
-                    	    // LeMaVM.g:395:38: COMMA variableInitializer
+                    	    // LeMaVM.g:396:38: COMMA variableInitializer
                     	    {
-                    	    COMMA70=(Token)match(input,COMMA,FOLLOW_COMMA_in_arrayInitializer4825); if (state.failed) return retval; 
+                    	    COMMA70=(Token)match(input,COMMA,FOLLOW_COMMA_in_arrayInitializer4843); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA70);
 
-                    	    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer4827);
+                    	    pushFollow(FOLLOW_variableInitializer_in_arrayInitializer4845);
                     	    variableInitializer71=variableInitializer();
 
                     	    state._fsp--;
@@ -2722,7 +2724,7 @@ public class LeMaVMParser extends Parser {
                         }
                     } while (true);
 
-                    // LeMaVM.g:395:66: ( COMMA )?
+                    // LeMaVM.g:396:66: ( COMMA )?
                     int alt23=2;
                     int LA23_0 = input.LA(1);
 
@@ -2733,7 +2735,7 @@ public class LeMaVMParser extends Parser {
                         case 1 :
                             // LeMaVM.g:0:0: COMMA
                             {
-                            COMMA72=(Token)match(input,COMMA,FOLLOW_COMMA_in_arrayInitializer4831); if (state.failed) return retval; 
+                            COMMA72=(Token)match(input,COMMA,FOLLOW_COMMA_in_arrayInitializer4849); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_COMMA.add(COMMA72);
 
 
@@ -2748,7 +2750,7 @@ public class LeMaVMParser extends Parser {
 
             }
 
-            RCURLY73=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_arrayInitializer4836); if (state.failed) return retval; 
+            RCURLY73=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_arrayInitializer4854); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY73);
 
 
@@ -2765,14 +2767,14 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 396:9: -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* )
+            // 397:9: -> ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* )
             {
-                // LeMaVM.g:396:13: ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* )
+                // LeMaVM.g:397:13: ^( ARRAY_INITIALIZER[$LCURLY, \"ARRAY_INITIALIZER\"] ( variableInitializer )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARRAY_INITIALIZER, LCURLY68, "ARRAY_INITIALIZER"), root_1);
 
-                // LeMaVM.g:396:63: ( variableInitializer )*
+                // LeMaVM.g:397:63: ( variableInitializer )*
                 while ( stream_variableInitializer.hasNext() ) {
                     adaptor.addChild(root_1, stream_variableInitializer.nextTree());
 
@@ -2814,7 +2816,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "modifierList"
-    // LeMaVM.g:399:1: modifierList : ( modifier )* -> ^( MODIFIER_LIST ( modifier )* ) ;
+    // LeMaVM.g:400:1: modifierList : ( modifier )* -> ^( MODIFIER_LIST ( modifier )* ) ;
     public final LeMaVMParser.modifierList_return modifierList() throws RecognitionException {
         LeMaVMParser.modifierList_return retval = new LeMaVMParser.modifierList_return();
         retval.start = input.LT(1);
@@ -2827,10 +2829,10 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_modifier=new RewriteRuleSubtreeStream(adaptor,"rule modifier");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 20) ) { return retval; }
-            // LeMaVM.g:400:5: ( ( modifier )* -> ^( MODIFIER_LIST ( modifier )* ) )
-            // LeMaVM.g:400:9: ( modifier )*
+            // LeMaVM.g:401:5: ( ( modifier )* -> ^( MODIFIER_LIST ( modifier )* ) )
+            // LeMaVM.g:401:9: ( modifier )*
             {
-            // LeMaVM.g:400:9: ( modifier )*
+            // LeMaVM.g:401:9: ( modifier )*
             loop25:
             do {
                 int alt25=2;
@@ -2845,7 +2847,7 @@ public class LeMaVMParser extends Parser {
             	case 1 :
             	    // LeMaVM.g:0:0: modifier
             	    {
-            	    pushFollow(FOLLOW_modifier_in_modifierList4874);
+            	    pushFollow(FOLLOW_modifier_in_modifierList4892);
             	    modifier74=modifier();
 
             	    state._fsp--;
@@ -2874,14 +2876,14 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 401:9: -> ^( MODIFIER_LIST ( modifier )* )
+            // 402:9: -> ^( MODIFIER_LIST ( modifier )* )
             {
-                // LeMaVM.g:401:13: ^( MODIFIER_LIST ( modifier )* )
+                // LeMaVM.g:402:13: ^( MODIFIER_LIST ( modifier )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(MODIFIER_LIST, "MODIFIER_LIST"), root_1);
 
-                // LeMaVM.g:401:29: ( modifier )*
+                // LeMaVM.g:402:29: ( modifier )*
                 while ( stream_modifier.hasNext() ) {
                     adaptor.addChild(root_1, stream_modifier.nextTree());
 
@@ -2923,7 +2925,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "modifier"
-    // LeMaVM.g:404:1: modifier : ( PUBLIC | PROTECTED | PRIVATE | STATIC | localModifier );
+    // LeMaVM.g:405:1: modifier : ( PUBLIC | PROTECTED | PRIVATE | STATIC | localModifier );
     public final LeMaVMParser.modifier_return modifier() throws RecognitionException {
         LeMaVMParser.modifier_return retval = new LeMaVMParser.modifier_return();
         retval.start = input.LT(1);
@@ -2944,7 +2946,7 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 21) ) { return retval; }
-            // LeMaVM.g:405:5: ( PUBLIC | PROTECTED | PRIVATE | STATIC | localModifier )
+            // LeMaVM.g:406:5: ( PUBLIC | PROTECTED | PRIVATE | STATIC | localModifier )
             int alt26=5;
             switch ( input.LA(1) ) {
             case PUBLIC:
@@ -2982,11 +2984,11 @@ public class LeMaVMParser extends Parser {
 
             switch (alt26) {
                 case 1 :
-                    // LeMaVM.g:405:9: PUBLIC
+                    // LeMaVM.g:406:9: PUBLIC
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    PUBLIC75=(Token)match(input,PUBLIC,FOLLOW_PUBLIC_in_modifier4915); if (state.failed) return retval;
+                    PUBLIC75=(Token)match(input,PUBLIC,FOLLOW_PUBLIC_in_modifier4933); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     PUBLIC75_tree = (CommonTree)adaptor.create(PUBLIC75);
                     adaptor.addChild(root_0, PUBLIC75_tree);
@@ -2995,11 +2997,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:406:9: PROTECTED
+                    // LeMaVM.g:407:9: PROTECTED
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    PROTECTED76=(Token)match(input,PROTECTED,FOLLOW_PROTECTED_in_modifier4925); if (state.failed) return retval;
+                    PROTECTED76=(Token)match(input,PROTECTED,FOLLOW_PROTECTED_in_modifier4943); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     PROTECTED76_tree = (CommonTree)adaptor.create(PROTECTED76);
                     adaptor.addChild(root_0, PROTECTED76_tree);
@@ -3008,11 +3010,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // LeMaVM.g:407:9: PRIVATE
+                    // LeMaVM.g:408:9: PRIVATE
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    PRIVATE77=(Token)match(input,PRIVATE,FOLLOW_PRIVATE_in_modifier4935); if (state.failed) return retval;
+                    PRIVATE77=(Token)match(input,PRIVATE,FOLLOW_PRIVATE_in_modifier4953); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     PRIVATE77_tree = (CommonTree)adaptor.create(PRIVATE77);
                     adaptor.addChild(root_0, PRIVATE77_tree);
@@ -3021,11 +3023,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // LeMaVM.g:408:9: STATIC
+                    // LeMaVM.g:409:9: STATIC
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    STATIC78=(Token)match(input,STATIC,FOLLOW_STATIC_in_modifier4945); if (state.failed) return retval;
+                    STATIC78=(Token)match(input,STATIC,FOLLOW_STATIC_in_modifier4963); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     STATIC78_tree = (CommonTree)adaptor.create(STATIC78);
                     adaptor.addChild(root_0, STATIC78_tree);
@@ -3034,11 +3036,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // LeMaVM.g:409:9: localModifier
+                    // LeMaVM.g:410:9: localModifier
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_localModifier_in_modifier4955);
+                    pushFollow(FOLLOW_localModifier_in_modifier4973);
                     localModifier79=localModifier();
 
                     state._fsp--;
@@ -3076,7 +3078,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "localModifierList"
-    // LeMaVM.g:412:1: localModifierList : ( localModifier )* -> ^( LOCAL_MODIFIER_LIST ( localModifier )* ) ;
+    // LeMaVM.g:413:1: localModifierList : ( localModifier )* -> ^( LOCAL_MODIFIER_LIST ( localModifier )* ) ;
     public final LeMaVMParser.localModifierList_return localModifierList() throws RecognitionException {
         LeMaVMParser.localModifierList_return retval = new LeMaVMParser.localModifierList_return();
         retval.start = input.LT(1);
@@ -3089,10 +3091,10 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_localModifier=new RewriteRuleSubtreeStream(adaptor,"rule localModifier");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 22) ) { return retval; }
-            // LeMaVM.g:413:5: ( ( localModifier )* -> ^( LOCAL_MODIFIER_LIST ( localModifier )* ) )
-            // LeMaVM.g:413:9: ( localModifier )*
+            // LeMaVM.g:414:5: ( ( localModifier )* -> ^( LOCAL_MODIFIER_LIST ( localModifier )* ) )
+            // LeMaVM.g:414:9: ( localModifier )*
             {
-            // LeMaVM.g:413:9: ( localModifier )*
+            // LeMaVM.g:414:9: ( localModifier )*
             loop27:
             do {
                 int alt27=2;
@@ -3107,7 +3109,7 @@ public class LeMaVMParser extends Parser {
             	case 1 :
             	    // LeMaVM.g:0:0: localModifier
             	    {
-            	    pushFollow(FOLLOW_localModifier_in_localModifierList4974);
+            	    pushFollow(FOLLOW_localModifier_in_localModifierList4992);
             	    localModifier80=localModifier();
 
             	    state._fsp--;
@@ -3136,14 +3138,14 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 414:9: -> ^( LOCAL_MODIFIER_LIST ( localModifier )* )
+            // 415:9: -> ^( LOCAL_MODIFIER_LIST ( localModifier )* )
             {
-                // LeMaVM.g:414:12: ^( LOCAL_MODIFIER_LIST ( localModifier )* )
+                // LeMaVM.g:415:12: ^( LOCAL_MODIFIER_LIST ( localModifier )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LOCAL_MODIFIER_LIST, "LOCAL_MODIFIER_LIST"), root_1);
 
-                // LeMaVM.g:414:34: ( localModifier )*
+                // LeMaVM.g:415:34: ( localModifier )*
                 while ( stream_localModifier.hasNext() ) {
                     adaptor.addChild(root_1, stream_localModifier.nextTree());
 
@@ -3185,7 +3187,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "localModifier"
-    // LeMaVM.g:417:1: localModifier : FINAL ;
+    // LeMaVM.g:418:1: localModifier : FINAL ;
     public final LeMaVMParser.localModifier_return localModifier() throws RecognitionException {
         LeMaVMParser.localModifier_return retval = new LeMaVMParser.localModifier_return();
         retval.start = input.LT(1);
@@ -3198,12 +3200,12 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 23) ) { return retval; }
-            // LeMaVM.g:418:5: ( FINAL )
-            // LeMaVM.g:418:9: FINAL
+            // LeMaVM.g:419:5: ( FINAL )
+            // LeMaVM.g:419:9: FINAL
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            FINAL81=(Token)match(input,FINAL,FOLLOW_FINAL_in_localModifier5015); if (state.failed) return retval;
+            FINAL81=(Token)match(input,FINAL,FOLLOW_FINAL_in_localModifier5033); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             FINAL81_tree = (CommonTree)adaptor.create(FINAL81);
             adaptor.addChild(root_0, FINAL81_tree);
@@ -3238,7 +3240,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "type"
-    // LeMaVM.g:421:1: type : ( simpleType | objectType );
+    // LeMaVM.g:422:1: type : ( simpleType | objectType );
     public final LeMaVMParser.type_return type() throws RecognitionException {
         LeMaVMParser.type_return retval = new LeMaVMParser.type_return();
         retval.start = input.LT(1);
@@ -3253,11 +3255,11 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 24) ) { return retval; }
-            // LeMaVM.g:422:5: ( simpleType | objectType )
+            // LeMaVM.g:423:5: ( simpleType | objectType )
             int alt28=2;
             int LA28_0 = input.LA(1);
 
-            if ( (LA28_0==BOOLEAN||LA28_0==DOUBLE||(LA28_0>=INT && LA28_0<=LONG)||LA28_0==SHORT) ) {
+            if ( (LA28_0==BOOLEAN||LA28_0==DOUBLE||(LA28_0>=INT && LA28_0<=LONG)||LA28_0==SHORT||LA28_0==STRING) ) {
                 alt28=1;
             }
             else if ( (LA28_0==IDENT) ) {
@@ -3272,11 +3274,11 @@ public class LeMaVMParser extends Parser {
             }
             switch (alt28) {
                 case 1 :
-                    // LeMaVM.g:422:9: simpleType
+                    // LeMaVM.g:423:9: simpleType
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_simpleType_in_type5034);
+                    pushFollow(FOLLOW_simpleType_in_type5052);
                     simpleType82=simpleType();
 
                     state._fsp--;
@@ -3286,11 +3288,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:423:9: objectType
+                    // LeMaVM.g:424:9: objectType
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_objectType_in_type5044);
+                    pushFollow(FOLLOW_objectType_in_type5062);
                     objectType83=objectType();
 
                     state._fsp--;
@@ -3328,7 +3330,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "simpleType"
-    // LeMaVM.g:426:1: simpleType : primitiveType ( arrayDeclaratorList )? -> ^( TYPE primitiveType ( arrayDeclaratorList )? ) ;
+    // LeMaVM.g:427:1: simpleType : primitiveType ( arrayDeclaratorList )? -> ^( TYPE primitiveType ( arrayDeclaratorList )? ) ;
     public final LeMaVMParser.simpleType_return simpleType() throws RecognitionException {
         LeMaVMParser.simpleType_return retval = new LeMaVMParser.simpleType_return();
         retval.start = input.LT(1);
@@ -3344,16 +3346,16 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_primitiveType=new RewriteRuleSubtreeStream(adaptor,"rule primitiveType");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 25) ) { return retval; }
-            // LeMaVM.g:427:5: ( primitiveType ( arrayDeclaratorList )? -> ^( TYPE primitiveType ( arrayDeclaratorList )? ) )
-            // LeMaVM.g:427:9: primitiveType ( arrayDeclaratorList )?
+            // LeMaVM.g:428:5: ( primitiveType ( arrayDeclaratorList )? -> ^( TYPE primitiveType ( arrayDeclaratorList )? ) )
+            // LeMaVM.g:428:9: primitiveType ( arrayDeclaratorList )?
             {
-            pushFollow(FOLLOW_primitiveType_in_simpleType5064);
+            pushFollow(FOLLOW_primitiveType_in_simpleType5082);
             primitiveType84=primitiveType();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_primitiveType.add(primitiveType84.getTree());
-            // LeMaVM.g:427:23: ( arrayDeclaratorList )?
+            // LeMaVM.g:428:23: ( arrayDeclaratorList )?
             int alt29=2;
             int LA29_0 = input.LA(1);
 
@@ -3364,7 +3366,7 @@ public class LeMaVMParser extends Parser {
                 case 1 :
                     // LeMaVM.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_simpleType5066);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_simpleType5084);
                     arrayDeclaratorList85=arrayDeclaratorList();
 
                     state._fsp--;
@@ -3379,7 +3381,7 @@ public class LeMaVMParser extends Parser {
 
 
             // AST REWRITE
-            // elements: arrayDeclaratorList, primitiveType
+            // elements: primitiveType, arrayDeclaratorList
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -3390,15 +3392,15 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 428:9: -> ^( TYPE primitiveType ( arrayDeclaratorList )? )
+            // 429:9: -> ^( TYPE primitiveType ( arrayDeclaratorList )? )
             {
-                // LeMaVM.g:428:13: ^( TYPE primitiveType ( arrayDeclaratorList )? )
+                // LeMaVM.g:429:13: ^( TYPE primitiveType ( arrayDeclaratorList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TYPE, "TYPE"), root_1);
 
                 adaptor.addChild(root_1, stream_primitiveType.nextTree());
-                // LeMaVM.g:428:34: ( arrayDeclaratorList )?
+                // LeMaVM.g:429:34: ( arrayDeclaratorList )?
                 if ( stream_arrayDeclaratorList.hasNext() ) {
                     adaptor.addChild(root_1, stream_arrayDeclaratorList.nextTree());
 
@@ -3440,7 +3442,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "objectType"
-    // LeMaVM.g:431:1: objectType : qualifiedTypeIdent ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? ) ;
+    // LeMaVM.g:432:1: objectType : qualifiedTypeIdent ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? ) ;
     public final LeMaVMParser.objectType_return objectType() throws RecognitionException {
         LeMaVMParser.objectType_return retval = new LeMaVMParser.objectType_return();
         retval.start = input.LT(1);
@@ -3456,16 +3458,16 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_qualifiedTypeIdent=new RewriteRuleSubtreeStream(adaptor,"rule qualifiedTypeIdent");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 26) ) { return retval; }
-            // LeMaVM.g:432:5: ( qualifiedTypeIdent ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? ) )
-            // LeMaVM.g:432:9: qualifiedTypeIdent ( arrayDeclaratorList )?
+            // LeMaVM.g:433:5: ( qualifiedTypeIdent ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? ) )
+            // LeMaVM.g:433:9: qualifiedTypeIdent ( arrayDeclaratorList )?
             {
-            pushFollow(FOLLOW_qualifiedTypeIdent_in_objectType5113);
+            pushFollow(FOLLOW_qualifiedTypeIdent_in_objectType5131);
             qualifiedTypeIdent86=qualifiedTypeIdent();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_qualifiedTypeIdent.add(qualifiedTypeIdent86.getTree());
-            // LeMaVM.g:432:28: ( arrayDeclaratorList )?
+            // LeMaVM.g:433:28: ( arrayDeclaratorList )?
             int alt30=2;
             int LA30_0 = input.LA(1);
 
@@ -3476,7 +3478,7 @@ public class LeMaVMParser extends Parser {
                 case 1 :
                     // LeMaVM.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_objectType5115);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_objectType5133);
                     arrayDeclaratorList87=arrayDeclaratorList();
 
                     state._fsp--;
@@ -3502,15 +3504,15 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 433:9: -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? )
+            // 434:9: -> ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? )
             {
-                // LeMaVM.g:433:13: ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? )
+                // LeMaVM.g:434:13: ^( TYPE qualifiedTypeIdent ( arrayDeclaratorList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TYPE, "TYPE"), root_1);
 
                 adaptor.addChild(root_1, stream_qualifiedTypeIdent.nextTree());
-                // LeMaVM.g:433:39: ( arrayDeclaratorList )?
+                // LeMaVM.g:434:39: ( arrayDeclaratorList )?
                 if ( stream_arrayDeclaratorList.hasNext() ) {
                     adaptor.addChild(root_1, stream_arrayDeclaratorList.nextTree());
 
@@ -3552,7 +3554,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "objectTypeSimplified"
-    // LeMaVM.g:436:1: objectTypeSimplified : qualifiedTypeIdentSimplified ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? ) ;
+    // LeMaVM.g:437:1: objectTypeSimplified : qualifiedTypeIdentSimplified ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? ) ;
     public final LeMaVMParser.objectTypeSimplified_return objectTypeSimplified() throws RecognitionException {
         LeMaVMParser.objectTypeSimplified_return retval = new LeMaVMParser.objectTypeSimplified_return();
         retval.start = input.LT(1);
@@ -3568,16 +3570,16 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_qualifiedTypeIdentSimplified=new RewriteRuleSubtreeStream(adaptor,"rule qualifiedTypeIdentSimplified");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 27) ) { return retval; }
-            // LeMaVM.g:437:5: ( qualifiedTypeIdentSimplified ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? ) )
-            // LeMaVM.g:437:9: qualifiedTypeIdentSimplified ( arrayDeclaratorList )?
+            // LeMaVM.g:438:5: ( qualifiedTypeIdentSimplified ( arrayDeclaratorList )? -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? ) )
+            // LeMaVM.g:438:9: qualifiedTypeIdentSimplified ( arrayDeclaratorList )?
             {
-            pushFollow(FOLLOW_qualifiedTypeIdentSimplified_in_objectTypeSimplified5155);
+            pushFollow(FOLLOW_qualifiedTypeIdentSimplified_in_objectTypeSimplified5173);
             qualifiedTypeIdentSimplified88=qualifiedTypeIdentSimplified();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_qualifiedTypeIdentSimplified.add(qualifiedTypeIdentSimplified88.getTree());
-            // LeMaVM.g:437:38: ( arrayDeclaratorList )?
+            // LeMaVM.g:438:38: ( arrayDeclaratorList )?
             int alt31=2;
             int LA31_0 = input.LA(1);
 
@@ -3588,7 +3590,7 @@ public class LeMaVMParser extends Parser {
                 case 1 :
                     // LeMaVM.g:0:0: arrayDeclaratorList
                     {
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_objectTypeSimplified5157);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_objectTypeSimplified5175);
                     arrayDeclaratorList89=arrayDeclaratorList();
 
                     state._fsp--;
@@ -3603,7 +3605,7 @@ public class LeMaVMParser extends Parser {
 
 
             // AST REWRITE
-            // elements: arrayDeclaratorList, qualifiedTypeIdentSimplified
+            // elements: qualifiedTypeIdentSimplified, arrayDeclaratorList
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -3614,15 +3616,15 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 438:9: -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? )
+            // 439:9: -> ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? )
             {
-                // LeMaVM.g:438:13: ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? )
+                // LeMaVM.g:439:13: ^( TYPE qualifiedTypeIdentSimplified ( arrayDeclaratorList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(TYPE, "TYPE"), root_1);
 
                 adaptor.addChild(root_1, stream_qualifiedTypeIdentSimplified.nextTree());
-                // LeMaVM.g:438:49: ( arrayDeclaratorList )?
+                // LeMaVM.g:439:49: ( arrayDeclaratorList )?
                 if ( stream_arrayDeclaratorList.hasNext() ) {
                     adaptor.addChild(root_1, stream_arrayDeclaratorList.nextTree());
 
@@ -3664,7 +3666,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "qualifiedTypeIdent"
-    // LeMaVM.g:441:1: qualifiedTypeIdent : typeIdent ( DOT typeIdent )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) ;
+    // LeMaVM.g:442:1: qualifiedTypeIdent : typeIdent ( DOT typeIdent )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) ;
     public final LeMaVMParser.qualifiedTypeIdent_return qualifiedTypeIdent() throws RecognitionException {
         LeMaVMParser.qualifiedTypeIdent_return retval = new LeMaVMParser.qualifiedTypeIdent_return();
         retval.start = input.LT(1);
@@ -3682,16 +3684,16 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_typeIdent=new RewriteRuleSubtreeStream(adaptor,"rule typeIdent");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 28) ) { return retval; }
-            // LeMaVM.g:442:5: ( typeIdent ( DOT typeIdent )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) )
-            // LeMaVM.g:442:9: typeIdent ( DOT typeIdent )*
+            // LeMaVM.g:443:5: ( typeIdent ( DOT typeIdent )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ ) )
+            // LeMaVM.g:443:9: typeIdent ( DOT typeIdent )*
             {
-            pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent5197);
+            pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent5215);
             typeIdent90=typeIdent();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_typeIdent.add(typeIdent90.getTree());
-            // LeMaVM.g:442:19: ( DOT typeIdent )*
+            // LeMaVM.g:443:19: ( DOT typeIdent )*
             loop32:
             do {
                 int alt32=2;
@@ -3704,12 +3706,12 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt32) {
             	case 1 :
-            	    // LeMaVM.g:442:20: DOT typeIdent
+            	    // LeMaVM.g:443:20: DOT typeIdent
             	    {
-            	    DOT91=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedTypeIdent5200); if (state.failed) return retval; 
+            	    DOT91=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedTypeIdent5218); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(DOT91);
 
-            	    pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent5202);
+            	    pushFollow(FOLLOW_typeIdent_in_qualifiedTypeIdent5220);
             	    typeIdent92=typeIdent();
 
             	    state._fsp--;
@@ -3738,9 +3740,9 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 443:9: -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
+            // 444:9: -> ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
             {
-                // LeMaVM.g:443:13: ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
+                // LeMaVM.g:444:13: ^( QUALIFIED_TYPE_IDENT ( typeIdent )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(QUALIFIED_TYPE_IDENT, "QUALIFIED_TYPE_IDENT"), root_1);
@@ -3789,7 +3791,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "qualifiedTypeIdentSimplified"
-    // LeMaVM.g:446:1: qualifiedTypeIdentSimplified : typeIdentSimplified ( DOT typeIdentSimplified )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ ) ;
+    // LeMaVM.g:447:1: qualifiedTypeIdentSimplified : typeIdentSimplified ( DOT typeIdentSimplified )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ ) ;
     public final LeMaVMParser.qualifiedTypeIdentSimplified_return qualifiedTypeIdentSimplified() throws RecognitionException {
         LeMaVMParser.qualifiedTypeIdentSimplified_return retval = new LeMaVMParser.qualifiedTypeIdentSimplified_return();
         retval.start = input.LT(1);
@@ -3807,16 +3809,16 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_typeIdentSimplified=new RewriteRuleSubtreeStream(adaptor,"rule typeIdentSimplified");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 29) ) { return retval; }
-            // LeMaVM.g:447:5: ( typeIdentSimplified ( DOT typeIdentSimplified )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ ) )
-            // LeMaVM.g:447:9: typeIdentSimplified ( DOT typeIdentSimplified )*
+            // LeMaVM.g:448:5: ( typeIdentSimplified ( DOT typeIdentSimplified )* -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ ) )
+            // LeMaVM.g:448:9: typeIdentSimplified ( DOT typeIdentSimplified )*
             {
-            pushFollow(FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified5242);
+            pushFollow(FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified5260);
             typeIdentSimplified93=typeIdentSimplified();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_typeIdentSimplified.add(typeIdentSimplified93.getTree());
-            // LeMaVM.g:447:29: ( DOT typeIdentSimplified )*
+            // LeMaVM.g:448:29: ( DOT typeIdentSimplified )*
             loop33:
             do {
                 int alt33=2;
@@ -3829,12 +3831,12 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt33) {
             	case 1 :
-            	    // LeMaVM.g:447:30: DOT typeIdentSimplified
+            	    // LeMaVM.g:448:30: DOT typeIdentSimplified
             	    {
-            	    DOT94=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedTypeIdentSimplified5245); if (state.failed) return retval; 
+            	    DOT94=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedTypeIdentSimplified5263); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(DOT94);
 
-            	    pushFollow(FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified5247);
+            	    pushFollow(FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified5265);
             	    typeIdentSimplified95=typeIdentSimplified();
 
             	    state._fsp--;
@@ -3863,9 +3865,9 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 448:9: -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ )
+            // 449:9: -> ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ )
             {
-                // LeMaVM.g:448:13: ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ )
+                // LeMaVM.g:449:13: ^( QUALIFIED_TYPE_IDENT ( typeIdentSimplified )+ )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(QUALIFIED_TYPE_IDENT, "QUALIFIED_TYPE_IDENT"), root_1);
@@ -3914,7 +3916,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "typeIdent"
-    // LeMaVM.g:451:1: typeIdent : IDENT ;
+    // LeMaVM.g:452:1: typeIdent : IDENT ;
     public final LeMaVMParser.typeIdent_return typeIdent() throws RecognitionException {
         LeMaVMParser.typeIdent_return retval = new LeMaVMParser.typeIdent_return();
         retval.start = input.LT(1);
@@ -3927,12 +3929,12 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 30) ) { return retval; }
-            // LeMaVM.g:452:5: ( IDENT )
-            // LeMaVM.g:452:9: IDENT
+            // LeMaVM.g:453:5: ( IDENT )
+            // LeMaVM.g:453:9: IDENT
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT96=(Token)match(input,IDENT,FOLLOW_IDENT_in_typeIdent5287); if (state.failed) return retval;
+            IDENT96=(Token)match(input,IDENT,FOLLOW_IDENT_in_typeIdent5305); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT96_tree = (CommonTree)adaptor.create(IDENT96);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT96_tree, root_0);
@@ -3967,7 +3969,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "typeIdentSimplified"
-    // LeMaVM.g:455:1: typeIdentSimplified : IDENT ;
+    // LeMaVM.g:456:1: typeIdentSimplified : IDENT ;
     public final LeMaVMParser.typeIdentSimplified_return typeIdentSimplified() throws RecognitionException {
         LeMaVMParser.typeIdentSimplified_return retval = new LeMaVMParser.typeIdentSimplified_return();
         retval.start = input.LT(1);
@@ -3980,12 +3982,12 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 31) ) { return retval; }
-            // LeMaVM.g:456:5: ( IDENT )
-            // LeMaVM.g:456:9: IDENT
+            // LeMaVM.g:457:5: ( IDENT )
+            // LeMaVM.g:457:9: IDENT
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            IDENT97=(Token)match(input,IDENT,FOLLOW_IDENT_in_typeIdentSimplified5307); if (state.failed) return retval;
+            IDENT97=(Token)match(input,IDENT,FOLLOW_IDENT_in_typeIdentSimplified5325); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             IDENT97_tree = (CommonTree)adaptor.create(IDENT97);
             root_0 = (CommonTree)adaptor.becomeRoot(IDENT97_tree, root_0);
@@ -4020,7 +4022,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "primitiveType"
-    // LeMaVM.g:459:1: primitiveType : ( BOOLEAN | SHORT | INT | LONG | DOUBLE );
+    // LeMaVM.g:460:1: primitiveType : ( BOOLEAN | SHORT | INT | LONG | DOUBLE | STRING );
     public final LeMaVMParser.primitiveType_return primitiveType() throws RecognitionException {
         LeMaVMParser.primitiveType_return retval = new LeMaVMParser.primitiveType_return();
         retval.start = input.LT(1);
@@ -4033,13 +4035,13 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 32) ) { return retval; }
-            // LeMaVM.g:460:5: ( BOOLEAN | SHORT | INT | LONG | DOUBLE )
+            // LeMaVM.g:461:5: ( BOOLEAN | SHORT | INT | LONG | DOUBLE | STRING )
             // LeMaVM.g:
             {
             root_0 = (CommonTree)adaptor.nil();
 
             set98=(Token)input.LT(1);
-            if ( input.LA(1)==BOOLEAN||input.LA(1)==DOUBLE||(input.LA(1)>=INT && input.LA(1)<=LONG)||input.LA(1)==SHORT ) {
+            if ( input.LA(1)==BOOLEAN||input.LA(1)==DOUBLE||(input.LA(1)>=INT && input.LA(1)<=LONG)||input.LA(1)==SHORT||input.LA(1)==STRING ) {
                 input.consume();
                 if ( state.backtracking==0 ) adaptor.addChild(root_0, (CommonTree)adaptor.create(set98));
                 state.errorRecovery=false;state.failed=false;
@@ -4080,7 +4082,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "qualifiedIdentList"
-    // LeMaVM.g:467:1: qualifiedIdentList : qualifiedIdentifier ( COMMA qualifiedIdentifier )* ;
+    // LeMaVM.g:469:1: qualifiedIdentList : qualifiedIdentifier ( COMMA qualifiedIdentifier )* ;
     public final LeMaVMParser.qualifiedIdentList_return qualifiedIdentList() throws RecognitionException {
         LeMaVMParser.qualifiedIdentList_return retval = new LeMaVMParser.qualifiedIdentList_return();
         retval.start = input.LT(1);
@@ -4097,18 +4099,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 33) ) { return retval; }
-            // LeMaVM.g:468:5: ( qualifiedIdentifier ( COMMA qualifiedIdentifier )* )
-            // LeMaVM.g:468:9: qualifiedIdentifier ( COMMA qualifiedIdentifier )*
+            // LeMaVM.g:470:5: ( qualifiedIdentifier ( COMMA qualifiedIdentifier )* )
+            // LeMaVM.g:470:9: qualifiedIdentifier ( COMMA qualifiedIdentifier )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentList5386);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentList5414);
             qualifiedIdentifier99=qualifiedIdentifier();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, qualifiedIdentifier99.getTree());
-            // LeMaVM.g:468:29: ( COMMA qualifiedIdentifier )*
+            // LeMaVM.g:470:29: ( COMMA qualifiedIdentifier )*
             loop34:
             do {
                 int alt34=2;
@@ -4121,10 +4123,10 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt34) {
             	case 1 :
-            	    // LeMaVM.g:468:30: COMMA qualifiedIdentifier
+            	    // LeMaVM.g:470:30: COMMA qualifiedIdentifier
             	    {
-            	    COMMA100=(Token)match(input,COMMA,FOLLOW_COMMA_in_qualifiedIdentList5389); if (state.failed) return retval;
-            	    pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentList5392);
+            	    COMMA100=(Token)match(input,COMMA,FOLLOW_COMMA_in_qualifiedIdentList5417); if (state.failed) return retval;
+            	    pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentList5420);
             	    qualifiedIdentifier101=qualifiedIdentifier();
 
             	    state._fsp--;
@@ -4169,7 +4171,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "formalParameterList"
-    // LeMaVM.g:471:1: formalParameterList : LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN ;
+    // LeMaVM.g:473:1: formalParameterList : LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN ;
     public final LeMaVMParser.formalParameterList_return formalParameterList() throws RecognitionException {
         LeMaVMParser.formalParameterList_return retval = new LeMaVMParser.formalParameterList_return();
         retval.start = input.LT(1);
@@ -4193,17 +4195,17 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_formalParameterStandardDecl=new RewriteRuleSubtreeStream(adaptor,"rule formalParameterStandardDecl");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 34) ) { return retval; }
-            // LeMaVM.g:472:5: ( LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN )
-            // LeMaVM.g:472:9: LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN
+            // LeMaVM.g:474:5: ( LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN )
+            // LeMaVM.g:474:9: LPAREN ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) ) RPAREN
             {
-            LPAREN102=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_formalParameterList5417); if (state.failed) return retval; 
+            LPAREN102=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_formalParameterList5445); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN102);
 
-            // LeMaVM.g:473:9: ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) )
+            // LeMaVM.g:475:9: ( formalParameterStandardDecl ( COMMA formalParameterStandardDecl )* -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ ) | -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ) )
             int alt36=2;
             int LA36_0 = input.LA(1);
 
-            if ( (LA36_0==BOOLEAN||LA36_0==DOUBLE||LA36_0==FINAL||(LA36_0>=INT && LA36_0<=LONG)||LA36_0==SHORT||LA36_0==IDENT) ) {
+            if ( (LA36_0==BOOLEAN||LA36_0==DOUBLE||LA36_0==FINAL||(LA36_0>=INT && LA36_0<=LONG)||LA36_0==SHORT||LA36_0==STRING||LA36_0==IDENT) ) {
                 alt36=1;
             }
             else if ( (LA36_0==RPAREN) ) {
@@ -4218,15 +4220,15 @@ public class LeMaVMParser extends Parser {
             }
             switch (alt36) {
                 case 1 :
-                    // LeMaVM.g:474:13: formalParameterStandardDecl ( COMMA formalParameterStandardDecl )*
+                    // LeMaVM.g:476:13: formalParameterStandardDecl ( COMMA formalParameterStandardDecl )*
                     {
-                    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList5445);
+                    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList5473);
                     formalParameterStandardDecl103=formalParameterStandardDecl();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_formalParameterStandardDecl.add(formalParameterStandardDecl103.getTree());
-                    // LeMaVM.g:474:41: ( COMMA formalParameterStandardDecl )*
+                    // LeMaVM.g:476:41: ( COMMA formalParameterStandardDecl )*
                     loop35:
                     do {
                         int alt35=2;
@@ -4239,12 +4241,12 @@ public class LeMaVMParser extends Parser {
 
                         switch (alt35) {
                     	case 1 :
-                    	    // LeMaVM.g:474:42: COMMA formalParameterStandardDecl
+                    	    // LeMaVM.g:476:42: COMMA formalParameterStandardDecl
                     	    {
-                    	    COMMA104=(Token)match(input,COMMA,FOLLOW_COMMA_in_formalParameterList5448); if (state.failed) return retval; 
+                    	    COMMA104=(Token)match(input,COMMA,FOLLOW_COMMA_in_formalParameterList5476); if (state.failed) return retval; 
                     	    if ( state.backtracking==0 ) stream_COMMA.add(COMMA104);
 
-                    	    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList5450);
+                    	    pushFollow(FOLLOW_formalParameterStandardDecl_in_formalParameterList5478);
                     	    formalParameterStandardDecl105=formalParameterStandardDecl();
 
                     	    state._fsp--;
@@ -4273,9 +4275,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 475:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ )
+                    // 477:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ )
                     {
-                        // LeMaVM.g:475:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ )
+                        // LeMaVM.g:477:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] ( formalParameterStandardDecl )+ )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FORMAL_PARAM_LIST, LPAREN102, "FORMAL_PARAM_LIST"), root_1);
@@ -4298,7 +4300,7 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:477:13: 
+                    // LeMaVM.g:479:13: 
                     {
 
                     // AST REWRITE
@@ -4313,9 +4315,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 477:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] )
+                    // 479:13: -> ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] )
                     {
-                        // LeMaVM.g:477:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] )
+                        // LeMaVM.g:479:17: ^( FORMAL_PARAM_LIST[$LPAREN, \"FORMAL_PARAM_LIST\"] )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FORMAL_PARAM_LIST, LPAREN102, "FORMAL_PARAM_LIST"), root_1);
@@ -4331,7 +4333,7 @@ public class LeMaVMParser extends Parser {
 
             }
 
-            RPAREN106=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_formalParameterList5530); if (state.failed) return retval; 
+            RPAREN106=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_formalParameterList5558); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN106);
 
 
@@ -4364,7 +4366,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "formalParameterStandardDecl"
-    // LeMaVM.g:482:1: formalParameterStandardDecl : localModifierList type variableDeclaratorId -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) ;
+    // LeMaVM.g:484:1: formalParameterStandardDecl : localModifierList type variableDeclaratorId -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) ;
     public final LeMaVMParser.formalParameterStandardDecl_return formalParameterStandardDecl() throws RecognitionException {
         LeMaVMParser.formalParameterStandardDecl_return retval = new LeMaVMParser.formalParameterStandardDecl_return();
         retval.start = input.LT(1);
@@ -4383,22 +4385,22 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 35) ) { return retval; }
-            // LeMaVM.g:483:5: ( localModifierList type variableDeclaratorId -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) )
-            // LeMaVM.g:483:9: localModifierList type variableDeclaratorId
+            // LeMaVM.g:485:5: ( localModifierList type variableDeclaratorId -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId ) )
+            // LeMaVM.g:485:9: localModifierList type variableDeclaratorId
             {
-            pushFollow(FOLLOW_localModifierList_in_formalParameterStandardDecl5553);
+            pushFollow(FOLLOW_localModifierList_in_formalParameterStandardDecl5581);
             localModifierList107=localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_localModifierList.add(localModifierList107.getTree());
-            pushFollow(FOLLOW_type_in_formalParameterStandardDecl5555);
+            pushFollow(FOLLOW_type_in_formalParameterStandardDecl5583);
             type108=type();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_type.add(type108.getTree());
-            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl5557);
+            pushFollow(FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl5585);
             variableDeclaratorId109=variableDeclaratorId();
 
             state._fsp--;
@@ -4407,7 +4409,7 @@ public class LeMaVMParser extends Parser {
 
 
             // AST REWRITE
-            // elements: type, localModifierList, variableDeclaratorId
+            // elements: localModifierList, variableDeclaratorId, type
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -4418,9 +4420,9 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 484:9: -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
+            // 486:9: -> ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
             {
-                // LeMaVM.g:484:13: ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
+                // LeMaVM.g:486:13: ^( FORMAL_PARAM_STD_DECL localModifierList type variableDeclaratorId )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FORMAL_PARAM_STD_DECL, "FORMAL_PARAM_STD_DECL"), root_1);
@@ -4464,7 +4466,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "qualifiedIdentifier"
-    // LeMaVM.g:487:1: qualifiedIdentifier : ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )* ;
+    // LeMaVM.g:489:1: qualifiedIdentifier : ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )* ;
     public final LeMaVMParser.qualifiedIdentifier_return qualifiedIdentifier() throws RecognitionException {
         LeMaVMParser.qualifiedIdentifier_return retval = new LeMaVMParser.qualifiedIdentifier_return();
         retval.start = input.LT(1);
@@ -4483,13 +4485,13 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 36) ) { return retval; }
-            // LeMaVM.g:488:5: ( ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )* )
-            // LeMaVM.g:488:9: ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )*
+            // LeMaVM.g:490:5: ( ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )* )
+            // LeMaVM.g:490:9: ( IDENT -> IDENT ) ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )*
             {
-            // LeMaVM.g:488:9: ( IDENT -> IDENT )
-            // LeMaVM.g:488:13: IDENT
+            // LeMaVM.g:490:9: ( IDENT -> IDENT )
+            // LeMaVM.g:490:13: IDENT
             {
-            IDENT110=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier5605); if (state.failed) return retval; 
+            IDENT110=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier5633); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT110);
 
 
@@ -4506,7 +4508,7 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 488:33: -> IDENT
+            // 490:33: -> IDENT
             {
                 adaptor.addChild(root_0, stream_IDENT.nextNode());
 
@@ -4515,7 +4517,7 @@ public class LeMaVMParser extends Parser {
             retval.tree = root_0;}
             }
 
-            // LeMaVM.g:490:9: ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )*
+            // LeMaVM.g:492:9: ( DOT ident= IDENT -> ^( DOT $qualifiedIdentifier $ident) )*
             loop37:
             do {
                 int alt37=2;
@@ -4527,7 +4529,7 @@ public class LeMaVMParser extends Parser {
                     if ( (LA37_2==IDENT) ) {
                         int LA37_3 = input.LA(3);
 
-                        if ( (synpred48_LeMaVM()) ) {
+                        if ( (synpred49_LeMaVM()) ) {
                             alt37=1;
                         }
 
@@ -4540,12 +4542,12 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt37) {
             	case 1 :
-            	    // LeMaVM.g:490:13: DOT ident= IDENT
+            	    // LeMaVM.g:492:13: DOT ident= IDENT
             	    {
-            	    DOT111=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentifier5648); if (state.failed) return retval; 
+            	    DOT111=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentifier5676); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(DOT111);
 
-            	    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier5652); if (state.failed) return retval; 
+            	    ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentifier5680); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_IDENT.add(ident);
 
 
@@ -4563,9 +4565,9 @@ public class LeMaVMParser extends Parser {
             	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	    root_0 = (CommonTree)adaptor.nil();
-            	    // 490:33: -> ^( DOT $qualifiedIdentifier $ident)
+            	    // 492:33: -> ^( DOT $qualifiedIdentifier $ident)
             	    {
-            	        // LeMaVM.g:490:37: ^( DOT $qualifiedIdentifier $ident)
+            	        // LeMaVM.g:492:37: ^( DOT $qualifiedIdentifier $ident)
             	        {
             	        CommonTree root_1 = (CommonTree)adaptor.nil();
             	        root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -4617,7 +4619,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "block"
-    // LeMaVM.g:496:1: block : LCURLY ( blockStatement )* RCURLY -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* ) ;
+    // LeMaVM.g:498:1: block : LCURLY ( blockStatement )* RCURLY -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* ) ;
     public final LeMaVMParser.block_return block() throws RecognitionException {
         LeMaVMParser.block_return retval = new LeMaVMParser.block_return();
         retval.start = input.LT(1);
@@ -4636,13 +4638,13 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_blockStatement=new RewriteRuleSubtreeStream(adaptor,"rule blockStatement");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 37) ) { return retval; }
-            // LeMaVM.g:497:5: ( LCURLY ( blockStatement )* RCURLY -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* ) )
-            // LeMaVM.g:497:9: LCURLY ( blockStatement )* RCURLY
+            // LeMaVM.g:499:5: ( LCURLY ( blockStatement )* RCURLY -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* ) )
+            // LeMaVM.g:499:9: LCURLY ( blockStatement )* RCURLY
             {
-            LCURLY112=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_block5701); if (state.failed) return retval; 
+            LCURLY112=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_block5729); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY112);
 
-            // LeMaVM.g:497:16: ( blockStatement )*
+            // LeMaVM.g:499:16: ( blockStatement )*
             loop38:
             do {
                 int alt38=2;
@@ -4657,7 +4659,7 @@ public class LeMaVMParser extends Parser {
             	case 1 :
             	    // LeMaVM.g:0:0: blockStatement
             	    {
-            	    pushFollow(FOLLOW_blockStatement_in_block5703);
+            	    pushFollow(FOLLOW_blockStatement_in_block5731);
             	    blockStatement113=blockStatement();
 
             	    state._fsp--;
@@ -4672,7 +4674,7 @@ public class LeMaVMParser extends Parser {
                 }
             } while (true);
 
-            RCURLY114=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_block5706); if (state.failed) return retval; 
+            RCURLY114=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_block5734); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY114);
 
 
@@ -4689,14 +4691,14 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 498:9: -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* )
+            // 500:9: -> ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* )
             {
-                // LeMaVM.g:498:13: ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* )
+                // LeMaVM.g:500:13: ^( BLOCK_SCOPE[$LCURLY, \"BLOCK_SCOPE\"] ( blockStatement )* )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(BLOCK_SCOPE, LCURLY112, "BLOCK_SCOPE"), root_1);
 
-                // LeMaVM.g:498:51: ( blockStatement )*
+                // LeMaVM.g:500:51: ( blockStatement )*
                 while ( stream_blockStatement.hasNext() ) {
                     adaptor.addChild(root_1, stream_blockStatement.nextTree());
 
@@ -4738,7 +4740,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "blockStatement"
-    // LeMaVM.g:501:1: blockStatement : ( localVariableDeclaration SEMI | typeDeclaration | statement );
+    // LeMaVM.g:503:1: blockStatement : ( localVariableDeclaration SEMI | typeDeclaration | statement );
     public final LeMaVMParser.blockStatement_return blockStatement() throws RecognitionException {
         LeMaVMParser.blockStatement_return retval = new LeMaVMParser.blockStatement_return();
         retval.start = input.LT(1);
@@ -4757,31 +4759,31 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 38) ) { return retval; }
-            // LeMaVM.g:502:5: ( localVariableDeclaration SEMI | typeDeclaration | statement )
+            // LeMaVM.g:504:5: ( localVariableDeclaration SEMI | typeDeclaration | statement )
             int alt39=3;
             alt39 = dfa39.predict(input);
             switch (alt39) {
                 case 1 :
-                    // LeMaVM.g:502:9: localVariableDeclaration SEMI
+                    // LeMaVM.g:504:9: localVariableDeclaration SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_localVariableDeclaration_in_blockStatement5744);
+                    pushFollow(FOLLOW_localVariableDeclaration_in_blockStatement5772);
                     localVariableDeclaration115=localVariableDeclaration();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, localVariableDeclaration115.getTree());
-                    SEMI116=(Token)match(input,SEMI,FOLLOW_SEMI_in_blockStatement5746); if (state.failed) return retval;
+                    SEMI116=(Token)match(input,SEMI,FOLLOW_SEMI_in_blockStatement5774); if (state.failed) return retval;
 
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:503:9: typeDeclaration
+                    // LeMaVM.g:505:9: typeDeclaration
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_typeDeclaration_in_blockStatement5757);
+                    pushFollow(FOLLOW_typeDeclaration_in_blockStatement5785);
                     typeDeclaration117=typeDeclaration();
 
                     state._fsp--;
@@ -4791,11 +4793,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // LeMaVM.g:504:9: statement
+                    // LeMaVM.g:506:9: statement
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_statement_in_blockStatement5767);
+                    pushFollow(FOLLOW_statement_in_blockStatement5795);
                     statement118=statement();
 
                     state._fsp--;
@@ -4833,7 +4835,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "localVariableDeclaration"
-    // LeMaVM.g:507:1: localVariableDeclaration : localModifierList type classFieldDeclaratorList -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList ) ;
+    // LeMaVM.g:509:1: localVariableDeclaration : localModifierList type classFieldDeclaratorList -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList ) ;
     public final LeMaVMParser.localVariableDeclaration_return localVariableDeclaration() throws RecognitionException {
         LeMaVMParser.localVariableDeclaration_return retval = new LeMaVMParser.localVariableDeclaration_return();
         retval.start = input.LT(1);
@@ -4852,22 +4854,22 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_classFieldDeclaratorList=new RewriteRuleSubtreeStream(adaptor,"rule classFieldDeclaratorList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 39) ) { return retval; }
-            // LeMaVM.g:508:5: ( localModifierList type classFieldDeclaratorList -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList ) )
-            // LeMaVM.g:508:9: localModifierList type classFieldDeclaratorList
+            // LeMaVM.g:510:5: ( localModifierList type classFieldDeclaratorList -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList ) )
+            // LeMaVM.g:510:9: localModifierList type classFieldDeclaratorList
             {
-            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration5790);
+            pushFollow(FOLLOW_localModifierList_in_localVariableDeclaration5818);
             localModifierList119=localModifierList();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_localModifierList.add(localModifierList119.getTree());
-            pushFollow(FOLLOW_type_in_localVariableDeclaration5792);
+            pushFollow(FOLLOW_type_in_localVariableDeclaration5820);
             type120=type();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_type.add(type120.getTree());
-            pushFollow(FOLLOW_classFieldDeclaratorList_in_localVariableDeclaration5794);
+            pushFollow(FOLLOW_classFieldDeclaratorList_in_localVariableDeclaration5822);
             classFieldDeclaratorList121=classFieldDeclaratorList();
 
             state._fsp--;
@@ -4876,7 +4878,7 @@ public class LeMaVMParser extends Parser {
 
 
             // AST REWRITE
-            // elements: classFieldDeclaratorList, localModifierList, type
+            // elements: type, classFieldDeclaratorList, localModifierList
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -4887,9 +4889,9 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 509:9: -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList )
+            // 511:9: -> ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList )
             {
-                // LeMaVM.g:509:13: ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList )
+                // LeMaVM.g:511:13: ^( VAR_DECLARATION localModifierList type classFieldDeclaratorList )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(VAR_DECLARATION, "VAR_DECLARATION"), root_1);
@@ -4933,7 +4935,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "statement"
-    // LeMaVM.g:513:1: statement : ( block | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI );
+    // LeMaVM.g:515:1: statement : ( block | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI );
     public final LeMaVMParser.statement_return statement() throws RecognitionException {
         LeMaVMParser.statement_return retval = new LeMaVMParser.statement_return();
         retval.start = input.LT(1);
@@ -5068,16 +5070,16 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_parenthesizedExpression=new RewriteRuleSubtreeStream(adaptor,"rule parenthesizedExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 40) ) { return retval; }
-            // LeMaVM.g:514:5: ( block | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI )
+            // LeMaVM.g:516:5: ( block | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI )
             int alt45=12;
             alt45 = dfa45.predict(input);
             switch (alt45) {
                 case 1 :
-                    // LeMaVM.g:514:9: block
+                    // LeMaVM.g:516:9: block
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_block_in_statement5847);
+                    pushFollow(FOLLOW_block_in_statement5875);
                     block122=block();
 
                     state._fsp--;
@@ -5087,31 +5089,31 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:515:9: IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) )
+                    // LeMaVM.g:517:9: IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) )
                     {
-                    IF123=(Token)match(input,IF,FOLLOW_IF_in_statement5857); if (state.failed) return retval; 
+                    IF123=(Token)match(input,IF,FOLLOW_IF_in_statement5885); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_IF.add(IF123);
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement5859);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement5887);
                     parenthesizedExpression124=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_parenthesizedExpression.add(parenthesizedExpression124.getTree());
-                    pushFollow(FOLLOW_statement_in_statement5863);
+                    pushFollow(FOLLOW_statement_in_statement5891);
                     ifStat=statement();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_statement.add(ifStat.getTree());
-                    // LeMaVM.g:516:9: ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) )
+                    // LeMaVM.g:518:9: ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) )
                     int alt40=2;
                     int LA40_0 = input.LA(1);
 
                     if ( (LA40_0==ELSE) ) {
                         int LA40_1 = input.LA(2);
 
-                        if ( (synpred53_LeMaVM()) ) {
+                        if ( (synpred54_LeMaVM()) ) {
                             alt40=1;
                         }
                         else if ( (true) ) {
@@ -5137,12 +5139,12 @@ public class LeMaVMParser extends Parser {
                     }
                     switch (alt40) {
                         case 1 :
-                            // LeMaVM.g:516:13: ELSE elseStat= statement
+                            // LeMaVM.g:518:13: ELSE elseStat= statement
                             {
-                            ELSE125=(Token)match(input,ELSE,FOLLOW_ELSE_in_statement5878); if (state.failed) return retval; 
+                            ELSE125=(Token)match(input,ELSE,FOLLOW_ELSE_in_statement5906); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_ELSE.add(ELSE125);
 
-                            pushFollow(FOLLOW_statement_in_statement5882);
+                            pushFollow(FOLLOW_statement_in_statement5910);
                             elseStat=statement();
 
                             state._fsp--;
@@ -5151,7 +5153,7 @@ public class LeMaVMParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: ifStat, parenthesizedExpression, IF, elseStat
+                            // elements: parenthesizedExpression, IF, elseStat, ifStat
                             // token labels: 
                             // rule labels: retval, ifStat, elseStat
                             // token list labels: 
@@ -5164,9 +5166,9 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_elseStat=new RewriteRuleSubtreeStream(adaptor,"rule elseStat",elseStat!=null?elseStat.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 516:77: -> ^( IF parenthesizedExpression $ifStat $elseStat)
+                            // 518:77: -> ^( IF parenthesizedExpression $ifStat $elseStat)
                             {
-                                // LeMaVM.g:516:81: ^( IF parenthesizedExpression $ifStat $elseStat)
+                                // LeMaVM.g:518:81: ^( IF parenthesizedExpression $ifStat $elseStat)
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_IF.nextNode(), root_1);
@@ -5184,11 +5186,11 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // LeMaVM.g:517:77: 
+                            // LeMaVM.g:519:77: 
                             {
 
                             // AST REWRITE
-                            // elements: IF, ifStat, parenthesizedExpression
+                            // elements: ifStat, parenthesizedExpression, IF
                             // token labels: 
                             // rule labels: retval, ifStat
                             // token list labels: 
@@ -5200,9 +5202,9 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_ifStat=new RewriteRuleSubtreeStream(adaptor,"rule ifStat",ifStat!=null?ifStat.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 517:77: -> ^( IF parenthesizedExpression $ifStat)
+                            // 519:77: -> ^( IF parenthesizedExpression $ifStat)
                             {
-                                // LeMaVM.g:517:81: ^( IF parenthesizedExpression $ifStat)
+                                // LeMaVM.g:519:81: ^( IF parenthesizedExpression $ifStat)
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_IF.nextNode(), root_1);
@@ -5225,49 +5227,49 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // LeMaVM.g:519:9: FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )
+                    // LeMaVM.g:521:9: FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )
                     {
-                    FOR126=(Token)match(input,FOR,FOLLOW_FOR_in_statement6048); if (state.failed) return retval; 
+                    FOR126=(Token)match(input,FOR,FOLLOW_FOR_in_statement6076); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_FOR.add(FOR126);
 
-                    LPAREN127=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_statement6050); if (state.failed) return retval; 
+                    LPAREN127=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_statement6078); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN127);
 
-                    // LeMaVM.g:520:9: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )
+                    // LeMaVM.g:522:9: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )
                     int alt41=2;
                     alt41 = dfa41.predict(input);
                     switch (alt41) {
                         case 1 :
-                            // LeMaVM.g:520:13: forInit SEMI forCondition SEMI forUpdater RPAREN statement
+                            // LeMaVM.g:522:13: forInit SEMI forCondition SEMI forUpdater RPAREN statement
                             {
-                            pushFollow(FOLLOW_forInit_in_statement6065);
+                            pushFollow(FOLLOW_forInit_in_statement6093);
                             forInit128=forInit();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_forInit.add(forInit128.getTree());
-                            SEMI129=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6067); if (state.failed) return retval; 
+                            SEMI129=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6095); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI129);
 
-                            pushFollow(FOLLOW_forCondition_in_statement6069);
+                            pushFollow(FOLLOW_forCondition_in_statement6097);
                             forCondition130=forCondition();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_forCondition.add(forCondition130.getTree());
-                            SEMI131=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6071); if (state.failed) return retval; 
+                            SEMI131=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6099); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SEMI.add(SEMI131);
 
-                            pushFollow(FOLLOW_forUpdater_in_statement6073);
+                            pushFollow(FOLLOW_forUpdater_in_statement6101);
                             forUpdater132=forUpdater();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_forUpdater.add(forUpdater132.getTree());
-                            RPAREN133=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_statement6075); if (state.failed) return retval; 
+                            RPAREN133=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_statement6103); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN133);
 
-                            pushFollow(FOLLOW_statement_in_statement6077);
+                            pushFollow(FOLLOW_statement_in_statement6105);
                             statement134=statement();
 
                             state._fsp--;
@@ -5276,7 +5278,7 @@ public class LeMaVMParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: forCondition, forInit, FOR, statement, forUpdater
+                            // elements: FOR, forCondition, forInit, statement, forUpdater
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -5287,9 +5289,9 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 520:77: -> ^( FOR forInit forCondition forUpdater statement )
+                            // 522:77: -> ^( FOR forInit forCondition forUpdater statement )
                             {
-                                // LeMaVM.g:520:81: ^( FOR forInit forCondition forUpdater statement )
+                                // LeMaVM.g:522:81: ^( FOR forInit forCondition forUpdater statement )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_FOR.nextNode(), root_1);
@@ -5308,36 +5310,36 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // LeMaVM.g:521:13: localModifierList type IDENT COLON expression RPAREN statement
+                            // LeMaVM.g:523:13: localModifierList type IDENT COLON expression RPAREN statement
                             {
-                            pushFollow(FOLLOW_localModifierList_in_statement6112);
+                            pushFollow(FOLLOW_localModifierList_in_statement6140);
                             localModifierList135=localModifierList();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_localModifierList.add(localModifierList135.getTree());
-                            pushFollow(FOLLOW_type_in_statement6114);
+                            pushFollow(FOLLOW_type_in_statement6142);
                             type136=type();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_type.add(type136.getTree());
-                            IDENT137=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement6116); if (state.failed) return retval; 
+                            IDENT137=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement6144); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT137);
 
-                            COLON138=(Token)match(input,COLON,FOLLOW_COLON_in_statement6118); if (state.failed) return retval; 
+                            COLON138=(Token)match(input,COLON,FOLLOW_COLON_in_statement6146); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_COLON.add(COLON138);
 
-                            pushFollow(FOLLOW_expression_in_statement6120);
+                            pushFollow(FOLLOW_expression_in_statement6148);
                             expression139=expression();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_expression.add(expression139.getTree());
-                            RPAREN140=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_statement6122); if (state.failed) return retval; 
+                            RPAREN140=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_statement6150); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN140);
 
-                            pushFollow(FOLLOW_statement_in_statement6124);
+                            pushFollow(FOLLOW_statement_in_statement6152);
                             statement141=statement();
 
                             state._fsp--;
@@ -5346,7 +5348,7 @@ public class LeMaVMParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: localModifierList, statement, type, expression, IDENT
+                            // elements: localModifierList, statement, IDENT, expression, type
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -5357,9 +5359,9 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 522:77: -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement )
+                            // 524:77: -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement )
                             {
-                                // LeMaVM.g:522:81: ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement )
+                                // LeMaVM.g:524:81: ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_EACH, FOR126, "FOR_EACH"), root_1);
@@ -5385,18 +5387,18 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // LeMaVM.g:524:9: WHILE parenthesizedExpression statement
+                    // LeMaVM.g:526:9: WHILE parenthesizedExpression statement
                     {
-                    WHILE142=(Token)match(input,WHILE,FOLLOW_WHILE_in_statement6239); if (state.failed) return retval; 
+                    WHILE142=(Token)match(input,WHILE,FOLLOW_WHILE_in_statement6267); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_WHILE.add(WHILE142);
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement6241);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement6269);
                     parenthesizedExpression143=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_parenthesizedExpression.add(parenthesizedExpression143.getTree());
-                    pushFollow(FOLLOW_statement_in_statement6243);
+                    pushFollow(FOLLOW_statement_in_statement6271);
                     statement144=statement();
 
                     state._fsp--;
@@ -5416,9 +5418,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 524:77: -> ^( WHILE parenthesizedExpression statement )
+                    // 526:77: -> ^( WHILE parenthesizedExpression statement )
                     {
-                        // LeMaVM.g:524:81: ^( WHILE parenthesizedExpression statement )
+                        // LeMaVM.g:526:81: ^( WHILE parenthesizedExpression statement )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_WHILE.nextNode(), root_1);
@@ -5435,27 +5437,27 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // LeMaVM.g:525:9: DO statement WHILE parenthesizedExpression SEMI
+                    // LeMaVM.g:527:9: DO statement WHILE parenthesizedExpression SEMI
                     {
-                    DO145=(Token)match(input,DO,FOLLOW_DO_in_statement6292); if (state.failed) return retval; 
+                    DO145=(Token)match(input,DO,FOLLOW_DO_in_statement6320); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DO.add(DO145);
 
-                    pushFollow(FOLLOW_statement_in_statement6294);
+                    pushFollow(FOLLOW_statement_in_statement6322);
                     statement146=statement();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_statement.add(statement146.getTree());
-                    WHILE147=(Token)match(input,WHILE,FOLLOW_WHILE_in_statement6296); if (state.failed) return retval; 
+                    WHILE147=(Token)match(input,WHILE,FOLLOW_WHILE_in_statement6324); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_WHILE.add(WHILE147);
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement6298);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement6326);
                     parenthesizedExpression148=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_parenthesizedExpression.add(parenthesizedExpression148.getTree());
-                    SEMI149=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6300); if (state.failed) return retval; 
+                    SEMI149=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6328); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI149);
 
 
@@ -5472,9 +5474,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 525:77: -> ^( DO statement parenthesizedExpression )
+                    // 527:77: -> ^( DO statement parenthesizedExpression )
                     {
-                        // LeMaVM.g:525:81: ^( DO statement parenthesizedExpression )
+                        // LeMaVM.g:527:81: ^( DO statement parenthesizedExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_DO.nextNode(), root_1);
@@ -5491,33 +5493,33 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // LeMaVM.g:526:9: SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY
+                    // LeMaVM.g:528:9: SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY
                     {
-                    SWITCH150=(Token)match(input,SWITCH,FOLLOW_SWITCH_in_statement6341); if (state.failed) return retval; 
+                    SWITCH150=(Token)match(input,SWITCH,FOLLOW_SWITCH_in_statement6369); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SWITCH.add(SWITCH150);
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_statement6343);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_statement6371);
                     parenthesizedExpression151=parenthesizedExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_parenthesizedExpression.add(parenthesizedExpression151.getTree());
-                    LCURLY152=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_statement6345); if (state.failed) return retval; 
+                    LCURLY152=(Token)match(input,LCURLY,FOLLOW_LCURLY_in_statement6373); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LCURLY.add(LCURLY152);
 
-                    pushFollow(FOLLOW_switchBlockLabels_in_statement6347);
+                    pushFollow(FOLLOW_switchBlockLabels_in_statement6375);
                     switchBlockLabels153=switchBlockLabels();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_switchBlockLabels.add(switchBlockLabels153.getTree());
-                    RCURLY154=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_statement6349); if (state.failed) return retval; 
+                    RCURLY154=(Token)match(input,RCURLY,FOLLOW_RCURLY_in_statement6377); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_RCURLY.add(RCURLY154);
 
 
 
                     // AST REWRITE
-                    // elements: parenthesizedExpression, SWITCH, switchBlockLabels
+                    // elements: switchBlockLabels, parenthesizedExpression, SWITCH
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -5528,9 +5530,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 526:77: -> ^( SWITCH parenthesizedExpression switchBlockLabels )
+                    // 528:77: -> ^( SWITCH parenthesizedExpression switchBlockLabels )
                     {
-                        // LeMaVM.g:526:81: ^( SWITCH parenthesizedExpression switchBlockLabels )
+                        // LeMaVM.g:528:81: ^( SWITCH parenthesizedExpression switchBlockLabels )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_SWITCH.nextNode(), root_1);
@@ -5547,23 +5549,23 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // LeMaVM.g:527:9: RETURN ( expression )? SEMI
+                    // LeMaVM.g:529:9: RETURN ( expression )? SEMI
                     {
-                    RETURN155=(Token)match(input,RETURN,FOLLOW_RETURN_in_statement6375); if (state.failed) return retval; 
+                    RETURN155=(Token)match(input,RETURN,FOLLOW_RETURN_in_statement6403); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_RETURN.add(RETURN155);
 
-                    // LeMaVM.g:527:16: ( expression )?
+                    // LeMaVM.g:529:16: ( expression )?
                     int alt42=2;
                     int LA42_0 = input.LA(1);
 
-                    if ( (LA42_0==DEC||LA42_0==INC||LA42_0==LOGICAL_NOT||(LA42_0>=LPAREN && LA42_0<=MINUS)||LA42_0==NOT||LA42_0==PLUS||LA42_0==BOOLEAN||LA42_0==DOUBLE||LA42_0==FALSE||(LA42_0>=INT && LA42_0<=NULL)||LA42_0==SHORT||LA42_0==SUPER||(LA42_0>=THIS && LA42_0<=TRUE)||LA42_0==VOID||(LA42_0>=IDENT && LA42_0<=STRING_LITERAL)) ) {
+                    if ( (LA42_0==DEC||LA42_0==INC||LA42_0==LOGICAL_NOT||(LA42_0>=LPAREN && LA42_0<=MINUS)||LA42_0==NOT||LA42_0==PLUS||LA42_0==BOOLEAN||LA42_0==DOUBLE||LA42_0==FALSE||(LA42_0>=INT && LA42_0<=NULL)||LA42_0==SHORT||(LA42_0>=STRING && LA42_0<=SUPER)||(LA42_0>=THIS && LA42_0<=TRUE)||LA42_0==VOID||(LA42_0>=IDENT && LA42_0<=STRING_LITERAL)) ) {
                         alt42=1;
                     }
                     switch (alt42) {
                         case 1 :
                             // LeMaVM.g:0:0: expression
                             {
-                            pushFollow(FOLLOW_expression_in_statement6377);
+                            pushFollow(FOLLOW_expression_in_statement6405);
                             expression156=expression();
 
                             state._fsp--;
@@ -5575,7 +5577,7 @@ public class LeMaVMParser extends Parser {
 
                     }
 
-                    SEMI157=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6380); if (state.failed) return retval; 
+                    SEMI157=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6408); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI157);
 
 
@@ -5592,14 +5594,14 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 527:77: -> ^( RETURN ( expression )? )
+                    // 529:77: -> ^( RETURN ( expression )? )
                     {
-                        // LeMaVM.g:527:81: ^( RETURN ( expression )? )
+                        // LeMaVM.g:529:81: ^( RETURN ( expression )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_RETURN.nextNode(), root_1);
 
-                        // LeMaVM.g:527:90: ( expression )?
+                        // LeMaVM.g:529:90: ( expression )?
                         if ( stream_expression.hasNext() ) {
                             adaptor.addChild(root_1, stream_expression.nextTree());
 
@@ -5615,12 +5617,12 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // LeMaVM.g:528:9: BREAK ( IDENT )? SEMI
+                    // LeMaVM.g:530:9: BREAK ( IDENT )? SEMI
                     {
-                    BREAK158=(Token)match(input,BREAK,FOLLOW_BREAK_in_statement6444); if (state.failed) return retval; 
+                    BREAK158=(Token)match(input,BREAK,FOLLOW_BREAK_in_statement6472); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_BREAK.add(BREAK158);
 
-                    // LeMaVM.g:528:15: ( IDENT )?
+                    // LeMaVM.g:530:15: ( IDENT )?
                     int alt43=2;
                     int LA43_0 = input.LA(1);
 
@@ -5631,7 +5633,7 @@ public class LeMaVMParser extends Parser {
                         case 1 :
                             // LeMaVM.g:0:0: IDENT
                             {
-                            IDENT159=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement6446); if (state.failed) return retval; 
+                            IDENT159=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement6474); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT159);
 
 
@@ -5640,13 +5642,13 @@ public class LeMaVMParser extends Parser {
 
                     }
 
-                    SEMI160=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6449); if (state.failed) return retval; 
+                    SEMI160=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6477); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI160);
 
 
 
                     // AST REWRITE
-                    // elements: BREAK, IDENT
+                    // elements: IDENT, BREAK
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -5657,14 +5659,14 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 528:77: -> ^( BREAK ( IDENT )? )
+                    // 530:77: -> ^( BREAK ( IDENT )? )
                     {
-                        // LeMaVM.g:528:81: ^( BREAK ( IDENT )? )
+                        // LeMaVM.g:530:81: ^( BREAK ( IDENT )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_BREAK.nextNode(), root_1);
 
-                        // LeMaVM.g:528:89: ( IDENT )?
+                        // LeMaVM.g:530:89: ( IDENT )?
                         if ( stream_IDENT.hasNext() ) {
                             adaptor.addChild(root_1, stream_IDENT.nextNode());
 
@@ -5680,12 +5682,12 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 9 :
-                    // LeMaVM.g:529:9: CONTINUE ( IDENT )? SEMI
+                    // LeMaVM.g:531:9: CONTINUE ( IDENT )? SEMI
                     {
-                    CONTINUE161=(Token)match(input,CONTINUE,FOLLOW_CONTINUE_in_statement6519); if (state.failed) return retval; 
+                    CONTINUE161=(Token)match(input,CONTINUE,FOLLOW_CONTINUE_in_statement6547); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_CONTINUE.add(CONTINUE161);
 
-                    // LeMaVM.g:529:18: ( IDENT )?
+                    // LeMaVM.g:531:18: ( IDENT )?
                     int alt44=2;
                     int LA44_0 = input.LA(1);
 
@@ -5696,7 +5698,7 @@ public class LeMaVMParser extends Parser {
                         case 1 :
                             // LeMaVM.g:0:0: IDENT
                             {
-                            IDENT162=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement6521); if (state.failed) return retval; 
+                            IDENT162=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement6549); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT162);
 
 
@@ -5705,13 +5707,13 @@ public class LeMaVMParser extends Parser {
 
                     }
 
-                    SEMI163=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6524); if (state.failed) return retval; 
+                    SEMI163=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6552); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SEMI.add(SEMI163);
 
 
 
                     // AST REWRITE
-                    // elements: CONTINUE, IDENT
+                    // elements: IDENT, CONTINUE
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -5722,14 +5724,14 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 529:77: -> ^( CONTINUE ( IDENT )? )
+                    // 531:77: -> ^( CONTINUE ( IDENT )? )
                     {
-                        // LeMaVM.g:529:81: ^( CONTINUE ( IDENT )? )
+                        // LeMaVM.g:531:81: ^( CONTINUE ( IDENT )? )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_CONTINUE.nextNode(), root_1);
 
-                        // LeMaVM.g:529:92: ( IDENT )?
+                        // LeMaVM.g:531:92: ( IDENT )?
                         if ( stream_IDENT.hasNext() ) {
                             adaptor.addChild(root_1, stream_IDENT.nextNode());
 
@@ -5745,15 +5747,15 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 10 :
-                    // LeMaVM.g:530:9: IDENT COLON statement
+                    // LeMaVM.g:532:9: IDENT COLON statement
                     {
-                    IDENT164=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement6591); if (state.failed) return retval; 
+                    IDENT164=(Token)match(input,IDENT,FOLLOW_IDENT_in_statement6619); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT164);
 
-                    COLON165=(Token)match(input,COLON,FOLLOW_COLON_in_statement6593); if (state.failed) return retval; 
+                    COLON165=(Token)match(input,COLON,FOLLOW_COLON_in_statement6621); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_COLON.add(COLON165);
 
-                    pushFollow(FOLLOW_statement_in_statement6595);
+                    pushFollow(FOLLOW_statement_in_statement6623);
                     statement166=statement();
 
                     state._fsp--;
@@ -5762,7 +5764,7 @@ public class LeMaVMParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: IDENT, statement
+                    // elements: statement, IDENT
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -5773,9 +5775,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 530:77: -> ^( LABELED_STATEMENT IDENT statement )
+                    // 532:77: -> ^( LABELED_STATEMENT IDENT statement )
                     {
-                        // LeMaVM.g:530:81: ^( LABELED_STATEMENT IDENT statement )
+                        // LeMaVM.g:532:81: ^( LABELED_STATEMENT IDENT statement )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(LABELED_STATEMENT, "LABELED_STATEMENT"), root_1);
@@ -5792,26 +5794,26 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 11 :
-                    // LeMaVM.g:531:9: expression SEMI
+                    // LeMaVM.g:533:9: expression SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_expression_in_statement6662);
+                    pushFollow(FOLLOW_expression_in_statement6690);
                     expression167=expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expression167.getTree());
-                    SEMI168=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6664); if (state.failed) return retval;
+                    SEMI168=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6692); if (state.failed) return retval;
 
                     }
                     break;
                 case 12 :
-                    // LeMaVM.g:532:9: SEMI
+                    // LeMaVM.g:534:9: SEMI
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    SEMI169=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6675); if (state.failed) return retval;
+                    SEMI169=(Token)match(input,SEMI,FOLLOW_SEMI_in_statement6703); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     SEMI169_tree = (CommonTree)adaptor.create(SEMI169);
                     adaptor.addChild(root_0, SEMI169_tree);
@@ -5848,7 +5850,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "switchBlockLabels"
-    // LeMaVM.g:535:1: switchBlockLabels : switchCaseLabels ( switchDefaultLabel )? switchCaseLabels -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels ) ;
+    // LeMaVM.g:537:1: switchBlockLabels : switchCaseLabels ( switchDefaultLabel )? switchCaseLabels -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels ) ;
     public final LeMaVMParser.switchBlockLabels_return switchBlockLabels() throws RecognitionException {
         LeMaVMParser.switchBlockLabels_return retval = new LeMaVMParser.switchBlockLabels_return();
         retval.start = input.LT(1);
@@ -5866,16 +5868,16 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_switchCaseLabels=new RewriteRuleSubtreeStream(adaptor,"rule switchCaseLabels");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 41) ) { return retval; }
-            // LeMaVM.g:536:5: ( switchCaseLabels ( switchDefaultLabel )? switchCaseLabels -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels ) )
-            // LeMaVM.g:536:9: switchCaseLabels ( switchDefaultLabel )? switchCaseLabels
+            // LeMaVM.g:538:5: ( switchCaseLabels ( switchDefaultLabel )? switchCaseLabels -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels ) )
+            // LeMaVM.g:538:9: switchCaseLabels ( switchDefaultLabel )? switchCaseLabels
             {
-            pushFollow(FOLLOW_switchCaseLabels_in_switchBlockLabels6706);
+            pushFollow(FOLLOW_switchCaseLabels_in_switchBlockLabels6734);
             switchCaseLabels170=switchCaseLabels();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_switchCaseLabels.add(switchCaseLabels170.getTree());
-            // LeMaVM.g:536:26: ( switchDefaultLabel )?
+            // LeMaVM.g:538:26: ( switchDefaultLabel )?
             int alt46=2;
             int LA46_0 = input.LA(1);
 
@@ -5886,7 +5888,7 @@ public class LeMaVMParser extends Parser {
                 case 1 :
                     // LeMaVM.g:0:0: switchDefaultLabel
                     {
-                    pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels6708);
+                    pushFollow(FOLLOW_switchDefaultLabel_in_switchBlockLabels6736);
                     switchDefaultLabel171=switchDefaultLabel();
 
                     state._fsp--;
@@ -5898,7 +5900,7 @@ public class LeMaVMParser extends Parser {
 
             }
 
-            pushFollow(FOLLOW_switchCaseLabels_in_switchBlockLabels6711);
+            pushFollow(FOLLOW_switchCaseLabels_in_switchBlockLabels6739);
             switchCaseLabels172=switchCaseLabels();
 
             state._fsp--;
@@ -5918,15 +5920,15 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 537:9: -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels )
+            // 539:9: -> ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels )
             {
-                // LeMaVM.g:537:13: ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels )
+                // LeMaVM.g:539:13: ^( SWITCH_BLOCK_LABEL_LIST switchCaseLabels ( switchDefaultLabel )? switchCaseLabels )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SWITCH_BLOCK_LABEL_LIST, "SWITCH_BLOCK_LABEL_LIST"), root_1);
 
                 adaptor.addChild(root_1, stream_switchCaseLabels.nextTree());
-                // LeMaVM.g:537:56: ( switchDefaultLabel )?
+                // LeMaVM.g:539:56: ( switchDefaultLabel )?
                 if ( stream_switchDefaultLabel.hasNext() ) {
                     adaptor.addChild(root_1, stream_switchDefaultLabel.nextTree());
 
@@ -5969,7 +5971,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "switchCaseLabels"
-    // LeMaVM.g:540:1: switchCaseLabels : ( switchCaseLabel )* ;
+    // LeMaVM.g:542:1: switchCaseLabels : ( switchCaseLabel )* ;
     public final LeMaVMParser.switchCaseLabels_return switchCaseLabels() throws RecognitionException {
         LeMaVMParser.switchCaseLabels_return retval = new LeMaVMParser.switchCaseLabels_return();
         retval.start = input.LT(1);
@@ -5982,12 +5984,12 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 42) ) { return retval; }
-            // LeMaVM.g:541:5: ( ( switchCaseLabel )* )
-            // LeMaVM.g:541:9: ( switchCaseLabel )*
+            // LeMaVM.g:543:5: ( ( switchCaseLabel )* )
+            // LeMaVM.g:543:9: ( switchCaseLabel )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            // LeMaVM.g:541:9: ( switchCaseLabel )*
+            // LeMaVM.g:543:9: ( switchCaseLabel )*
             loop47:
             do {
                 int alt47=2;
@@ -5996,7 +5998,7 @@ public class LeMaVMParser extends Parser {
                 if ( (LA47_0==CASE) ) {
                     int LA47_2 = input.LA(2);
 
-                    if ( (synpred69_LeMaVM()) ) {
+                    if ( (synpred70_LeMaVM()) ) {
                         alt47=1;
                     }
 
@@ -6008,7 +6010,7 @@ public class LeMaVMParser extends Parser {
             	case 1 :
             	    // LeMaVM.g:0:0: switchCaseLabel
             	    {
-            	    pushFollow(FOLLOW_switchCaseLabel_in_switchCaseLabels6756);
+            	    pushFollow(FOLLOW_switchCaseLabel_in_switchCaseLabels6784);
             	    switchCaseLabel173=switchCaseLabel();
 
             	    state._fsp--;
@@ -6053,7 +6055,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "switchCaseLabel"
-    // LeMaVM.g:544:1: switchCaseLabel : CASE expression COLON ( blockStatement )* ;
+    // LeMaVM.g:546:1: switchCaseLabel : CASE expression COLON ( blockStatement )* ;
     public final LeMaVMParser.switchCaseLabel_return switchCaseLabel() throws RecognitionException {
         LeMaVMParser.switchCaseLabel_return retval = new LeMaVMParser.switchCaseLabel_return();
         retval.start = input.LT(1);
@@ -6072,24 +6074,24 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 43) ) { return retval; }
-            // LeMaVM.g:545:5: ( CASE expression COLON ( blockStatement )* )
-            // LeMaVM.g:545:9: CASE expression COLON ( blockStatement )*
+            // LeMaVM.g:547:5: ( CASE expression COLON ( blockStatement )* )
+            // LeMaVM.g:547:9: CASE expression COLON ( blockStatement )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            CASE174=(Token)match(input,CASE,FOLLOW_CASE_in_switchCaseLabel6784); if (state.failed) return retval;
+            CASE174=(Token)match(input,CASE,FOLLOW_CASE_in_switchCaseLabel6812); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             CASE174_tree = (CommonTree)adaptor.create(CASE174);
             root_0 = (CommonTree)adaptor.becomeRoot(CASE174_tree, root_0);
             }
-            pushFollow(FOLLOW_expression_in_switchCaseLabel6787);
+            pushFollow(FOLLOW_expression_in_switchCaseLabel6815);
             expression175=expression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, expression175.getTree());
-            COLON176=(Token)match(input,COLON,FOLLOW_COLON_in_switchCaseLabel6789); if (state.failed) return retval;
-            // LeMaVM.g:545:33: ( blockStatement )*
+            COLON176=(Token)match(input,COLON,FOLLOW_COLON_in_switchCaseLabel6817); if (state.failed) return retval;
+            // LeMaVM.g:547:33: ( blockStatement )*
             loop48:
             do {
                 int alt48=2;
@@ -6104,7 +6106,7 @@ public class LeMaVMParser extends Parser {
             	case 1 :
             	    // LeMaVM.g:0:0: blockStatement
             	    {
-            	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel6792);
+            	    pushFollow(FOLLOW_blockStatement_in_switchCaseLabel6820);
             	    blockStatement177=blockStatement();
 
             	    state._fsp--;
@@ -6149,7 +6151,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "switchDefaultLabel"
-    // LeMaVM.g:548:1: switchDefaultLabel : DEFAULT COLON ( blockStatement )* ;
+    // LeMaVM.g:550:1: switchDefaultLabel : DEFAULT COLON ( blockStatement )* ;
     public final LeMaVMParser.switchDefaultLabel_return switchDefaultLabel() throws RecognitionException {
         LeMaVMParser.switchDefaultLabel_return retval = new LeMaVMParser.switchDefaultLabel_return();
         retval.start = input.LT(1);
@@ -6166,18 +6168,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 44) ) { return retval; }
-            // LeMaVM.g:549:5: ( DEFAULT COLON ( blockStatement )* )
-            // LeMaVM.g:549:9: DEFAULT COLON ( blockStatement )*
+            // LeMaVM.g:551:5: ( DEFAULT COLON ( blockStatement )* )
+            // LeMaVM.g:551:9: DEFAULT COLON ( blockStatement )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            DEFAULT178=(Token)match(input,DEFAULT,FOLLOW_DEFAULT_in_switchDefaultLabel6816); if (state.failed) return retval;
+            DEFAULT178=(Token)match(input,DEFAULT,FOLLOW_DEFAULT_in_switchDefaultLabel6844); if (state.failed) return retval;
             if ( state.backtracking==0 ) {
             DEFAULT178_tree = (CommonTree)adaptor.create(DEFAULT178);
             root_0 = (CommonTree)adaptor.becomeRoot(DEFAULT178_tree, root_0);
             }
-            COLON179=(Token)match(input,COLON,FOLLOW_COLON_in_switchDefaultLabel6819); if (state.failed) return retval;
-            // LeMaVM.g:549:25: ( blockStatement )*
+            COLON179=(Token)match(input,COLON,FOLLOW_COLON_in_switchDefaultLabel6847); if (state.failed) return retval;
+            // LeMaVM.g:551:25: ( blockStatement )*
             loop49:
             do {
                 int alt49=2;
@@ -6192,7 +6194,7 @@ public class LeMaVMParser extends Parser {
             	case 1 :
             	    // LeMaVM.g:0:0: blockStatement
             	    {
-            	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel6822);
+            	    pushFollow(FOLLOW_blockStatement_in_switchDefaultLabel6850);
             	    blockStatement180=blockStatement();
 
             	    state._fsp--;
@@ -6237,7 +6239,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "forInit"
-    // LeMaVM.g:552:1: forInit : ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) );
+    // LeMaVM.g:554:1: forInit : ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) );
     public final LeMaVMParser.forInit_return forInit() throws RecognitionException {
         LeMaVMParser.forInit_return retval = new LeMaVMParser.forInit_return();
         retval.start = input.LT(1);
@@ -6253,14 +6255,14 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_localVariableDeclaration=new RewriteRuleSubtreeStream(adaptor,"rule localVariableDeclaration");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 45) ) { return retval; }
-            // LeMaVM.g:553:5: ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) )
+            // LeMaVM.g:555:5: ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) )
             int alt50=3;
             alt50 = dfa50.predict(input);
             switch (alt50) {
                 case 1 :
-                    // LeMaVM.g:553:9: localVariableDeclaration
+                    // LeMaVM.g:555:9: localVariableDeclaration
                     {
-                    pushFollow(FOLLOW_localVariableDeclaration_in_forInit6846);
+                    pushFollow(FOLLOW_localVariableDeclaration_in_forInit6874);
                     localVariableDeclaration181=localVariableDeclaration();
 
                     state._fsp--;
@@ -6280,9 +6282,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 553:37: -> ^( FOR_INIT localVariableDeclaration )
+                    // 555:37: -> ^( FOR_INIT localVariableDeclaration )
                     {
-                        // LeMaVM.g:553:41: ^( FOR_INIT localVariableDeclaration )
+                        // LeMaVM.g:555:41: ^( FOR_INIT localVariableDeclaration )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_INIT, "FOR_INIT"), root_1);
@@ -6298,9 +6300,9 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:554:9: expressionList
+                    // LeMaVM.g:556:9: expressionList
                     {
-                    pushFollow(FOLLOW_expressionList_in_forInit6868);
+                    pushFollow(FOLLOW_expressionList_in_forInit6896);
                     expressionList182=expressionList();
 
                     state._fsp--;
@@ -6320,9 +6322,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 554:37: -> ^( FOR_INIT expressionList )
+                    // 556:37: -> ^( FOR_INIT expressionList )
                     {
-                        // LeMaVM.g:554:41: ^( FOR_INIT expressionList )
+                        // LeMaVM.g:556:41: ^( FOR_INIT expressionList )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_INIT, "FOR_INIT"), root_1);
@@ -6338,7 +6340,7 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // LeMaVM.g:555:37: 
+                    // LeMaVM.g:557:37: 
                     {
 
                     // AST REWRITE
@@ -6353,9 +6355,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 555:37: -> ^( FOR_INIT )
+                    // 557:37: -> ^( FOR_INIT )
                     {
-                        // LeMaVM.g:555:41: ^( FOR_INIT )
+                        // LeMaVM.g:557:41: ^( FOR_INIT )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_INIT, "FOR_INIT"), root_1);
@@ -6397,7 +6399,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "forCondition"
-    // LeMaVM.g:558:1: forCondition : ( expression )? -> ^( FOR_CONDITION ( expression )? ) ;
+    // LeMaVM.g:560:1: forCondition : ( expression )? -> ^( FOR_CONDITION ( expression )? ) ;
     public final LeMaVMParser.forCondition_return forCondition() throws RecognitionException {
         LeMaVMParser.forCondition_return retval = new LeMaVMParser.forCondition_return();
         retval.start = input.LT(1);
@@ -6410,21 +6412,21 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_expression=new RewriteRuleSubtreeStream(adaptor,"rule expression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 46) ) { return retval; }
-            // LeMaVM.g:559:5: ( ( expression )? -> ^( FOR_CONDITION ( expression )? ) )
-            // LeMaVM.g:559:9: ( expression )?
+            // LeMaVM.g:561:5: ( ( expression )? -> ^( FOR_CONDITION ( expression )? ) )
+            // LeMaVM.g:561:9: ( expression )?
             {
-            // LeMaVM.g:559:9: ( expression )?
+            // LeMaVM.g:561:9: ( expression )?
             int alt51=2;
             int LA51_0 = input.LA(1);
 
-            if ( (LA51_0==DEC||LA51_0==INC||LA51_0==LOGICAL_NOT||(LA51_0>=LPAREN && LA51_0<=MINUS)||LA51_0==NOT||LA51_0==PLUS||LA51_0==BOOLEAN||LA51_0==DOUBLE||LA51_0==FALSE||(LA51_0>=INT && LA51_0<=NULL)||LA51_0==SHORT||LA51_0==SUPER||(LA51_0>=THIS && LA51_0<=TRUE)||LA51_0==VOID||(LA51_0>=IDENT && LA51_0<=STRING_LITERAL)) ) {
+            if ( (LA51_0==DEC||LA51_0==INC||LA51_0==LOGICAL_NOT||(LA51_0>=LPAREN && LA51_0<=MINUS)||LA51_0==NOT||LA51_0==PLUS||LA51_0==BOOLEAN||LA51_0==DOUBLE||LA51_0==FALSE||(LA51_0>=INT && LA51_0<=NULL)||LA51_0==SHORT||(LA51_0>=STRING && LA51_0<=SUPER)||(LA51_0>=THIS && LA51_0<=TRUE)||LA51_0==VOID||(LA51_0>=IDENT && LA51_0<=STRING_LITERAL)) ) {
                 alt51=1;
             }
             switch (alt51) {
                 case 1 :
                     // LeMaVM.g:0:0: expression
                     {
-                    pushFollow(FOLLOW_expression_in_forCondition6956);
+                    pushFollow(FOLLOW_expression_in_forCondition6984);
                     expression183=expression();
 
                     state._fsp--;
@@ -6450,14 +6452,14 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 560:9: -> ^( FOR_CONDITION ( expression )? )
+            // 562:9: -> ^( FOR_CONDITION ( expression )? )
             {
-                // LeMaVM.g:560:13: ^( FOR_CONDITION ( expression )? )
+                // LeMaVM.g:562:13: ^( FOR_CONDITION ( expression )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_CONDITION, "FOR_CONDITION"), root_1);
 
-                // LeMaVM.g:560:29: ( expression )?
+                // LeMaVM.g:562:29: ( expression )?
                 if ( stream_expression.hasNext() ) {
                     adaptor.addChild(root_1, stream_expression.nextTree());
 
@@ -6499,7 +6501,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "forUpdater"
-    // LeMaVM.g:563:1: forUpdater : ( expressionList )? -> ^( FOR_UPDATE ( expressionList )? ) ;
+    // LeMaVM.g:565:1: forUpdater : ( expressionList )? -> ^( FOR_UPDATE ( expressionList )? ) ;
     public final LeMaVMParser.forUpdater_return forUpdater() throws RecognitionException {
         LeMaVMParser.forUpdater_return retval = new LeMaVMParser.forUpdater_return();
         retval.start = input.LT(1);
@@ -6512,21 +6514,21 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_expressionList=new RewriteRuleSubtreeStream(adaptor,"rule expressionList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 47) ) { return retval; }
-            // LeMaVM.g:564:5: ( ( expressionList )? -> ^( FOR_UPDATE ( expressionList )? ) )
-            // LeMaVM.g:564:9: ( expressionList )?
+            // LeMaVM.g:566:5: ( ( expressionList )? -> ^( FOR_UPDATE ( expressionList )? ) )
+            // LeMaVM.g:566:9: ( expressionList )?
             {
-            // LeMaVM.g:564:9: ( expressionList )?
+            // LeMaVM.g:566:9: ( expressionList )?
             int alt52=2;
             int LA52_0 = input.LA(1);
 
-            if ( (LA52_0==DEC||LA52_0==INC||LA52_0==LOGICAL_NOT||(LA52_0>=LPAREN && LA52_0<=MINUS)||LA52_0==NOT||LA52_0==PLUS||LA52_0==BOOLEAN||LA52_0==DOUBLE||LA52_0==FALSE||(LA52_0>=INT && LA52_0<=NULL)||LA52_0==SHORT||LA52_0==SUPER||(LA52_0>=THIS && LA52_0<=TRUE)||LA52_0==VOID||(LA52_0>=IDENT && LA52_0<=STRING_LITERAL)) ) {
+            if ( (LA52_0==DEC||LA52_0==INC||LA52_0==LOGICAL_NOT||(LA52_0>=LPAREN && LA52_0<=MINUS)||LA52_0==NOT||LA52_0==PLUS||LA52_0==BOOLEAN||LA52_0==DOUBLE||LA52_0==FALSE||(LA52_0>=INT && LA52_0<=NULL)||LA52_0==SHORT||(LA52_0>=STRING && LA52_0<=SUPER)||(LA52_0>=THIS && LA52_0<=TRUE)||LA52_0==VOID||(LA52_0>=IDENT && LA52_0<=STRING_LITERAL)) ) {
                 alt52=1;
             }
             switch (alt52) {
                 case 1 :
                     // LeMaVM.g:0:0: expressionList
                     {
-                    pushFollow(FOLLOW_expressionList_in_forUpdater6998);
+                    pushFollow(FOLLOW_expressionList_in_forUpdater7026);
                     expressionList184=expressionList();
 
                     state._fsp--;
@@ -6552,14 +6554,14 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 565:9: -> ^( FOR_UPDATE ( expressionList )? )
+            // 567:9: -> ^( FOR_UPDATE ( expressionList )? )
             {
-                // LeMaVM.g:565:13: ^( FOR_UPDATE ( expressionList )? )
+                // LeMaVM.g:567:13: ^( FOR_UPDATE ( expressionList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(FOR_UPDATE, "FOR_UPDATE"), root_1);
 
-                // LeMaVM.g:565:26: ( expressionList )?
+                // LeMaVM.g:567:26: ( expressionList )?
                 if ( stream_expressionList.hasNext() ) {
                     adaptor.addChild(root_1, stream_expressionList.nextTree());
 
@@ -6601,7 +6603,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "parenthesizedExpression"
-    // LeMaVM.g:570:1: parenthesizedExpression : LPAREN expression RPAREN -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression ) ;
+    // LeMaVM.g:572:1: parenthesizedExpression : LPAREN expression RPAREN -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression ) ;
     public final LeMaVMParser.parenthesizedExpression_return parenthesizedExpression() throws RecognitionException {
         LeMaVMParser.parenthesizedExpression_return retval = new LeMaVMParser.parenthesizedExpression_return();
         retval.start = input.LT(1);
@@ -6620,19 +6622,19 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_expression=new RewriteRuleSubtreeStream(adaptor,"rule expression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 48) ) { return retval; }
-            // LeMaVM.g:571:5: ( LPAREN expression RPAREN -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression ) )
-            // LeMaVM.g:571:9: LPAREN expression RPAREN
+            // LeMaVM.g:573:5: ( LPAREN expression RPAREN -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression ) )
+            // LeMaVM.g:573:9: LPAREN expression RPAREN
             {
-            LPAREN185=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_parenthesizedExpression7038); if (state.failed) return retval; 
+            LPAREN185=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_parenthesizedExpression7066); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN185);
 
-            pushFollow(FOLLOW_expression_in_parenthesizedExpression7040);
+            pushFollow(FOLLOW_expression_in_parenthesizedExpression7068);
             expression186=expression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_expression.add(expression186.getTree());
-            RPAREN187=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_parenthesizedExpression7042); if (state.failed) return retval; 
+            RPAREN187=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_parenthesizedExpression7070); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN187);
 
 
@@ -6649,9 +6651,9 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 572:9: -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression )
+            // 574:9: -> ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression )
             {
-                // LeMaVM.g:572:13: ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression )
+                // LeMaVM.g:574:13: ^( PARENTESIZED_EXPR[$LPAREN, \"PARENTESIZED_EXPR\"] expression )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PARENTESIZED_EXPR, LPAREN185, "PARENTESIZED_EXPR"), root_1);
@@ -6693,7 +6695,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "expressionList"
-    // LeMaVM.g:575:1: expressionList : expression ( COMMA expression )* ;
+    // LeMaVM.g:577:1: expressionList : expression ( COMMA expression )* ;
     public final LeMaVMParser.expressionList_return expressionList() throws RecognitionException {
         LeMaVMParser.expressionList_return retval = new LeMaVMParser.expressionList_return();
         retval.start = input.LT(1);
@@ -6710,18 +6712,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 49) ) { return retval; }
-            // LeMaVM.g:576:5: ( expression ( COMMA expression )* )
-            // LeMaVM.g:576:9: expression ( COMMA expression )*
+            // LeMaVM.g:578:5: ( expression ( COMMA expression )* )
+            // LeMaVM.g:578:9: expression ( COMMA expression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_expression_in_expressionList7083);
+            pushFollow(FOLLOW_expression_in_expressionList7111);
             expression188=expression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, expression188.getTree());
-            // LeMaVM.g:576:20: ( COMMA expression )*
+            // LeMaVM.g:578:20: ( COMMA expression )*
             loop53:
             do {
                 int alt53=2;
@@ -6734,10 +6736,10 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt53) {
             	case 1 :
-            	    // LeMaVM.g:576:21: COMMA expression
+            	    // LeMaVM.g:578:21: COMMA expression
             	    {
-            	    COMMA189=(Token)match(input,COMMA,FOLLOW_COMMA_in_expressionList7086); if (state.failed) return retval;
-            	    pushFollow(FOLLOW_expression_in_expressionList7089);
+            	    COMMA189=(Token)match(input,COMMA,FOLLOW_COMMA_in_expressionList7114); if (state.failed) return retval;
+            	    pushFollow(FOLLOW_expression_in_expressionList7117);
             	    expression190=expression();
 
             	    state._fsp--;
@@ -6782,7 +6784,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "expression"
-    // LeMaVM.g:579:1: expression : assignmentExpression -> ^( EXPR assignmentExpression ) ;
+    // LeMaVM.g:581:1: expression : assignmentExpression -> ^( EXPR assignmentExpression ) ;
     public final LeMaVMParser.expression_return expression() throws RecognitionException {
         LeMaVMParser.expression_return retval = new LeMaVMParser.expression_return();
         retval.start = input.LT(1);
@@ -6795,10 +6797,10 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_assignmentExpression=new RewriteRuleSubtreeStream(adaptor,"rule assignmentExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 50) ) { return retval; }
-            // LeMaVM.g:580:5: ( assignmentExpression -> ^( EXPR assignmentExpression ) )
-            // LeMaVM.g:580:9: assignmentExpression
+            // LeMaVM.g:582:5: ( assignmentExpression -> ^( EXPR assignmentExpression ) )
+            // LeMaVM.g:582:9: assignmentExpression
             {
-            pushFollow(FOLLOW_assignmentExpression_in_expression7110);
+            pushFollow(FOLLOW_assignmentExpression_in_expression7138);
             assignmentExpression191=assignmentExpression();
 
             state._fsp--;
@@ -6818,9 +6820,9 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 581:9: -> ^( EXPR assignmentExpression )
+            // 583:9: -> ^( EXPR assignmentExpression )
             {
-                // LeMaVM.g:581:13: ^( EXPR assignmentExpression )
+                // LeMaVM.g:583:13: ^( EXPR assignmentExpression )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(EXPR, "EXPR"), root_1);
@@ -6862,7 +6864,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "assignmentExpression"
-    // LeMaVM.g:584:1: assignmentExpression : conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN ) assignmentExpression )? ;
+    // LeMaVM.g:586:1: assignmentExpression : conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN ) assignmentExpression )? ;
     public final LeMaVMParser.assignmentExpression_return assignmentExpression() throws RecognitionException {
         LeMaVMParser.assignmentExpression_return retval = new LeMaVMParser.assignmentExpression_return();
         retval.start = input.LT(1);
@@ -6895,18 +6897,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 51) ) { return retval; }
-            // LeMaVM.g:585:5: ( conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN ) assignmentExpression )? )
-            // LeMaVM.g:585:9: conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN ) assignmentExpression )?
+            // LeMaVM.g:587:5: ( conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN ) assignmentExpression )? )
+            // LeMaVM.g:587:9: conditionalExpression ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN ) assignmentExpression )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_conditionalExpression_in_assignmentExpression7146);
+            pushFollow(FOLLOW_conditionalExpression_in_assignmentExpression7174);
             conditionalExpression192=conditionalExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, conditionalExpression192.getTree());
-            // LeMaVM.g:586:9: ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN ) assignmentExpression )?
+            // LeMaVM.g:588:9: ( ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN ) assignmentExpression )?
             int alt55=2;
             int LA55_0 = input.LA(1);
 
@@ -6915,9 +6917,9 @@ public class LeMaVMParser extends Parser {
             }
             switch (alt55) {
                 case 1 :
-                    // LeMaVM.g:586:13: ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN ) assignmentExpression
+                    // LeMaVM.g:588:13: ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN ) assignmentExpression
                     {
-                    // LeMaVM.g:586:13: ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN )
+                    // LeMaVM.g:588:13: ( ASSIGN | PLUS_ASSIGN | MINUS_ASSIGN | STAR_ASSIGN | DIV_ASSIGN | AND_ASSIGN | OR_ASSIGN | XOR_ASSIGN | MOD_ASSIGN )
                     int alt54=9;
                     switch ( input.LA(1) ) {
                     case ASSIGN:
@@ -6975,9 +6977,9 @@ public class LeMaVMParser extends Parser {
 
                     switch (alt54) {
                         case 1 :
-                            // LeMaVM.g:586:17: ASSIGN
+                            // LeMaVM.g:588:17: ASSIGN
                             {
-                            ASSIGN193=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assignmentExpression7165); if (state.failed) return retval;
+                            ASSIGN193=(Token)match(input,ASSIGN,FOLLOW_ASSIGN_in_assignmentExpression7193); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             ASSIGN193_tree = (CommonTree)adaptor.create(ASSIGN193);
                             root_0 = (CommonTree)adaptor.becomeRoot(ASSIGN193_tree, root_0);
@@ -6986,9 +6988,9 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // LeMaVM.g:587:17: PLUS_ASSIGN
+                            // LeMaVM.g:589:17: PLUS_ASSIGN
                             {
-                            PLUS_ASSIGN194=(Token)match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_assignmentExpression7184); if (state.failed) return retval;
+                            PLUS_ASSIGN194=(Token)match(input,PLUS_ASSIGN,FOLLOW_PLUS_ASSIGN_in_assignmentExpression7212); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             PLUS_ASSIGN194_tree = (CommonTree)adaptor.create(PLUS_ASSIGN194);
                             root_0 = (CommonTree)adaptor.becomeRoot(PLUS_ASSIGN194_tree, root_0);
@@ -6997,9 +6999,9 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 3 :
-                            // LeMaVM.g:588:17: MINUS_ASSIGN
+                            // LeMaVM.g:590:17: MINUS_ASSIGN
                             {
-                            MINUS_ASSIGN195=(Token)match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_assignmentExpression7203); if (state.failed) return retval;
+                            MINUS_ASSIGN195=(Token)match(input,MINUS_ASSIGN,FOLLOW_MINUS_ASSIGN_in_assignmentExpression7231); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             MINUS_ASSIGN195_tree = (CommonTree)adaptor.create(MINUS_ASSIGN195);
                             root_0 = (CommonTree)adaptor.becomeRoot(MINUS_ASSIGN195_tree, root_0);
@@ -7008,9 +7010,9 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 4 :
-                            // LeMaVM.g:589:17: STAR_ASSIGN
+                            // LeMaVM.g:591:17: STAR_ASSIGN
                             {
-                            STAR_ASSIGN196=(Token)match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_assignmentExpression7222); if (state.failed) return retval;
+                            STAR_ASSIGN196=(Token)match(input,STAR_ASSIGN,FOLLOW_STAR_ASSIGN_in_assignmentExpression7250); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             STAR_ASSIGN196_tree = (CommonTree)adaptor.create(STAR_ASSIGN196);
                             root_0 = (CommonTree)adaptor.becomeRoot(STAR_ASSIGN196_tree, root_0);
@@ -7019,9 +7021,9 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 5 :
-                            // LeMaVM.g:590:17: DIV_ASSIGN
+                            // LeMaVM.g:592:17: DIV_ASSIGN
                             {
-                            DIV_ASSIGN197=(Token)match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_assignmentExpression7241); if (state.failed) return retval;
+                            DIV_ASSIGN197=(Token)match(input,DIV_ASSIGN,FOLLOW_DIV_ASSIGN_in_assignmentExpression7269); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             DIV_ASSIGN197_tree = (CommonTree)adaptor.create(DIV_ASSIGN197);
                             root_0 = (CommonTree)adaptor.becomeRoot(DIV_ASSIGN197_tree, root_0);
@@ -7030,9 +7032,9 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 6 :
-                            // LeMaVM.g:591:17: AND_ASSIGN
+                            // LeMaVM.g:593:17: AND_ASSIGN
                             {
-                            AND_ASSIGN198=(Token)match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_assignmentExpression7260); if (state.failed) return retval;
+                            AND_ASSIGN198=(Token)match(input,AND_ASSIGN,FOLLOW_AND_ASSIGN_in_assignmentExpression7288); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             AND_ASSIGN198_tree = (CommonTree)adaptor.create(AND_ASSIGN198);
                             root_0 = (CommonTree)adaptor.becomeRoot(AND_ASSIGN198_tree, root_0);
@@ -7041,9 +7043,9 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 7 :
-                            // LeMaVM.g:592:17: OR_ASSIGN
+                            // LeMaVM.g:594:17: OR_ASSIGN
                             {
-                            OR_ASSIGN199=(Token)match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_assignmentExpression7279); if (state.failed) return retval;
+                            OR_ASSIGN199=(Token)match(input,OR_ASSIGN,FOLLOW_OR_ASSIGN_in_assignmentExpression7307); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             OR_ASSIGN199_tree = (CommonTree)adaptor.create(OR_ASSIGN199);
                             root_0 = (CommonTree)adaptor.becomeRoot(OR_ASSIGN199_tree, root_0);
@@ -7052,9 +7054,9 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 8 :
-                            // LeMaVM.g:593:17: XOR_ASSIGN
+                            // LeMaVM.g:595:17: XOR_ASSIGN
                             {
-                            XOR_ASSIGN200=(Token)match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_assignmentExpression7298); if (state.failed) return retval;
+                            XOR_ASSIGN200=(Token)match(input,XOR_ASSIGN,FOLLOW_XOR_ASSIGN_in_assignmentExpression7326); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             XOR_ASSIGN200_tree = (CommonTree)adaptor.create(XOR_ASSIGN200);
                             root_0 = (CommonTree)adaptor.becomeRoot(XOR_ASSIGN200_tree, root_0);
@@ -7063,9 +7065,9 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 9 :
-                            // LeMaVM.g:594:17: MOD_ASSIGN
+                            // LeMaVM.g:596:17: MOD_ASSIGN
                             {
-                            MOD_ASSIGN201=(Token)match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_assignmentExpression7317); if (state.failed) return retval;
+                            MOD_ASSIGN201=(Token)match(input,MOD_ASSIGN,FOLLOW_MOD_ASSIGN_in_assignmentExpression7345); if (state.failed) return retval;
                             if ( state.backtracking==0 ) {
                             MOD_ASSIGN201_tree = (CommonTree)adaptor.create(MOD_ASSIGN201);
                             root_0 = (CommonTree)adaptor.becomeRoot(MOD_ASSIGN201_tree, root_0);
@@ -7076,7 +7078,7 @@ public class LeMaVMParser extends Parser {
 
                     }
 
-                    pushFollow(FOLLOW_assignmentExpression_in_assignmentExpression7339);
+                    pushFollow(FOLLOW_assignmentExpression_in_assignmentExpression7367);
                     assignmentExpression202=assignmentExpression();
 
                     state._fsp--;
@@ -7118,7 +7120,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "conditionalExpression"
-    // LeMaVM.g:599:1: conditionalExpression : logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )? ;
+    // LeMaVM.g:601:1: conditionalExpression : logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )? ;
     public final LeMaVMParser.conditionalExpression_return conditionalExpression() throws RecognitionException {
         LeMaVMParser.conditionalExpression_return retval = new LeMaVMParser.conditionalExpression_return();
         retval.start = input.LT(1);
@@ -7139,18 +7141,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 52) ) { return retval; }
-            // LeMaVM.g:600:5: ( logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )? )
-            // LeMaVM.g:600:9: logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )?
+            // LeMaVM.g:602:5: ( logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )? )
+            // LeMaVM.g:602:9: logicalOrExpression ( QUESTION assignmentExpression COLON conditionalExpression )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_logicalOrExpression_in_conditionalExpression7364);
+            pushFollow(FOLLOW_logicalOrExpression_in_conditionalExpression7392);
             logicalOrExpression203=logicalOrExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, logicalOrExpression203.getTree());
-            // LeMaVM.g:600:29: ( QUESTION assignmentExpression COLON conditionalExpression )?
+            // LeMaVM.g:602:29: ( QUESTION assignmentExpression COLON conditionalExpression )?
             int alt56=2;
             int LA56_0 = input.LA(1);
 
@@ -7159,21 +7161,21 @@ public class LeMaVMParser extends Parser {
             }
             switch (alt56) {
                 case 1 :
-                    // LeMaVM.g:600:30: QUESTION assignmentExpression COLON conditionalExpression
+                    // LeMaVM.g:602:30: QUESTION assignmentExpression COLON conditionalExpression
                     {
-                    QUESTION204=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_conditionalExpression7367); if (state.failed) return retval;
+                    QUESTION204=(Token)match(input,QUESTION,FOLLOW_QUESTION_in_conditionalExpression7395); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     QUESTION204_tree = (CommonTree)adaptor.create(QUESTION204);
                     root_0 = (CommonTree)adaptor.becomeRoot(QUESTION204_tree, root_0);
                     }
-                    pushFollow(FOLLOW_assignmentExpression_in_conditionalExpression7370);
+                    pushFollow(FOLLOW_assignmentExpression_in_conditionalExpression7398);
                     assignmentExpression205=assignmentExpression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, assignmentExpression205.getTree());
-                    COLON206=(Token)match(input,COLON,FOLLOW_COLON_in_conditionalExpression7372); if (state.failed) return retval;
-                    pushFollow(FOLLOW_conditionalExpression_in_conditionalExpression7375);
+                    COLON206=(Token)match(input,COLON,FOLLOW_COLON_in_conditionalExpression7400); if (state.failed) return retval;
+                    pushFollow(FOLLOW_conditionalExpression_in_conditionalExpression7403);
                     conditionalExpression207=conditionalExpression();
 
                     state._fsp--;
@@ -7215,7 +7217,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "logicalOrExpression"
-    // LeMaVM.g:603:1: logicalOrExpression : logicalAndExpression ( LOGICAL_OR logicalAndExpression )* ;
+    // LeMaVM.g:605:1: logicalOrExpression : logicalAndExpression ( LOGICAL_OR logicalAndExpression )* ;
     public final LeMaVMParser.logicalOrExpression_return logicalOrExpression() throws RecognitionException {
         LeMaVMParser.logicalOrExpression_return retval = new LeMaVMParser.logicalOrExpression_return();
         retval.start = input.LT(1);
@@ -7232,18 +7234,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 53) ) { return retval; }
-            // LeMaVM.g:604:5: ( logicalAndExpression ( LOGICAL_OR logicalAndExpression )* )
-            // LeMaVM.g:604:9: logicalAndExpression ( LOGICAL_OR logicalAndExpression )*
+            // LeMaVM.g:606:5: ( logicalAndExpression ( LOGICAL_OR logicalAndExpression )* )
+            // LeMaVM.g:606:9: logicalAndExpression ( LOGICAL_OR logicalAndExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_logicalAndExpression_in_logicalOrExpression7396);
+            pushFollow(FOLLOW_logicalAndExpression_in_logicalOrExpression7424);
             logicalAndExpression208=logicalAndExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, logicalAndExpression208.getTree());
-            // LeMaVM.g:604:30: ( LOGICAL_OR logicalAndExpression )*
+            // LeMaVM.g:606:30: ( LOGICAL_OR logicalAndExpression )*
             loop57:
             do {
                 int alt57=2;
@@ -7256,14 +7258,14 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt57) {
             	case 1 :
-            	    // LeMaVM.g:604:31: LOGICAL_OR logicalAndExpression
+            	    // LeMaVM.g:606:31: LOGICAL_OR logicalAndExpression
             	    {
-            	    LOGICAL_OR209=(Token)match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_logicalOrExpression7399); if (state.failed) return retval;
+            	    LOGICAL_OR209=(Token)match(input,LOGICAL_OR,FOLLOW_LOGICAL_OR_in_logicalOrExpression7427); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    LOGICAL_OR209_tree = (CommonTree)adaptor.create(LOGICAL_OR209);
             	    root_0 = (CommonTree)adaptor.becomeRoot(LOGICAL_OR209_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_logicalAndExpression_in_logicalOrExpression7402);
+            	    pushFollow(FOLLOW_logicalAndExpression_in_logicalOrExpression7430);
             	    logicalAndExpression210=logicalAndExpression();
 
             	    state._fsp--;
@@ -7308,7 +7310,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "logicalAndExpression"
-    // LeMaVM.g:607:1: logicalAndExpression : inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )* ;
+    // LeMaVM.g:609:1: logicalAndExpression : inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )* ;
     public final LeMaVMParser.logicalAndExpression_return logicalAndExpression() throws RecognitionException {
         LeMaVMParser.logicalAndExpression_return retval = new LeMaVMParser.logicalAndExpression_return();
         retval.start = input.LT(1);
@@ -7325,18 +7327,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 54) ) { return retval; }
-            // LeMaVM.g:608:5: ( inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )* )
-            // LeMaVM.g:608:9: inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )*
+            // LeMaVM.g:610:5: ( inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )* )
+            // LeMaVM.g:610:9: inclusiveOrExpression ( LOGICAL_AND inclusiveOrExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_inclusiveOrExpression_in_logicalAndExpression7423);
+            pushFollow(FOLLOW_inclusiveOrExpression_in_logicalAndExpression7451);
             inclusiveOrExpression211=inclusiveOrExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, inclusiveOrExpression211.getTree());
-            // LeMaVM.g:608:31: ( LOGICAL_AND inclusiveOrExpression )*
+            // LeMaVM.g:610:31: ( LOGICAL_AND inclusiveOrExpression )*
             loop58:
             do {
                 int alt58=2;
@@ -7349,14 +7351,14 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt58) {
             	case 1 :
-            	    // LeMaVM.g:608:32: LOGICAL_AND inclusiveOrExpression
+            	    // LeMaVM.g:610:32: LOGICAL_AND inclusiveOrExpression
             	    {
-            	    LOGICAL_AND212=(Token)match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_logicalAndExpression7426); if (state.failed) return retval;
+            	    LOGICAL_AND212=(Token)match(input,LOGICAL_AND,FOLLOW_LOGICAL_AND_in_logicalAndExpression7454); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    LOGICAL_AND212_tree = (CommonTree)adaptor.create(LOGICAL_AND212);
             	    root_0 = (CommonTree)adaptor.becomeRoot(LOGICAL_AND212_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_inclusiveOrExpression_in_logicalAndExpression7429);
+            	    pushFollow(FOLLOW_inclusiveOrExpression_in_logicalAndExpression7457);
             	    inclusiveOrExpression213=inclusiveOrExpression();
 
             	    state._fsp--;
@@ -7401,7 +7403,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "inclusiveOrExpression"
-    // LeMaVM.g:611:1: inclusiveOrExpression : exclusiveOrExpression ( OR exclusiveOrExpression )* ;
+    // LeMaVM.g:613:1: inclusiveOrExpression : exclusiveOrExpression ( OR exclusiveOrExpression )* ;
     public final LeMaVMParser.inclusiveOrExpression_return inclusiveOrExpression() throws RecognitionException {
         LeMaVMParser.inclusiveOrExpression_return retval = new LeMaVMParser.inclusiveOrExpression_return();
         retval.start = input.LT(1);
@@ -7418,18 +7420,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 55) ) { return retval; }
-            // LeMaVM.g:612:5: ( exclusiveOrExpression ( OR exclusiveOrExpression )* )
-            // LeMaVM.g:612:9: exclusiveOrExpression ( OR exclusiveOrExpression )*
+            // LeMaVM.g:614:5: ( exclusiveOrExpression ( OR exclusiveOrExpression )* )
+            // LeMaVM.g:614:9: exclusiveOrExpression ( OR exclusiveOrExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression7450);
+            pushFollow(FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression7478);
             exclusiveOrExpression214=exclusiveOrExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, exclusiveOrExpression214.getTree());
-            // LeMaVM.g:612:31: ( OR exclusiveOrExpression )*
+            // LeMaVM.g:614:31: ( OR exclusiveOrExpression )*
             loop59:
             do {
                 int alt59=2;
@@ -7442,14 +7444,14 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt59) {
             	case 1 :
-            	    // LeMaVM.g:612:32: OR exclusiveOrExpression
+            	    // LeMaVM.g:614:32: OR exclusiveOrExpression
             	    {
-            	    OR215=(Token)match(input,OR,FOLLOW_OR_in_inclusiveOrExpression7453); if (state.failed) return retval;
+            	    OR215=(Token)match(input,OR,FOLLOW_OR_in_inclusiveOrExpression7481); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    OR215_tree = (CommonTree)adaptor.create(OR215);
             	    root_0 = (CommonTree)adaptor.becomeRoot(OR215_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression7456);
+            	    pushFollow(FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression7484);
             	    exclusiveOrExpression216=exclusiveOrExpression();
 
             	    state._fsp--;
@@ -7494,7 +7496,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "exclusiveOrExpression"
-    // LeMaVM.g:615:1: exclusiveOrExpression : andExpression ( XOR andExpression )* ;
+    // LeMaVM.g:617:1: exclusiveOrExpression : andExpression ( XOR andExpression )* ;
     public final LeMaVMParser.exclusiveOrExpression_return exclusiveOrExpression() throws RecognitionException {
         LeMaVMParser.exclusiveOrExpression_return retval = new LeMaVMParser.exclusiveOrExpression_return();
         retval.start = input.LT(1);
@@ -7511,18 +7513,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 56) ) { return retval; }
-            // LeMaVM.g:616:5: ( andExpression ( XOR andExpression )* )
-            // LeMaVM.g:616:9: andExpression ( XOR andExpression )*
+            // LeMaVM.g:618:5: ( andExpression ( XOR andExpression )* )
+            // LeMaVM.g:618:9: andExpression ( XOR andExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_andExpression_in_exclusiveOrExpression7477);
+            pushFollow(FOLLOW_andExpression_in_exclusiveOrExpression7505);
             andExpression217=andExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, andExpression217.getTree());
-            // LeMaVM.g:616:23: ( XOR andExpression )*
+            // LeMaVM.g:618:23: ( XOR andExpression )*
             loop60:
             do {
                 int alt60=2;
@@ -7535,14 +7537,14 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt60) {
             	case 1 :
-            	    // LeMaVM.g:616:24: XOR andExpression
+            	    // LeMaVM.g:618:24: XOR andExpression
             	    {
-            	    XOR218=(Token)match(input,XOR,FOLLOW_XOR_in_exclusiveOrExpression7480); if (state.failed) return retval;
+            	    XOR218=(Token)match(input,XOR,FOLLOW_XOR_in_exclusiveOrExpression7508); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    XOR218_tree = (CommonTree)adaptor.create(XOR218);
             	    root_0 = (CommonTree)adaptor.becomeRoot(XOR218_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_andExpression_in_exclusiveOrExpression7483);
+            	    pushFollow(FOLLOW_andExpression_in_exclusiveOrExpression7511);
             	    andExpression219=andExpression();
 
             	    state._fsp--;
@@ -7587,7 +7589,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "andExpression"
-    // LeMaVM.g:619:1: andExpression : equalityExpression ( AND equalityExpression )* ;
+    // LeMaVM.g:621:1: andExpression : equalityExpression ( AND equalityExpression )* ;
     public final LeMaVMParser.andExpression_return andExpression() throws RecognitionException {
         LeMaVMParser.andExpression_return retval = new LeMaVMParser.andExpression_return();
         retval.start = input.LT(1);
@@ -7604,18 +7606,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 57) ) { return retval; }
-            // LeMaVM.g:620:5: ( equalityExpression ( AND equalityExpression )* )
-            // LeMaVM.g:620:9: equalityExpression ( AND equalityExpression )*
+            // LeMaVM.g:622:5: ( equalityExpression ( AND equalityExpression )* )
+            // LeMaVM.g:622:9: equalityExpression ( AND equalityExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_equalityExpression_in_andExpression7504);
+            pushFollow(FOLLOW_equalityExpression_in_andExpression7532);
             equalityExpression220=equalityExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, equalityExpression220.getTree());
-            // LeMaVM.g:620:28: ( AND equalityExpression )*
+            // LeMaVM.g:622:28: ( AND equalityExpression )*
             loop61:
             do {
                 int alt61=2;
@@ -7628,14 +7630,14 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt61) {
             	case 1 :
-            	    // LeMaVM.g:620:29: AND equalityExpression
+            	    // LeMaVM.g:622:29: AND equalityExpression
             	    {
-            	    AND221=(Token)match(input,AND,FOLLOW_AND_in_andExpression7507); if (state.failed) return retval;
+            	    AND221=(Token)match(input,AND,FOLLOW_AND_in_andExpression7535); if (state.failed) return retval;
             	    if ( state.backtracking==0 ) {
             	    AND221_tree = (CommonTree)adaptor.create(AND221);
             	    root_0 = (CommonTree)adaptor.becomeRoot(AND221_tree, root_0);
             	    }
-            	    pushFollow(FOLLOW_equalityExpression_in_andExpression7510);
+            	    pushFollow(FOLLOW_equalityExpression_in_andExpression7538);
             	    equalityExpression222=equalityExpression();
 
             	    state._fsp--;
@@ -7680,7 +7682,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "equalityExpression"
-    // LeMaVM.g:623:1: equalityExpression : instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )* ;
+    // LeMaVM.g:625:1: equalityExpression : instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )* ;
     public final LeMaVMParser.equalityExpression_return equalityExpression() throws RecognitionException {
         LeMaVMParser.equalityExpression_return retval = new LeMaVMParser.equalityExpression_return();
         retval.start = input.LT(1);
@@ -7699,18 +7701,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 58) ) { return retval; }
-            // LeMaVM.g:624:5: ( instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )* )
-            // LeMaVM.g:624:9: instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )*
+            // LeMaVM.g:626:5: ( instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )* )
+            // LeMaVM.g:626:9: instanceOfExpression ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_instanceOfExpression_in_equalityExpression7531);
+            pushFollow(FOLLOW_instanceOfExpression_in_equalityExpression7559);
             instanceOfExpression223=instanceOfExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, instanceOfExpression223.getTree());
-            // LeMaVM.g:625:9: ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )*
+            // LeMaVM.g:627:9: ( ( EQUAL | NOT_EQUAL ) instanceOfExpression )*
             loop63:
             do {
                 int alt63=2;
@@ -7723,9 +7725,9 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt63) {
             	case 1 :
-            	    // LeMaVM.g:625:13: ( EQUAL | NOT_EQUAL ) instanceOfExpression
+            	    // LeMaVM.g:627:13: ( EQUAL | NOT_EQUAL ) instanceOfExpression
             	    {
-            	    // LeMaVM.g:625:13: ( EQUAL | NOT_EQUAL )
+            	    // LeMaVM.g:627:13: ( EQUAL | NOT_EQUAL )
             	    int alt62=2;
             	    int LA62_0 = input.LA(1);
 
@@ -7744,9 +7746,9 @@ public class LeMaVMParser extends Parser {
             	    }
             	    switch (alt62) {
             	        case 1 :
-            	            // LeMaVM.g:625:17: EQUAL
+            	            // LeMaVM.g:627:17: EQUAL
             	            {
-            	            EQUAL224=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_equalityExpression7550); if (state.failed) return retval;
+            	            EQUAL224=(Token)match(input,EQUAL,FOLLOW_EQUAL_in_equalityExpression7578); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            EQUAL224_tree = (CommonTree)adaptor.create(EQUAL224);
             	            root_0 = (CommonTree)adaptor.becomeRoot(EQUAL224_tree, root_0);
@@ -7755,9 +7757,9 @@ public class LeMaVMParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // LeMaVM.g:626:17: NOT_EQUAL
+            	            // LeMaVM.g:628:17: NOT_EQUAL
             	            {
-            	            NOT_EQUAL225=(Token)match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_equalityExpression7569); if (state.failed) return retval;
+            	            NOT_EQUAL225=(Token)match(input,NOT_EQUAL,FOLLOW_NOT_EQUAL_in_equalityExpression7597); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            NOT_EQUAL225_tree = (CommonTree)adaptor.create(NOT_EQUAL225);
             	            root_0 = (CommonTree)adaptor.becomeRoot(NOT_EQUAL225_tree, root_0);
@@ -7768,7 +7770,7 @@ public class LeMaVMParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_instanceOfExpression_in_equalityExpression7599);
+            	    pushFollow(FOLLOW_instanceOfExpression_in_equalityExpression7627);
             	    instanceOfExpression226=instanceOfExpression();
 
             	    state._fsp--;
@@ -7813,7 +7815,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "instanceOfExpression"
-    // LeMaVM.g:632:1: instanceOfExpression : relationalExpression ( INSTANCEOF type )? ;
+    // LeMaVM.g:634:1: instanceOfExpression : relationalExpression ( INSTANCEOF type )? ;
     public final LeMaVMParser.instanceOfExpression_return instanceOfExpression() throws RecognitionException {
         LeMaVMParser.instanceOfExpression_return retval = new LeMaVMParser.instanceOfExpression_return();
         retval.start = input.LT(1);
@@ -7830,18 +7832,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 59) ) { return retval; }
-            // LeMaVM.g:633:5: ( relationalExpression ( INSTANCEOF type )? )
-            // LeMaVM.g:633:9: relationalExpression ( INSTANCEOF type )?
+            // LeMaVM.g:635:5: ( relationalExpression ( INSTANCEOF type )? )
+            // LeMaVM.g:635:9: relationalExpression ( INSTANCEOF type )?
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_relationalExpression_in_instanceOfExpression7629);
+            pushFollow(FOLLOW_relationalExpression_in_instanceOfExpression7657);
             relationalExpression227=relationalExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, relationalExpression227.getTree());
-            // LeMaVM.g:633:30: ( INSTANCEOF type )?
+            // LeMaVM.g:635:30: ( INSTANCEOF type )?
             int alt64=2;
             int LA64_0 = input.LA(1);
 
@@ -7850,14 +7852,14 @@ public class LeMaVMParser extends Parser {
             }
             switch (alt64) {
                 case 1 :
-                    // LeMaVM.g:633:31: INSTANCEOF type
+                    // LeMaVM.g:635:31: INSTANCEOF type
                     {
-                    INSTANCEOF228=(Token)match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_instanceOfExpression7632); if (state.failed) return retval;
+                    INSTANCEOF228=(Token)match(input,INSTANCEOF,FOLLOW_INSTANCEOF_in_instanceOfExpression7660); if (state.failed) return retval;
                     if ( state.backtracking==0 ) {
                     INSTANCEOF228_tree = (CommonTree)adaptor.create(INSTANCEOF228);
                     root_0 = (CommonTree)adaptor.becomeRoot(INSTANCEOF228_tree, root_0);
                     }
-                    pushFollow(FOLLOW_type_in_instanceOfExpression7635);
+                    pushFollow(FOLLOW_type_in_instanceOfExpression7663);
                     type229=type();
 
                     state._fsp--;
@@ -7899,7 +7901,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "relationalExpression"
-    // LeMaVM.g:636:1: relationalExpression : shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )* ;
+    // LeMaVM.g:638:1: relationalExpression : shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )* ;
     public final LeMaVMParser.relationalExpression_return relationalExpression() throws RecognitionException {
         LeMaVMParser.relationalExpression_return retval = new LeMaVMParser.relationalExpression_return();
         retval.start = input.LT(1);
@@ -7922,18 +7924,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 60) ) { return retval; }
-            // LeMaVM.g:637:5: ( shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )* )
-            // LeMaVM.g:637:9: shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )*
+            // LeMaVM.g:639:5: ( shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )* )
+            // LeMaVM.g:639:9: shiftExpression ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_shiftExpression_in_relationalExpression7656);
+            pushFollow(FOLLOW_shiftExpression_in_relationalExpression7684);
             shiftExpression230=shiftExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, shiftExpression230.getTree());
-            // LeMaVM.g:638:9: ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )*
+            // LeMaVM.g:640:9: ( ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression )*
             loop66:
             do {
                 int alt66=2;
@@ -7946,9 +7948,9 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt66) {
             	case 1 :
-            	    // LeMaVM.g:638:13: ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression
+            	    // LeMaVM.g:640:13: ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN ) shiftExpression
             	    {
-            	    // LeMaVM.g:638:13: ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN )
+            	    // LeMaVM.g:640:13: ( LESS_OR_EQUAL | GREATER_OR_EQUAL | LESS_THAN | GREATER_THAN )
             	    int alt65=4;
             	    switch ( input.LA(1) ) {
             	    case LESS_OR_EQUAL:
@@ -7981,9 +7983,9 @@ public class LeMaVMParser extends Parser {
 
             	    switch (alt65) {
             	        case 1 :
-            	            // LeMaVM.g:638:17: LESS_OR_EQUAL
+            	            // LeMaVM.g:640:17: LESS_OR_EQUAL
             	            {
-            	            LESS_OR_EQUAL231=(Token)match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_relationalExpression7675); if (state.failed) return retval;
+            	            LESS_OR_EQUAL231=(Token)match(input,LESS_OR_EQUAL,FOLLOW_LESS_OR_EQUAL_in_relationalExpression7703); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            LESS_OR_EQUAL231_tree = (CommonTree)adaptor.create(LESS_OR_EQUAL231);
             	            root_0 = (CommonTree)adaptor.becomeRoot(LESS_OR_EQUAL231_tree, root_0);
@@ -7992,9 +7994,9 @@ public class LeMaVMParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // LeMaVM.g:639:17: GREATER_OR_EQUAL
+            	            // LeMaVM.g:641:17: GREATER_OR_EQUAL
             	            {
-            	            GREATER_OR_EQUAL232=(Token)match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_relationalExpression7694); if (state.failed) return retval;
+            	            GREATER_OR_EQUAL232=(Token)match(input,GREATER_OR_EQUAL,FOLLOW_GREATER_OR_EQUAL_in_relationalExpression7722); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            GREATER_OR_EQUAL232_tree = (CommonTree)adaptor.create(GREATER_OR_EQUAL232);
             	            root_0 = (CommonTree)adaptor.becomeRoot(GREATER_OR_EQUAL232_tree, root_0);
@@ -8003,9 +8005,9 @@ public class LeMaVMParser extends Parser {
             	            }
             	            break;
             	        case 3 :
-            	            // LeMaVM.g:640:17: LESS_THAN
+            	            // LeMaVM.g:642:17: LESS_THAN
             	            {
-            	            LESS_THAN233=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_relationalExpression7713); if (state.failed) return retval;
+            	            LESS_THAN233=(Token)match(input,LESS_THAN,FOLLOW_LESS_THAN_in_relationalExpression7741); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            LESS_THAN233_tree = (CommonTree)adaptor.create(LESS_THAN233);
             	            root_0 = (CommonTree)adaptor.becomeRoot(LESS_THAN233_tree, root_0);
@@ -8014,9 +8016,9 @@ public class LeMaVMParser extends Parser {
             	            }
             	            break;
             	        case 4 :
-            	            // LeMaVM.g:641:17: GREATER_THAN
+            	            // LeMaVM.g:643:17: GREATER_THAN
             	            {
-            	            GREATER_THAN234=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_relationalExpression7732); if (state.failed) return retval;
+            	            GREATER_THAN234=(Token)match(input,GREATER_THAN,FOLLOW_GREATER_THAN_in_relationalExpression7760); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            GREATER_THAN234_tree = (CommonTree)adaptor.create(GREATER_THAN234);
             	            root_0 = (CommonTree)adaptor.becomeRoot(GREATER_THAN234_tree, root_0);
@@ -8027,7 +8029,7 @@ public class LeMaVMParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_shiftExpression_in_relationalExpression7761);
+            	    pushFollow(FOLLOW_shiftExpression_in_relationalExpression7789);
             	    shiftExpression235=shiftExpression();
 
             	    state._fsp--;
@@ -8072,7 +8074,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "shiftExpression"
-    // LeMaVM.g:647:1: shiftExpression : additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )* ;
+    // LeMaVM.g:649:1: shiftExpression : additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )* ;
     public final LeMaVMParser.shiftExpression_return shiftExpression() throws RecognitionException {
         LeMaVMParser.shiftExpression_return retval = new LeMaVMParser.shiftExpression_return();
         retval.start = input.LT(1);
@@ -8093,18 +8095,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 61) ) { return retval; }
-            // LeMaVM.g:648:5: ( additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )* )
-            // LeMaVM.g:648:9: additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )*
+            // LeMaVM.g:650:5: ( additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )* )
+            // LeMaVM.g:650:9: additiveExpression ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_additiveExpression_in_shiftExpression7795);
+            pushFollow(FOLLOW_additiveExpression_in_shiftExpression7823);
             additiveExpression236=additiveExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, additiveExpression236.getTree());
-            // LeMaVM.g:649:9: ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )*
+            // LeMaVM.g:651:9: ( ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression )*
             loop68:
             do {
                 int alt68=2;
@@ -8117,9 +8119,9 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt68) {
             	case 1 :
-            	    // LeMaVM.g:649:13: ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression
+            	    // LeMaVM.g:651:13: ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT ) additiveExpression
             	    {
-            	    // LeMaVM.g:649:13: ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT )
+            	    // LeMaVM.g:651:13: ( BIT_SHIFT_RIGHT | SHIFT_RIGHT | SHIFT_LEFT )
             	    int alt67=3;
             	    switch ( input.LA(1) ) {
             	    case BIT_SHIFT_RIGHT:
@@ -8147,9 +8149,9 @@ public class LeMaVMParser extends Parser {
 
             	    switch (alt67) {
             	        case 1 :
-            	            // LeMaVM.g:649:17: BIT_SHIFT_RIGHT
+            	            // LeMaVM.g:651:17: BIT_SHIFT_RIGHT
             	            {
-            	            BIT_SHIFT_RIGHT237=(Token)match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_shiftExpression7813); if (state.failed) return retval;
+            	            BIT_SHIFT_RIGHT237=(Token)match(input,BIT_SHIFT_RIGHT,FOLLOW_BIT_SHIFT_RIGHT_in_shiftExpression7841); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            BIT_SHIFT_RIGHT237_tree = (CommonTree)adaptor.create(BIT_SHIFT_RIGHT237);
             	            root_0 = (CommonTree)adaptor.becomeRoot(BIT_SHIFT_RIGHT237_tree, root_0);
@@ -8158,9 +8160,9 @@ public class LeMaVMParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // LeMaVM.g:650:17: SHIFT_RIGHT
+            	            // LeMaVM.g:652:17: SHIFT_RIGHT
             	            {
-            	            SHIFT_RIGHT238=(Token)match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_shiftExpression7832); if (state.failed) return retval;
+            	            SHIFT_RIGHT238=(Token)match(input,SHIFT_RIGHT,FOLLOW_SHIFT_RIGHT_in_shiftExpression7860); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            SHIFT_RIGHT238_tree = (CommonTree)adaptor.create(SHIFT_RIGHT238);
             	            root_0 = (CommonTree)adaptor.becomeRoot(SHIFT_RIGHT238_tree, root_0);
@@ -8169,9 +8171,9 @@ public class LeMaVMParser extends Parser {
             	            }
             	            break;
             	        case 3 :
-            	            // LeMaVM.g:651:17: SHIFT_LEFT
+            	            // LeMaVM.g:653:17: SHIFT_LEFT
             	            {
-            	            SHIFT_LEFT239=(Token)match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_shiftExpression7851); if (state.failed) return retval;
+            	            SHIFT_LEFT239=(Token)match(input,SHIFT_LEFT,FOLLOW_SHIFT_LEFT_in_shiftExpression7879); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            SHIFT_LEFT239_tree = (CommonTree)adaptor.create(SHIFT_LEFT239);
             	            root_0 = (CommonTree)adaptor.becomeRoot(SHIFT_LEFT239_tree, root_0);
@@ -8182,7 +8184,7 @@ public class LeMaVMParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_additiveExpression_in_shiftExpression7880);
+            	    pushFollow(FOLLOW_additiveExpression_in_shiftExpression7908);
             	    additiveExpression240=additiveExpression();
 
             	    state._fsp--;
@@ -8227,7 +8229,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "additiveExpression"
-    // LeMaVM.g:657:1: additiveExpression : multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )* ;
+    // LeMaVM.g:659:1: additiveExpression : multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )* ;
     public final LeMaVMParser.additiveExpression_return additiveExpression() throws RecognitionException {
         LeMaVMParser.additiveExpression_return retval = new LeMaVMParser.additiveExpression_return();
         retval.start = input.LT(1);
@@ -8246,18 +8248,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 62) ) { return retval; }
-            // LeMaVM.g:658:5: ( multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )* )
-            // LeMaVM.g:658:9: multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )*
+            // LeMaVM.g:660:5: ( multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )* )
+            // LeMaVM.g:660:9: multiplicativeExpression ( ( PLUS | MINUS ) multiplicativeExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression7910);
+            pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression7938);
             multiplicativeExpression241=multiplicativeExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, multiplicativeExpression241.getTree());
-            // LeMaVM.g:659:9: ( ( PLUS | MINUS ) multiplicativeExpression )*
+            // LeMaVM.g:661:9: ( ( PLUS | MINUS ) multiplicativeExpression )*
             loop70:
             do {
                 int alt70=2;
@@ -8270,9 +8272,9 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt70) {
             	case 1 :
-            	    // LeMaVM.g:659:13: ( PLUS | MINUS ) multiplicativeExpression
+            	    // LeMaVM.g:661:13: ( PLUS | MINUS ) multiplicativeExpression
             	    {
-            	    // LeMaVM.g:659:13: ( PLUS | MINUS )
+            	    // LeMaVM.g:661:13: ( PLUS | MINUS )
             	    int alt69=2;
             	    int LA69_0 = input.LA(1);
 
@@ -8291,9 +8293,9 @@ public class LeMaVMParser extends Parser {
             	    }
             	    switch (alt69) {
             	        case 1 :
-            	            // LeMaVM.g:659:17: PLUS
+            	            // LeMaVM.g:661:17: PLUS
             	            {
-            	            PLUS242=(Token)match(input,PLUS,FOLLOW_PLUS_in_additiveExpression7928); if (state.failed) return retval;
+            	            PLUS242=(Token)match(input,PLUS,FOLLOW_PLUS_in_additiveExpression7956); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            PLUS242_tree = (CommonTree)adaptor.create(PLUS242);
             	            root_0 = (CommonTree)adaptor.becomeRoot(PLUS242_tree, root_0);
@@ -8302,9 +8304,9 @@ public class LeMaVMParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // LeMaVM.g:660:17: MINUS
+            	            // LeMaVM.g:662:17: MINUS
             	            {
-            	            MINUS243=(Token)match(input,MINUS,FOLLOW_MINUS_in_additiveExpression7947); if (state.failed) return retval;
+            	            MINUS243=(Token)match(input,MINUS,FOLLOW_MINUS_in_additiveExpression7975); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            MINUS243_tree = (CommonTree)adaptor.create(MINUS243);
             	            root_0 = (CommonTree)adaptor.becomeRoot(MINUS243_tree, root_0);
@@ -8315,7 +8317,7 @@ public class LeMaVMParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression7976);
+            	    pushFollow(FOLLOW_multiplicativeExpression_in_additiveExpression8004);
             	    multiplicativeExpression244=multiplicativeExpression();
 
             	    state._fsp--;
@@ -8360,7 +8362,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "multiplicativeExpression"
-    // LeMaVM.g:666:1: multiplicativeExpression : unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )* ;
+    // LeMaVM.g:668:1: multiplicativeExpression : unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )* ;
     public final LeMaVMParser.multiplicativeExpression_return multiplicativeExpression() throws RecognitionException {
         LeMaVMParser.multiplicativeExpression_return retval = new LeMaVMParser.multiplicativeExpression_return();
         retval.start = input.LT(1);
@@ -8381,18 +8383,18 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 63) ) { return retval; }
-            // LeMaVM.g:667:5: ( unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )* )
-            // LeMaVM.g:667:9: unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )*
+            // LeMaVM.g:669:5: ( unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )* )
+            // LeMaVM.g:669:9: unaryExpression ( ( STAR | DIV | MOD ) unaryExpression )*
             {
             root_0 = (CommonTree)adaptor.nil();
 
-            pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression8006);
+            pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression8034);
             unaryExpression245=unaryExpression();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) adaptor.addChild(root_0, unaryExpression245.getTree());
-            // LeMaVM.g:668:9: ( ( STAR | DIV | MOD ) unaryExpression )*
+            // LeMaVM.g:670:9: ( ( STAR | DIV | MOD ) unaryExpression )*
             loop72:
             do {
                 int alt72=2;
@@ -8405,9 +8407,9 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt72) {
             	case 1 :
-            	    // LeMaVM.g:668:13: ( STAR | DIV | MOD ) unaryExpression
+            	    // LeMaVM.g:670:13: ( STAR | DIV | MOD ) unaryExpression
             	    {
-            	    // LeMaVM.g:668:13: ( STAR | DIV | MOD )
+            	    // LeMaVM.g:670:13: ( STAR | DIV | MOD )
             	    int alt71=3;
             	    switch ( input.LA(1) ) {
             	    case STAR:
@@ -8435,9 +8437,9 @@ public class LeMaVMParser extends Parser {
 
             	    switch (alt71) {
             	        case 1 :
-            	            // LeMaVM.g:668:17: STAR
+            	            // LeMaVM.g:670:17: STAR
             	            {
-            	            STAR246=(Token)match(input,STAR,FOLLOW_STAR_in_multiplicativeExpression8025); if (state.failed) return retval;
+            	            STAR246=(Token)match(input,STAR,FOLLOW_STAR_in_multiplicativeExpression8053); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            STAR246_tree = (CommonTree)adaptor.create(STAR246);
             	            root_0 = (CommonTree)adaptor.becomeRoot(STAR246_tree, root_0);
@@ -8446,9 +8448,9 @@ public class LeMaVMParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // LeMaVM.g:669:17: DIV
+            	            // LeMaVM.g:671:17: DIV
             	            {
-            	            DIV247=(Token)match(input,DIV,FOLLOW_DIV_in_multiplicativeExpression8044); if (state.failed) return retval;
+            	            DIV247=(Token)match(input,DIV,FOLLOW_DIV_in_multiplicativeExpression8072); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            DIV247_tree = (CommonTree)adaptor.create(DIV247);
             	            root_0 = (CommonTree)adaptor.becomeRoot(DIV247_tree, root_0);
@@ -8457,9 +8459,9 @@ public class LeMaVMParser extends Parser {
             	            }
             	            break;
             	        case 3 :
-            	            // LeMaVM.g:670:17: MOD
+            	            // LeMaVM.g:672:17: MOD
             	            {
-            	            MOD248=(Token)match(input,MOD,FOLLOW_MOD_in_multiplicativeExpression8063); if (state.failed) return retval;
+            	            MOD248=(Token)match(input,MOD,FOLLOW_MOD_in_multiplicativeExpression8091); if (state.failed) return retval;
             	            if ( state.backtracking==0 ) {
             	            MOD248_tree = (CommonTree)adaptor.create(MOD248);
             	            root_0 = (CommonTree)adaptor.becomeRoot(MOD248_tree, root_0);
@@ -8470,7 +8472,7 @@ public class LeMaVMParser extends Parser {
 
             	    }
 
-            	    pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression8092);
+            	    pushFollow(FOLLOW_unaryExpression_in_multiplicativeExpression8120);
             	    unaryExpression249=unaryExpression();
 
             	    state._fsp--;
@@ -8515,7 +8517,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "unaryExpression"
-    // LeMaVM.g:676:1: unaryExpression : ( PLUS unaryExpression -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression ) | MINUS unaryExpression -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression ) | INC postfixedExpression -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression ) | DEC postfixedExpression -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression ) | unaryExpressionNotPlusMinus );
+    // LeMaVM.g:678:1: unaryExpression : ( PLUS unaryExpression -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression ) | MINUS unaryExpression -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression ) | INC postfixedExpression -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression ) | DEC postfixedExpression -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression ) | unaryExpressionNotPlusMinus );
     public final LeMaVMParser.unaryExpression_return unaryExpression() throws RecognitionException {
         LeMaVMParser.unaryExpression_return retval = new LeMaVMParser.unaryExpression_return();
         retval.start = input.LT(1);
@@ -8549,7 +8551,7 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_unaryExpression=new RewriteRuleSubtreeStream(adaptor,"rule unaryExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 64) ) { return retval; }
-            // LeMaVM.g:677:5: ( PLUS unaryExpression -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression ) | MINUS unaryExpression -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression ) | INC postfixedExpression -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression ) | DEC postfixedExpression -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression ) | unaryExpressionNotPlusMinus )
+            // LeMaVM.g:679:5: ( PLUS unaryExpression -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression ) | MINUS unaryExpression -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression ) | INC postfixedExpression -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression ) | DEC postfixedExpression -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression ) | unaryExpressionNotPlusMinus )
             int alt73=5;
             switch ( input.LA(1) ) {
             case PLUS:
@@ -8583,6 +8585,7 @@ public class LeMaVMParser extends Parser {
             case NEW:
             case NULL:
             case SHORT:
+            case STRING:
             case SUPER:
             case THIS:
             case TRUE:
@@ -8608,12 +8611,12 @@ public class LeMaVMParser extends Parser {
 
             switch (alt73) {
                 case 1 :
-                    // LeMaVM.g:677:9: PLUS unaryExpression
+                    // LeMaVM.g:679:9: PLUS unaryExpression
                     {
-                    PLUS250=(Token)match(input,PLUS,FOLLOW_PLUS_in_unaryExpression8126); if (state.failed) return retval; 
+                    PLUS250=(Token)match(input,PLUS,FOLLOW_PLUS_in_unaryExpression8154); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_PLUS.add(PLUS250);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpression8128);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpression8156);
                     unaryExpression251=unaryExpression();
 
                     state._fsp--;
@@ -8633,9 +8636,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 677:37: -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression )
+                    // 679:37: -> ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression )
                     {
-                        // LeMaVM.g:677:41: ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression )
+                        // LeMaVM.g:679:41: ^( UNARY_PLUS[$PLUS, \"UNARY_PLUS\"] unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(UNARY_PLUS, PLUS250, "UNARY_PLUS"), root_1);
@@ -8651,12 +8654,12 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:678:9: MINUS unaryExpression
+                    // LeMaVM.g:680:9: MINUS unaryExpression
                     {
-                    MINUS252=(Token)match(input,MINUS,FOLLOW_MINUS_in_unaryExpression8155); if (state.failed) return retval; 
+                    MINUS252=(Token)match(input,MINUS,FOLLOW_MINUS_in_unaryExpression8183); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_MINUS.add(MINUS252);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpression8157);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpression8185);
                     unaryExpression253=unaryExpression();
 
                     state._fsp--;
@@ -8676,9 +8679,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 678:37: -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression )
+                    // 680:37: -> ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression )
                     {
-                        // LeMaVM.g:678:41: ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression )
+                        // LeMaVM.g:680:41: ^( UNARY_MINUS[$MINUS, \"UNARY_MINUS\"] unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(UNARY_MINUS, MINUS252, "UNARY_MINUS"), root_1);
@@ -8694,12 +8697,12 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // LeMaVM.g:679:9: INC postfixedExpression
+                    // LeMaVM.g:681:9: INC postfixedExpression
                     {
-                    INC254=(Token)match(input,INC,FOLLOW_INC_in_unaryExpression8183); if (state.failed) return retval; 
+                    INC254=(Token)match(input,INC,FOLLOW_INC_in_unaryExpression8211); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_INC.add(INC254);
 
-                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpression8185);
+                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpression8213);
                     postfixedExpression255=postfixedExpression();
 
                     state._fsp--;
@@ -8719,9 +8722,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 679:37: -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression )
+                    // 681:37: -> ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression )
                     {
-                        // LeMaVM.g:679:41: ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression )
+                        // LeMaVM.g:681:41: ^( PRE_INC[$INC, \"PRE_INC\"] postfixedExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PRE_INC, INC254, "PRE_INC"), root_1);
@@ -8737,12 +8740,12 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // LeMaVM.g:680:9: DEC postfixedExpression
+                    // LeMaVM.g:682:9: DEC postfixedExpression
                     {
-                    DEC256=(Token)match(input,DEC,FOLLOW_DEC_in_unaryExpression8209); if (state.failed) return retval; 
+                    DEC256=(Token)match(input,DEC,FOLLOW_DEC_in_unaryExpression8237); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DEC.add(DEC256);
 
-                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpression8211);
+                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpression8239);
                     postfixedExpression257=postfixedExpression();
 
                     state._fsp--;
@@ -8762,9 +8765,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 680:37: -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression )
+                    // 682:37: -> ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression )
                     {
-                        // LeMaVM.g:680:41: ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression )
+                        // LeMaVM.g:682:41: ^( PRE_DEC[$DEC, \"PRE_DEC\"] postfixedExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(PRE_DEC, DEC256, "PRE_DEC"), root_1);
@@ -8780,11 +8783,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // LeMaVM.g:681:9: unaryExpressionNotPlusMinus
+                    // LeMaVM.g:683:9: unaryExpressionNotPlusMinus
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_unaryExpressionNotPlusMinus_in_unaryExpression8235);
+                    pushFollow(FOLLOW_unaryExpressionNotPlusMinus_in_unaryExpression8263);
                     unaryExpressionNotPlusMinus258=unaryExpressionNotPlusMinus();
 
                     state._fsp--;
@@ -8822,7 +8825,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "unaryExpressionNotPlusMinus"
-    // LeMaVM.g:684:1: unaryExpressionNotPlusMinus : ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression );
+    // LeMaVM.g:686:1: unaryExpressionNotPlusMinus : ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression );
     public final LeMaVMParser.unaryExpressionNotPlusMinus_return unaryExpressionNotPlusMinus() throws RecognitionException {
         LeMaVMParser.unaryExpressionNotPlusMinus_return retval = new LeMaVMParser.unaryExpressionNotPlusMinus_return();
         retval.start = input.LT(1);
@@ -8856,17 +8859,17 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_type=new RewriteRuleSubtreeStream(adaptor,"rule type");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 65) ) { return retval; }
-            // LeMaVM.g:685:5: ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression )
+            // LeMaVM.g:687:5: ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression )
             int alt74=4;
             alt74 = dfa74.predict(input);
             switch (alt74) {
                 case 1 :
-                    // LeMaVM.g:685:9: NOT unaryExpression
+                    // LeMaVM.g:687:9: NOT unaryExpression
                     {
-                    NOT259=(Token)match(input,NOT,FOLLOW_NOT_in_unaryExpressionNotPlusMinus8254); if (state.failed) return retval; 
+                    NOT259=(Token)match(input,NOT,FOLLOW_NOT_in_unaryExpressionNotPlusMinus8282); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_NOT.add(NOT259);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus8256);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus8284);
                     unaryExpression260=unaryExpression();
 
                     state._fsp--;
@@ -8886,9 +8889,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 685:57: -> ^( NOT unaryExpression )
+                    // 687:57: -> ^( NOT unaryExpression )
                     {
-                        // LeMaVM.g:685:61: ^( NOT unaryExpression )
+                        // LeMaVM.g:687:61: ^( NOT unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_NOT.nextNode(), root_1);
@@ -8904,12 +8907,12 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:686:9: LOGICAL_NOT unaryExpression
+                    // LeMaVM.g:688:9: LOGICAL_NOT unaryExpression
                     {
-                    LOGICAL_NOT261=(Token)match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_unaryExpressionNotPlusMinus8303); if (state.failed) return retval; 
+                    LOGICAL_NOT261=(Token)match(input,LOGICAL_NOT,FOLLOW_LOGICAL_NOT_in_unaryExpressionNotPlusMinus8331); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LOGICAL_NOT.add(LOGICAL_NOT261);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus8305);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus8333);
                     unaryExpression262=unaryExpression();
 
                     state._fsp--;
@@ -8918,7 +8921,7 @@ public class LeMaVMParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: LOGICAL_NOT, unaryExpression
+                    // elements: unaryExpression, LOGICAL_NOT
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -8929,9 +8932,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 686:57: -> ^( LOGICAL_NOT unaryExpression )
+                    // 688:57: -> ^( LOGICAL_NOT unaryExpression )
                     {
-                        // LeMaVM.g:686:61: ^( LOGICAL_NOT unaryExpression )
+                        // LeMaVM.g:688:61: ^( LOGICAL_NOT unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_LOGICAL_NOT.nextNode(), root_1);
@@ -8947,21 +8950,21 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // LeMaVM.g:687:9: LPAREN type RPAREN unaryExpression
+                    // LeMaVM.g:689:9: LPAREN type RPAREN unaryExpression
                     {
-                    LPAREN263=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_unaryExpressionNotPlusMinus8344); if (state.failed) return retval; 
+                    LPAREN263=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_unaryExpressionNotPlusMinus8372); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN263);
 
-                    pushFollow(FOLLOW_type_in_unaryExpressionNotPlusMinus8346);
+                    pushFollow(FOLLOW_type_in_unaryExpressionNotPlusMinus8374);
                     type264=type();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_type.add(type264.getTree());
-                    RPAREN265=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_unaryExpressionNotPlusMinus8348); if (state.failed) return retval; 
+                    RPAREN265=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_unaryExpressionNotPlusMinus8376); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN265);
 
-                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus8350);
+                    pushFollow(FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus8378);
                     unaryExpression266=unaryExpression();
 
                     state._fsp--;
@@ -8970,7 +8973,7 @@ public class LeMaVMParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: type, unaryExpression
+                    // elements: unaryExpression, type
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -8981,9 +8984,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 687:57: -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression )
+                    // 689:57: -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression )
                     {
-                        // LeMaVM.g:687:61: ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression )
+                        // LeMaVM.g:689:61: ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CAST_EXPR, LPAREN263, "CAST_EXPR"), root_1);
@@ -9000,11 +9003,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // LeMaVM.g:688:9: postfixedExpression
+                    // LeMaVM.g:690:9: postfixedExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpressionNotPlusMinus8385);
+                    pushFollow(FOLLOW_postfixedExpression_in_unaryExpressionNotPlusMinus8413);
                     postfixedExpression267=postfixedExpression();
 
                     state._fsp--;
@@ -9042,7 +9045,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "postfixedExpression"
-    // LeMaVM.g:691:1: postfixedExpression : ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )? ;
+    // LeMaVM.g:693:1: postfixedExpression : ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )? ;
     public final LeMaVMParser.postfixedExpression_return postfixedExpression() throws RecognitionException {
         LeMaVMParser.postfixedExpression_return retval = new LeMaVMParser.postfixedExpression_return();
         retval.start = input.LT(1);
@@ -9098,13 +9101,13 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_innerNewExpression=new RewriteRuleSubtreeStream(adaptor,"rule innerNewExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 66) ) { return retval; }
-            // LeMaVM.g:693:5: ( ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )? )
-            // LeMaVM.g:693:9: ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )?
+            // LeMaVM.g:695:5: ( ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )? )
+            // LeMaVM.g:695:9: ( primaryExpression -> primaryExpression ) (outerDot= DOT ( ( IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )* ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )?
             {
-            // LeMaVM.g:693:9: ( primaryExpression -> primaryExpression )
-            // LeMaVM.g:693:13: primaryExpression
+            // LeMaVM.g:695:9: ( primaryExpression -> primaryExpression )
+            // LeMaVM.g:695:13: primaryExpression
             {
-            pushFollow(FOLLOW_primaryExpression_in_postfixedExpression8421);
+            pushFollow(FOLLOW_primaryExpression_in_postfixedExpression8449);
             primaryExpression268=primaryExpression();
 
             state._fsp--;
@@ -9124,7 +9127,7 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 693:53: -> primaryExpression
+            // 695:53: -> primaryExpression
             {
                 adaptor.addChild(root_0, stream_primaryExpression.nextTree());
 
@@ -9133,7 +9136,7 @@ public class LeMaVMParser extends Parser {
             retval.tree = root_0;}
             }
 
-            // LeMaVM.g:696:9: (outerDot= DOT ( ( IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )*
+            // LeMaVM.g:698:9: (outerDot= DOT ( ( IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) ) | LBRACK expression RBRACK -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression ) )*
             loop78:
             do {
                 int alt78=3;
@@ -9149,12 +9152,12 @@ public class LeMaVMParser extends Parser {
 
                 switch (alt78) {
             	case 1 :
-            	    // LeMaVM.g:696:13: outerDot= DOT ( ( IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) )
+            	    // LeMaVM.g:698:13: outerDot= DOT ( ( IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) )
             	    {
-            	    outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_postfixedExpression8483); if (state.failed) return retval; 
+            	    outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_postfixedExpression8511); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_DOT.add(outerDot);
 
-            	    // LeMaVM.g:697:13: ( ( IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) )
+            	    // LeMaVM.g:699:13: ( ( IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | THIS -> ^( DOT $postfixedExpression THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments ) | ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )? | innerNewExpression -> ^( DOT $postfixedExpression innerNewExpression ) )
             	    int alt77=5;
             	    switch ( input.LA(1) ) {
             	    case IDENT:
@@ -9201,12 +9204,12 @@ public class LeMaVMParser extends Parser {
 
             	    switch (alt77) {
             	        case 1 :
-            	            // LeMaVM.g:697:17: ( IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
+            	            // LeMaVM.g:699:17: ( IDENT -> ^( DOT $postfixedExpression IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
             	            {
-            	            // LeMaVM.g:697:17: ( IDENT -> ^( DOT $postfixedExpression IDENT ) )
-            	            // LeMaVM.g:697:21: IDENT
+            	            // LeMaVM.g:699:17: ( IDENT -> ^( DOT $postfixedExpression IDENT ) )
+            	            // LeMaVM.g:699:21: IDENT
             	            {
-            	            IDENT269=(Token)match(input,IDENT,FOLLOW_IDENT_in_postfixedExpression8533); if (state.failed) return retval; 
+            	            IDENT269=(Token)match(input,IDENT,FOLLOW_IDENT_in_postfixedExpression8561); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_IDENT.add(IDENT269);
 
 
@@ -9223,9 +9226,9 @@ public class LeMaVMParser extends Parser {
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 697:53: -> ^( DOT $postfixedExpression IDENT )
+            	            // 699:53: -> ^( DOT $postfixedExpression IDENT )
             	            {
-            	                // LeMaVM.g:697:57: ^( DOT $postfixedExpression IDENT )
+            	                // LeMaVM.g:699:57: ^( DOT $postfixedExpression IDENT )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -9241,7 +9244,7 @@ public class LeMaVMParser extends Parser {
             	            retval.tree = root_0;}
             	            }
 
-            	            // LeMaVM.g:699:17: ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
+            	            // LeMaVM.g:701:17: ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
             	            int alt75=2;
             	            int LA75_0 = input.LA(1);
 
@@ -9250,9 +9253,9 @@ public class LeMaVMParser extends Parser {
             	            }
             	            switch (alt75) {
             	                case 1 :
-            	                    // LeMaVM.g:699:21: arguments
+            	                    // LeMaVM.g:701:21: arguments
             	                    {
-            	                    pushFollow(FOLLOW_arguments_in_postfixedExpression8612);
+            	                    pushFollow(FOLLOW_arguments_in_postfixedExpression8640);
             	                    arguments270=arguments();
 
             	                    state._fsp--;
@@ -9272,9 +9275,9 @@ public class LeMaVMParser extends Parser {
             	                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	                    root_0 = (CommonTree)adaptor.nil();
-            	                    // 699:53: -> ^( METHOD_CALL $postfixedExpression arguments )
+            	                    // 701:53: -> ^( METHOD_CALL $postfixedExpression arguments )
             	                    {
-            	                        // LeMaVM.g:699:57: ^( METHOD_CALL $postfixedExpression arguments )
+            	                        // LeMaVM.g:701:57: ^( METHOD_CALL $postfixedExpression arguments )
             	                        {
             	                        CommonTree root_1 = (CommonTree)adaptor.nil();
             	                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
@@ -9297,15 +9300,15 @@ public class LeMaVMParser extends Parser {
             	            }
             	            break;
             	        case 2 :
-            	            // LeMaVM.g:701:17: THIS
+            	            // LeMaVM.g:703:17: THIS
             	            {
-            	            THIS271=(Token)match(input,THIS,FOLLOW_THIS_in_postfixedExpression8683); if (state.failed) return retval; 
+            	            THIS271=(Token)match(input,THIS,FOLLOW_THIS_in_postfixedExpression8711); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_THIS.add(THIS271);
 
 
 
             	            // AST REWRITE
-            	            // elements: postfixedExpression, DOT, THIS
+            	            // elements: THIS, DOT, postfixedExpression
             	            // token labels: 
             	            // rule labels: retval
             	            // token list labels: 
@@ -9316,9 +9319,9 @@ public class LeMaVMParser extends Parser {
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 701:53: -> ^( DOT $postfixedExpression THIS )
+            	            // 703:53: -> ^( DOT $postfixedExpression THIS )
             	            {
-            	                // LeMaVM.g:701:57: ^( DOT $postfixedExpression THIS )
+            	                // LeMaVM.g:703:57: ^( DOT $postfixedExpression THIS )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -9335,12 +9338,12 @@ public class LeMaVMParser extends Parser {
             	            }
             	            break;
             	        case 3 :
-            	            // LeMaVM.g:702:17: Super= SUPER arguments
+            	            // LeMaVM.g:704:17: Super= SUPER arguments
             	            {
-            	            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_postfixedExpression8746); if (state.failed) return retval; 
+            	            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_postfixedExpression8774); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_SUPER.add(Super);
 
-            	            pushFollow(FOLLOW_arguments_in_postfixedExpression8748);
+            	            pushFollow(FOLLOW_arguments_in_postfixedExpression8776);
             	            arguments272=arguments();
 
             	            state._fsp--;
@@ -9349,7 +9352,7 @@ public class LeMaVMParser extends Parser {
 
 
             	            // AST REWRITE
-            	            // elements: arguments, postfixedExpression
+            	            // elements: postfixedExpression, arguments
             	            // token labels: 
             	            // rule labels: retval
             	            // token list labels: 
@@ -9360,9 +9363,9 @@ public class LeMaVMParser extends Parser {
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 702:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments )
+            	            // 704:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments )
             	            {
-            	                // LeMaVM.g:702:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments )
+            	                // LeMaVM.g:704:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] $postfixedExpression arguments )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, Super, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -9379,24 +9382,24 @@ public class LeMaVMParser extends Parser {
             	            }
             	            break;
             	        case 4 :
-            	            // LeMaVM.g:703:17: ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
+            	            // LeMaVM.g:705:17: ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) ) ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
             	            {
-            	            // LeMaVM.g:703:17: ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) )
-            	            // LeMaVM.g:703:21: SUPER innerDot= DOT IDENT
+            	            // LeMaVM.g:705:17: ( SUPER innerDot= DOT IDENT -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT ) )
+            	            // LeMaVM.g:705:21: SUPER innerDot= DOT IDENT
             	            {
-            	            SUPER273=(Token)match(input,SUPER,FOLLOW_SUPER_in_postfixedExpression8801); if (state.failed) return retval; 
+            	            SUPER273=(Token)match(input,SUPER,FOLLOW_SUPER_in_postfixedExpression8829); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_SUPER.add(SUPER273);
 
-            	            innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_postfixedExpression8805); if (state.failed) return retval; 
+            	            innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_postfixedExpression8833); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_DOT.add(innerDot);
 
-            	            IDENT274=(Token)match(input,IDENT,FOLLOW_IDENT_in_postfixedExpression8807); if (state.failed) return retval; 
+            	            IDENT274=(Token)match(input,IDENT,FOLLOW_IDENT_in_postfixedExpression8835); if (state.failed) return retval; 
             	            if ( state.backtracking==0 ) stream_IDENT.add(IDENT274);
 
 
 
             	            // AST REWRITE
-            	            // elements: IDENT, innerDot, postfixedExpression, outerDot, SUPER
+            	            // elements: IDENT, SUPER, innerDot, postfixedExpression, outerDot
             	            // token labels: outerDot, innerDot
             	            // rule labels: retval
             	            // token list labels: 
@@ -9409,14 +9412,14 @@ public class LeMaVMParser extends Parser {
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 703:53: -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT )
+            	            // 705:53: -> ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT )
             	            {
-            	                // LeMaVM.g:703:57: ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT )
+            	                // LeMaVM.g:705:57: ^( $innerDot ^( $outerDot $postfixedExpression SUPER ) IDENT )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot(stream_innerDot.nextNode(), root_1);
 
-            	                // LeMaVM.g:703:69: ^( $outerDot $postfixedExpression SUPER )
+            	                // LeMaVM.g:705:69: ^( $outerDot $postfixedExpression SUPER )
             	                {
             	                CommonTree root_2 = (CommonTree)adaptor.nil();
             	                root_2 = (CommonTree)adaptor.becomeRoot(stream_outerDot.nextNode(), root_2);
@@ -9436,7 +9439,7 @@ public class LeMaVMParser extends Parser {
             	            retval.tree = root_0;}
             	            }
 
-            	            // LeMaVM.g:705:17: ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
+            	            // LeMaVM.g:707:17: ( arguments -> ^( METHOD_CALL $postfixedExpression arguments ) )?
             	            int alt76=2;
             	            int LA76_0 = input.LA(1);
 
@@ -9445,9 +9448,9 @@ public class LeMaVMParser extends Parser {
             	            }
             	            switch (alt76) {
             	                case 1 :
-            	                    // LeMaVM.g:705:21: arguments
+            	                    // LeMaVM.g:707:21: arguments
             	                    {
-            	                    pushFollow(FOLLOW_arguments_in_postfixedExpression8874);
+            	                    pushFollow(FOLLOW_arguments_in_postfixedExpression8902);
             	                    arguments275=arguments();
 
             	                    state._fsp--;
@@ -9467,9 +9470,9 @@ public class LeMaVMParser extends Parser {
             	                    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	                    root_0 = (CommonTree)adaptor.nil();
-            	                    // 705:53: -> ^( METHOD_CALL $postfixedExpression arguments )
+            	                    // 707:53: -> ^( METHOD_CALL $postfixedExpression arguments )
             	                    {
-            	                        // LeMaVM.g:705:57: ^( METHOD_CALL $postfixedExpression arguments )
+            	                        // LeMaVM.g:707:57: ^( METHOD_CALL $postfixedExpression arguments )
             	                        {
             	                        CommonTree root_1 = (CommonTree)adaptor.nil();
             	                        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
@@ -9492,9 +9495,9 @@ public class LeMaVMParser extends Parser {
             	            }
             	            break;
             	        case 5 :
-            	            // LeMaVM.g:707:17: innerNewExpression
+            	            // LeMaVM.g:709:17: innerNewExpression
             	            {
-            	            pushFollow(FOLLOW_innerNewExpression_in_postfixedExpression8945);
+            	            pushFollow(FOLLOW_innerNewExpression_in_postfixedExpression8973);
             	            innerNewExpression276=innerNewExpression();
 
             	            state._fsp--;
@@ -9514,9 +9517,9 @@ public class LeMaVMParser extends Parser {
             	            RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	            root_0 = (CommonTree)adaptor.nil();
-            	            // 707:53: -> ^( DOT $postfixedExpression innerNewExpression )
+            	            // 709:53: -> ^( DOT $postfixedExpression innerNewExpression )
             	            {
-            	                // LeMaVM.g:707:57: ^( DOT $postfixedExpression innerNewExpression )
+            	                // LeMaVM.g:709:57: ^( DOT $postfixedExpression innerNewExpression )
             	                {
             	                CommonTree root_1 = (CommonTree)adaptor.nil();
             	                root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -9539,24 +9542,24 @@ public class LeMaVMParser extends Parser {
             	    }
             	    break;
             	case 2 :
-            	    // LeMaVM.g:709:13: LBRACK expression RBRACK
+            	    // LeMaVM.g:711:13: LBRACK expression RBRACK
             	    {
-            	    LBRACK277=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_postfixedExpression9002); if (state.failed) return retval; 
+            	    LBRACK277=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_postfixedExpression9030); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_LBRACK.add(LBRACK277);
 
-            	    pushFollow(FOLLOW_expression_in_postfixedExpression9004);
+            	    pushFollow(FOLLOW_expression_in_postfixedExpression9032);
             	    expression278=expression();
 
             	    state._fsp--;
             	    if (state.failed) return retval;
             	    if ( state.backtracking==0 ) stream_expression.add(expression278.getTree());
-            	    RBRACK279=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_postfixedExpression9006); if (state.failed) return retval; 
+            	    RBRACK279=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_postfixedExpression9034); if (state.failed) return retval; 
             	    if ( state.backtracking==0 ) stream_RBRACK.add(RBRACK279);
 
 
 
             	    // AST REWRITE
-            	    // elements: postfixedExpression, expression
+            	    // elements: expression, postfixedExpression
             	    // token labels: 
             	    // rule labels: retval
             	    // token list labels: 
@@ -9567,9 +9570,9 @@ public class LeMaVMParser extends Parser {
             	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             	    root_0 = (CommonTree)adaptor.nil();
-            	    // 709:53: -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression )
+            	    // 711:53: -> ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression )
             	    {
-            	        // LeMaVM.g:709:57: ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression )
+            	        // LeMaVM.g:711:57: ^( ARRAY_ELEMENT_ACCESS $postfixedExpression expression )
             	        {
             	        CommonTree root_1 = (CommonTree)adaptor.nil();
             	        root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARRAY_ELEMENT_ACCESS, "ARRAY_ELEMENT_ACCESS"), root_1);
@@ -9591,7 +9594,7 @@ public class LeMaVMParser extends Parser {
                 }
             } while (true);
 
-            // LeMaVM.g:712:9: ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )?
+            // LeMaVM.g:714:9: ( INC -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression) | DEC -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression) )?
             int alt79=3;
             int LA79_0 = input.LA(1);
 
@@ -9603,9 +9606,9 @@ public class LeMaVMParser extends Parser {
             }
             switch (alt79) {
                 case 1 :
-                    // LeMaVM.g:712:13: INC
+                    // LeMaVM.g:714:13: INC
                     {
-                    INC280=(Token)match(input,INC,FOLLOW_INC_in_postfixedExpression9067); if (state.failed) return retval; 
+                    INC280=(Token)match(input,INC,FOLLOW_INC_in_postfixedExpression9095); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_INC.add(INC280);
 
 
@@ -9622,9 +9625,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 712:17: -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression)
+                    // 714:17: -> ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression)
                     {
-                        // LeMaVM.g:712:20: ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression)
+                        // LeMaVM.g:714:20: ^( POST_INC[$INC, \"POST_INC\"] $postfixedExpression)
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(POST_INC, INC280, "POST_INC"), root_1);
@@ -9640,9 +9643,9 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:713:13: DEC
+                    // LeMaVM.g:715:13: DEC
                     {
-                    DEC281=(Token)match(input,DEC,FOLLOW_DEC_in_postfixedExpression9091); if (state.failed) return retval; 
+                    DEC281=(Token)match(input,DEC,FOLLOW_DEC_in_postfixedExpression9119); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DEC.add(DEC281);
 
 
@@ -9659,9 +9662,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 713:17: -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression)
+                    // 715:17: -> ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression)
                     {
-                        // LeMaVM.g:713:20: ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression)
+                        // LeMaVM.g:715:20: ^( POST_DEC[$DEC, \"POST_DEC\"] $postfixedExpression)
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(POST_DEC, DEC281, "POST_DEC"), root_1);
@@ -9709,7 +9712,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "primaryExpression"
-    // LeMaVM.g:717:1: primaryExpression : ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) );
+    // LeMaVM.g:719:1: primaryExpression : ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) );
     public final LeMaVMParser.primaryExpression_return primaryExpression() throws RecognitionException {
         LeMaVMParser.primaryExpression_return retval = new LeMaVMParser.primaryExpression_return();
         retval.start = input.LT(1);
@@ -9784,16 +9787,16 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_primitiveType=new RewriteRuleSubtreeStream(adaptor,"rule primitiveType");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 67) ) { return retval; }
-            // LeMaVM.g:718:5: ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) )
+            // LeMaVM.g:720:5: ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) )
             int alt85=10;
             alt85 = dfa85.predict(input);
             switch (alt85) {
                 case 1 :
-                    // LeMaVM.g:718:9: parenthesizedExpression
+                    // LeMaVM.g:720:9: parenthesizedExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression9139);
+                    pushFollow(FOLLOW_parenthesizedExpression_in_primaryExpression9167);
                     parenthesizedExpression282=parenthesizedExpression();
 
                     state._fsp--;
@@ -9803,11 +9806,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:719:9: literal
+                    // LeMaVM.g:721:9: literal
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_literal_in_primaryExpression9149);
+                    pushFollow(FOLLOW_literal_in_primaryExpression9177);
                     literal283=literal();
 
                     state._fsp--;
@@ -9817,11 +9820,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // LeMaVM.g:720:9: newExpression
+                    // LeMaVM.g:722:9: newExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_newExpression_in_primaryExpression9159);
+                    pushFollow(FOLLOW_newExpression_in_primaryExpression9187);
                     newExpression284=newExpression();
 
                     state._fsp--;
@@ -9831,11 +9834,11 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 4 :
-                    // LeMaVM.g:721:9: qualifiedIdentExpression
+                    // LeMaVM.g:723:9: qualifiedIdentExpression
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_qualifiedIdentExpression_in_primaryExpression9169);
+                    pushFollow(FOLLOW_qualifiedIdentExpression_in_primaryExpression9197);
                     qualifiedIdentExpression285=qualifiedIdentExpression();
 
                     state._fsp--;
@@ -9845,9 +9848,9 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 5 :
-                    // LeMaVM.g:722:9: ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )
+                    // LeMaVM.g:724:9: ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )
                     {
-                    // LeMaVM.g:722:9: ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )
+                    // LeMaVM.g:724:9: ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )
                     int alt81=3;
                     switch ( input.LA(1) ) {
                     case SUPER:
@@ -9875,12 +9878,12 @@ public class LeMaVMParser extends Parser {
 
                     switch (alt81) {
                         case 1 :
-                            // LeMaVM.g:722:13: SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) )
+                            // LeMaVM.g:724:13: SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) )
                             {
-                            SUPER286=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression9183); if (state.failed) return retval; 
+                            SUPER286=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression9211); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SUPER.add(SUPER286);
 
-                            // LeMaVM.g:723:13: ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) )
+                            // LeMaVM.g:725:13: ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) )
                             int alt80=2;
                             int LA80_0 = input.LA(1);
 
@@ -9899,9 +9902,9 @@ public class LeMaVMParser extends Parser {
                             }
                             switch (alt80) {
                                 case 1 :
-                                    // LeMaVM.g:723:17: arguments
+                                    // LeMaVM.g:725:17: arguments
                                     {
-                                    pushFollow(FOLLOW_arguments_in_primaryExpression9201);
+                                    pushFollow(FOLLOW_arguments_in_primaryExpression9229);
                                     arguments287=arguments();
 
                                     state._fsp--;
@@ -9921,9 +9924,9 @@ public class LeMaVMParser extends Parser {
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 723:57: -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
+                                    // 725:57: -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
                                     {
-                                        // LeMaVM.g:723:61: ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
+                                        // LeMaVM.g:725:61: ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, SUPER286, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -9939,15 +9942,15 @@ public class LeMaVMParser extends Parser {
                                     }
                                     break;
                                 case 2 :
-                                    // LeMaVM.g:724:17: DOT IDENT arguments
+                                    // LeMaVM.g:726:17: DOT IDENT arguments
                                     {
-                                    DOT288=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression9259); if (state.failed) return retval; 
+                                    DOT288=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression9287); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_DOT.add(DOT288);
 
-                                    IDENT289=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression9261); if (state.failed) return retval; 
+                                    IDENT289=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression9289); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT289);
 
-                                    pushFollow(FOLLOW_arguments_in_primaryExpression9263);
+                                    pushFollow(FOLLOW_arguments_in_primaryExpression9291);
                                     arguments290=arguments();
 
                                     state._fsp--;
@@ -9956,7 +9959,7 @@ public class LeMaVMParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: arguments, DOT, SUPER, IDENT
+                                    // elements: IDENT, DOT, SUPER, arguments
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -9967,14 +9970,14 @@ public class LeMaVMParser extends Parser {
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 724:57: -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
+                                    // 726:57: -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
                                     {
-                                        // LeMaVM.g:724:61: ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
+                                        // LeMaVM.g:726:61: ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
 
-                                        // LeMaVM.g:724:75: ^( DOT SUPER IDENT )
+                                        // LeMaVM.g:726:75: ^( DOT SUPER IDENT )
                                         {
                                         CommonTree root_2 = (CommonTree)adaptor.nil();
                                         root_2 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_2);
@@ -10001,12 +10004,12 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // LeMaVM.g:726:13: IDENT arguments
+                            // LeMaVM.g:728:13: IDENT arguments
                             {
-                            IDENT291=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression9328); if (state.failed) return retval; 
+                            IDENT291=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression9356); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_IDENT.add(IDENT291);
 
-                            pushFollow(FOLLOW_arguments_in_primaryExpression9330);
+                            pushFollow(FOLLOW_arguments_in_primaryExpression9358);
                             arguments292=arguments();
 
                             state._fsp--;
@@ -10015,7 +10018,7 @@ public class LeMaVMParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: arguments, IDENT
+                            // elements: IDENT, arguments
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -10026,9 +10029,9 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 726:57: -> ^( METHOD_CALL IDENT arguments )
+                            // 728:57: -> ^( METHOD_CALL IDENT arguments )
                             {
-                                // LeMaVM.g:726:61: ^( METHOD_CALL IDENT arguments )
+                                // LeMaVM.g:728:61: ^( METHOD_CALL IDENT arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
@@ -10045,12 +10048,12 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 3 :
-                            // LeMaVM.g:727:13: THIS arguments
+                            // LeMaVM.g:729:13: THIS arguments
                             {
-                            THIS293=(Token)match(input,THIS,FOLLOW_THIS_in_primaryExpression9383); if (state.failed) return retval; 
+                            THIS293=(Token)match(input,THIS,FOLLOW_THIS_in_primaryExpression9411); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_THIS.add(THIS293);
 
-                            pushFollow(FOLLOW_arguments_in_primaryExpression9385);
+                            pushFollow(FOLLOW_arguments_in_primaryExpression9413);
                             arguments294=arguments();
 
                             state._fsp--;
@@ -10070,9 +10073,9 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 727:57: -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
+                            // 729:57: -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
                             {
-                                // LeMaVM.g:727:61: ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
+                                // LeMaVM.g:729:61: ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(THIS_CONSTRUCTOR_CALL, THIS293, "THIS_CONSTRUCTOR_CALL"), root_1);
@@ -10094,12 +10097,12 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 6 :
-                    // LeMaVM.g:729:9: ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )?
+                    // LeMaVM.g:731:9: ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )?
                     {
-                    // LeMaVM.g:729:9: ( THIS -> THIS )
-                    // LeMaVM.g:729:13: THIS
+                    // LeMaVM.g:731:9: ( THIS -> THIS )
+                    // LeMaVM.g:731:13: THIS
                     {
-                    THIS295=(Token)match(input,THIS,FOLLOW_THIS_in_primaryExpression9448); if (state.failed) return retval; 
+                    THIS295=(Token)match(input,THIS,FOLLOW_THIS_in_primaryExpression9476); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_THIS.add(THIS295);
 
 
@@ -10116,7 +10119,7 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 729:57: -> THIS
+                    // 731:57: -> THIS
                     {
                         adaptor.addChild(root_0, stream_THIS.nextNode());
 
@@ -10125,7 +10128,7 @@ public class LeMaVMParser extends Parser {
                     retval.tree = root_0;}
                     }
 
-                    // LeMaVM.g:731:9: ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )?
+                    // LeMaVM.g:733:9: ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )?
                     int alt82=2;
                     int LA82_0 = input.LA(1);
 
@@ -10134,9 +10137,9 @@ public class LeMaVMParser extends Parser {
                     }
                     switch (alt82) {
                         case 1 :
-                            // LeMaVM.g:731:13: arguments
+                            // LeMaVM.g:733:13: arguments
                             {
-                            pushFollow(FOLLOW_arguments_in_primaryExpression9516);
+                            pushFollow(FOLLOW_arguments_in_primaryExpression9544);
                             arguments296=arguments();
 
                             state._fsp--;
@@ -10156,9 +10159,9 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 731:57: -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
+                            // 733:57: -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
                             {
-                                // LeMaVM.g:731:61: ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
+                                // LeMaVM.g:733:61: ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(THIS_CONSTRUCTOR_CALL, THIS295, "THIS_CONSTRUCTOR_CALL"), root_1);
@@ -10180,12 +10183,12 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 7 :
-                    // LeMaVM.g:733:9: SUPER arguments
+                    // LeMaVM.g:735:9: SUPER arguments
                     {
-                    SUPER297=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression9581); if (state.failed) return retval; 
+                    SUPER297=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression9609); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SUPER.add(SUPER297);
 
-                    pushFollow(FOLLOW_arguments_in_primaryExpression9583);
+                    pushFollow(FOLLOW_arguments_in_primaryExpression9611);
                     arguments298=arguments();
 
                     state._fsp--;
@@ -10205,9 +10208,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 733:57: -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
+                    // 735:57: -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
                     {
-                        // LeMaVM.g:733:61: ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
+                        // LeMaVM.g:735:61: ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, SUPER297, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -10223,24 +10226,24 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 8 :
-                    // LeMaVM.g:734:9: ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) )
+                    // LeMaVM.g:736:9: ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) )
                     {
-                    // LeMaVM.g:734:9: ( SUPER DOT IDENT )
-                    // LeMaVM.g:734:13: SUPER DOT IDENT
+                    // LeMaVM.g:736:9: ( SUPER DOT IDENT )
+                    // LeMaVM.g:736:13: SUPER DOT IDENT
                     {
-                    SUPER299=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression9639); if (state.failed) return retval; 
+                    SUPER299=(Token)match(input,SUPER,FOLLOW_SUPER_in_primaryExpression9667); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_SUPER.add(SUPER299);
 
-                    DOT300=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression9641); if (state.failed) return retval; 
+                    DOT300=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression9669); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(DOT300);
 
-                    IDENT301=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression9643); if (state.failed) return retval; 
+                    IDENT301=(Token)match(input,IDENT,FOLLOW_IDENT_in_primaryExpression9671); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT301);
 
 
                     }
 
-                    // LeMaVM.g:736:9: ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) )
+                    // LeMaVM.g:738:9: ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) )
                     int alt83=2;
                     int LA83_0 = input.LA(1);
 
@@ -10259,9 +10262,9 @@ public class LeMaVMParser extends Parser {
                     }
                     switch (alt83) {
                         case 1 :
-                            // LeMaVM.g:736:13: arguments
+                            // LeMaVM.g:738:13: arguments
                             {
-                            pushFollow(FOLLOW_arguments_in_primaryExpression9667);
+                            pushFollow(FOLLOW_arguments_in_primaryExpression9695);
                             arguments302=arguments();
 
                             state._fsp--;
@@ -10270,7 +10273,7 @@ public class LeMaVMParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: SUPER, DOT, arguments, IDENT
+                            // elements: IDENT, arguments, SUPER, DOT
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -10281,14 +10284,14 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 736:57: -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
+                            // 738:57: -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
                             {
-                                // LeMaVM.g:736:61: ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
+                                // LeMaVM.g:738:61: ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
 
-                                // LeMaVM.g:736:75: ^( DOT SUPER IDENT )
+                                // LeMaVM.g:738:75: ^( DOT SUPER IDENT )
                                 {
                                 CommonTree root_2 = (CommonTree)adaptor.nil();
                                 root_2 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_2);
@@ -10309,11 +10312,11 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // LeMaVM.g:737:57: 
+                            // LeMaVM.g:739:57: 
                             {
 
                             // AST REWRITE
-                            // elements: IDENT, SUPER, DOT
+                            // elements: DOT, IDENT, SUPER
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -10324,9 +10327,9 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 737:57: -> ^( DOT SUPER IDENT )
+                            // 739:57: -> ^( DOT SUPER IDENT )
                             {
-                                // LeMaVM.g:737:61: ^( DOT SUPER IDENT )
+                                // LeMaVM.g:739:61: ^( DOT SUPER IDENT )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -10349,12 +10352,12 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 9 :
-                    // LeMaVM.g:739:9: ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS
+                    // LeMaVM.g:741:9: ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS
                     {
-                    // LeMaVM.g:739:9: ( primitiveType -> primitiveType )
-                    // LeMaVM.g:739:13: primitiveType
+                    // LeMaVM.g:741:9: ( primitiveType -> primitiveType )
+                    // LeMaVM.g:741:13: primitiveType
                     {
-                    pushFollow(FOLLOW_primitiveType_in_primaryExpression9809);
+                    pushFollow(FOLLOW_primitiveType_in_primaryExpression9837);
                     primitiveType303=primitiveType();
 
                     state._fsp--;
@@ -10374,7 +10377,7 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 739:57: -> primitiveType
+                    // 741:57: -> primitiveType
                     {
                         adaptor.addChild(root_0, stream_primitiveType.nextTree());
 
@@ -10383,7 +10386,7 @@ public class LeMaVMParser extends Parser {
                     retval.tree = root_0;}
                     }
 
-                    // LeMaVM.g:741:9: ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )*
+                    // LeMaVM.g:743:9: ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )*
                     loop84:
                     do {
                         int alt84=2;
@@ -10396,9 +10399,9 @@ public class LeMaVMParser extends Parser {
 
                         switch (alt84) {
                     	case 1 :
-                    	    // LeMaVM.g:741:13: arrayDeclarator
+                    	    // LeMaVM.g:743:13: arrayDeclarator
                     	    {
-                    	    pushFollow(FOLLOW_arrayDeclarator_in_primaryExpression9868);
+                    	    pushFollow(FOLLOW_arrayDeclarator_in_primaryExpression9896);
                     	    arrayDeclarator304=arrayDeclarator();
 
                     	    state._fsp--;
@@ -10418,9 +10421,9 @@ public class LeMaVMParser extends Parser {
                     	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     	    root_0 = (CommonTree)adaptor.nil();
-                    	    // 741:57: -> ^( arrayDeclarator $primaryExpression)
+                    	    // 743:57: -> ^( arrayDeclarator $primaryExpression)
                     	    {
-                    	        // LeMaVM.g:741:61: ^( arrayDeclarator $primaryExpression)
+                    	        // LeMaVM.g:743:61: ^( arrayDeclarator $primaryExpression)
                     	        {
                     	        CommonTree root_1 = (CommonTree)adaptor.nil();
                     	        root_1 = (CommonTree)adaptor.becomeRoot(stream_arrayDeclarator.nextNode(), root_1);
@@ -10441,16 +10444,16 @@ public class LeMaVMParser extends Parser {
                         }
                     } while (true);
 
-                    DOT305=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression9931); if (state.failed) return retval; 
+                    DOT305=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression9959); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(DOT305);
 
-                    CLASS306=(Token)match(input,CLASS,FOLLOW_CLASS_in_primaryExpression9933); if (state.failed) return retval; 
+                    CLASS306=(Token)match(input,CLASS,FOLLOW_CLASS_in_primaryExpression9961); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_CLASS.add(CLASS306);
 
 
 
                     // AST REWRITE
-                    // elements: DOT, CLASS, primaryExpression
+                    // elements: DOT, primaryExpression, CLASS
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -10461,9 +10464,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 743:57: -> ^( DOT $primaryExpression CLASS )
+                    // 745:57: -> ^( DOT $primaryExpression CLASS )
                     {
-                        // LeMaVM.g:743:61: ^( DOT $primaryExpression CLASS )
+                        // LeMaVM.g:745:61: ^( DOT $primaryExpression CLASS )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -10480,21 +10483,21 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 10 :
-                    // LeMaVM.g:744:9: VOID DOT CLASS
+                    // LeMaVM.g:746:9: VOID DOT CLASS
                     {
-                    VOID307=(Token)match(input,VOID,FOLLOW_VOID_in_primaryExpression9993); if (state.failed) return retval; 
+                    VOID307=(Token)match(input,VOID,FOLLOW_VOID_in_primaryExpression10021); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_VOID.add(VOID307);
 
-                    DOT308=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression9995); if (state.failed) return retval; 
+                    DOT308=(Token)match(input,DOT,FOLLOW_DOT_in_primaryExpression10023); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(DOT308);
 
-                    CLASS309=(Token)match(input,CLASS,FOLLOW_CLASS_in_primaryExpression9997); if (state.failed) return retval; 
+                    CLASS309=(Token)match(input,CLASS,FOLLOW_CLASS_in_primaryExpression10025); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_CLASS.add(CLASS309);
 
 
 
                     // AST REWRITE
-                    // elements: DOT, VOID, CLASS
+                    // elements: DOT, CLASS, VOID
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -10505,9 +10508,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 744:57: -> ^( DOT VOID CLASS )
+                    // 746:57: -> ^( DOT VOID CLASS )
                     {
-                        // LeMaVM.g:744:61: ^( DOT VOID CLASS )
+                        // LeMaVM.g:746:61: ^( DOT VOID CLASS )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -10552,7 +10555,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "qualifiedIdentExpression"
-    // LeMaVM.g:747:1: qualifiedIdentExpression : ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )? ;
+    // LeMaVM.g:749:1: qualifiedIdentExpression : ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )? ;
     public final LeMaVMParser.qualifiedIdentExpression_return qualifiedIdentExpression() throws RecognitionException {
         LeMaVMParser.qualifiedIdentExpression_return retval = new LeMaVMParser.qualifiedIdentExpression_return();
         retval.start = input.LT(1);
@@ -10607,13 +10610,13 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_innerNewExpression=new RewriteRuleSubtreeStream(adaptor,"rule innerNewExpression");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 68) ) { return retval; }
-            // LeMaVM.g:749:5: ( ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )? )
-            // LeMaVM.g:749:9: ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?
+            // LeMaVM.g:751:5: ( ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )? )
+            // LeMaVM.g:751:9: ( qualifiedIdentifier -> qualifiedIdentifier ) ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?
             {
-            // LeMaVM.g:749:9: ( qualifiedIdentifier -> qualifiedIdentifier )
-            // LeMaVM.g:749:13: qualifiedIdentifier
+            // LeMaVM.g:751:9: ( qualifiedIdentifier -> qualifiedIdentifier )
+            // LeMaVM.g:751:13: qualifiedIdentifier
             {
-            pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentExpression10077);
+            pushFollow(FOLLOW_qualifiedIdentifier_in_qualifiedIdentExpression10105);
             qualifiedIdentifier310=qualifiedIdentifier();
 
             state._fsp--;
@@ -10633,7 +10636,7 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 749:61: -> qualifiedIdentifier
+            // 751:61: -> qualifiedIdentifier
             {
                 adaptor.addChild(root_0, stream_qualifiedIdentifier.nextTree());
 
@@ -10642,14 +10645,14 @@ public class LeMaVMParser extends Parser {
             retval.tree = root_0;}
             }
 
-            // LeMaVM.g:752:9: ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?
+            // LeMaVM.g:754:9: ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?
             int alt89=4;
             alt89 = dfa89.predict(input);
             switch (alt89) {
                 case 1 :
-                    // LeMaVM.g:752:13: ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) )
+                    // LeMaVM.g:754:13: ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) )
                     {
-                    // LeMaVM.g:752:13: ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+
+                    // LeMaVM.g:754:13: ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+
                     int cnt86=0;
                     loop86:
                     do {
@@ -10663,9 +10666,9 @@ public class LeMaVMParser extends Parser {
 
                         switch (alt86) {
                     	case 1 :
-                    	    // LeMaVM.g:752:17: arrayDeclarator
+                    	    // LeMaVM.g:754:17: arrayDeclarator
                     	    {
-                    	    pushFollow(FOLLOW_arrayDeclarator_in_qualifiedIdentExpression10147);
+                    	    pushFollow(FOLLOW_arrayDeclarator_in_qualifiedIdentExpression10175);
                     	    arrayDeclarator311=arrayDeclarator();
 
                     	    state._fsp--;
@@ -10674,7 +10677,7 @@ public class LeMaVMParser extends Parser {
 
 
                     	    // AST REWRITE
-                    	    // elements: qualifiedIdentExpression, arrayDeclarator
+                    	    // elements: arrayDeclarator, qualifiedIdentExpression
                     	    // token labels: 
                     	    // rule labels: retval
                     	    // token list labels: 
@@ -10685,9 +10688,9 @@ public class LeMaVMParser extends Parser {
                     	    RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     	    root_0 = (CommonTree)adaptor.nil();
-                    	    // 752:57: -> ^( arrayDeclarator $qualifiedIdentExpression)
+                    	    // 754:57: -> ^( arrayDeclarator $qualifiedIdentExpression)
                     	    {
-                    	        // LeMaVM.g:752:61: ^( arrayDeclarator $qualifiedIdentExpression)
+                    	        // LeMaVM.g:754:61: ^( arrayDeclarator $qualifiedIdentExpression)
                     	        {
                     	        CommonTree root_1 = (CommonTree)adaptor.nil();
                     	        root_1 = (CommonTree)adaptor.becomeRoot(stream_arrayDeclarator.nextNode(), root_1);
@@ -10713,19 +10716,19 @@ public class LeMaVMParser extends Parser {
                         cnt86++;
                     } while (true);
 
-                    // LeMaVM.g:754:13: ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) )
-                    // LeMaVM.g:754:17: DOT CLASS
+                    // LeMaVM.g:756:13: ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) )
+                    // LeMaVM.g:756:17: DOT CLASS
                     {
-                    DOT312=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression10215); if (state.failed) return retval; 
+                    DOT312=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression10243); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(DOT312);
 
-                    CLASS313=(Token)match(input,CLASS,FOLLOW_CLASS_in_qualifiedIdentExpression10217); if (state.failed) return retval; 
+                    CLASS313=(Token)match(input,CLASS,FOLLOW_CLASS_in_qualifiedIdentExpression10245); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_CLASS.add(CLASS313);
 
 
 
                     // AST REWRITE
-                    // elements: qualifiedIdentExpression, DOT, CLASS
+                    // elements: DOT, CLASS, qualifiedIdentExpression
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -10736,9 +10739,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 754:57: -> ^( DOT $qualifiedIdentExpression CLASS )
+                    // 756:57: -> ^( DOT $qualifiedIdentExpression CLASS )
                     {
-                        // LeMaVM.g:754:61: ^( DOT $qualifiedIdentExpression CLASS )
+                        // LeMaVM.g:756:61: ^( DOT $qualifiedIdentExpression CLASS )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -10758,9 +10761,9 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:756:13: arguments
+                    // LeMaVM.g:758:13: arguments
                     {
-                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression10287);
+                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression10315);
                     arguments314=arguments();
 
                     state._fsp--;
@@ -10780,9 +10783,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 756:57: -> ^( METHOD_CALL qualifiedIdentifier arguments )
+                    // 758:57: -> ^( METHOD_CALL qualifiedIdentifier arguments )
                     {
-                        // LeMaVM.g:756:61: ^( METHOD_CALL qualifiedIdentifier arguments )
+                        // LeMaVM.g:758:61: ^( METHOD_CALL qualifiedIdentifier arguments )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
@@ -10799,12 +10802,12 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 3 :
-                    // LeMaVM.g:757:13: outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) )
+                    // LeMaVM.g:759:13: outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) )
                     {
-                    outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression10348); if (state.failed) return retval; 
+                    outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression10376); if (state.failed) return retval; 
                     if ( state.backtracking==0 ) stream_DOT.add(outerDot);
 
-                    // LeMaVM.g:758:13: ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) )
+                    // LeMaVM.g:760:13: ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) )
                     int alt88=5;
                     switch ( input.LA(1) ) {
                     case CLASS:
@@ -10816,10 +10819,10 @@ public class LeMaVMParser extends Parser {
                         {
                         int LA88_2 = input.LA(2);
 
-                        if ( (synpred145_LeMaVM()) ) {
+                        if ( (synpred146_LeMaVM()) ) {
                             alt88=2;
                         }
-                        else if ( (synpred147_LeMaVM()) ) {
+                        else if ( (synpred148_LeMaVM()) ) {
                             alt88=4;
                         }
                         else {
@@ -10856,15 +10859,15 @@ public class LeMaVMParser extends Parser {
 
                     switch (alt88) {
                         case 1 :
-                            // LeMaVM.g:758:17: CLASS
+                            // LeMaVM.g:760:17: CLASS
                             {
-                            CLASS315=(Token)match(input,CLASS,FOLLOW_CLASS_in_qualifiedIdentExpression10366); if (state.failed) return retval; 
+                            CLASS315=(Token)match(input,CLASS,FOLLOW_CLASS_in_qualifiedIdentExpression10394); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_CLASS.add(CLASS315);
 
 
 
                             // AST REWRITE
-                            // elements: qualifiedIdentifier, CLASS, DOT
+                            // elements: DOT, CLASS, qualifiedIdentifier
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -10875,9 +10878,9 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 758:57: -> ^( DOT qualifiedIdentifier CLASS )
+                            // 760:57: -> ^( DOT qualifiedIdentifier CLASS )
                             {
-                                // LeMaVM.g:758:61: ^( DOT qualifiedIdentifier CLASS )
+                                // LeMaVM.g:760:61: ^( DOT qualifiedIdentifier CLASS )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -10894,9 +10897,9 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // LeMaVM.g:759:17: (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) )
+                            // LeMaVM.g:761:17: (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) )
                             {
-                            // LeMaVM.g:759:17: (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) )
+                            // LeMaVM.g:761:17: (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) )
                             int alt87=3;
                             int LA87_0 = input.LA(1);
 
@@ -10929,12 +10932,12 @@ public class LeMaVMParser extends Parser {
                             }
                             switch (alt87) {
                                 case 1 :
-                                    // LeMaVM.g:759:21: Super= SUPER arguments
+                                    // LeMaVM.g:761:21: Super= SUPER arguments
                                     {
-                                    Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression10435); if (state.failed) return retval; 
+                                    Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression10463); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_SUPER.add(Super);
 
-                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression10437);
+                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression10465);
                                     arguments316=arguments();
 
                                     state._fsp--;
@@ -10954,9 +10957,9 @@ public class LeMaVMParser extends Parser {
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 759:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
+                                    // 761:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
                                     {
-                                        // LeMaVM.g:759:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
+                                        // LeMaVM.g:761:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, Super, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -10973,18 +10976,18 @@ public class LeMaVMParser extends Parser {
                                     }
                                     break;
                                 case 2 :
-                                    // LeMaVM.g:760:21: SUPER innerDot= DOT IDENT arguments
+                                    // LeMaVM.g:762:21: SUPER innerDot= DOT IDENT arguments
                                     {
-                                    SUPER317=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression10485); if (state.failed) return retval; 
+                                    SUPER317=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression10513); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_SUPER.add(SUPER317);
 
-                                    innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression10489); if (state.failed) return retval; 
+                                    innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_qualifiedIdentExpression10517); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_DOT.add(innerDot);
 
-                                    IDENT318=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentExpression10491); if (state.failed) return retval; 
+                                    IDENT318=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentExpression10519); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT318);
 
-                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression10493);
+                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression10521);
                                     arguments319=arguments();
 
                                     state._fsp--;
@@ -10993,7 +10996,7 @@ public class LeMaVMParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: qualifiedIdentifier, SUPER, arguments, IDENT, innerDot, outerDot
+                                    // elements: innerDot, arguments, SUPER, qualifiedIdentifier, IDENT, outerDot
                                     // token labels: outerDot, innerDot
                                     // rule labels: retval
                                     // token list labels: 
@@ -11006,19 +11009,19 @@ public class LeMaVMParser extends Parser {
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 760:57: -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments )
+                                    // 762:57: -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments )
                                     {
-                                        // LeMaVM.g:760:61: ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments )
+                                        // LeMaVM.g:762:61: ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
 
-                                        // LeMaVM.g:760:75: ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT )
+                                        // LeMaVM.g:762:75: ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT )
                                         {
                                         CommonTree root_2 = (CommonTree)adaptor.nil();
                                         root_2 = (CommonTree)adaptor.becomeRoot(stream_innerDot.nextNode(), root_2);
 
-                                        // LeMaVM.g:760:87: ^( $outerDot qualifiedIdentifier SUPER )
+                                        // LeMaVM.g:762:87: ^( $outerDot qualifiedIdentifier SUPER )
                                         {
                                         CommonTree root_3 = (CommonTree)adaptor.nil();
                                         root_3 = (CommonTree)adaptor.becomeRoot(stream_outerDot.nextNode(), root_3);
@@ -11043,12 +11046,12 @@ public class LeMaVMParser extends Parser {
                                     }
                                     break;
                                 case 3 :
-                                    // LeMaVM.g:761:21: IDENT arguments
+                                    // LeMaVM.g:763:21: IDENT arguments
                                     {
-                                    IDENT320=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentExpression10541); if (state.failed) return retval; 
+                                    IDENT320=(Token)match(input,IDENT,FOLLOW_IDENT_in_qualifiedIdentExpression10569); if (state.failed) return retval; 
                                     if ( state.backtracking==0 ) stream_IDENT.add(IDENT320);
 
-                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression10543);
+                                    pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression10571);
                                     arguments321=arguments();
 
                                     state._fsp--;
@@ -11057,7 +11060,7 @@ public class LeMaVMParser extends Parser {
 
 
                                     // AST REWRITE
-                                    // elements: IDENT, qualifiedIdentifier, arguments, DOT
+                                    // elements: arguments, qualifiedIdentifier, IDENT, DOT
                                     // token labels: 
                                     // rule labels: retval
                                     // token list labels: 
@@ -11068,14 +11071,14 @@ public class LeMaVMParser extends Parser {
                                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                                     root_0 = (CommonTree)adaptor.nil();
-                                    // 761:57: -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments )
+                                    // 763:57: -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments )
                                     {
-                                        // LeMaVM.g:761:61: ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments )
+                                        // LeMaVM.g:763:61: ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments )
                                         {
                                         CommonTree root_1 = (CommonTree)adaptor.nil();
                                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(METHOD_CALL, "METHOD_CALL"), root_1);
 
-                                        // LeMaVM.g:761:75: ^( DOT qualifiedIdentifier IDENT )
+                                        // LeMaVM.g:763:75: ^( DOT qualifiedIdentifier IDENT )
                                         {
                                         CommonTree root_2 = (CommonTree)adaptor.nil();
                                         root_2 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_2);
@@ -11102,15 +11105,15 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 3 :
-                            // LeMaVM.g:763:17: THIS
+                            // LeMaVM.g:765:17: THIS
                             {
-                            THIS322=(Token)match(input,THIS,FOLLOW_THIS_in_qualifiedIdentExpression10616); if (state.failed) return retval; 
+                            THIS322=(Token)match(input,THIS,FOLLOW_THIS_in_qualifiedIdentExpression10644); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_THIS.add(THIS322);
 
 
 
                             // AST REWRITE
-                            // elements: qualifiedIdentifier, THIS, DOT
+                            // elements: DOT, qualifiedIdentifier, THIS
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -11121,9 +11124,9 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 763:57: -> ^( DOT qualifiedIdentifier THIS )
+                            // 765:57: -> ^( DOT qualifiedIdentifier THIS )
                             {
-                                // LeMaVM.g:763:61: ^( DOT qualifiedIdentifier THIS )
+                                // LeMaVM.g:765:61: ^( DOT qualifiedIdentifier THIS )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -11140,12 +11143,12 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 4 :
-                            // LeMaVM.g:764:17: Super= SUPER arguments
+                            // LeMaVM.g:766:17: Super= SUPER arguments
                             {
-                            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression10682); if (state.failed) return retval; 
+                            Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_qualifiedIdentExpression10710); if (state.failed) return retval; 
                             if ( state.backtracking==0 ) stream_SUPER.add(Super);
 
-                            pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression10684);
+                            pushFollow(FOLLOW_arguments_in_qualifiedIdentExpression10712);
                             arguments323=arguments();
 
                             state._fsp--;
@@ -11165,9 +11168,9 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 764:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
+                            // 766:57: -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
                             {
-                                // LeMaVM.g:764:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
+                                // LeMaVM.g:766:61: ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(SUPER_CONSTRUCTOR_CALL, Super, "SUPER_CONSTRUCTOR_CALL"), root_1);
@@ -11184,9 +11187,9 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 5 :
-                            // LeMaVM.g:765:17: innerNewExpression
+                            // LeMaVM.g:767:17: innerNewExpression
                             {
-                            pushFollow(FOLLOW_innerNewExpression_in_qualifiedIdentExpression10732);
+                            pushFollow(FOLLOW_innerNewExpression_in_qualifiedIdentExpression10760);
                             innerNewExpression324=innerNewExpression();
 
                             state._fsp--;
@@ -11195,7 +11198,7 @@ public class LeMaVMParser extends Parser {
 
 
                             // AST REWRITE
-                            // elements: innerNewExpression, DOT, qualifiedIdentifier
+                            // elements: qualifiedIdentifier, DOT, innerNewExpression
                             // token labels: 
                             // rule labels: retval
                             // token list labels: 
@@ -11206,9 +11209,9 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 765:57: -> ^( DOT qualifiedIdentifier innerNewExpression )
+                            // 767:57: -> ^( DOT qualifiedIdentifier innerNewExpression )
                             {
-                                // LeMaVM.g:765:61: ^( DOT qualifiedIdentifier innerNewExpression )
+                                // LeMaVM.g:767:61: ^( DOT qualifiedIdentifier innerNewExpression )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot(stream_DOT.nextNode(), root_1);
@@ -11263,7 +11266,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "newExpression"
-    // LeMaVM.g:770:1: newExpression : NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? ) ) ) ;
+    // LeMaVM.g:772:1: newExpression : NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? ) ) ) ;
     public final LeMaVMParser.newExpression_return newExpression() throws RecognitionException {
         LeMaVMParser.newExpression_return retval = new LeMaVMParser.newExpression_return();
         retval.start = input.LT(1);
@@ -11293,17 +11296,17 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_classBody=new RewriteRuleSubtreeStream(adaptor,"rule classBody");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 69) ) { return retval; }
-            // LeMaVM.g:771:5: ( NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? ) ) ) )
-            // LeMaVM.g:771:9: NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? ) ) )
+            // LeMaVM.g:773:5: ( NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? ) ) ) )
+            // LeMaVM.g:773:9: NEW ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? ) ) )
             {
-            NEW325=(Token)match(input,NEW,FOLLOW_NEW_in_newExpression10808); if (state.failed) return retval; 
+            NEW325=(Token)match(input,NEW,FOLLOW_NEW_in_newExpression10836); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_NEW.add(NEW325);
 
-            // LeMaVM.g:772:9: ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? ) ) )
+            // LeMaVM.g:774:9: ( primitiveType newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction ) | qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? ) ) )
             int alt92=2;
             int LA92_0 = input.LA(1);
 
-            if ( (LA92_0==BOOLEAN||LA92_0==DOUBLE||(LA92_0>=INT && LA92_0<=LONG)||LA92_0==SHORT) ) {
+            if ( (LA92_0==BOOLEAN||LA92_0==DOUBLE||(LA92_0>=INT && LA92_0<=LONG)||LA92_0==SHORT||LA92_0==STRING) ) {
                 alt92=1;
             }
             else if ( (LA92_0==IDENT) ) {
@@ -11318,15 +11321,15 @@ public class LeMaVMParser extends Parser {
             }
             switch (alt92) {
                 case 1 :
-                    // LeMaVM.g:772:13: primitiveType newArrayConstruction
+                    // LeMaVM.g:774:13: primitiveType newArrayConstruction
                     {
-                    pushFollow(FOLLOW_primitiveType_in_newExpression10824);
+                    pushFollow(FOLLOW_primitiveType_in_newExpression10852);
                     primitiveType326=primitiveType();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_primitiveType.add(primitiveType326.getTree());
-                    pushFollow(FOLLOW_newArrayConstruction_in_newExpression10826);
+                    pushFollow(FOLLOW_newArrayConstruction_in_newExpression10854);
                     newArrayConstruction327=newArrayConstruction();
 
                     state._fsp--;
@@ -11335,7 +11338,7 @@ public class LeMaVMParser extends Parser {
 
 
                     // AST REWRITE
-                    // elements: newArrayConstruction, primitiveType
+                    // elements: primitiveType, newArrayConstruction
                     // token labels: 
                     // rule labels: retval
                     // token list labels: 
@@ -11346,9 +11349,9 @@ public class LeMaVMParser extends Parser {
                     RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                     root_0 = (CommonTree)adaptor.nil();
-                    // 773:13: -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction )
+                    // 775:13: -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction )
                     {
-                        // LeMaVM.g:773:17: ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction )
+                        // LeMaVM.g:775:17: ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] primitiveType newArrayConstruction )
                         {
                         CommonTree root_1 = (CommonTree)adaptor.nil();
                         root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(STATIC_ARRAY_CREATOR, NEW325, "STATIC_ARRAY_CREATOR"), root_1);
@@ -11365,15 +11368,15 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:774:13: qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? ) )
+                    // LeMaVM.g:776:13: qualifiedTypeIdentSimplified ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? ) )
                     {
-                    pushFollow(FOLLOW_qualifiedTypeIdentSimplified_in_newExpression10870);
+                    pushFollow(FOLLOW_qualifiedTypeIdentSimplified_in_newExpression10898);
                     qualifiedTypeIdentSimplified328=qualifiedTypeIdentSimplified();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) stream_qualifiedTypeIdentSimplified.add(qualifiedTypeIdentSimplified328.getTree());
-                    // LeMaVM.g:775:13: ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? ) )
+                    // LeMaVM.g:777:13: ( newArrayConstruction -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction ) | arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? ) )
                     int alt91=2;
                     int LA91_0 = input.LA(1);
 
@@ -11392,9 +11395,9 @@ public class LeMaVMParser extends Parser {
                     }
                     switch (alt91) {
                         case 1 :
-                            // LeMaVM.g:775:17: newArrayConstruction
+                            // LeMaVM.g:777:17: newArrayConstruction
                             {
-                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression10888);
+                            pushFollow(FOLLOW_newArrayConstruction_in_newExpression10916);
                             newArrayConstruction329=newArrayConstruction();
 
                             state._fsp--;
@@ -11414,9 +11417,9 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 776:17: -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction )
+                            // 778:17: -> ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction )
                             {
-                                // LeMaVM.g:776:21: ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction )
+                                // LeMaVM.g:778:21: ^( STATIC_ARRAY_CREATOR[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified newArrayConstruction )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(STATIC_ARRAY_CREATOR, NEW325, "STATIC_ARRAY_CREATOR"), root_1);
@@ -11433,15 +11436,15 @@ public class LeMaVMParser extends Parser {
                             }
                             break;
                         case 2 :
-                            // LeMaVM.g:777:17: arguments ( classBody )?
+                            // LeMaVM.g:779:17: arguments ( classBody )?
                             {
-                            pushFollow(FOLLOW_arguments_in_newExpression10950);
+                            pushFollow(FOLLOW_arguments_in_newExpression10978);
                             arguments330=arguments();
 
                             state._fsp--;
                             if (state.failed) return retval;
                             if ( state.backtracking==0 ) stream_arguments.add(arguments330.getTree());
-                            // LeMaVM.g:777:27: ( classBody )?
+                            // LeMaVM.g:779:27: ( classBody )?
                             int alt90=2;
                             int LA90_0 = input.LA(1);
 
@@ -11452,7 +11455,7 @@ public class LeMaVMParser extends Parser {
                                 case 1 :
                                     // LeMaVM.g:0:0: classBody
                                     {
-                                    pushFollow(FOLLOW_classBody_in_newExpression10952);
+                                    pushFollow(FOLLOW_classBody_in_newExpression10980);
                                     classBody331=classBody();
 
                                     state._fsp--;
@@ -11478,16 +11481,16 @@ public class LeMaVMParser extends Parser {
                             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
                             root_0 = (CommonTree)adaptor.nil();
-                            // 778:17: -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? )
+                            // 780:17: -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? )
                             {
-                                // LeMaVM.g:778:21: ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? )
+                                // LeMaVM.g:780:21: ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] qualifiedTypeIdentSimplified arguments ( classBody )? )
                                 {
                                 CommonTree root_1 = (CommonTree)adaptor.nil();
                                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_CONSTRUCTOR_CALL, NEW325, "STATIC_ARRAY_CREATOR"), root_1);
 
                                 adaptor.addChild(root_1, stream_qualifiedTypeIdentSimplified.nextTree());
                                 adaptor.addChild(root_1, stream_arguments.nextTree());
-                                // LeMaVM.g:778:115: ( classBody )?
+                                // LeMaVM.g:780:115: ( classBody )?
                                 if ( stream_classBody.hasNext() ) {
                                     adaptor.addChild(root_1, stream_classBody.nextTree());
 
@@ -11541,7 +11544,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "innerNewExpression"
-    // LeMaVM.g:783:1: innerNewExpression : NEW IDENT arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] IDENT arguments ( classBody )? ) ;
+    // LeMaVM.g:785:1: innerNewExpression : NEW IDENT arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] IDENT arguments ( classBody )? ) ;
     public final LeMaVMParser.innerNewExpression_return innerNewExpression() throws RecognitionException {
         LeMaVMParser.innerNewExpression_return retval = new LeMaVMParser.innerNewExpression_return();
         retval.start = input.LT(1);
@@ -11563,22 +11566,22 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_classBody=new RewriteRuleSubtreeStream(adaptor,"rule classBody");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 70) ) { return retval; }
-            // LeMaVM.g:784:5: ( NEW IDENT arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] IDENT arguments ( classBody )? ) )
-            // LeMaVM.g:784:9: NEW IDENT arguments ( classBody )?
+            // LeMaVM.g:786:5: ( NEW IDENT arguments ( classBody )? -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] IDENT arguments ( classBody )? ) )
+            // LeMaVM.g:786:9: NEW IDENT arguments ( classBody )?
             {
-            NEW332=(Token)match(input,NEW,FOLLOW_NEW_in_innerNewExpression11048); if (state.failed) return retval; 
+            NEW332=(Token)match(input,NEW,FOLLOW_NEW_in_innerNewExpression11076); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_NEW.add(NEW332);
 
-            IDENT333=(Token)match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression11050); if (state.failed) return retval; 
+            IDENT333=(Token)match(input,IDENT,FOLLOW_IDENT_in_innerNewExpression11078); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_IDENT.add(IDENT333);
 
-            pushFollow(FOLLOW_arguments_in_innerNewExpression11052);
+            pushFollow(FOLLOW_arguments_in_innerNewExpression11080);
             arguments334=arguments();
 
             state._fsp--;
             if (state.failed) return retval;
             if ( state.backtracking==0 ) stream_arguments.add(arguments334.getTree());
-            // LeMaVM.g:784:29: ( classBody )?
+            // LeMaVM.g:786:29: ( classBody )?
             int alt93=2;
             int LA93_0 = input.LA(1);
 
@@ -11589,7 +11592,7 @@ public class LeMaVMParser extends Parser {
                 case 1 :
                     // LeMaVM.g:0:0: classBody
                     {
-                    pushFollow(FOLLOW_classBody_in_innerNewExpression11054);
+                    pushFollow(FOLLOW_classBody_in_innerNewExpression11082);
                     classBody335=classBody();
 
                     state._fsp--;
@@ -11604,7 +11607,7 @@ public class LeMaVMParser extends Parser {
 
 
             // AST REWRITE
-            // elements: IDENT, classBody, arguments
+            // elements: arguments, classBody, IDENT
             // token labels: 
             // rule labels: retval
             // token list labels: 
@@ -11615,16 +11618,16 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 785:9: -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] IDENT arguments ( classBody )? )
+            // 787:9: -> ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] IDENT arguments ( classBody )? )
             {
-                // LeMaVM.g:785:13: ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] IDENT arguments ( classBody )? )
+                // LeMaVM.g:787:13: ^( CLASS_CONSTRUCTOR_CALL[$NEW, \"STATIC_ARRAY_CREATOR\"] IDENT arguments ( classBody )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(CLASS_CONSTRUCTOR_CALL, NEW332, "STATIC_ARRAY_CREATOR"), root_1);
 
                 adaptor.addChild(root_1, stream_IDENT.nextNode());
                 adaptor.addChild(root_1, stream_arguments.nextTree());
-                // LeMaVM.g:785:84: ( classBody )?
+                // LeMaVM.g:787:84: ( classBody )?
                 if ( stream_classBody.hasNext() ) {
                     adaptor.addChild(root_1, stream_classBody.nextTree());
 
@@ -11666,7 +11669,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "newArrayConstruction"
-    // LeMaVM.g:788:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )? );
+    // LeMaVM.g:790:1: newArrayConstruction : ( arrayDeclaratorList arrayInitializer | LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )? );
     public final LeMaVMParser.newArrayConstruction_return newArrayConstruction() throws RecognitionException {
         LeMaVMParser.newArrayConstruction_return retval = new LeMaVMParser.newArrayConstruction_return();
         retval.start = input.LT(1);
@@ -11695,7 +11698,7 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 71) ) { return retval; }
-            // LeMaVM.g:789:5: ( arrayDeclaratorList arrayInitializer | LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )? )
+            // LeMaVM.g:791:5: ( arrayDeclaratorList arrayInitializer | LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )? )
             int alt96=2;
             int LA96_0 = input.LA(1);
 
@@ -11705,7 +11708,7 @@ public class LeMaVMParser extends Parser {
                 if ( (LA96_1==RBRACK) ) {
                     alt96=1;
                 }
-                else if ( (LA96_1==DEC||LA96_1==INC||LA96_1==LOGICAL_NOT||(LA96_1>=LPAREN && LA96_1<=MINUS)||LA96_1==NOT||LA96_1==PLUS||LA96_1==BOOLEAN||LA96_1==DOUBLE||LA96_1==FALSE||(LA96_1>=INT && LA96_1<=NULL)||LA96_1==SHORT||LA96_1==SUPER||(LA96_1>=THIS && LA96_1<=TRUE)||LA96_1==VOID||(LA96_1>=IDENT && LA96_1<=STRING_LITERAL)) ) {
+                else if ( (LA96_1==DEC||LA96_1==INC||LA96_1==LOGICAL_NOT||(LA96_1>=LPAREN && LA96_1<=MINUS)||LA96_1==NOT||LA96_1==PLUS||LA96_1==BOOLEAN||LA96_1==DOUBLE||LA96_1==FALSE||(LA96_1>=INT && LA96_1<=NULL)||LA96_1==SHORT||(LA96_1>=STRING && LA96_1<=SUPER)||(LA96_1>=THIS && LA96_1<=TRUE)||LA96_1==VOID||(LA96_1>=IDENT && LA96_1<=STRING_LITERAL)) ) {
                     alt96=2;
                 }
                 else {
@@ -11725,17 +11728,17 @@ public class LeMaVMParser extends Parser {
             }
             switch (alt96) {
                 case 1 :
-                    // LeMaVM.g:789:9: arrayDeclaratorList arrayInitializer
+                    // LeMaVM.g:791:9: arrayDeclaratorList arrayInitializer
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction11097);
+                    pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction11125);
                     arrayDeclaratorList336=arrayDeclaratorList();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, arrayDeclaratorList336.getTree());
-                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction11099);
+                    pushFollow(FOLLOW_arrayInitializer_in_newArrayConstruction11127);
                     arrayInitializer337=arrayInitializer();
 
                     state._fsp--;
@@ -11745,35 +11748,35 @@ public class LeMaVMParser extends Parser {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:790:9: LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )?
+                    // LeMaVM.g:792:9: LBRACK expression RBRACK ( LBRACK expression RBRACK )* ( arrayDeclaratorList )?
                     {
                     root_0 = (CommonTree)adaptor.nil();
 
-                    LBRACK338=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_newArrayConstruction11109); if (state.failed) return retval;
-                    pushFollow(FOLLOW_expression_in_newArrayConstruction11112);
+                    LBRACK338=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_newArrayConstruction11137); if (state.failed) return retval;
+                    pushFollow(FOLLOW_expression_in_newArrayConstruction11140);
                     expression339=expression();
 
                     state._fsp--;
                     if (state.failed) return retval;
                     if ( state.backtracking==0 ) adaptor.addChild(root_0, expression339.getTree());
-                    RBRACK340=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_newArrayConstruction11114); if (state.failed) return retval;
-                    // LeMaVM.g:790:36: ( LBRACK expression RBRACK )*
+                    RBRACK340=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_newArrayConstruction11142); if (state.failed) return retval;
+                    // LeMaVM.g:792:36: ( LBRACK expression RBRACK )*
                     loop94:
                     do {
                         int alt94=2;
                         alt94 = dfa94.predict(input);
                         switch (alt94) {
                     	case 1 :
-                    	    // LeMaVM.g:790:37: LBRACK expression RBRACK
+                    	    // LeMaVM.g:792:37: LBRACK expression RBRACK
                     	    {
-                    	    LBRACK341=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_newArrayConstruction11118); if (state.failed) return retval;
-                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction11121);
+                    	    LBRACK341=(Token)match(input,LBRACK,FOLLOW_LBRACK_in_newArrayConstruction11146); if (state.failed) return retval;
+                    	    pushFollow(FOLLOW_expression_in_newArrayConstruction11149);
                     	    expression342=expression();
 
                     	    state._fsp--;
                     	    if (state.failed) return retval;
                     	    if ( state.backtracking==0 ) adaptor.addChild(root_0, expression342.getTree());
-                    	    RBRACK343=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_newArrayConstruction11123); if (state.failed) return retval;
+                    	    RBRACK343=(Token)match(input,RBRACK,FOLLOW_RBRACK_in_newArrayConstruction11151); if (state.failed) return retval;
 
                     	    }
                     	    break;
@@ -11783,7 +11786,7 @@ public class LeMaVMParser extends Parser {
                         }
                     } while (true);
 
-                    // LeMaVM.g:790:66: ( arrayDeclaratorList )?
+                    // LeMaVM.g:792:66: ( arrayDeclaratorList )?
                     int alt95=2;
                     int LA95_0 = input.LA(1);
 
@@ -11798,7 +11801,7 @@ public class LeMaVMParser extends Parser {
                         case 1 :
                             // LeMaVM.g:0:0: arrayDeclaratorList
                             {
-                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction11128);
+                            pushFollow(FOLLOW_arrayDeclaratorList_in_newArrayConstruction11156);
                             arrayDeclaratorList344=arrayDeclaratorList();
 
                             state._fsp--;
@@ -11842,7 +11845,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "arguments"
-    // LeMaVM.g:793:1: arguments : LPAREN ( expressionList )? RPAREN -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? ) ;
+    // LeMaVM.g:795:1: arguments : LPAREN ( expressionList )? RPAREN -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? ) ;
     public final LeMaVMParser.arguments_return arguments() throws RecognitionException {
         LeMaVMParser.arguments_return retval = new LeMaVMParser.arguments_return();
         retval.start = input.LT(1);
@@ -11861,24 +11864,24 @@ public class LeMaVMParser extends Parser {
         RewriteRuleSubtreeStream stream_expressionList=new RewriteRuleSubtreeStream(adaptor,"rule expressionList");
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 72) ) { return retval; }
-            // LeMaVM.g:794:5: ( LPAREN ( expressionList )? RPAREN -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? ) )
-            // LeMaVM.g:794:9: LPAREN ( expressionList )? RPAREN
+            // LeMaVM.g:796:5: ( LPAREN ( expressionList )? RPAREN -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? ) )
+            // LeMaVM.g:796:9: LPAREN ( expressionList )? RPAREN
             {
-            LPAREN345=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_arguments11148); if (state.failed) return retval; 
+            LPAREN345=(Token)match(input,LPAREN,FOLLOW_LPAREN_in_arguments11176); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_LPAREN.add(LPAREN345);
 
-            // LeMaVM.g:794:16: ( expressionList )?
+            // LeMaVM.g:796:16: ( expressionList )?
             int alt97=2;
             int LA97_0 = input.LA(1);
 
-            if ( (LA97_0==DEC||LA97_0==INC||LA97_0==LOGICAL_NOT||(LA97_0>=LPAREN && LA97_0<=MINUS)||LA97_0==NOT||LA97_0==PLUS||LA97_0==BOOLEAN||LA97_0==DOUBLE||LA97_0==FALSE||(LA97_0>=INT && LA97_0<=NULL)||LA97_0==SHORT||LA97_0==SUPER||(LA97_0>=THIS && LA97_0<=TRUE)||LA97_0==VOID||(LA97_0>=IDENT && LA97_0<=STRING_LITERAL)) ) {
+            if ( (LA97_0==DEC||LA97_0==INC||LA97_0==LOGICAL_NOT||(LA97_0>=LPAREN && LA97_0<=MINUS)||LA97_0==NOT||LA97_0==PLUS||LA97_0==BOOLEAN||LA97_0==DOUBLE||LA97_0==FALSE||(LA97_0>=INT && LA97_0<=NULL)||LA97_0==SHORT||(LA97_0>=STRING && LA97_0<=SUPER)||(LA97_0>=THIS && LA97_0<=TRUE)||LA97_0==VOID||(LA97_0>=IDENT && LA97_0<=STRING_LITERAL)) ) {
                 alt97=1;
             }
             switch (alt97) {
                 case 1 :
                     // LeMaVM.g:0:0: expressionList
                     {
-                    pushFollow(FOLLOW_expressionList_in_arguments11150);
+                    pushFollow(FOLLOW_expressionList_in_arguments11178);
                     expressionList346=expressionList();
 
                     state._fsp--;
@@ -11890,7 +11893,7 @@ public class LeMaVMParser extends Parser {
 
             }
 
-            RPAREN347=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_arguments11153); if (state.failed) return retval; 
+            RPAREN347=(Token)match(input,RPAREN,FOLLOW_RPAREN_in_arguments11181); if (state.failed) return retval; 
             if ( state.backtracking==0 ) stream_RPAREN.add(RPAREN347);
 
 
@@ -11907,14 +11910,14 @@ public class LeMaVMParser extends Parser {
             RewriteRuleSubtreeStream stream_retval=new RewriteRuleSubtreeStream(adaptor,"rule retval",retval!=null?retval.tree:null);
 
             root_0 = (CommonTree)adaptor.nil();
-            // 795:9: -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? )
+            // 797:9: -> ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? )
             {
-                // LeMaVM.g:795:13: ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? )
+                // LeMaVM.g:797:13: ^( ARGUMENT_LIST[$LPAREN, \"ARGUMENT_LIST\"] ( expressionList )? )
                 {
                 CommonTree root_1 = (CommonTree)adaptor.nil();
                 root_1 = (CommonTree)adaptor.becomeRoot((CommonTree)adaptor.create(ARGUMENT_LIST, LPAREN345, "ARGUMENT_LIST"), root_1);
 
-                // LeMaVM.g:795:55: ( expressionList )?
+                // LeMaVM.g:797:55: ( expressionList )?
                 if ( stream_expressionList.hasNext() ) {
                     adaptor.addChild(root_1, stream_expressionList.nextTree());
 
@@ -11956,7 +11959,7 @@ public class LeMaVMParser extends Parser {
     };
 
     // $ANTLR start "literal"
-    // LeMaVM.g:798:1: literal : ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL );
+    // LeMaVM.g:800:1: literal : ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL );
     public final LeMaVMParser.literal_return literal() throws RecognitionException {
         LeMaVMParser.literal_return retval = new LeMaVMParser.literal_return();
         retval.start = input.LT(1);
@@ -11969,7 +11972,7 @@ public class LeMaVMParser extends Parser {
 
         try {
             if ( state.backtracking>0 && alreadyParsedRule(input, 73) ) { return retval; }
-            // LeMaVM.g:799:5: ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL )
+            // LeMaVM.g:801:5: ( HEX_LITERAL | OCTAL_LITERAL | DECIMAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | TRUE | FALSE | NULL )
             // LeMaVM.g:
             {
             root_0 = (CommonTree)adaptor.nil();
@@ -12010,30 +12013,30 @@ public class LeMaVMParser extends Parser {
     }
     // $ANTLR end "literal"
 
-    // $ANTLR start synpred48_LeMaVM
-    public final void synpred48_LeMaVM_fragment() throws RecognitionException {   
+    // $ANTLR start synpred49_LeMaVM
+    public final void synpred49_LeMaVM_fragment() throws RecognitionException {   
         Token ident=null;
 
-        // LeMaVM.g:490:13: ( DOT ident= IDENT )
-        // LeMaVM.g:490:13: DOT ident= IDENT
+        // LeMaVM.g:492:13: ( DOT ident= IDENT )
+        // LeMaVM.g:492:13: DOT ident= IDENT
         {
-        match(input,DOT,FOLLOW_DOT_in_synpred48_LeMaVM5648); if (state.failed) return ;
-        ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred48_LeMaVM5652); if (state.failed) return ;
+        match(input,DOT,FOLLOW_DOT_in_synpred49_LeMaVM5676); if (state.failed) return ;
+        ident=(Token)match(input,IDENT,FOLLOW_IDENT_in_synpred49_LeMaVM5680); if (state.failed) return ;
 
         }
     }
-    // $ANTLR end synpred48_LeMaVM
+    // $ANTLR end synpred49_LeMaVM
 
-    // $ANTLR start synpred53_LeMaVM
-    public final void synpred53_LeMaVM_fragment() throws RecognitionException {   
+    // $ANTLR start synpred54_LeMaVM
+    public final void synpred54_LeMaVM_fragment() throws RecognitionException {   
         LeMaVMParser.statement_return elseStat = null;
 
 
-        // LeMaVM.g:516:13: ( ELSE elseStat= statement )
-        // LeMaVM.g:516:13: ELSE elseStat= statement
+        // LeMaVM.g:518:13: ( ELSE elseStat= statement )
+        // LeMaVM.g:518:13: ELSE elseStat= statement
         {
-        match(input,ELSE,FOLLOW_ELSE_in_synpred53_LeMaVM5878); if (state.failed) return ;
-        pushFollow(FOLLOW_statement_in_synpred53_LeMaVM5882);
+        match(input,ELSE,FOLLOW_ELSE_in_synpred54_LeMaVM5906); if (state.failed) return ;
+        pushFollow(FOLLOW_statement_in_synpred54_LeMaVM5910);
         elseStat=statement();
 
         state._fsp--;
@@ -12041,14 +12044,14 @@ public class LeMaVMParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred53_LeMaVM
+    // $ANTLR end synpred54_LeMaVM
 
-    // $ANTLR start synpred69_LeMaVM
-    public final void synpred69_LeMaVM_fragment() throws RecognitionException {   
-        // LeMaVM.g:541:9: ( switchCaseLabel )
-        // LeMaVM.g:541:9: switchCaseLabel
+    // $ANTLR start synpred70_LeMaVM
+    public final void synpred70_LeMaVM_fragment() throws RecognitionException {   
+        // LeMaVM.g:543:9: ( switchCaseLabel )
+        // LeMaVM.g:543:9: switchCaseLabel
         {
-        pushFollow(FOLLOW_switchCaseLabel_in_synpred69_LeMaVM6756);
+        pushFollow(FOLLOW_switchCaseLabel_in_synpred70_LeMaVM6784);
         switchCaseLabel();
 
         state._fsp--;
@@ -12056,21 +12059,21 @@ public class LeMaVMParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred69_LeMaVM
+    // $ANTLR end synpred70_LeMaVM
 
-    // $ANTLR start synpred113_LeMaVM
-    public final void synpred113_LeMaVM_fragment() throws RecognitionException {   
-        // LeMaVM.g:687:9: ( LPAREN type RPAREN unaryExpression )
-        // LeMaVM.g:687:9: LPAREN type RPAREN unaryExpression
+    // $ANTLR start synpred114_LeMaVM
+    public final void synpred114_LeMaVM_fragment() throws RecognitionException {   
+        // LeMaVM.g:689:9: ( LPAREN type RPAREN unaryExpression )
+        // LeMaVM.g:689:9: LPAREN type RPAREN unaryExpression
         {
-        match(input,LPAREN,FOLLOW_LPAREN_in_synpred113_LeMaVM8344); if (state.failed) return ;
-        pushFollow(FOLLOW_type_in_synpred113_LeMaVM8346);
+        match(input,LPAREN,FOLLOW_LPAREN_in_synpred114_LeMaVM8372); if (state.failed) return ;
+        pushFollow(FOLLOW_type_in_synpred114_LeMaVM8374);
         type();
 
         state._fsp--;
         if (state.failed) return ;
-        match(input,RPAREN,FOLLOW_RPAREN_in_synpred113_LeMaVM8348); if (state.failed) return ;
-        pushFollow(FOLLOW_unaryExpression_in_synpred113_LeMaVM8350);
+        match(input,RPAREN,FOLLOW_RPAREN_in_synpred114_LeMaVM8376); if (state.failed) return ;
+        pushFollow(FOLLOW_unaryExpression_in_synpred114_LeMaVM8378);
         unaryExpression();
 
         state._fsp--;
@@ -12078,14 +12081,14 @@ public class LeMaVMParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred113_LeMaVM
+    // $ANTLR end synpred114_LeMaVM
 
-    // $ANTLR start synpred127_LeMaVM
-    public final void synpred127_LeMaVM_fragment() throws RecognitionException {   
-        // LeMaVM.g:721:9: ( qualifiedIdentExpression )
-        // LeMaVM.g:721:9: qualifiedIdentExpression
+    // $ANTLR start synpred128_LeMaVM
+    public final void synpred128_LeMaVM_fragment() throws RecognitionException {   
+        // LeMaVM.g:723:9: ( qualifiedIdentExpression )
+        // LeMaVM.g:723:9: qualifiedIdentExpression
         {
-        pushFollow(FOLLOW_qualifiedIdentExpression_in_synpred127_LeMaVM9169);
+        pushFollow(FOLLOW_qualifiedIdentExpression_in_synpred128_LeMaVM9197);
         qualifiedIdentExpression();
 
         state._fsp--;
@@ -12093,14 +12096,14 @@ public class LeMaVMParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred127_LeMaVM
+    // $ANTLR end synpred128_LeMaVM
 
-    // $ANTLR start synpred131_LeMaVM
-    public final void synpred131_LeMaVM_fragment() throws RecognitionException {   
-        // LeMaVM.g:722:9: ( ( SUPER ( arguments | DOT IDENT arguments ) | IDENT arguments | THIS arguments ) )
-        // LeMaVM.g:722:9: ( SUPER ( arguments | DOT IDENT arguments ) | IDENT arguments | THIS arguments )
+    // $ANTLR start synpred132_LeMaVM
+    public final void synpred132_LeMaVM_fragment() throws RecognitionException {   
+        // LeMaVM.g:724:9: ( ( SUPER ( arguments | DOT IDENT arguments ) | IDENT arguments | THIS arguments ) )
+        // LeMaVM.g:724:9: ( SUPER ( arguments | DOT IDENT arguments ) | IDENT arguments | THIS arguments )
         {
-        // LeMaVM.g:722:9: ( SUPER ( arguments | DOT IDENT arguments ) | IDENT arguments | THIS arguments )
+        // LeMaVM.g:724:9: ( SUPER ( arguments | DOT IDENT arguments ) | IDENT arguments | THIS arguments )
         int alt125=3;
         switch ( input.LA(1) ) {
         case SUPER:
@@ -12128,10 +12131,10 @@ public class LeMaVMParser extends Parser {
 
         switch (alt125) {
             case 1 :
-                // LeMaVM.g:722:13: SUPER ( arguments | DOT IDENT arguments )
+                // LeMaVM.g:724:13: SUPER ( arguments | DOT IDENT arguments )
                 {
-                match(input,SUPER,FOLLOW_SUPER_in_synpred131_LeMaVM9183); if (state.failed) return ;
-                // LeMaVM.g:723:13: ( arguments | DOT IDENT arguments )
+                match(input,SUPER,FOLLOW_SUPER_in_synpred132_LeMaVM9211); if (state.failed) return ;
+                // LeMaVM.g:725:13: ( arguments | DOT IDENT arguments )
                 int alt124=2;
                 int LA124_0 = input.LA(1);
 
@@ -12150,9 +12153,9 @@ public class LeMaVMParser extends Parser {
                 }
                 switch (alt124) {
                     case 1 :
-                        // LeMaVM.g:723:17: arguments
+                        // LeMaVM.g:725:17: arguments
                         {
-                        pushFollow(FOLLOW_arguments_in_synpred131_LeMaVM9201);
+                        pushFollow(FOLLOW_arguments_in_synpred132_LeMaVM9229);
                         arguments();
 
                         state._fsp--;
@@ -12161,11 +12164,11 @@ public class LeMaVMParser extends Parser {
                         }
                         break;
                     case 2 :
-                        // LeMaVM.g:724:17: DOT IDENT arguments
+                        // LeMaVM.g:726:17: DOT IDENT arguments
                         {
-                        match(input,DOT,FOLLOW_DOT_in_synpred131_LeMaVM9259); if (state.failed) return ;
-                        match(input,IDENT,FOLLOW_IDENT_in_synpred131_LeMaVM9261); if (state.failed) return ;
-                        pushFollow(FOLLOW_arguments_in_synpred131_LeMaVM9263);
+                        match(input,DOT,FOLLOW_DOT_in_synpred132_LeMaVM9287); if (state.failed) return ;
+                        match(input,IDENT,FOLLOW_IDENT_in_synpred132_LeMaVM9289); if (state.failed) return ;
+                        pushFollow(FOLLOW_arguments_in_synpred132_LeMaVM9291);
                         arguments();
 
                         state._fsp--;
@@ -12180,10 +12183,10 @@ public class LeMaVMParser extends Parser {
                 }
                 break;
             case 2 :
-                // LeMaVM.g:726:13: IDENT arguments
+                // LeMaVM.g:728:13: IDENT arguments
                 {
-                match(input,IDENT,FOLLOW_IDENT_in_synpred131_LeMaVM9328); if (state.failed) return ;
-                pushFollow(FOLLOW_arguments_in_synpred131_LeMaVM9330);
+                match(input,IDENT,FOLLOW_IDENT_in_synpred132_LeMaVM9356); if (state.failed) return ;
+                pushFollow(FOLLOW_arguments_in_synpred132_LeMaVM9358);
                 arguments();
 
                 state._fsp--;
@@ -12192,10 +12195,10 @@ public class LeMaVMParser extends Parser {
                 }
                 break;
             case 3 :
-                // LeMaVM.g:727:13: THIS arguments
+                // LeMaVM.g:729:13: THIS arguments
                 {
-                match(input,THIS,FOLLOW_THIS_in_synpred131_LeMaVM9383); if (state.failed) return ;
-                pushFollow(FOLLOW_arguments_in_synpred131_LeMaVM9385);
+                match(input,THIS,FOLLOW_THIS_in_synpred132_LeMaVM9411); if (state.failed) return ;
+                pushFollow(FOLLOW_arguments_in_synpred132_LeMaVM9413);
                 arguments();
 
                 state._fsp--;
@@ -12209,21 +12212,21 @@ public class LeMaVMParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred131_LeMaVM
+    // $ANTLR end synpred132_LeMaVM
 
-    // $ANTLR start synpred133_LeMaVM
-    public final void synpred133_LeMaVM_fragment() throws RecognitionException {   
-        // LeMaVM.g:729:9: ( ( THIS ) ( arguments )? )
-        // LeMaVM.g:729:9: ( THIS ) ( arguments )?
+    // $ANTLR start synpred134_LeMaVM
+    public final void synpred134_LeMaVM_fragment() throws RecognitionException {   
+        // LeMaVM.g:731:9: ( ( THIS ) ( arguments )? )
+        // LeMaVM.g:731:9: ( THIS ) ( arguments )?
         {
-        // LeMaVM.g:729:9: ( THIS )
-        // LeMaVM.g:729:13: THIS
+        // LeMaVM.g:731:9: ( THIS )
+        // LeMaVM.g:731:13: THIS
         {
-        match(input,THIS,FOLLOW_THIS_in_synpred133_LeMaVM9448); if (state.failed) return ;
+        match(input,THIS,FOLLOW_THIS_in_synpred134_LeMaVM9476); if (state.failed) return ;
 
         }
 
-        // LeMaVM.g:731:9: ( arguments )?
+        // LeMaVM.g:733:9: ( arguments )?
         int alt126=2;
         int LA126_0 = input.LA(1);
 
@@ -12232,9 +12235,9 @@ public class LeMaVMParser extends Parser {
         }
         switch (alt126) {
             case 1 :
-                // LeMaVM.g:731:13: arguments
+                // LeMaVM.g:733:13: arguments
                 {
-                pushFollow(FOLLOW_arguments_in_synpred133_LeMaVM9516);
+                pushFollow(FOLLOW_arguments_in_synpred134_LeMaVM9544);
                 arguments();
 
                 state._fsp--;
@@ -12248,15 +12251,15 @@ public class LeMaVMParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred133_LeMaVM
+    // $ANTLR end synpred134_LeMaVM
 
-    // $ANTLR start synpred134_LeMaVM
-    public final void synpred134_LeMaVM_fragment() throws RecognitionException {   
-        // LeMaVM.g:733:9: ( SUPER arguments )
-        // LeMaVM.g:733:9: SUPER arguments
+    // $ANTLR start synpred135_LeMaVM
+    public final void synpred135_LeMaVM_fragment() throws RecognitionException {   
+        // LeMaVM.g:735:9: ( SUPER arguments )
+        // LeMaVM.g:735:9: SUPER arguments
         {
-        match(input,SUPER,FOLLOW_SUPER_in_synpred134_LeMaVM9581); if (state.failed) return ;
-        pushFollow(FOLLOW_arguments_in_synpred134_LeMaVM9583);
+        match(input,SUPER,FOLLOW_SUPER_in_synpred135_LeMaVM9609); if (state.failed) return ;
+        pushFollow(FOLLOW_arguments_in_synpred135_LeMaVM9611);
         arguments();
 
         state._fsp--;
@@ -12264,23 +12267,23 @@ public class LeMaVMParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred134_LeMaVM
+    // $ANTLR end synpred135_LeMaVM
 
-    // $ANTLR start synpred136_LeMaVM
-    public final void synpred136_LeMaVM_fragment() throws RecognitionException {   
-        // LeMaVM.g:734:9: ( ( SUPER DOT IDENT ) ( arguments | ) )
-        // LeMaVM.g:734:9: ( SUPER DOT IDENT ) ( arguments | )
+    // $ANTLR start synpred137_LeMaVM
+    public final void synpred137_LeMaVM_fragment() throws RecognitionException {   
+        // LeMaVM.g:736:9: ( ( SUPER DOT IDENT ) ( arguments | ) )
+        // LeMaVM.g:736:9: ( SUPER DOT IDENT ) ( arguments | )
         {
-        // LeMaVM.g:734:9: ( SUPER DOT IDENT )
-        // LeMaVM.g:734:13: SUPER DOT IDENT
+        // LeMaVM.g:736:9: ( SUPER DOT IDENT )
+        // LeMaVM.g:736:13: SUPER DOT IDENT
         {
-        match(input,SUPER,FOLLOW_SUPER_in_synpred136_LeMaVM9639); if (state.failed) return ;
-        match(input,DOT,FOLLOW_DOT_in_synpred136_LeMaVM9641); if (state.failed) return ;
-        match(input,IDENT,FOLLOW_IDENT_in_synpred136_LeMaVM9643); if (state.failed) return ;
+        match(input,SUPER,FOLLOW_SUPER_in_synpred137_LeMaVM9667); if (state.failed) return ;
+        match(input,DOT,FOLLOW_DOT_in_synpred137_LeMaVM9669); if (state.failed) return ;
+        match(input,IDENT,FOLLOW_IDENT_in_synpred137_LeMaVM9671); if (state.failed) return ;
 
         }
 
-        // LeMaVM.g:736:9: ( arguments | )
+        // LeMaVM.g:738:9: ( arguments | )
         int alt127=2;
         int LA127_0 = input.LA(1);
 
@@ -12299,9 +12302,9 @@ public class LeMaVMParser extends Parser {
         }
         switch (alt127) {
             case 1 :
-                // LeMaVM.g:736:13: arguments
+                // LeMaVM.g:738:13: arguments
                 {
-                pushFollow(FOLLOW_arguments_in_synpred136_LeMaVM9667);
+                pushFollow(FOLLOW_arguments_in_synpred137_LeMaVM9695);
                 arguments();
 
                 state._fsp--;
@@ -12310,7 +12313,7 @@ public class LeMaVMParser extends Parser {
                 }
                 break;
             case 2 :
-                // LeMaVM.g:737:57: 
+                // LeMaVM.g:739:57: 
                 {
                 }
                 break;
@@ -12320,14 +12323,14 @@ public class LeMaVMParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred136_LeMaVM
+    // $ANTLR end synpred137_LeMaVM
 
-    // $ANTLR start synpred140_LeMaVM
-    public final void synpred140_LeMaVM_fragment() throws RecognitionException {   
-        // LeMaVM.g:752:13: ( ( arrayDeclarator )+ ( DOT CLASS ) )
-        // LeMaVM.g:752:13: ( arrayDeclarator )+ ( DOT CLASS )
+    // $ANTLR start synpred141_LeMaVM
+    public final void synpred141_LeMaVM_fragment() throws RecognitionException {   
+        // LeMaVM.g:754:13: ( ( arrayDeclarator )+ ( DOT CLASS ) )
+        // LeMaVM.g:754:13: ( arrayDeclarator )+ ( DOT CLASS )
         {
-        // LeMaVM.g:752:13: ( arrayDeclarator )+
+        // LeMaVM.g:754:13: ( arrayDeclarator )+
         int cnt129=0;
         loop129:
         do {
@@ -12341,9 +12344,9 @@ public class LeMaVMParser extends Parser {
 
             switch (alt129) {
         	case 1 :
-        	    // LeMaVM.g:752:17: arrayDeclarator
+        	    // LeMaVM.g:754:17: arrayDeclarator
         	    {
-        	    pushFollow(FOLLOW_arrayDeclarator_in_synpred140_LeMaVM10147);
+        	    pushFollow(FOLLOW_arrayDeclarator_in_synpred141_LeMaVM10175);
         	    arrayDeclarator();
 
         	    state._fsp--;
@@ -12362,28 +12365,28 @@ public class LeMaVMParser extends Parser {
             cnt129++;
         } while (true);
 
-        // LeMaVM.g:754:13: ( DOT CLASS )
-        // LeMaVM.g:754:17: DOT CLASS
+        // LeMaVM.g:756:13: ( DOT CLASS )
+        // LeMaVM.g:756:17: DOT CLASS
         {
-        match(input,DOT,FOLLOW_DOT_in_synpred140_LeMaVM10215); if (state.failed) return ;
-        match(input,CLASS,FOLLOW_CLASS_in_synpred140_LeMaVM10217); if (state.failed) return ;
+        match(input,DOT,FOLLOW_DOT_in_synpred141_LeMaVM10243); if (state.failed) return ;
+        match(input,CLASS,FOLLOW_CLASS_in_synpred141_LeMaVM10245); if (state.failed) return ;
 
         }
 
 
         }
     }
-    // $ANTLR end synpred140_LeMaVM
+    // $ANTLR end synpred141_LeMaVM
 
-    // $ANTLR start synpred145_LeMaVM
-    public final void synpred145_LeMaVM_fragment() throws RecognitionException {   
+    // $ANTLR start synpred146_LeMaVM
+    public final void synpred146_LeMaVM_fragment() throws RecognitionException {   
         Token Super=null;
         Token innerDot=null;
 
-        // LeMaVM.g:759:17: ( (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) )
-        // LeMaVM.g:759:17: (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
+        // LeMaVM.g:761:17: ( (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) )
+        // LeMaVM.g:761:17: (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
         {
-        // LeMaVM.g:759:17: (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
+        // LeMaVM.g:761:17: (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
         int alt130=3;
         int LA130_0 = input.LA(1);
 
@@ -12416,10 +12419,10 @@ public class LeMaVMParser extends Parser {
         }
         switch (alt130) {
             case 1 :
-                // LeMaVM.g:759:21: Super= SUPER arguments
+                // LeMaVM.g:761:21: Super= SUPER arguments
                 {
-                Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred145_LeMaVM10435); if (state.failed) return ;
-                pushFollow(FOLLOW_arguments_in_synpred145_LeMaVM10437);
+                Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred146_LeMaVM10463); if (state.failed) return ;
+                pushFollow(FOLLOW_arguments_in_synpred146_LeMaVM10465);
                 arguments();
 
                 state._fsp--;
@@ -12428,12 +12431,12 @@ public class LeMaVMParser extends Parser {
                 }
                 break;
             case 2 :
-                // LeMaVM.g:760:21: SUPER innerDot= DOT IDENT arguments
+                // LeMaVM.g:762:21: SUPER innerDot= DOT IDENT arguments
                 {
-                match(input,SUPER,FOLLOW_SUPER_in_synpred145_LeMaVM10485); if (state.failed) return ;
-                innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred145_LeMaVM10489); if (state.failed) return ;
-                match(input,IDENT,FOLLOW_IDENT_in_synpred145_LeMaVM10491); if (state.failed) return ;
-                pushFollow(FOLLOW_arguments_in_synpred145_LeMaVM10493);
+                match(input,SUPER,FOLLOW_SUPER_in_synpred146_LeMaVM10513); if (state.failed) return ;
+                innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred146_LeMaVM10517); if (state.failed) return ;
+                match(input,IDENT,FOLLOW_IDENT_in_synpred146_LeMaVM10519); if (state.failed) return ;
+                pushFollow(FOLLOW_arguments_in_synpred146_LeMaVM10521);
                 arguments();
 
                 state._fsp--;
@@ -12442,10 +12445,10 @@ public class LeMaVMParser extends Parser {
                 }
                 break;
             case 3 :
-                // LeMaVM.g:761:21: IDENT arguments
+                // LeMaVM.g:763:21: IDENT arguments
                 {
-                match(input,IDENT,FOLLOW_IDENT_in_synpred145_LeMaVM10541); if (state.failed) return ;
-                pushFollow(FOLLOW_arguments_in_synpred145_LeMaVM10543);
+                match(input,IDENT,FOLLOW_IDENT_in_synpred146_LeMaVM10569); if (state.failed) return ;
+                pushFollow(FOLLOW_arguments_in_synpred146_LeMaVM10571);
                 arguments();
 
                 state._fsp--;
@@ -12459,17 +12462,17 @@ public class LeMaVMParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred145_LeMaVM
+    // $ANTLR end synpred146_LeMaVM
 
-    // $ANTLR start synpred147_LeMaVM
-    public final void synpred147_LeMaVM_fragment() throws RecognitionException {   
+    // $ANTLR start synpred148_LeMaVM
+    public final void synpred148_LeMaVM_fragment() throws RecognitionException {   
         Token Super=null;
 
-        // LeMaVM.g:764:17: (Super= SUPER arguments )
-        // LeMaVM.g:764:17: Super= SUPER arguments
+        // LeMaVM.g:766:17: (Super= SUPER arguments )
+        // LeMaVM.g:766:17: Super= SUPER arguments
         {
-        Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred147_LeMaVM10682); if (state.failed) return ;
-        pushFollow(FOLLOW_arguments_in_synpred147_LeMaVM10684);
+        Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred148_LeMaVM10710); if (state.failed) return ;
+        pushFollow(FOLLOW_arguments_in_synpred148_LeMaVM10712);
         arguments();
 
         state._fsp--;
@@ -12477,19 +12480,19 @@ public class LeMaVMParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred147_LeMaVM
+    // $ANTLR end synpred148_LeMaVM
 
-    // $ANTLR start synpred148_LeMaVM
-    public final void synpred148_LeMaVM_fragment() throws RecognitionException {   
+    // $ANTLR start synpred149_LeMaVM
+    public final void synpred149_LeMaVM_fragment() throws RecognitionException {   
         Token outerDot=null;
         Token Super=null;
         Token innerDot=null;
 
-        // LeMaVM.g:757:13: (outerDot= DOT ( CLASS | (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression ) )
-        // LeMaVM.g:757:13: outerDot= DOT ( CLASS | (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression )
+        // LeMaVM.g:759:13: (outerDot= DOT ( CLASS | (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression ) )
+        // LeMaVM.g:759:13: outerDot= DOT ( CLASS | (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression )
         {
-        outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred148_LeMaVM10348); if (state.failed) return ;
-        // LeMaVM.g:758:13: ( CLASS | (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression )
+        outerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred149_LeMaVM10376); if (state.failed) return ;
+        // LeMaVM.g:760:13: ( CLASS | (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments ) | THIS | Super= SUPER arguments | innerNewExpression )
         int alt132=5;
         switch ( input.LA(1) ) {
         case CLASS:
@@ -12501,10 +12504,10 @@ public class LeMaVMParser extends Parser {
             {
             int LA132_2 = input.LA(2);
 
-            if ( (synpred145_LeMaVM()) ) {
+            if ( (synpred146_LeMaVM()) ) {
                 alt132=2;
             }
-            else if ( (synpred147_LeMaVM()) ) {
+            else if ( (synpred148_LeMaVM()) ) {
                 alt132=4;
             }
             else {
@@ -12541,16 +12544,16 @@ public class LeMaVMParser extends Parser {
 
         switch (alt132) {
             case 1 :
-                // LeMaVM.g:758:17: CLASS
+                // LeMaVM.g:760:17: CLASS
                 {
-                match(input,CLASS,FOLLOW_CLASS_in_synpred148_LeMaVM10366); if (state.failed) return ;
+                match(input,CLASS,FOLLOW_CLASS_in_synpred149_LeMaVM10394); if (state.failed) return ;
 
                 }
                 break;
             case 2 :
-                // LeMaVM.g:759:17: (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
+                // LeMaVM.g:761:17: (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
                 {
-                // LeMaVM.g:759:17: (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
+                // LeMaVM.g:761:17: (Super= SUPER arguments | SUPER innerDot= DOT IDENT arguments | IDENT arguments )
                 int alt131=3;
                 int LA131_0 = input.LA(1);
 
@@ -12583,10 +12586,10 @@ public class LeMaVMParser extends Parser {
                 }
                 switch (alt131) {
                     case 1 :
-                        // LeMaVM.g:759:21: Super= SUPER arguments
+                        // LeMaVM.g:761:21: Super= SUPER arguments
                         {
-                        Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred148_LeMaVM10435); if (state.failed) return ;
-                        pushFollow(FOLLOW_arguments_in_synpred148_LeMaVM10437);
+                        Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred149_LeMaVM10463); if (state.failed) return ;
+                        pushFollow(FOLLOW_arguments_in_synpred149_LeMaVM10465);
                         arguments();
 
                         state._fsp--;
@@ -12595,12 +12598,12 @@ public class LeMaVMParser extends Parser {
                         }
                         break;
                     case 2 :
-                        // LeMaVM.g:760:21: SUPER innerDot= DOT IDENT arguments
+                        // LeMaVM.g:762:21: SUPER innerDot= DOT IDENT arguments
                         {
-                        match(input,SUPER,FOLLOW_SUPER_in_synpred148_LeMaVM10485); if (state.failed) return ;
-                        innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred148_LeMaVM10489); if (state.failed) return ;
-                        match(input,IDENT,FOLLOW_IDENT_in_synpred148_LeMaVM10491); if (state.failed) return ;
-                        pushFollow(FOLLOW_arguments_in_synpred148_LeMaVM10493);
+                        match(input,SUPER,FOLLOW_SUPER_in_synpred149_LeMaVM10513); if (state.failed) return ;
+                        innerDot=(Token)match(input,DOT,FOLLOW_DOT_in_synpred149_LeMaVM10517); if (state.failed) return ;
+                        match(input,IDENT,FOLLOW_IDENT_in_synpred149_LeMaVM10519); if (state.failed) return ;
+                        pushFollow(FOLLOW_arguments_in_synpred149_LeMaVM10521);
                         arguments();
 
                         state._fsp--;
@@ -12609,10 +12612,10 @@ public class LeMaVMParser extends Parser {
                         }
                         break;
                     case 3 :
-                        // LeMaVM.g:761:21: IDENT arguments
+                        // LeMaVM.g:763:21: IDENT arguments
                         {
-                        match(input,IDENT,FOLLOW_IDENT_in_synpred148_LeMaVM10541); if (state.failed) return ;
-                        pushFollow(FOLLOW_arguments_in_synpred148_LeMaVM10543);
+                        match(input,IDENT,FOLLOW_IDENT_in_synpred149_LeMaVM10569); if (state.failed) return ;
+                        pushFollow(FOLLOW_arguments_in_synpred149_LeMaVM10571);
                         arguments();
 
                         state._fsp--;
@@ -12627,17 +12630,17 @@ public class LeMaVMParser extends Parser {
                 }
                 break;
             case 3 :
-                // LeMaVM.g:763:17: THIS
+                // LeMaVM.g:765:17: THIS
                 {
-                match(input,THIS,FOLLOW_THIS_in_synpred148_LeMaVM10616); if (state.failed) return ;
+                match(input,THIS,FOLLOW_THIS_in_synpred149_LeMaVM10644); if (state.failed) return ;
 
                 }
                 break;
             case 4 :
-                // LeMaVM.g:764:17: Super= SUPER arguments
+                // LeMaVM.g:766:17: Super= SUPER arguments
                 {
-                Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred148_LeMaVM10682); if (state.failed) return ;
-                pushFollow(FOLLOW_arguments_in_synpred148_LeMaVM10684);
+                Super=(Token)match(input,SUPER,FOLLOW_SUPER_in_synpred149_LeMaVM10710); if (state.failed) return ;
+                pushFollow(FOLLOW_arguments_in_synpred149_LeMaVM10712);
                 arguments();
 
                 state._fsp--;
@@ -12646,9 +12649,9 @@ public class LeMaVMParser extends Parser {
                 }
                 break;
             case 5 :
-                // LeMaVM.g:765:17: innerNewExpression
+                // LeMaVM.g:767:17: innerNewExpression
                 {
-                pushFollow(FOLLOW_innerNewExpression_in_synpred148_LeMaVM10732);
+                pushFollow(FOLLOW_innerNewExpression_in_synpred149_LeMaVM10760);
                 innerNewExpression();
 
                 state._fsp--;
@@ -12662,24 +12665,24 @@ public class LeMaVMParser extends Parser {
 
         }
     }
-    // $ANTLR end synpred148_LeMaVM
+    // $ANTLR end synpred149_LeMaVM
 
-    // $ANTLR start synpred154_LeMaVM
-    public final void synpred154_LeMaVM_fragment() throws RecognitionException {   
-        // LeMaVM.g:790:37: ( LBRACK expression RBRACK )
-        // LeMaVM.g:790:37: LBRACK expression RBRACK
+    // $ANTLR start synpred155_LeMaVM
+    public final void synpred155_LeMaVM_fragment() throws RecognitionException {   
+        // LeMaVM.g:792:37: ( LBRACK expression RBRACK )
+        // LeMaVM.g:792:37: LBRACK expression RBRACK
         {
-        match(input,LBRACK,FOLLOW_LBRACK_in_synpred154_LeMaVM11118); if (state.failed) return ;
-        pushFollow(FOLLOW_expression_in_synpred154_LeMaVM11121);
+        match(input,LBRACK,FOLLOW_LBRACK_in_synpred155_LeMaVM11146); if (state.failed) return ;
+        pushFollow(FOLLOW_expression_in_synpred155_LeMaVM11149);
         expression();
 
         state._fsp--;
         if (state.failed) return ;
-        match(input,RBRACK,FOLLOW_RBRACK_in_synpred154_LeMaVM11123); if (state.failed) return ;
+        match(input,RBRACK,FOLLOW_RBRACK_in_synpred155_LeMaVM11151); if (state.failed) return ;
 
         }
     }
-    // $ANTLR end synpred154_LeMaVM
+    // $ANTLR end synpred155_LeMaVM
 
     // Delegated rules
 
@@ -12697,11 +12700,25 @@ public class LeMaVMParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred131_LeMaVM() {
+    public final boolean synpred132_LeMaVM() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred131_LeMaVM_fragment(); // can never throw exception
+            synpred132_LeMaVM_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !state.failed;
+        input.rewind(start);
+        state.backtracking--;
+        state.failed=false;
+        return success;
+    }
+    public final boolean synpred135_LeMaVM() {
+        state.backtracking++;
+        int start = input.mark();
+        try {
+            synpred135_LeMaVM_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -12725,11 +12742,11 @@ public class LeMaVMParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred154_LeMaVM() {
+    public final boolean synpred141_LeMaVM() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred154_LeMaVM_fragment(); // can never throw exception
+            synpred141_LeMaVM_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -12739,11 +12756,11 @@ public class LeMaVMParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred145_LeMaVM() {
+    public final boolean synpred149_LeMaVM() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred145_LeMaVM_fragment(); // can never throw exception
+            synpred149_LeMaVM_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -12753,11 +12770,11 @@ public class LeMaVMParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred147_LeMaVM() {
+    public final boolean synpred155_LeMaVM() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred147_LeMaVM_fragment(); // can never throw exception
+            synpred155_LeMaVM_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -12767,11 +12784,11 @@ public class LeMaVMParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred133_LeMaVM() {
+    public final boolean synpred49_LeMaVM() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred133_LeMaVM_fragment(); // can never throw exception
+            synpred49_LeMaVM_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -12781,11 +12798,11 @@ public class LeMaVMParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred136_LeMaVM() {
+    public final boolean synpred128_LeMaVM() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred136_LeMaVM_fragment(); // can never throw exception
+            synpred128_LeMaVM_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -12795,11 +12812,11 @@ public class LeMaVMParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred140_LeMaVM() {
+    public final boolean synpred137_LeMaVM() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred140_LeMaVM_fragment(); // can never throw exception
+            synpred137_LeMaVM_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -12809,11 +12826,11 @@ public class LeMaVMParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred69_LeMaVM() {
+    public final boolean synpred70_LeMaVM() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred69_LeMaVM_fragment(); // can never throw exception
+            synpred70_LeMaVM_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -12823,11 +12840,11 @@ public class LeMaVMParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred113_LeMaVM() {
+    public final boolean synpred54_LeMaVM() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred113_LeMaVM_fragment(); // can never throw exception
+            synpred54_LeMaVM_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -12837,11 +12854,11 @@ public class LeMaVMParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred53_LeMaVM() {
+    public final boolean synpred114_LeMaVM() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred53_LeMaVM_fragment(); // can never throw exception
+            synpred114_LeMaVM_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -12851,25 +12868,11 @@ public class LeMaVMParser extends Parser {
         state.failed=false;
         return success;
     }
-    public final boolean synpred127_LeMaVM() {
+    public final boolean synpred146_LeMaVM() {
         state.backtracking++;
         int start = input.mark();
         try {
-            synpred127_LeMaVM_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !state.failed;
-        input.rewind(start);
-        state.backtracking--;
-        state.failed=false;
-        return success;
-    }
-    public final boolean synpred48_LeMaVM() {
-        state.backtracking++;
-        int start = input.mark();
-        try {
-            synpred48_LeMaVM_fragment(); // can never throw exception
+            synpred146_LeMaVM_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -12896,35 +12899,35 @@ public class LeMaVMParser extends Parser {
     static final String DFA16_eofS =
         "\14\uffff";
     static final String DFA16_minS =
-        "\1\27\1\uffff\1\27\4\65\4\uffff\1\65";
+        "\1\27\1\uffff\1\27\4\65\3\uffff\1\65\1\uffff";
     static final String DFA16_maxS =
-        "\1\u0085\1\uffff\5\u0085\4\uffff\1\u0085";
+        "\1\u0086\1\uffff\5\u0086\3\uffff\1\u0086\1\uffff";
     static final String DFA16_acceptS =
-        "\1\uffff\1\1\5\uffff\1\3\1\4\1\5\1\2\1\uffff";
+        "\1\uffff\1\1\5\uffff\1\3\1\4\1\5\1\uffff\1\2";
     static final String DFA16_specialS =
         "\14\uffff}>";
     static final String[] DFA16_transitionS = {
             "\1\1\24\uffff\1\11\10\uffff\1\7\2\uffff\1\10\3\uffff\1\7\3\uffff"+
-            "\1\6\4\uffff\2\7\3\uffff\1\5\1\4\1\3\1\uffff\1\7\1\2\5\uffff"+
+            "\1\6\4\uffff\2\7\3\uffff\1\5\1\4\1\3\1\uffff\1\7\1\2\1\7\5\uffff"+
             "\1\7\57\uffff\1\7",
             "",
-            "\1\12\35\uffff\1\7\2\uffff\1\10\3\uffff\1\7\3\uffff\1\6\4\uffff"+
-            "\2\7\3\uffff\1\5\1\4\1\3\1\uffff\1\7\1\13\5\uffff\1\7\57\uffff"+
-            "\1\7",
+            "\1\13\35\uffff\1\7\2\uffff\1\10\3\uffff\1\7\3\uffff\1\6\4\uffff"+
+            "\2\7\3\uffff\1\5\1\4\1\3\1\uffff\1\7\1\12\1\7\5\uffff\1\7\57"+
+            "\uffff\1\7",
             "\1\7\2\uffff\1\10\3\uffff\1\7\3\uffff\1\6\4\uffff\2\7\3\uffff"+
-            "\1\5\1\4\1\3\1\uffff\1\7\1\13\5\uffff\1\7\57\uffff\1\7",
+            "\1\5\1\4\1\3\1\uffff\1\7\1\12\1\7\5\uffff\1\7\57\uffff\1\7",
             "\1\7\2\uffff\1\10\3\uffff\1\7\3\uffff\1\6\4\uffff\2\7\3\uffff"+
-            "\1\5\1\4\1\3\1\uffff\1\7\1\13\5\uffff\1\7\57\uffff\1\7",
+            "\1\5\1\4\1\3\1\uffff\1\7\1\12\1\7\5\uffff\1\7\57\uffff\1\7",
             "\1\7\2\uffff\1\10\3\uffff\1\7\3\uffff\1\6\4\uffff\2\7\3\uffff"+
-            "\1\5\1\4\1\3\1\uffff\1\7\1\13\5\uffff\1\7\57\uffff\1\7",
+            "\1\5\1\4\1\3\1\uffff\1\7\1\12\1\7\5\uffff\1\7\57\uffff\1\7",
             "\1\7\2\uffff\1\10\3\uffff\1\7\3\uffff\1\6\4\uffff\2\7\3\uffff"+
-            "\1\5\1\4\1\3\1\uffff\1\7\1\13\5\uffff\1\7\57\uffff\1\7",
+            "\1\5\1\4\1\3\1\uffff\1\7\1\12\1\7\5\uffff\1\7\57\uffff\1\7",
             "",
             "",
             "",
-            "",
             "\1\7\2\uffff\1\10\3\uffff\1\7\3\uffff\1\6\4\uffff\2\7\3\uffff"+
-            "\1\5\1\4\1\3\1\uffff\1\7\1\13\5\uffff\1\7\57\uffff\1\7"
+            "\1\5\1\4\1\3\1\uffff\1\7\1\12\1\7\5\uffff\1\7\57\uffff\1\7",
+            ""
     };
 
     static final short[] DFA16_eot = DFA.unpackEncodedString(DFA16_eotS);
@@ -12957,7 +12960,7 @@ public class LeMaVMParser extends Parser {
             this.transition = DFA16_transition;
         }
         public String getDescription() {
-            return "347:1: classScopeDeclarations : ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI );";
+            return "348:1: classScopeDeclarations : ( block -> ^( CLASS_INSTANCE_INITIALIZER block ) | STATIC block -> ^( CLASS_STATIC_INITIALIZER[$STATIC, \"CLASS_STATIC_INITIALIZER\"] block ) | modifierList ( ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) ) | typeDeclaration | SEMI );";
         }
     }
     static final String DFA15_eotS =
@@ -12965,28 +12968,28 @@ public class LeMaVMParser extends Parser {
     static final String DFA15_eofS =
         "\14\uffff";
     static final String DFA15_minS =
-        "\1\65\1\26\1\17\1\uffff\1\51\1\6\1\u0085\1\51\1\26\1\uffff\1\17"+
+        "\1\65\1\26\1\17\1\uffff\1\51\1\6\1\u0086\1\51\1\26\1\uffff\1\17"+
         "\1\26";
     static final String DFA15_maxS =
-        "\3\u0085\1\uffff\1\51\1\54\1\u0085\1\51\1\u0085\1\uffff\2\u0085";
+        "\3\u0086\1\uffff\1\51\1\54\1\u0086\1\51\1\u0086\1\uffff\2\u0086";
     static final String DFA15_acceptS =
         "\3\uffff\1\1\5\uffff\1\2\2\uffff";
     static final String DFA15_specialS =
         "\14\uffff}>";
     static final String[] DFA15_transitionS = {
-            "\1\1\6\uffff\1\1\10\uffff\2\1\7\uffff\1\1\6\uffff\1\3\57\uffff"+
-            "\1\2",
-            "\1\4\156\uffff\1\5",
-            "\1\6\6\uffff\1\7\6\uffff\1\3\147\uffff\1\5",
+            "\1\1\6\uffff\1\1\10\uffff\2\1\7\uffff\1\1\1\uffff\1\1\5\uffff"+
+            "\1\3\57\uffff\1\2",
+            "\1\4\157\uffff\1\5",
+            "\1\6\6\uffff\1\7\6\uffff\1\3\150\uffff\1\5",
             "",
             "\1\10",
             "\1\11\4\uffff\1\11\12\uffff\1\11\6\uffff\1\3\16\uffff\1\11",
             "\1\12",
             "\1\13",
-            "\1\4\156\uffff\1\5",
+            "\1\4\157\uffff\1\5",
             "",
-            "\1\6\6\uffff\1\7\156\uffff\1\5",
-            "\1\7\156\uffff\1\5"
+            "\1\6\6\uffff\1\7\157\uffff\1\5",
+            "\1\7\157\uffff\1\5"
     };
 
     static final short[] DFA15_eot = DFA.unpackEncodedString(DFA15_eotS);
@@ -13019,7 +13022,7 @@ public class LeMaVMParser extends Parser {
             this.transition = DFA15_transition;
         }
         public String getDescription() {
-            return "351:9: ( ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )";
+            return "352:9: ( ( type IDENT formalParameterList ( arrayDeclaratorList )? ( block | SEMI ) -> ^( FUNCTION_METHOD_DECL modifierList type IDENT formalParameterList ( arrayDeclaratorList )? ( block )? ) | VOID IDENT formalParameterList ( block | SEMI ) -> ^( VOID_METHOD_DECL modifierList IDENT formalParameterList ( block )? ) | ident= IDENT formalParameterList block -> ^( CONSTRUCTOR_DECL[$ident, \"CONSTRUCTOR_DECL\"] modifierList formalParameterList block ) ) | type classFieldDeclaratorList SEMI -> ^( VAR_DECLARATION modifierList type classFieldDeclaratorList ) )";
         }
     }
     static final String DFA39_eotS =
@@ -13029,7 +13032,7 @@ public class LeMaVMParser extends Parser {
     static final String DFA39_minS =
         "\1\14\1\65\1\17\1\4\3\uffff\1\51\1\70\1\14\1\17\1\4\1\17\1\51";
     static final String DFA39_maxS =
-        "\1\u008b\3\u0085\3\uffff\1\51\1\u0085\1\u008b\3\u0085\1\51";
+        "\1\u008c\3\u0086\3\uffff\1\51\1\u0086\1\u008c\3\u0086\1\51";
     static final String DFA39_acceptS =
         "\4\uffff\1\2\1\3\1\1\7\uffff";
     static final String DFA39_specialS =
@@ -13038,27 +13041,27 @@ public class LeMaVMParser extends Parser {
             "\1\5\10\uffff\1\5\1\uffff\1\5\3\uffff\1\5\1\uffff\2\5\3\uffff"+
             "\1\5\3\uffff\1\5\5\uffff\1\5\10\uffff\1\2\1\5\1\uffff\1\4\1"+
             "\5\1\uffff\1\5\1\2\2\uffff\1\5\1\1\2\5\2\uffff\2\2\2\5\1\uffff"+
-            "\3\4\1\5\1\2\1\4\4\5\1\uffff\2\5\56\uffff\1\3\6\5",
+            "\3\4\1\5\1\2\1\4\1\2\4\5\1\uffff\2\5\56\uffff\1\3\6\5",
             "\1\6\2\uffff\1\4\3\uffff\1\6\3\uffff\1\1\4\uffff\2\6\3\uffff"+
-            "\3\4\1\uffff\1\6\1\4\65\uffff\1\6",
-            "\1\5\6\uffff\1\7\156\uffff\1\6",
+            "\3\4\1\uffff\1\6\1\4\1\6\65\uffff\1\6",
+            "\1\5\6\uffff\1\7\157\uffff\1\6",
             "\3\5\1\uffff\1\5\1\uffff\1\5\1\uffff\3\5\1\10\2\uffff\4\5\1"+
             "\11\1\uffff\3\5\1\uffff\6\5\1\uffff\6\5\3\uffff\2\5\1\uffff"+
-            "\1\5\1\uffff\4\5\16\uffff\1\5\101\uffff\1\6",
+            "\1\5\1\uffff\4\5\16\uffff\1\5\102\uffff\1\6",
             "",
             "",
             "",
             "\1\12",
-            "\1\5\16\uffff\1\5\10\uffff\1\5\1\uffff\1\5\62\uffff\1\13",
+            "\1\5\16\uffff\1\5\11\uffff\1\5\1\uffff\1\5\62\uffff\1\13",
             "\1\5\10\uffff\1\5\5\uffff\1\5\1\uffff\2\5\3\uffff\1\5\3\uffff"+
             "\1\5\2\uffff\1\14\13\uffff\1\5\6\uffff\1\5\2\uffff\1\5\5\uffff"+
-            "\4\5\5\uffff\1\5\1\uffff\1\5\1\uffff\2\5\1\uffff\1\5\57\uffff"+
+            "\4\5\5\uffff\1\5\1\uffff\2\5\1\uffff\2\5\1\uffff\1\5\57\uffff"+
             "\7\5",
-            "\1\5\6\uffff\1\7\156\uffff\1\6",
+            "\1\5\6\uffff\1\7\157\uffff\1\6",
             "\3\5\1\uffff\1\5\3\uffff\3\5\1\10\2\uffff\4\5\1\11\1\uffff"+
             "\3\5\1\uffff\6\5\1\uffff\6\5\3\uffff\2\5\1\uffff\1\5\1\uffff"+
-            "\4\5\16\uffff\1\5\101\uffff\1\6",
-            "\1\5\6\uffff\1\15\156\uffff\1\6",
+            "\4\5\16\uffff\1\5\102\uffff\1\6",
+            "\1\5\6\uffff\1\15\157\uffff\1\6",
             "\1\14"
     };
 
@@ -13092,7 +13095,7 @@ public class LeMaVMParser extends Parser {
             this.transition = DFA39_transition;
         }
         public String getDescription() {
-            return "501:1: blockStatement : ( localVariableDeclaration SEMI | typeDeclaration | statement );";
+            return "503:1: blockStatement : ( localVariableDeclaration SEMI | typeDeclaration | statement );";
         }
     }
     static final String DFA45_eotS =
@@ -13102,7 +13105,7 @@ public class LeMaVMParser extends Parser {
     static final String DFA45_minS =
         "\1\14\11\uffff\1\4\3\uffff";
     static final String DFA45_maxS =
-        "\1\u008b\11\uffff\1\103\3\uffff";
+        "\1\u008c\11\uffff\1\103\3\uffff";
     static final String DFA45_acceptS =
         "\1\uffff\1\1\1\2\1\3\1\4\1\5\1\6\1\7\1\10\1\11\1\uffff\1\13\1\14"+
         "\1\12";
@@ -13112,7 +13115,7 @@ public class LeMaVMParser extends Parser {
             "\1\13\10\uffff\1\13\1\uffff\1\1\3\uffff\1\13\1\uffff\2\13\3"+
             "\uffff\1\13\3\uffff\1\13\5\uffff\1\14\10\uffff\1\13\1\10\2\uffff"+
             "\1\11\1\uffff\1\5\1\13\2\uffff\1\13\1\uffff\1\3\1\2\2\uffff"+
-            "\4\13\4\uffff\1\7\1\13\1\uffff\1\13\1\6\2\13\1\uffff\1\13\1"+
+            "\4\13\4\uffff\1\7\1\13\1\uffff\2\13\1\6\2\13\1\uffff\1\13\1"+
             "\4\56\uffff\1\12\6\13",
             "",
             "",
@@ -13161,7 +13164,7 @@ public class LeMaVMParser extends Parser {
             this.transition = DFA45_transition;
         }
         public String getDescription() {
-            return "513:1: statement : ( block | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI );";
+            return "515:1: statement : ( block | IF parenthesizedExpression ifStat= statement ( ELSE elseStat= statement -> ^( IF parenthesizedExpression $ifStat $elseStat) | -> ^( IF parenthesizedExpression $ifStat) ) | FOR LPAREN ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) ) | WHILE parenthesizedExpression statement -> ^( WHILE parenthesizedExpression statement ) | DO statement WHILE parenthesizedExpression SEMI -> ^( DO statement parenthesizedExpression ) | SWITCH parenthesizedExpression LCURLY switchBlockLabels RCURLY -> ^( SWITCH parenthesizedExpression switchBlockLabels ) | RETURN ( expression )? SEMI -> ^( RETURN ( expression )? ) | BREAK ( IDENT )? SEMI -> ^( BREAK ( IDENT )? ) | CONTINUE ( IDENT )? SEMI -> ^( CONTINUE ( IDENT )? ) | IDENT COLON statement -> ^( LABELED_STATEMENT IDENT statement ) | expression SEMI | SEMI );";
         }
     }
     static final String DFA41_eotS =
@@ -13170,10 +13173,10 @@ public class LeMaVMParser extends Parser {
         "\26\uffff";
     static final String DFA41_minS =
         "\1\14\1\65\1\17\1\4\1\uffff\1\26\1\17\1\51\1\6\1\70\1\14\1\51\1"+
-        "\u0085\1\51\1\17\1\uffff\1\4\1\17\1\26\1\17\1\26\1\51";
+        "\u0086\1\51\1\17\1\uffff\1\4\1\17\1\26\1\17\1\26\1\51";
     static final String DFA41_maxS =
-        "\1\u008b\3\u0085\1\uffff\2\u0085\1\51\1\54\1\u0085\1\u008b\1\51"+
-        "\1\u0085\1\51\1\u0085\1\uffff\5\u0085\1\51";
+        "\1\u008c\3\u0086\1\uffff\2\u0086\1\51\1\54\1\u0086\1\u008c\1\51"+
+        "\1\u0086\1\51\1\u0086\1\uffff\5\u0086\1\51";
     static final String DFA41_acceptS =
         "\4\uffff\1\1\12\uffff\1\2\6\uffff";
     static final String DFA41_specialS =
@@ -13181,36 +13184,36 @@ public class LeMaVMParser extends Parser {
     static final String[] DFA41_transitionS = {
             "\1\4\10\uffff\1\4\5\uffff\1\4\1\uffff\2\4\3\uffff\1\4\3\uffff"+
             "\1\4\5\uffff\1\4\10\uffff\1\2\6\uffff\1\2\2\uffff\1\4\1\1\4"+
-            "\uffff\2\2\2\4\5\uffff\1\2\1\uffff\1\4\1\uffff\2\4\1\uffff\1"+
-            "\4\57\uffff\1\3\6\4",
-            "\1\5\6\uffff\1\5\3\uffff\1\1\4\uffff\2\5\7\uffff\1\5\66\uffff"+
-            "\1\6",
-            "\1\4\6\uffff\1\7\156\uffff\1\10",
+            "\uffff\2\2\2\4\5\uffff\1\2\1\uffff\1\2\1\4\1\uffff\2\4\1\uffff"+
+            "\1\4\57\uffff\1\3\6\4",
+            "\1\5\6\uffff\1\5\3\uffff\1\1\4\uffff\2\5\7\uffff\1\5\1\uffff"+
+            "\1\5\65\uffff\1\6",
+            "\1\4\6\uffff\1\7\157\uffff\1\10",
             "\3\4\1\uffff\1\4\2\uffff\4\4\1\11\2\uffff\4\4\1\12\1\uffff"+
             "\3\4\1\uffff\6\4\1\uffff\6\4\3\uffff\2\4\1\uffff\1\4\1\uffff"+
-            "\4\4\16\uffff\1\4\101\uffff\1\10",
+            "\4\4\16\uffff\1\4\102\uffff\1\10",
             "",
-            "\1\13\156\uffff\1\10",
-            "\1\14\6\uffff\1\15\156\uffff\1\10",
+            "\1\13\157\uffff\1\10",
+            "\1\14\6\uffff\1\15\157\uffff\1\10",
             "\1\16",
             "\1\4\3\uffff\1\17\1\4\12\uffff\1\4\25\uffff\1\4",
-            "\1\4\16\uffff\1\4\10\uffff\1\4\1\uffff\1\4\62\uffff\1\20",
+            "\1\4\16\uffff\1\4\11\uffff\1\4\1\uffff\1\4\62\uffff\1\20",
             "\1\4\10\uffff\1\4\5\uffff\1\4\1\uffff\2\4\3\uffff\1\4\3\uffff"+
             "\1\4\2\uffff\1\21\13\uffff\1\4\6\uffff\1\4\2\uffff\1\4\5\uffff"+
-            "\4\4\5\uffff\1\4\1\uffff\1\4\1\uffff\2\4\1\uffff\1\4\57\uffff"+
+            "\4\4\5\uffff\1\4\1\uffff\2\4\1\uffff\2\4\1\uffff\1\4\57\uffff"+
             "\7\4",
             "\1\22",
             "\1\23",
             "\1\24",
-            "\1\4\6\uffff\1\7\156\uffff\1\10",
+            "\1\4\6\uffff\1\7\157\uffff\1\10",
             "",
             "\3\4\1\uffff\1\4\2\uffff\4\4\1\11\2\uffff\4\4\1\12\1\uffff"+
             "\3\4\1\uffff\6\4\1\uffff\6\4\3\uffff\2\4\1\uffff\1\4\1\uffff"+
-            "\4\4\16\uffff\1\4\101\uffff\1\10",
-            "\1\4\6\uffff\1\25\156\uffff\1\10",
-            "\1\13\156\uffff\1\10",
-            "\1\14\6\uffff\1\15\156\uffff\1\10",
-            "\1\15\156\uffff\1\10",
+            "\4\4\16\uffff\1\4\102\uffff\1\10",
+            "\1\4\6\uffff\1\25\157\uffff\1\10",
+            "\1\13\157\uffff\1\10",
+            "\1\14\6\uffff\1\15\157\uffff\1\10",
+            "\1\15\157\uffff\1\10",
             "\1\21"
     };
 
@@ -13244,7 +13247,7 @@ public class LeMaVMParser extends Parser {
             this.transition = DFA41_transition;
         }
         public String getDescription() {
-            return "520:9: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )";
+            return "522:9: ( forInit SEMI forCondition SEMI forUpdater RPAREN statement -> ^( FOR forInit forCondition forUpdater statement ) | localModifierList type IDENT COLON expression RPAREN statement -> ^( FOR_EACH[$FOR, \"FOR_EACH\"] localModifierList type IDENT expression statement ) )";
         }
     }
     static final String DFA50_eotS =
@@ -13254,7 +13257,7 @@ public class LeMaVMParser extends Parser {
     static final String DFA50_minS =
         "\1\14\1\uffff\1\17\1\4\2\uffff\1\51\1\70\1\14\1\17\1\4\1\17\1\51";
     static final String DFA50_maxS =
-        "\1\u008b\1\uffff\2\u0085\2\uffff\1\51\1\u0085\1\u008b\3\u0085\1"+
+        "\1\u008c\1\uffff\2\u0086\2\uffff\1\51\1\u0086\1\u008c\3\u0086\1"+
         "\51";
     static final String DFA50_acceptS =
         "\1\uffff\1\1\2\uffff\1\2\1\3\7\uffff";
@@ -13263,26 +13266,26 @@ public class LeMaVMParser extends Parser {
     static final String[] DFA50_transitionS = {
             "\1\4\10\uffff\1\4\5\uffff\1\4\1\uffff\2\4\3\uffff\1\4\3\uffff"+
             "\1\4\5\uffff\1\5\10\uffff\1\2\6\uffff\1\2\2\uffff\1\4\1\1\4"+
-            "\uffff\2\2\2\4\5\uffff\1\2\1\uffff\1\4\1\uffff\2\4\1\uffff\1"+
-            "\4\57\uffff\1\3\6\4",
+            "\uffff\2\2\2\4\5\uffff\1\2\1\uffff\1\2\1\4\1\uffff\2\4\1\uffff"+
+            "\1\4\57\uffff\1\3\6\4",
             "",
-            "\1\4\6\uffff\1\6\156\uffff\1\1",
+            "\1\4\6\uffff\1\6\157\uffff\1\1",
             "\3\4\1\uffff\1\4\2\uffff\4\4\1\7\2\uffff\4\4\1\10\1\uffff\3"+
             "\4\1\uffff\6\4\1\uffff\6\4\3\uffff\2\4\1\uffff\1\4\1\uffff\4"+
-            "\4\16\uffff\1\4\101\uffff\1\1",
+            "\4\16\uffff\1\4\102\uffff\1\1",
             "",
             "",
             "\1\11",
-            "\1\4\16\uffff\1\4\10\uffff\1\4\1\uffff\1\4\62\uffff\1\12",
+            "\1\4\16\uffff\1\4\11\uffff\1\4\1\uffff\1\4\62\uffff\1\12",
             "\1\4\10\uffff\1\4\5\uffff\1\4\1\uffff\2\4\3\uffff\1\4\3\uffff"+
             "\1\4\2\uffff\1\13\13\uffff\1\4\6\uffff\1\4\2\uffff\1\4\5\uffff"+
-            "\4\4\5\uffff\1\4\1\uffff\1\4\1\uffff\2\4\1\uffff\1\4\57\uffff"+
+            "\4\4\5\uffff\1\4\1\uffff\2\4\1\uffff\2\4\1\uffff\1\4\57\uffff"+
             "\7\4",
-            "\1\4\6\uffff\1\6\156\uffff\1\1",
+            "\1\4\6\uffff\1\6\157\uffff\1\1",
             "\3\4\1\uffff\1\4\2\uffff\4\4\1\7\2\uffff\4\4\1\10\1\uffff\3"+
             "\4\1\uffff\6\4\1\uffff\6\4\3\uffff\2\4\1\uffff\1\4\1\uffff\4"+
-            "\4\16\uffff\1\4\101\uffff\1\1",
-            "\1\4\6\uffff\1\14\156\uffff\1\1",
+            "\4\16\uffff\1\4\102\uffff\1\1",
+            "\1\4\6\uffff\1\14\157\uffff\1\1",
             "\1\13"
     };
 
@@ -13316,7 +13319,7 @@ public class LeMaVMParser extends Parser {
             this.transition = DFA50_transition;
         }
         public String getDescription() {
-            return "552:1: forInit : ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) );";
+            return "554:1: forInit : ( localVariableDeclaration -> ^( FOR_INIT localVariableDeclaration ) | expressionList -> ^( FOR_INIT expressionList ) | -> ^( FOR_INIT ) );";
         }
     }
     static final String DFA74_eotS =
@@ -13326,14 +13329,14 @@ public class LeMaVMParser extends Parser {
     static final String DFA74_minS =
         "\1\33\2\uffff\1\0\10\uffff";
     static final String DFA74_maxS =
-        "\1\u008b\2\uffff\1\0\10\uffff";
+        "\1\u008c\2\uffff\1\0\10\uffff";
     static final String DFA74_acceptS =
         "\1\uffff\1\1\1\2\1\uffff\1\4\6\uffff\1\3";
     static final String DFA74_specialS =
         "\3\uffff\1\0\10\uffff}>";
     static final String[] DFA74_transitionS = {
             "\1\2\1\uffff\1\3\4\uffff\1\1\22\uffff\1\4\6\uffff\1\4\2\uffff"+
-            "\1\4\5\uffff\4\4\5\uffff\1\4\1\uffff\1\4\1\uffff\2\4\1\uffff"+
+            "\1\4\5\uffff\4\4\5\uffff\1\4\1\uffff\2\4\1\uffff\2\4\1\uffff"+
             "\1\4\57\uffff\7\4",
             "",
             "",
@@ -13378,7 +13381,7 @@ public class LeMaVMParser extends Parser {
             this.transition = DFA74_transition;
         }
         public String getDescription() {
-            return "684:1: unaryExpressionNotPlusMinus : ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression );";
+            return "686:1: unaryExpressionNotPlusMinus : ( NOT unaryExpression -> ^( NOT unaryExpression ) | LOGICAL_NOT unaryExpression -> ^( LOGICAL_NOT unaryExpression ) | LPAREN type RPAREN unaryExpression -> ^( CAST_EXPR[$LPAREN, \"CAST_EXPR\"] type unaryExpression ) | postfixedExpression );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -13391,7 +13394,7 @@ public class LeMaVMParser extends Parser {
                         int index74_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred113_LeMaVM()) ) {s = 11;}
+                        if ( (synpred114_LeMaVM()) ) {s = 11;}
 
                         else if ( (true) ) {s = 4;}
 
@@ -13414,15 +13417,15 @@ public class LeMaVMParser extends Parser {
     static final String DFA85_minS =
         "\1\35\3\uffff\3\0\7\uffff";
     static final String DFA85_maxS =
-        "\1\u008b\3\uffff\3\0\7\uffff";
+        "\1\u008c\3\uffff\3\0\7\uffff";
     static final String DFA85_acceptS =
         "\1\uffff\1\1\1\2\1\3\3\uffff\1\11\1\12\1\4\1\5\1\7\1\10\1\6";
     static final String DFA85_specialS =
         "\4\uffff\1\0\1\1\1\2\7\uffff}>";
     static final String[] DFA85_transitionS = {
             "\1\1\27\uffff\1\7\6\uffff\1\7\2\uffff\1\2\5\uffff\2\7\1\3\1"+
-            "\2\5\uffff\1\7\1\uffff\1\5\1\uffff\1\6\1\2\1\uffff\1\10\57\uffff"+
-            "\1\4\6\2",
+            "\2\5\uffff\1\7\1\uffff\1\7\1\5\1\uffff\1\6\1\2\1\uffff\1\10"+
+            "\57\uffff\1\4\6\2",
             "",
             "",
             "",
@@ -13468,7 +13471,7 @@ public class LeMaVMParser extends Parser {
             this.transition = DFA85_transition;
         }
         public String getDescription() {
-            return "717:1: primaryExpression : ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) );";
+            return "719:1: primaryExpression : ( parenthesizedExpression | literal | newExpression | qualifiedIdentExpression | ( SUPER ( arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | DOT IDENT arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) ) | IDENT arguments -> ^( METHOD_CALL IDENT arguments ) | THIS arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) ) | ( THIS -> THIS ) ( arguments -> ^( THIS_CONSTRUCTOR_CALL[$THIS, \"THIS_CONSTRUCTOR_CALL\"] arguments ) )? | SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$SUPER, \"SUPER_CONSTRUCTOR_CALL\"] arguments ) | ( SUPER DOT IDENT ) ( arguments -> ^( METHOD_CALL ^( DOT SUPER IDENT ) arguments ) | -> ^( DOT SUPER IDENT ) ) | ( primitiveType -> primitiveType ) ( arrayDeclarator -> ^( arrayDeclarator $primaryExpression) )* DOT CLASS -> ^( DOT $primaryExpression CLASS ) | VOID DOT CLASS -> ^( DOT VOID CLASS ) );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -13481,9 +13484,9 @@ public class LeMaVMParser extends Parser {
                         int index85_4 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred127_LeMaVM()) ) {s = 9;}
+                        if ( (synpred128_LeMaVM()) ) {s = 9;}
 
-                        else if ( (synpred131_LeMaVM()) ) {s = 10;}
+                        else if ( (synpred132_LeMaVM()) ) {s = 10;}
 
                          
                         input.seek(index85_4);
@@ -13496,11 +13499,11 @@ public class LeMaVMParser extends Parser {
                         int index85_5 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred131_LeMaVM()) ) {s = 10;}
+                        if ( (synpred132_LeMaVM()) ) {s = 10;}
 
-                        else if ( (synpred134_LeMaVM()) ) {s = 11;}
+                        else if ( (synpred135_LeMaVM()) ) {s = 11;}
 
-                        else if ( (synpred136_LeMaVM()) ) {s = 12;}
+                        else if ( (synpred137_LeMaVM()) ) {s = 12;}
 
                          
                         input.seek(index85_5);
@@ -13513,9 +13516,9 @@ public class LeMaVMParser extends Parser {
                         int index85_6 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred131_LeMaVM()) ) {s = 10;}
+                        if ( (synpred132_LeMaVM()) ) {s = 10;}
 
-                        else if ( (synpred133_LeMaVM()) ) {s = 13;}
+                        else if ( (synpred134_LeMaVM()) ) {s = 13;}
 
                          
                         input.seek(index85_6);
@@ -13621,7 +13624,7 @@ public class LeMaVMParser extends Parser {
             this.transition = DFA89_transition;
         }
         public String getDescription() {
-            return "752:9: ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?";
+            return "754:9: ( ( arrayDeclarator -> ^( arrayDeclarator $qualifiedIdentExpression) )+ ( DOT CLASS -> ^( DOT $qualifiedIdentExpression CLASS ) ) | arguments -> ^( METHOD_CALL qualifiedIdentifier arguments ) | outerDot= DOT ( CLASS -> ^( DOT qualifiedIdentifier CLASS ) | (Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | SUPER innerDot= DOT IDENT arguments -> ^( METHOD_CALL ^( $innerDot ^( $outerDot qualifiedIdentifier SUPER ) IDENT ) arguments ) | IDENT arguments -> ^( METHOD_CALL ^( DOT qualifiedIdentifier IDENT ) arguments ) ) | THIS -> ^( DOT qualifiedIdentifier THIS ) | Super= SUPER arguments -> ^( SUPER_CONSTRUCTOR_CALL[$Super, \"SUPER_CONSTRUCTOR_CALL\"] qualifiedIdentifier arguments ) | innerNewExpression -> ^( DOT qualifiedIdentifier innerNewExpression ) ) )?";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -13634,7 +13637,7 @@ public class LeMaVMParser extends Parser {
                         int index89_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred140_LeMaVM()) ) {s = 43;}
+                        if ( (synpred141_LeMaVM()) ) {s = 43;}
 
                         else if ( (true) ) {s = 4;}
 
@@ -13649,7 +13652,7 @@ public class LeMaVMParser extends Parser {
                         int index89_3 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred148_LeMaVM()) ) {s = 44;}
+                        if ( (synpred149_LeMaVM()) ) {s = 44;}
 
                         else if ( (true) ) {s = 4;}
 
@@ -13755,7 +13758,7 @@ public class LeMaVMParser extends Parser {
             this.transition = DFA94_transition;
         }
         public String getDescription() {
-            return "()* loopback of 790:36: ( LBRACK expression RBRACK )*";
+            return "()* loopback of 792:36: ( LBRACK expression RBRACK )*";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             TokenStream input = (TokenStream)_input;
@@ -13768,7 +13771,7 @@ public class LeMaVMParser extends Parser {
                         int index94_1 = input.index();
                         input.rewind();
                         s = -1;
-                        if ( (synpred154_LeMaVM()) ) {s = 42;}
+                        if ( (synpred155_LeMaVM()) ) {s = 42;}
 
                         else if ( (true) ) {s = 2;}
 
@@ -13786,421 +13789,421 @@ public class LeMaVMParser extends Parser {
     }
  
 
-    public static final BitSet FOLLOW_compilationUnit_in_javaSource3790 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_packageDeclaration_in_compilationUnit3826 = new BitSet(new long[]{0x0100100000000002L,0x0000000000009C11L});
-    public static final BitSet FOLLOW_importDeclaration_in_compilationUnit3838 = new BitSet(new long[]{0x0100100000000002L,0x0000000000009C11L});
-    public static final BitSet FOLLOW_typeDecls_in_compilationUnit3850 = new BitSet(new long[]{0x0100100000000002L,0x0000000000009C01L});
-    public static final BitSet FOLLOW_typeDeclaration_in_typeDecls3870 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_typeDecls3880 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PACKAGE_in_packageDeclaration3900 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_packageDeclaration3903 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_packageDeclaration3905 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IMPORT_in_importDeclaration3931 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_STATIC_in_importDeclaration3934 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_importDeclaration3937 = new BitSet(new long[]{0x0000100000010000L});
-    public static final BitSet FOLLOW_DOTSTAR_in_importDeclaration3939 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_importDeclaration3942 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_typeDeclaration3966 = new BitSet(new long[]{0x0100000000000000L,0x0000000000009C01L});
-    public static final BitSet FOLLOW_classTypeDeclaration_in_typeDeclaration3981 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CLASS_in_classTypeDeclaration4016 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_classTypeDeclaration4018 = new BitSet(new long[]{0x4000000000800000L});
-    public static final BitSet FOLLOW_classExtendsClause_in_classTypeDeclaration4020 = new BitSet(new long[]{0x4000000000800000L});
-    public static final BitSet FOLLOW_classBody_in_classTypeDeclaration4023 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_EXTENDS_in_classExtendsClause4070 = new BitSet(new long[]{0x1020000000000000L,0x0000000000004060L,0x0000000000000020L});
-    public static final BitSet FOLLOW_type_in_classExtendsClause4072 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_EXTENDS_in_bound4120 = new BitSet(new long[]{0x1020000000000000L,0x0000000000004060L,0x0000000000000020L});
-    public static final BitSet FOLLOW_type_in_bound4122 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_AND_in_bound4125 = new BitSet(new long[]{0x1020000000000000L,0x0000000000004060L,0x0000000000000020L});
-    public static final BitSet FOLLOW_type_in_bound4127 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_type_in_typeList4171 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_typeList4174 = new BitSet(new long[]{0x1020000000000000L,0x0000000000004060L,0x0000000000000020L});
-    public static final BitSet FOLLOW_type_in_typeList4177 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_LCURLY_in_classBody4202 = new BitSet(new long[]{0x1120140000800000L,0x000000000020DC61L,0x0000000000000020L});
-    public static final BitSet FOLLOW_classScopeDeclarations_in_classBody4204 = new BitSet(new long[]{0x1120140000800000L,0x000000000020DC61L,0x0000000000000020L});
-    public static final BitSet FOLLOW_RCURLY_in_classBody4207 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations4245 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STATIC_in_classScopeDeclarations4274 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations4276 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations4299 = new BitSet(new long[]{0x1020000000000000L,0x0000000000204060L,0x0000000000000020L});
-    public static final BitSet FOLLOW_type_in_classScopeDeclarations4317 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations4319 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations4321 = new BitSet(new long[]{0x0000100000C00000L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_classScopeDeclarations4323 = new BitSet(new long[]{0x0000100000800000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations4327 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations4331 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_classScopeDeclarations4387 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations4389 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations4391 = new BitSet(new long[]{0x0000100000800000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations4394 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations4398 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations4451 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations4453 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_block_in_classScopeDeclarations4455 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_type_in_classScopeDeclarations4513 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_classFieldDeclaratorList_in_classScopeDeclarations4515 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations4517 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_classScopeDeclarations4562 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations4572 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList4592 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_classFieldDeclaratorList4595 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList4597 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_classFieldDeclarator4636 = new BitSet(new long[]{0x0000000000000042L});
-    public static final BitSet FOLLOW_ASSIGN_in_classFieldDeclarator4639 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_variableInitializer_in_classFieldDeclarator4641 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_variableDeclaratorId4686 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_variableDeclaratorId4689 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayInitializer_in_variableInitializer4709 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_variableInitializer4719 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACK_in_arrayDeclarator4738 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_arrayDeclarator4740 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclarator_in_arrayDeclaratorList4774 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_LCURLY_in_arrayInitializer4819 = new BitSet(new long[]{0x9020044468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer4822 = new BitSet(new long[]{0x0000040000000800L});
-    public static final BitSet FOLLOW_COMMA_in_arrayInitializer4825 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer4827 = new BitSet(new long[]{0x0000040000000800L});
-    public static final BitSet FOLLOW_COMMA_in_arrayInitializer4831 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_arrayInitializer4836 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_modifier_in_modifierList4874 = new BitSet(new long[]{0x0000000000000002L,0x0000000000009C01L});
-    public static final BitSet FOLLOW_PUBLIC_in_modifier4915 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PROTECTED_in_modifier4925 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_PRIVATE_in_modifier4935 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_STATIC_in_modifier4945 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifier_in_modifier4955 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifier_in_localModifierList4974 = new BitSet(new long[]{0x0000000000000002L,0x0000000000009C01L});
-    public static final BitSet FOLLOW_FINAL_in_localModifier5015 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_simpleType_in_type5034 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_objectType_in_type5044 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primitiveType_in_simpleType5064 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_simpleType5066 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedTypeIdent_in_objectType5113 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_objectType5115 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedTypeIdentSimplified_in_objectTypeSimplified5155 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_objectTypeSimplified5157 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent5197 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedTypeIdent5200 = new BitSet(new long[]{0x1020000000000000L,0x0000000000004060L,0x0000000000000020L});
-    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent5202 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified5242 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedTypeIdentSimplified5245 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified5247 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_IDENT_in_typeIdent5287 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_typeIdentSimplified5307 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_compilationUnit_in_javaSource3808 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_packageDeclaration_in_compilationUnit3844 = new BitSet(new long[]{0x0100100000000002L,0x0000000000009C11L});
+    public static final BitSet FOLLOW_importDeclaration_in_compilationUnit3856 = new BitSet(new long[]{0x0100100000000002L,0x0000000000009C11L});
+    public static final BitSet FOLLOW_typeDecls_in_compilationUnit3868 = new BitSet(new long[]{0x0100100000000002L,0x0000000000009C01L});
+    public static final BitSet FOLLOW_typeDeclaration_in_typeDecls3888 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_typeDecls3898 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PACKAGE_in_packageDeclaration3918 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_packageDeclaration3921 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_packageDeclaration3923 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IMPORT_in_importDeclaration3949 = new BitSet(new long[]{0x0000000000000000L,0x0000000000008000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_STATIC_in_importDeclaration3952 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_importDeclaration3955 = new BitSet(new long[]{0x0000100000010000L});
+    public static final BitSet FOLLOW_DOTSTAR_in_importDeclaration3957 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_importDeclaration3960 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_typeDeclaration3984 = new BitSet(new long[]{0x0100000000000000L,0x0000000000009C01L});
+    public static final BitSet FOLLOW_classTypeDeclaration_in_typeDeclaration3999 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CLASS_in_classTypeDeclaration4034 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_classTypeDeclaration4036 = new BitSet(new long[]{0x4000000000800000L});
+    public static final BitSet FOLLOW_classExtendsClause_in_classTypeDeclaration4038 = new BitSet(new long[]{0x4000000000800000L});
+    public static final BitSet FOLLOW_classBody_in_classTypeDeclaration4041 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EXTENDS_in_classExtendsClause4088 = new BitSet(new long[]{0x1020000000000000L,0x0000000000014060L,0x0000000000000040L});
+    public static final BitSet FOLLOW_type_in_classExtendsClause4090 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_EXTENDS_in_bound4138 = new BitSet(new long[]{0x1020000000000000L,0x0000000000014060L,0x0000000000000040L});
+    public static final BitSet FOLLOW_type_in_bound4140 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_AND_in_bound4143 = new BitSet(new long[]{0x1020000000000000L,0x0000000000014060L,0x0000000000000040L});
+    public static final BitSet FOLLOW_type_in_bound4145 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_type_in_typeList4189 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_typeList4192 = new BitSet(new long[]{0x1020000000000000L,0x0000000000014060L,0x0000000000000040L});
+    public static final BitSet FOLLOW_type_in_typeList4195 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_LCURLY_in_classBody4220 = new BitSet(new long[]{0x1120140000800000L,0x000000000041DC61L,0x0000000000000040L});
+    public static final BitSet FOLLOW_classScopeDeclarations_in_classBody4222 = new BitSet(new long[]{0x1120140000800000L,0x000000000041DC61L,0x0000000000000040L});
+    public static final BitSet FOLLOW_RCURLY_in_classBody4225 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations4263 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STATIC_in_classScopeDeclarations4292 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations4294 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifierList_in_classScopeDeclarations4317 = new BitSet(new long[]{0x1020000000000000L,0x0000000000414060L,0x0000000000000040L});
+    public static final BitSet FOLLOW_type_in_classScopeDeclarations4335 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations4337 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations4339 = new BitSet(new long[]{0x0000100000C00000L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_classScopeDeclarations4341 = new BitSet(new long[]{0x0000100000800000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations4345 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations4349 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_classScopeDeclarations4405 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations4407 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations4409 = new BitSet(new long[]{0x0000100000800000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations4412 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations4416 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_classScopeDeclarations4469 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_formalParameterList_in_classScopeDeclarations4471 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_block_in_classScopeDeclarations4473 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_type_in_classScopeDeclarations4531 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_classFieldDeclaratorList_in_classScopeDeclarations4533 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations4535 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_classScopeDeclarations4580 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_classScopeDeclarations4590 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList4610 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_classFieldDeclaratorList4613 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_classFieldDeclarator_in_classFieldDeclaratorList4615 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_classFieldDeclarator4654 = new BitSet(new long[]{0x0000000000000042L});
+    public static final BitSet FOLLOW_ASSIGN_in_classFieldDeclarator4657 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_variableInitializer_in_classFieldDeclarator4659 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_variableDeclaratorId4704 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_variableDeclaratorId4707 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayInitializer_in_variableInitializer4727 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_variableInitializer4737 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACK_in_arrayDeclarator4756 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_arrayDeclarator4758 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclarator_in_arrayDeclaratorList4792 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_LCURLY_in_arrayInitializer4837 = new BitSet(new long[]{0x9020044468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer4840 = new BitSet(new long[]{0x0000040000000800L});
+    public static final BitSet FOLLOW_COMMA_in_arrayInitializer4843 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_variableInitializer_in_arrayInitializer4845 = new BitSet(new long[]{0x0000040000000800L});
+    public static final BitSet FOLLOW_COMMA_in_arrayInitializer4849 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_arrayInitializer4854 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_modifier_in_modifierList4892 = new BitSet(new long[]{0x0000000000000002L,0x0000000000009C01L});
+    public static final BitSet FOLLOW_PUBLIC_in_modifier4933 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PROTECTED_in_modifier4943 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_PRIVATE_in_modifier4953 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_STATIC_in_modifier4963 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifier_in_modifier4973 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifier_in_localModifierList4992 = new BitSet(new long[]{0x0000000000000002L,0x0000000000009C01L});
+    public static final BitSet FOLLOW_FINAL_in_localModifier5033 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_simpleType_in_type5052 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_objectType_in_type5062 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primitiveType_in_simpleType5082 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_simpleType5084 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedTypeIdent_in_objectType5131 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_objectType5133 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedTypeIdentSimplified_in_objectTypeSimplified5173 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_objectTypeSimplified5175 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent5215 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedTypeIdent5218 = new BitSet(new long[]{0x1020000000000000L,0x0000000000014060L,0x0000000000000040L});
+    public static final BitSet FOLLOW_typeIdent_in_qualifiedTypeIdent5220 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified5260 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedTypeIdentSimplified5263 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_typeIdentSimplified_in_qualifiedTypeIdentSimplified5265 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_IDENT_in_typeIdent5305 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_typeIdentSimplified5325 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_primitiveType0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentList5386 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_qualifiedIdentList5389 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentList5392 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_LPAREN_in_formalParameterList5417 = new BitSet(new long[]{0x1020080000000000L,0x000000000000DC61L,0x0000000000000020L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList5445 = new BitSet(new long[]{0x0000080000000800L});
-    public static final BitSet FOLLOW_COMMA_in_formalParameterList5448 = new BitSet(new long[]{0x1020000000000000L,0x000000000000DC61L,0x0000000000000020L});
-    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList5450 = new BitSet(new long[]{0x0000080000000800L});
-    public static final BitSet FOLLOW_RPAREN_in_formalParameterList5530 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifierList_in_formalParameterStandardDecl5553 = new BitSet(new long[]{0x1020000000000000L,0x0000000000004060L,0x0000000000000020L});
-    public static final BitSet FOLLOW_type_in_formalParameterStandardDecl5555 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl5557 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier5605 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentifier5648 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier5652 = new BitSet(new long[]{0x0000000000008002L});
-    public static final BitSet FOLLOW_LCURLY_in_block5701 = new BitSet(new long[]{0x9B60144468A01000L,0x00000000006FFDE7L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_blockStatement_in_block5703 = new BitSet(new long[]{0x9B60144468A01000L,0x00000000006FFDE7L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_RCURLY_in_block5706 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_blockStatement5744 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_blockStatement5746 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_typeDeclaration_in_blockStatement5757 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_statement_in_blockStatement5767 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration5790 = new BitSet(new long[]{0x1020000000000000L,0x0000000000004060L,0x0000000000000020L});
-    public static final BitSet FOLLOW_type_in_localVariableDeclaration5792 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_classFieldDeclaratorList_in_localVariableDeclaration5794 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_block_in_statement5847 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IF_in_statement5857 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement5859 = new BitSet(new long[]{0x9B60104468A01000L,0x00000000006FFDE7L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_statement_in_statement5863 = new BitSet(new long[]{0x2000000000000002L});
-    public static final BitSet FOLLOW_ELSE_in_statement5878 = new BitSet(new long[]{0x9B60104468A01000L,0x00000000006FFDE7L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_statement_in_statement5882 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_FOR_in_statement6048 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_LPAREN_in_statement6050 = new BitSet(new long[]{0x9020104468A01000L,0x00000000002DDDE1L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_forInit_in_statement6065 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement6067 = new BitSet(new long[]{0x9020104468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_forCondition_in_statement6069 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement6071 = new BitSet(new long[]{0x9020084468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_forUpdater_in_statement6073 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_statement6075 = new BitSet(new long[]{0x9B60104468A01000L,0x00000000006FFDE7L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_statement_in_statement6077 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_localModifierList_in_statement6112 = new BitSet(new long[]{0x1020000000000000L,0x0000000000004060L,0x0000000000000020L});
-    public static final BitSet FOLLOW_type_in_statement6114 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_statement6116 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_statement6118 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_expression_in_statement6120 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_statement6122 = new BitSet(new long[]{0x9B60104468A01000L,0x00000000006FFDE7L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_statement_in_statement6124 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_WHILE_in_statement6239 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement6241 = new BitSet(new long[]{0x9B60104468A01000L,0x00000000006FFDE7L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_statement_in_statement6243 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DO_in_statement6292 = new BitSet(new long[]{0x9B60104468A01000L,0x00000000006FFDE7L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_statement_in_statement6294 = new BitSet(new long[]{0x0000000000000000L,0x0000000000400000L});
-    public static final BitSet FOLLOW_WHILE_in_statement6296 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement6298 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement6300 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SWITCH_in_statement6341 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_statement6343 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_LCURLY_in_statement6345 = new BitSet(new long[]{0x0480000000000000L});
-    public static final BitSet FOLLOW_switchBlockLabels_in_statement6347 = new BitSet(new long[]{0x0000040000000000L});
-    public static final BitSet FOLLOW_RCURLY_in_statement6349 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RETURN_in_statement6375 = new BitSet(new long[]{0x9020104468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_expression_in_statement6377 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement6380 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_BREAK_in_statement6444 = new BitSet(new long[]{0x0000100000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_statement6446 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement6449 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_CONTINUE_in_statement6519 = new BitSet(new long[]{0x0000100000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_statement6521 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement6524 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_statement6591 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_statement6593 = new BitSet(new long[]{0x9B60104468A01000L,0x00000000006FFDE7L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_statement_in_statement6595 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_statement6662 = new BitSet(new long[]{0x0000100000000000L});
-    public static final BitSet FOLLOW_SEMI_in_statement6664 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SEMI_in_statement6675 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_switchCaseLabels_in_switchBlockLabels6706 = new BitSet(new long[]{0x0480000000000000L});
-    public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels6708 = new BitSet(new long[]{0x0080000000000000L});
-    public static final BitSet FOLLOW_switchCaseLabels_in_switchBlockLabels6711 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_switchCaseLabels6756 = new BitSet(new long[]{0x0080000000000002L});
-    public static final BitSet FOLLOW_CASE_in_switchCaseLabel6784 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_expression_in_switchCaseLabel6787 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_switchCaseLabel6789 = new BitSet(new long[]{0x9B60104468A01002L,0x00000000006FFDE7L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel6792 = new BitSet(new long[]{0x9B60104468A01002L,0x00000000006FFDE7L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel6816 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_switchDefaultLabel6819 = new BitSet(new long[]{0x9B60104468A01002L,0x00000000006FFDE7L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel6822 = new BitSet(new long[]{0x9B60104468A01002L,0x00000000006FFDE7L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_localVariableDeclaration_in_forInit6846 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expressionList_in_forInit6868 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_forCondition6956 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expressionList_in_forUpdater6998 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_parenthesizedExpression7038 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_expression_in_parenthesizedExpression7040 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_parenthesizedExpression7042 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_expression_in_expressionList7083 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_COMMA_in_expressionList7086 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_expression_in_expressionList7089 = new BitSet(new long[]{0x0000000000000802L});
-    public static final BitSet FOLLOW_assignmentExpression_in_expression7110 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_conditionalExpression_in_assignmentExpression7146 = new BitSet(new long[]{0x001400A280004062L});
-    public static final BitSet FOLLOW_ASSIGN_in_assignmentExpression7165 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_PLUS_ASSIGN_in_assignmentExpression7184 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_MINUS_ASSIGN_in_assignmentExpression7203 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_STAR_ASSIGN_in_assignmentExpression7222 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_DIV_ASSIGN_in_assignmentExpression7241 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_AND_ASSIGN_in_assignmentExpression7260 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_OR_ASSIGN_in_assignmentExpression7279 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_XOR_ASSIGN_in_assignmentExpression7298 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_MOD_ASSIGN_in_assignmentExpression7317 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_assignmentExpression_in_assignmentExpression7339 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_logicalOrExpression_in_conditionalExpression7364 = new BitSet(new long[]{0x0000010000000002L});
-    public static final BitSet FOLLOW_QUESTION_in_conditionalExpression7367 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_assignmentExpression_in_conditionalExpression7370 = new BitSet(new long[]{0x0000000000000400L});
-    public static final BitSet FOLLOW_COLON_in_conditionalExpression7372 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_conditionalExpression_in_conditionalExpression7375 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_logicalAndExpression_in_logicalOrExpression7396 = new BitSet(new long[]{0x0000000010000002L});
-    public static final BitSet FOLLOW_LOGICAL_OR_in_logicalOrExpression7399 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_logicalAndExpression_in_logicalOrExpression7402 = new BitSet(new long[]{0x0000000010000002L});
-    public static final BitSet FOLLOW_inclusiveOrExpression_in_logicalAndExpression7423 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_LOGICAL_AND_in_logicalAndExpression7426 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_inclusiveOrExpression_in_logicalAndExpression7429 = new BitSet(new long[]{0x0000000004000002L});
-    public static final BitSet FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression7450 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_OR_in_inclusiveOrExpression7453 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression7456 = new BitSet(new long[]{0x0000001000000002L});
-    public static final BitSet FOLLOW_andExpression_in_exclusiveOrExpression7477 = new BitSet(new long[]{0x0008000000000002L});
-    public static final BitSet FOLLOW_XOR_in_exclusiveOrExpression7480 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_andExpression_in_exclusiveOrExpression7483 = new BitSet(new long[]{0x0008000000000002L});
-    public static final BitSet FOLLOW_equalityExpression_in_andExpression7504 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_AND_in_andExpression7507 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_equalityExpression_in_andExpression7510 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_instanceOfExpression_in_equalityExpression7531 = new BitSet(new long[]{0x0000000800040002L});
-    public static final BitSet FOLLOW_EQUAL_in_equalityExpression7550 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_NOT_EQUAL_in_equalityExpression7569 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_instanceOfExpression_in_equalityExpression7599 = new BitSet(new long[]{0x0000000800040002L});
-    public static final BitSet FOLLOW_relationalExpression_in_instanceOfExpression7629 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000008L});
-    public static final BitSet FOLLOW_INSTANCEOF_in_instanceOfExpression7632 = new BitSet(new long[]{0x1020000000000000L,0x0000000000004060L,0x0000000000000020L});
-    public static final BitSet FOLLOW_type_in_instanceOfExpression7635 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_shiftExpression_in_relationalExpression7656 = new BitSet(new long[]{0x0000000003180002L});
-    public static final BitSet FOLLOW_LESS_OR_EQUAL_in_relationalExpression7675 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_relationalExpression7694 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_LESS_THAN_in_relationalExpression7713 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_GREATER_THAN_in_relationalExpression7732 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_shiftExpression_in_relationalExpression7761 = new BitSet(new long[]{0x0000000003180002L});
-    public static final BitSet FOLLOW_additiveExpression_in_shiftExpression7795 = new BitSet(new long[]{0x0000A00000000102L});
-    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_shiftExpression7813 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_SHIFT_RIGHT_in_shiftExpression7832 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_SHIFT_LEFT_in_shiftExpression7851 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_additiveExpression_in_shiftExpression7880 = new BitSet(new long[]{0x0000A00000000102L});
-    public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression7910 = new BitSet(new long[]{0x0000004040000002L});
-    public static final BitSet FOLLOW_PLUS_in_additiveExpression7928 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_MINUS_in_additiveExpression7947 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression7976 = new BitSet(new long[]{0x0000004040000002L});
-    public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression8006 = new BitSet(new long[]{0x0002000100002002L});
-    public static final BitSet FOLLOW_STAR_in_multiplicativeExpression8025 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_DIV_in_multiplicativeExpression8044 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_MOD_in_multiplicativeExpression8063 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression8092 = new BitSet(new long[]{0x0002000100002002L});
-    public static final BitSet FOLLOW_PLUS_in_unaryExpression8126 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpression8128 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_MINUS_in_unaryExpression8155 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpression8157 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_INC_in_unaryExpression8183 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpression8185 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DEC_in_unaryExpression8209 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpression8211 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_unaryExpressionNotPlusMinus_in_unaryExpression8235 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NOT_in_unaryExpressionNotPlusMinus8254 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus8256 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LOGICAL_NOT_in_unaryExpressionNotPlusMinus8303 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus8305 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_unaryExpressionNotPlusMinus8344 = new BitSet(new long[]{0x1020000000000000L,0x0000000000004060L,0x0000000000000020L});
-    public static final BitSet FOLLOW_type_in_unaryExpressionNotPlusMinus8346 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_unaryExpressionNotPlusMinus8348 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus8350 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpressionNotPlusMinus8385 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primaryExpression_in_postfixedExpression8421 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_DOT_in_postfixedExpression8483 = new BitSet(new long[]{0x0000000000000000L,0x0000000000050080L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_postfixedExpression8533 = new BitSet(new long[]{0x0000000020609002L});
-    public static final BitSet FOLLOW_arguments_in_postfixedExpression8612 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_THIS_in_postfixedExpression8683 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_SUPER_in_postfixedExpression8746 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_postfixedExpression8748 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_SUPER_in_postfixedExpression8801 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_postfixedExpression8805 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_postfixedExpression8807 = new BitSet(new long[]{0x0000000020609002L});
-    public static final BitSet FOLLOW_arguments_in_postfixedExpression8874 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_innerNewExpression_in_postfixedExpression8945 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_LBRACK_in_postfixedExpression9002 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_expression_in_postfixedExpression9004 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_postfixedExpression9006 = new BitSet(new long[]{0x0000000000609002L});
-    public static final BitSet FOLLOW_INC_in_postfixedExpression9067 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DEC_in_postfixedExpression9091 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_parenthesizedExpression_in_primaryExpression9139 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_literal_in_primaryExpression9149 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_newExpression_in_primaryExpression9159 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedIdentExpression_in_primaryExpression9169 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression9183 = new BitSet(new long[]{0x0000000020008000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression9201 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression9259 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression9261 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression9263 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression9328 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression9330 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression9383 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression9385 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_primaryExpression9448 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression9516 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression9581 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression9583 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_primaryExpression9639 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression9641 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_primaryExpression9643 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_arguments_in_primaryExpression9667 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_primitiveType_in_primaryExpression9809 = new BitSet(new long[]{0x0000000000408000L});
-    public static final BitSet FOLLOW_arrayDeclarator_in_primaryExpression9868 = new BitSet(new long[]{0x0000000000408000L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression9931 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression9933 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_VOID_in_primaryExpression9993 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_primaryExpression9995 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_primaryExpression9997 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentExpression10077 = new BitSet(new long[]{0x0000000020408002L});
-    public static final BitSet FOLLOW_arrayDeclarator_in_qualifiedIdentExpression10147 = new BitSet(new long[]{0x0000000000408000L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression10215 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_qualifiedIdentExpression10217 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression10287 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression10348 = new BitSet(new long[]{0x0100000000000000L,0x0000000000050080L,0x0000000000000020L});
-    public static final BitSet FOLLOW_CLASS_in_qualifiedIdentExpression10366 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression10435 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression10437 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression10485 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression10489 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentExpression10491 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression10493 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentExpression10541 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression10543 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_qualifiedIdentExpression10616 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression10682 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression10684 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_innerNewExpression_in_qualifiedIdentExpression10732 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NEW_in_newExpression10808 = new BitSet(new long[]{0x1020000000000000L,0x0000000000004060L,0x0000000000000020L});
-    public static final BitSet FOLLOW_primitiveType_in_newExpression10824 = new BitSet(new long[]{0x0000000000400000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression10826 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedTypeIdentSimplified_in_newExpression10870 = new BitSet(new long[]{0x0000000020400000L});
-    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression10888 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arguments_in_newExpression10950 = new BitSet(new long[]{0x4000000000800002L});
-    public static final BitSet FOLLOW_classBody_in_newExpression10952 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_NEW_in_innerNewExpression11048 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_innerNewExpression11050 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_innerNewExpression11052 = new BitSet(new long[]{0x4000000000800002L});
-    public static final BitSet FOLLOW_classBody_in_innerNewExpression11054 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction11097 = new BitSet(new long[]{0x0000000000800000L});
-    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction11099 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACK_in_newArrayConstruction11109 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_expression_in_newArrayConstruction11112 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_newArrayConstruction11114 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_LBRACK_in_newArrayConstruction11118 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_expression_in_newArrayConstruction11121 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_newArrayConstruction11123 = new BitSet(new long[]{0x0000000000400002L});
-    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction11128 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_arguments11148 = new BitSet(new long[]{0x9020084468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_expressionList_in_arguments11150 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_arguments11153 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentList5414 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_qualifiedIdentList5417 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentList5420 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_LPAREN_in_formalParameterList5445 = new BitSet(new long[]{0x1020080000000000L,0x000000000001DC61L,0x0000000000000040L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList5473 = new BitSet(new long[]{0x0000080000000800L});
+    public static final BitSet FOLLOW_COMMA_in_formalParameterList5476 = new BitSet(new long[]{0x1020000000000000L,0x000000000001DC61L,0x0000000000000040L});
+    public static final BitSet FOLLOW_formalParameterStandardDecl_in_formalParameterList5478 = new BitSet(new long[]{0x0000080000000800L});
+    public static final BitSet FOLLOW_RPAREN_in_formalParameterList5558 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifierList_in_formalParameterStandardDecl5581 = new BitSet(new long[]{0x1020000000000000L,0x0000000000014060L,0x0000000000000040L});
+    public static final BitSet FOLLOW_type_in_formalParameterStandardDecl5583 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_variableDeclaratorId_in_formalParameterStandardDecl5585 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier5633 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentifier5676 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentifier5680 = new BitSet(new long[]{0x0000000000008002L});
+    public static final BitSet FOLLOW_LCURLY_in_block5729 = new BitSet(new long[]{0x9B60144468A01000L,0x0000000000DFFDE7L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_blockStatement_in_block5731 = new BitSet(new long[]{0x9B60144468A01000L,0x0000000000DFFDE7L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_RCURLY_in_block5734 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_blockStatement5772 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_blockStatement5774 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_typeDeclaration_in_blockStatement5785 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_statement_in_blockStatement5795 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifierList_in_localVariableDeclaration5818 = new BitSet(new long[]{0x1020000000000000L,0x0000000000014060L,0x0000000000000040L});
+    public static final BitSet FOLLOW_type_in_localVariableDeclaration5820 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_classFieldDeclaratorList_in_localVariableDeclaration5822 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_block_in_statement5875 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IF_in_statement5885 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement5887 = new BitSet(new long[]{0x9B60104468A01000L,0x0000000000DFFDE7L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_statement_in_statement5891 = new BitSet(new long[]{0x2000000000000002L});
+    public static final BitSet FOLLOW_ELSE_in_statement5906 = new BitSet(new long[]{0x9B60104468A01000L,0x0000000000DFFDE7L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_statement_in_statement5910 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_FOR_in_statement6076 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_LPAREN_in_statement6078 = new BitSet(new long[]{0x9020104468A01000L,0x00000000005BDDE1L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_forInit_in_statement6093 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement6095 = new BitSet(new long[]{0x9020104468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_forCondition_in_statement6097 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement6099 = new BitSet(new long[]{0x9020084468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_forUpdater_in_statement6101 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_statement6103 = new BitSet(new long[]{0x9B60104468A01000L,0x0000000000DFFDE7L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_statement_in_statement6105 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_localModifierList_in_statement6140 = new BitSet(new long[]{0x1020000000000000L,0x0000000000014060L,0x0000000000000040L});
+    public static final BitSet FOLLOW_type_in_statement6142 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_statement6144 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_statement6146 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_expression_in_statement6148 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_statement6150 = new BitSet(new long[]{0x9B60104468A01000L,0x0000000000DFFDE7L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_statement_in_statement6152 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_WHILE_in_statement6267 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement6269 = new BitSet(new long[]{0x9B60104468A01000L,0x0000000000DFFDE7L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_statement_in_statement6271 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DO_in_statement6320 = new BitSet(new long[]{0x9B60104468A01000L,0x0000000000DFFDE7L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_statement_in_statement6322 = new BitSet(new long[]{0x0000000000000000L,0x0000000000800000L});
+    public static final BitSet FOLLOW_WHILE_in_statement6324 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement6326 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement6328 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SWITCH_in_statement6369 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_statement6371 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_LCURLY_in_statement6373 = new BitSet(new long[]{0x0480000000000000L});
+    public static final BitSet FOLLOW_switchBlockLabels_in_statement6375 = new BitSet(new long[]{0x0000040000000000L});
+    public static final BitSet FOLLOW_RCURLY_in_statement6377 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RETURN_in_statement6403 = new BitSet(new long[]{0x9020104468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_expression_in_statement6405 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement6408 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_BREAK_in_statement6472 = new BitSet(new long[]{0x0000100000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_statement6474 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement6477 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_CONTINUE_in_statement6547 = new BitSet(new long[]{0x0000100000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_statement6549 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement6552 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_statement6619 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_statement6621 = new BitSet(new long[]{0x9B60104468A01000L,0x0000000000DFFDE7L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_statement_in_statement6623 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_statement6690 = new BitSet(new long[]{0x0000100000000000L});
+    public static final BitSet FOLLOW_SEMI_in_statement6692 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SEMI_in_statement6703 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_switchCaseLabels_in_switchBlockLabels6734 = new BitSet(new long[]{0x0480000000000000L});
+    public static final BitSet FOLLOW_switchDefaultLabel_in_switchBlockLabels6736 = new BitSet(new long[]{0x0080000000000000L});
+    public static final BitSet FOLLOW_switchCaseLabels_in_switchBlockLabels6739 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_switchCaseLabels6784 = new BitSet(new long[]{0x0080000000000002L});
+    public static final BitSet FOLLOW_CASE_in_switchCaseLabel6812 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_expression_in_switchCaseLabel6815 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_switchCaseLabel6817 = new BitSet(new long[]{0x9B60104468A01002L,0x0000000000DFFDE7L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_blockStatement_in_switchCaseLabel6820 = new BitSet(new long[]{0x9B60104468A01002L,0x0000000000DFFDE7L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_DEFAULT_in_switchDefaultLabel6844 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_switchDefaultLabel6847 = new BitSet(new long[]{0x9B60104468A01002L,0x0000000000DFFDE7L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_blockStatement_in_switchDefaultLabel6850 = new BitSet(new long[]{0x9B60104468A01002L,0x0000000000DFFDE7L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_localVariableDeclaration_in_forInit6874 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expressionList_in_forInit6896 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_forCondition6984 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expressionList_in_forUpdater7026 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_parenthesizedExpression7066 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_expression_in_parenthesizedExpression7068 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_parenthesizedExpression7070 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_expression_in_expressionList7111 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_COMMA_in_expressionList7114 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_expression_in_expressionList7117 = new BitSet(new long[]{0x0000000000000802L});
+    public static final BitSet FOLLOW_assignmentExpression_in_expression7138 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_conditionalExpression_in_assignmentExpression7174 = new BitSet(new long[]{0x001400A280004062L});
+    public static final BitSet FOLLOW_ASSIGN_in_assignmentExpression7193 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_PLUS_ASSIGN_in_assignmentExpression7212 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_MINUS_ASSIGN_in_assignmentExpression7231 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_STAR_ASSIGN_in_assignmentExpression7250 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_DIV_ASSIGN_in_assignmentExpression7269 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_AND_ASSIGN_in_assignmentExpression7288 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_OR_ASSIGN_in_assignmentExpression7307 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_XOR_ASSIGN_in_assignmentExpression7326 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_MOD_ASSIGN_in_assignmentExpression7345 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_assignmentExpression_in_assignmentExpression7367 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_logicalOrExpression_in_conditionalExpression7392 = new BitSet(new long[]{0x0000010000000002L});
+    public static final BitSet FOLLOW_QUESTION_in_conditionalExpression7395 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_assignmentExpression_in_conditionalExpression7398 = new BitSet(new long[]{0x0000000000000400L});
+    public static final BitSet FOLLOW_COLON_in_conditionalExpression7400 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_conditionalExpression_in_conditionalExpression7403 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_logicalAndExpression_in_logicalOrExpression7424 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_LOGICAL_OR_in_logicalOrExpression7427 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_logicalAndExpression_in_logicalOrExpression7430 = new BitSet(new long[]{0x0000000010000002L});
+    public static final BitSet FOLLOW_inclusiveOrExpression_in_logicalAndExpression7451 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_LOGICAL_AND_in_logicalAndExpression7454 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_inclusiveOrExpression_in_logicalAndExpression7457 = new BitSet(new long[]{0x0000000004000002L});
+    public static final BitSet FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression7478 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_OR_in_inclusiveOrExpression7481 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_exclusiveOrExpression_in_inclusiveOrExpression7484 = new BitSet(new long[]{0x0000001000000002L});
+    public static final BitSet FOLLOW_andExpression_in_exclusiveOrExpression7505 = new BitSet(new long[]{0x0008000000000002L});
+    public static final BitSet FOLLOW_XOR_in_exclusiveOrExpression7508 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_andExpression_in_exclusiveOrExpression7511 = new BitSet(new long[]{0x0008000000000002L});
+    public static final BitSet FOLLOW_equalityExpression_in_andExpression7532 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_AND_in_andExpression7535 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_equalityExpression_in_andExpression7538 = new BitSet(new long[]{0x0000000000000012L});
+    public static final BitSet FOLLOW_instanceOfExpression_in_equalityExpression7559 = new BitSet(new long[]{0x0000000800040002L});
+    public static final BitSet FOLLOW_EQUAL_in_equalityExpression7578 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_NOT_EQUAL_in_equalityExpression7597 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_instanceOfExpression_in_equalityExpression7627 = new BitSet(new long[]{0x0000000800040002L});
+    public static final BitSet FOLLOW_relationalExpression_in_instanceOfExpression7657 = new BitSet(new long[]{0x0000000000000002L,0x0000000000000008L});
+    public static final BitSet FOLLOW_INSTANCEOF_in_instanceOfExpression7660 = new BitSet(new long[]{0x1020000000000000L,0x0000000000014060L,0x0000000000000040L});
+    public static final BitSet FOLLOW_type_in_instanceOfExpression7663 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_shiftExpression_in_relationalExpression7684 = new BitSet(new long[]{0x0000000003180002L});
+    public static final BitSet FOLLOW_LESS_OR_EQUAL_in_relationalExpression7703 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_GREATER_OR_EQUAL_in_relationalExpression7722 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_LESS_THAN_in_relationalExpression7741 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_GREATER_THAN_in_relationalExpression7760 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_shiftExpression_in_relationalExpression7789 = new BitSet(new long[]{0x0000000003180002L});
+    public static final BitSet FOLLOW_additiveExpression_in_shiftExpression7823 = new BitSet(new long[]{0x0000A00000000102L});
+    public static final BitSet FOLLOW_BIT_SHIFT_RIGHT_in_shiftExpression7841 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_SHIFT_RIGHT_in_shiftExpression7860 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_SHIFT_LEFT_in_shiftExpression7879 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_additiveExpression_in_shiftExpression7908 = new BitSet(new long[]{0x0000A00000000102L});
+    public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression7938 = new BitSet(new long[]{0x0000004040000002L});
+    public static final BitSet FOLLOW_PLUS_in_additiveExpression7956 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_MINUS_in_additiveExpression7975 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_multiplicativeExpression_in_additiveExpression8004 = new BitSet(new long[]{0x0000004040000002L});
+    public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression8034 = new BitSet(new long[]{0x0002000100002002L});
+    public static final BitSet FOLLOW_STAR_in_multiplicativeExpression8053 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_DIV_in_multiplicativeExpression8072 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_MOD_in_multiplicativeExpression8091 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_unaryExpression_in_multiplicativeExpression8120 = new BitSet(new long[]{0x0002000100002002L});
+    public static final BitSet FOLLOW_PLUS_in_unaryExpression8154 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpression8156 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_MINUS_in_unaryExpression8183 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpression8185 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_INC_in_unaryExpression8211 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpression8213 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DEC_in_unaryExpression8237 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpression8239 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_unaryExpressionNotPlusMinus_in_unaryExpression8263 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NOT_in_unaryExpressionNotPlusMinus8282 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus8284 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LOGICAL_NOT_in_unaryExpressionNotPlusMinus8331 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus8333 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_unaryExpressionNotPlusMinus8372 = new BitSet(new long[]{0x1020000000000000L,0x0000000000014060L,0x0000000000000040L});
+    public static final BitSet FOLLOW_type_in_unaryExpressionNotPlusMinus8374 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_unaryExpressionNotPlusMinus8376 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_unaryExpression_in_unaryExpressionNotPlusMinus8378 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_postfixedExpression_in_unaryExpressionNotPlusMinus8413 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primaryExpression_in_postfixedExpression8449 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_DOT_in_postfixedExpression8511 = new BitSet(new long[]{0x0000000000000000L,0x00000000000A0080L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_postfixedExpression8561 = new BitSet(new long[]{0x0000000020609002L});
+    public static final BitSet FOLLOW_arguments_in_postfixedExpression8640 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_THIS_in_postfixedExpression8711 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_SUPER_in_postfixedExpression8774 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_postfixedExpression8776 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_SUPER_in_postfixedExpression8829 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_postfixedExpression8833 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_postfixedExpression8835 = new BitSet(new long[]{0x0000000020609002L});
+    public static final BitSet FOLLOW_arguments_in_postfixedExpression8902 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_innerNewExpression_in_postfixedExpression8973 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_LBRACK_in_postfixedExpression9030 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_expression_in_postfixedExpression9032 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_postfixedExpression9034 = new BitSet(new long[]{0x0000000000609002L});
+    public static final BitSet FOLLOW_INC_in_postfixedExpression9095 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DEC_in_postfixedExpression9119 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_parenthesizedExpression_in_primaryExpression9167 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_literal_in_primaryExpression9177 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_newExpression_in_primaryExpression9187 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedIdentExpression_in_primaryExpression9197 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression9211 = new BitSet(new long[]{0x0000000020008000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression9229 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression9287 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression9289 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression9291 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression9356 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression9358 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression9411 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression9413 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_primaryExpression9476 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression9544 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression9609 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression9611 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_primaryExpression9667 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression9669 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_primaryExpression9671 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_arguments_in_primaryExpression9695 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_primitiveType_in_primaryExpression9837 = new BitSet(new long[]{0x0000000000408000L});
+    public static final BitSet FOLLOW_arrayDeclarator_in_primaryExpression9896 = new BitSet(new long[]{0x0000000000408000L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression9959 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression9961 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_VOID_in_primaryExpression10021 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_primaryExpression10023 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_primaryExpression10025 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedIdentifier_in_qualifiedIdentExpression10105 = new BitSet(new long[]{0x0000000020408002L});
+    public static final BitSet FOLLOW_arrayDeclarator_in_qualifiedIdentExpression10175 = new BitSet(new long[]{0x0000000000408000L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression10243 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_qualifiedIdentExpression10245 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression10315 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression10376 = new BitSet(new long[]{0x0100000000000000L,0x00000000000A0080L,0x0000000000000040L});
+    public static final BitSet FOLLOW_CLASS_in_qualifiedIdentExpression10394 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression10463 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression10465 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression10513 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_qualifiedIdentExpression10517 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentExpression10519 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression10521 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_qualifiedIdentExpression10569 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression10571 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_qualifiedIdentExpression10644 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_qualifiedIdentExpression10710 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_qualifiedIdentExpression10712 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_innerNewExpression_in_qualifiedIdentExpression10760 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NEW_in_newExpression10836 = new BitSet(new long[]{0x1020000000000000L,0x0000000000014060L,0x0000000000000040L});
+    public static final BitSet FOLLOW_primitiveType_in_newExpression10852 = new BitSet(new long[]{0x0000000000400000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression10854 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedTypeIdentSimplified_in_newExpression10898 = new BitSet(new long[]{0x0000000020400000L});
+    public static final BitSet FOLLOW_newArrayConstruction_in_newExpression10916 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arguments_in_newExpression10978 = new BitSet(new long[]{0x4000000000800002L});
+    public static final BitSet FOLLOW_classBody_in_newExpression10980 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_NEW_in_innerNewExpression11076 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_innerNewExpression11078 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_innerNewExpression11080 = new BitSet(new long[]{0x4000000000800002L});
+    public static final BitSet FOLLOW_classBody_in_innerNewExpression11082 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction11125 = new BitSet(new long[]{0x0000000000800000L});
+    public static final BitSet FOLLOW_arrayInitializer_in_newArrayConstruction11127 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACK_in_newArrayConstruction11137 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_expression_in_newArrayConstruction11140 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_newArrayConstruction11142 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_LBRACK_in_newArrayConstruction11146 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_expression_in_newArrayConstruction11149 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_newArrayConstruction11151 = new BitSet(new long[]{0x0000000000400002L});
+    public static final BitSet FOLLOW_arrayDeclaratorList_in_newArrayConstruction11156 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_arguments11176 = new BitSet(new long[]{0x9020084468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_expressionList_in_arguments11178 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_arguments11181 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_set_in_literal0 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_synpred48_LeMaVM5648 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_synpred48_LeMaVM5652 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ELSE_in_synpred53_LeMaVM5878 = new BitSet(new long[]{0x9B60104468A01000L,0x00000000006FFDE7L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_statement_in_synpred53_LeMaVM5882 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_switchCaseLabel_in_synpred69_LeMaVM6756 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LPAREN_in_synpred113_LeMaVM8344 = new BitSet(new long[]{0x1020000000000000L,0x0000000000004060L,0x0000000000000020L});
-    public static final BitSet FOLLOW_type_in_synpred113_LeMaVM8346 = new BitSet(new long[]{0x0000080000000000L});
-    public static final BitSet FOLLOW_RPAREN_in_synpred113_LeMaVM8348 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_unaryExpression_in_synpred113_LeMaVM8350 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_qualifiedIdentExpression_in_synpred127_LeMaVM9169 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_synpred131_LeMaVM9183 = new BitSet(new long[]{0x0000000020008000L});
-    public static final BitSet FOLLOW_arguments_in_synpred131_LeMaVM9201 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_synpred131_LeMaVM9259 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_synpred131_LeMaVM9261 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred131_LeMaVM9263 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_synpred131_LeMaVM9328 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred131_LeMaVM9330 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_synpred131_LeMaVM9383 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred131_LeMaVM9385 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_synpred133_LeMaVM9448 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_arguments_in_synpred133_LeMaVM9516 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_synpred134_LeMaVM9581 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred134_LeMaVM9583 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_synpred136_LeMaVM9639 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_synpred136_LeMaVM9641 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_synpred136_LeMaVM9643 = new BitSet(new long[]{0x0000000020000002L});
-    public static final BitSet FOLLOW_arguments_in_synpred136_LeMaVM9667 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_arrayDeclarator_in_synpred140_LeMaVM10147 = new BitSet(new long[]{0x0000000000408000L});
-    public static final BitSet FOLLOW_DOT_in_synpred140_LeMaVM10215 = new BitSet(new long[]{0x0100000000000000L});
-    public static final BitSet FOLLOW_CLASS_in_synpred140_LeMaVM10217 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_synpred145_LeMaVM10435 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred145_LeMaVM10437 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_synpred145_LeMaVM10485 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_synpred145_LeMaVM10489 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_synpred145_LeMaVM10491 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred145_LeMaVM10493 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_synpred145_LeMaVM10541 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred145_LeMaVM10543 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_synpred147_LeMaVM10682 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred147_LeMaVM10684 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_DOT_in_synpred148_LeMaVM10348 = new BitSet(new long[]{0x0100000000000000L,0x0000000000050080L,0x0000000000000020L});
-    public static final BitSet FOLLOW_CLASS_in_synpred148_LeMaVM10366 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_synpred148_LeMaVM10435 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred148_LeMaVM10437 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_synpred148_LeMaVM10485 = new BitSet(new long[]{0x0000000000008000L});
-    public static final BitSet FOLLOW_DOT_in_synpred148_LeMaVM10489 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000020L});
-    public static final BitSet FOLLOW_IDENT_in_synpred148_LeMaVM10491 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred148_LeMaVM10493 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_IDENT_in_synpred148_LeMaVM10541 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred148_LeMaVM10543 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_THIS_in_synpred148_LeMaVM10616 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_SUPER_in_synpred148_LeMaVM10682 = new BitSet(new long[]{0x0000000020000000L});
-    public static final BitSet FOLLOW_arguments_in_synpred148_LeMaVM10684 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_innerNewExpression_in_synpred148_LeMaVM10732 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_LBRACK_in_synpred154_LeMaVM11118 = new BitSet(new long[]{0x9020004468A01000L,0x00000000002D41E0L,0x0000000000000FE0L});
-    public static final BitSet FOLLOW_expression_in_synpred154_LeMaVM11121 = new BitSet(new long[]{0x0000020000000000L});
-    public static final BitSet FOLLOW_RBRACK_in_synpred154_LeMaVM11123 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_synpred49_LeMaVM5676 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_synpred49_LeMaVM5680 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ELSE_in_synpred54_LeMaVM5906 = new BitSet(new long[]{0x9B60104468A01000L,0x0000000000DFFDE7L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_statement_in_synpred54_LeMaVM5910 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_switchCaseLabel_in_synpred70_LeMaVM6784 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LPAREN_in_synpred114_LeMaVM8372 = new BitSet(new long[]{0x1020000000000000L,0x0000000000014060L,0x0000000000000040L});
+    public static final BitSet FOLLOW_type_in_synpred114_LeMaVM8374 = new BitSet(new long[]{0x0000080000000000L});
+    public static final BitSet FOLLOW_RPAREN_in_synpred114_LeMaVM8376 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_unaryExpression_in_synpred114_LeMaVM8378 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_qualifiedIdentExpression_in_synpred128_LeMaVM9197 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_synpred132_LeMaVM9211 = new BitSet(new long[]{0x0000000020008000L});
+    public static final BitSet FOLLOW_arguments_in_synpred132_LeMaVM9229 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_synpred132_LeMaVM9287 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_synpred132_LeMaVM9289 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred132_LeMaVM9291 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_synpred132_LeMaVM9356 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred132_LeMaVM9358 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_synpred132_LeMaVM9411 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred132_LeMaVM9413 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_synpred134_LeMaVM9476 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_arguments_in_synpred134_LeMaVM9544 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_synpred135_LeMaVM9609 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred135_LeMaVM9611 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_synpred137_LeMaVM9667 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_synpred137_LeMaVM9669 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_synpred137_LeMaVM9671 = new BitSet(new long[]{0x0000000020000002L});
+    public static final BitSet FOLLOW_arguments_in_synpred137_LeMaVM9695 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_arrayDeclarator_in_synpred141_LeMaVM10175 = new BitSet(new long[]{0x0000000000408000L});
+    public static final BitSet FOLLOW_DOT_in_synpred141_LeMaVM10243 = new BitSet(new long[]{0x0100000000000000L});
+    public static final BitSet FOLLOW_CLASS_in_synpred141_LeMaVM10245 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_synpred146_LeMaVM10463 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred146_LeMaVM10465 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_synpred146_LeMaVM10513 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_synpred146_LeMaVM10517 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_synpred146_LeMaVM10519 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred146_LeMaVM10521 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_synpred146_LeMaVM10569 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred146_LeMaVM10571 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_synpred148_LeMaVM10710 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred148_LeMaVM10712 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_DOT_in_synpred149_LeMaVM10376 = new BitSet(new long[]{0x0100000000000000L,0x00000000000A0080L,0x0000000000000040L});
+    public static final BitSet FOLLOW_CLASS_in_synpred149_LeMaVM10394 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_synpred149_LeMaVM10463 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred149_LeMaVM10465 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_synpred149_LeMaVM10513 = new BitSet(new long[]{0x0000000000008000L});
+    public static final BitSet FOLLOW_DOT_in_synpred149_LeMaVM10517 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000000L,0x0000000000000040L});
+    public static final BitSet FOLLOW_IDENT_in_synpred149_LeMaVM10519 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred149_LeMaVM10521 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_IDENT_in_synpred149_LeMaVM10569 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred149_LeMaVM10571 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_THIS_in_synpred149_LeMaVM10644 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_SUPER_in_synpred149_LeMaVM10710 = new BitSet(new long[]{0x0000000020000000L});
+    public static final BitSet FOLLOW_arguments_in_synpred149_LeMaVM10712 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_innerNewExpression_in_synpred149_LeMaVM10760 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_LBRACK_in_synpred155_LeMaVM11146 = new BitSet(new long[]{0x9020004468A01000L,0x00000000005B41E0L,0x0000000000001FC0L});
+    public static final BitSet FOLLOW_expression_in_synpred155_LeMaVM11149 = new BitSet(new long[]{0x0000020000000000L});
+    public static final BitSet FOLLOW_RBRACK_in_synpred155_LeMaVM11151 = new BitSet(new long[]{0x0000000000000002L});
 
 }

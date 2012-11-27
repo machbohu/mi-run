@@ -146,6 +146,7 @@ tokens {
     RETURN                  = 'return'          ;
     SHORT                   = 'short'           ;
     STATIC                  = 'static'          ;
+    STRING					= 'string'			;
     SUPER                   = 'super'           ;
     SWITCH                  = 'switch'          ;
     THIS                    = 'this'            ;
@@ -462,6 +463,7 @@ primitiveType
     |   INT
     |   LONG
     |   DOUBLE
+    |   STRING
     ;
 
 qualifiedIdentList

@@ -10,5 +10,19 @@ package cz.cvut.fit.mirun.lemavm.structures;
  * 
  */
 public enum ObjectType {
-	META_CLASS, OBJECT, METHOD, SHORT, INTEGER, LONG, DOUBLE, STRING, BOOLEAN, OPERATOR, IF_ELSE, FOR, WHILE, CODE_BLOCK, NULL
+	META_CLASS("meta_class"), OBJECT("object"), METHOD("method"), SHORT("short"), INTEGER(
+			"int"), LONG("long"), DOUBLE("double"), STRING("string"), BOOLEAN(
+			"boolean"), OPERATOR("operator"), IF_ELSE("if-else"), FOR("for"), WHILE(
+			"while"), CODE_BLOCK("code"), NULL("null");
+
+	private final String name;
+
+	private ObjectType(String name) {
+		this.name = name;
+	}
+
+	@Override
+	public String toString() {
+		return name;
+	}
 }

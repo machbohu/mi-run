@@ -1,4 +1,4 @@
-package cz.cvut.fit.mirun.lemvm.tests.operators;
+package cz.cvut.fit.mirun.lemavm.tests.operators;
 
 import static org.junit.Assert.*;
 
