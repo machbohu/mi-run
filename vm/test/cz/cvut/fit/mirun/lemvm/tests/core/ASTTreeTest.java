@@ -5,6 +5,8 @@ import org.antlr.runtime.CharStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenRewriteStream;
 import org.antlr.runtime.tree.CommonTree;
+import org.antlr.runtime.tree.DOTTreeGenerator;
+import org.antlr.stringtemplate.StringTemplate;
 import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMLexer;
@@ -31,48 +33,55 @@ public class ASTTreeTest {
 	@Test
 	public void test() {
 		CharStream chs = new ANTLRStringStream(
-			"class Test {\n" +
-			"    int b = 5 + 6 + 6; \n" +
-			"    class Inside {\n" +
+//			"public static int a = 5;\n" +
+			"public class Test {\n" +
+			"    int b = 5 + 6 * 6 + 2; \n" +
+			"    int testMethod(int a) {\n" +
+			"        if(a == 0){\n" +
+			"            a = 1;\n" +
+			"        }\n" +
+			"        return a;\n" +
+			"    }\n" +
+			"    public int testMethod2(int a, int b) {\n" +
+			"        int c = a + b;\n" +
+			"        testMethod(a);\n" +
+			"        b = testMethod(a);\n" +
+			"        return c;\n" +
+			"    }\n" +
+			"    int a = 5 + 6 * 6 + 2; \n" +
+			"    public class Inside{\n" +
+			"        private int insideMethod(int a, int b) {\n" +
+			"            int c = a + b;\n" +
+			"            return c;\n" +
+			"        }\n" +
+			"    }\n" +
+			"}\n" +
+			"\n" +
+			"public class Main {\n" +
+			"\n" +
+			"    public void main() {\n" +
+			"        int a = 5, b = 2;\n" +
+			"        Test t = new Test();\n" +
+			"        t.testMethod(a, b);\n" +
+			"        return 0;\n" +
 			"    }\n" +
 			"}"
 		);
 		LeMaVMLexer lexer = new LeMaVMLexer(chs);
 		TokenRewriteStream tokens = new TokenRewriteStream(lexer);
 		LeMaVMParser parser = new LeMaVMParser(tokens);
+		parser.enableErrorMessageCollection(true);
+		
         try {
 			CommonTree tree = (CommonTree)parser.javaSource().getTree();
-			printTree(tree, 0);
+//			System.out.println(parser.getMessages().toString()); // print errors
+//			printTree(tree, 0);
+	        DOTTreeGenerator gen = new DOTTreeGenerator();
+	        StringTemplate st = gen.toDOT(tree);
+	        System.out.println(st);
 		} catch (RecognitionException e) {
 			e.printStackTrace();
 		}
-		
-//		LeMaVMLexer lex = new LeMaVMLexer(chs);
-//		TokenRewriteStream tokens = new TokenRewriteStream(lex);
-//		CommonTokenStream tokens = new CommonTokenStream();
-//		tokens.setTokenSource(lex);
-//		LeMaVMParser grammar = new LeMaVMParser(tokens);
-//		
-//		
-//		
-//		final TreeAdaptor adaptor = new CommonTreeAdaptor() {
-//			public Object create(Token payload) {
-//				return new CommonTree(payload);
-//			}
-//		};
-//		
-//		try{
-//			grammar.setTreeAdaptor(adaptor);
-//			LeMaVMParser.compilationUnit_return ret = grammar.compilationUnit();
-//			CommonTree tree = (CommonTree)ret.getTree();
-//			
-//			CommonTreeNodeStream nodes = new CommonTreeNodeStream((Tree)ret.getTree());
-//			
-//			System.out.println(tree.getChildCount());
-//			printTree(tree, 0);
-//		} catch (RecognitionException e) {
-//			e.printStackTrace();
-//		}
 	}
 
 }
