@@ -1,4 +1,4 @@
-package cz.cvut.fit.mirun.lemavm.core;
+package cz.cvut.fit.mirun.lemavm.exceptions;
 
 public class VMDivisionByZeroException extends VMEvaluationException {
 

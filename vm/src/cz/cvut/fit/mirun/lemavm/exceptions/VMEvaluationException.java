@@ -1,4 +1,4 @@
-package cz.cvut.fit.mirun.lemavm.core;
+package cz.cvut.fit.mirun.lemavm.exceptions;
 
 /**
  * This exception is thrown when an exception occurs during AST evaluation.

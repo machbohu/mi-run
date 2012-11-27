@@ -7,7 +7,7 @@ import static org.junit.Assert.fail;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import cz.cvut.fit.mirun.lemavm.core.VMNullPointerException;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMNullPointerException;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMUnaryMinus;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMDouble;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMInteger;

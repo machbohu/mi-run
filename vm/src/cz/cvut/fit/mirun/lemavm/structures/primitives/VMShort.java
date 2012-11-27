@@ -1,6 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.structures.primitives;
 
-import cz.cvut.fit.mirun.lemavm.core.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 
 public final class VMShort extends VMNumber {

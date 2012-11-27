@@ -1,7 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures.control;
 
-import cz.cvut.fit.mirun.lemavm.core.VMEvaluationException;
-import cz.cvut.fit.mirun.lemavm.core.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;

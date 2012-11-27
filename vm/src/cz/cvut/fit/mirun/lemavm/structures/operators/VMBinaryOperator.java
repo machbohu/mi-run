@@ -1,6 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators;
 
-import cz.cvut.fit.mirun.lemavm.core.VMNullPointerException;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMNullPointerException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 
 public abstract class VMBinaryOperator extends VMOperator {

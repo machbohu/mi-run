@@ -1,8 +1,8 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators;
 
-import cz.cvut.fit.mirun.lemavm.core.VMDivisionByZeroException;
-import cz.cvut.fit.mirun.lemavm.core.VMEvaluationException;
-import cz.cvut.fit.mirun.lemavm.core.VMNullPointerException;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMDivisionByZeroException;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMNullPointerException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMDouble;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMInteger;

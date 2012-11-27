@@ -8,7 +8,7 @@ import static org.junit.Assert.fail;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import cz.cvut.fit.mirun.lemavm.core.VMDivisionByZeroException;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMDivisionByZeroException;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMBinaryDivision;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMBinaryModulo;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMBinaryMultiplication;
