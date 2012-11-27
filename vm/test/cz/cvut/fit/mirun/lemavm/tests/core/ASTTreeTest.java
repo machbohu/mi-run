@@ -1,4 +1,4 @@
-package cz.cvut.fit.mirun.lemvm.tests.core;
+package cz.cvut.fit.mirun.lemavm.tests.core;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;

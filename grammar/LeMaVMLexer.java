@@ -1,4 +1,4 @@
-// $ANTLR 3.2 Sep 23, 2009 12:02:23 LeMaVM.g 2012-11-27 16:40:11
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 LeMaVM.g 2012-11-27 18:53:50
 
 package cz.cvut.fit.mirun.lemavm.antlr;
 
@@ -10,80 +10,80 @@ import java.util.ArrayList;
 
 public class LeMaVMLexer extends Lexer {
     public static final int PACKAGE=73;
-    public static final int EXPONENT=142;
+    public static final int EXPONENT=143;
     public static final int STAR=49;
-    public static final int WHILE=86;
+    public static final int WHILE=87;
     public static final int MOD=32;
     public static final int MOD_ASSIGN=33;
     public static final int CASE=55;
     public static final int NEW=71;
     public static final int DO=59;
-    public static final int CLASS_INSTANCE_INITIALIZER=96;
-    public static final int ARRAY_ELEMENT_ACCESS=90;
-    public static final int FOR_CONDITION=104;
+    public static final int CLASS_INSTANCE_INITIALIZER=97;
+    public static final int ARRAY_ELEMENT_ACCESS=91;
+    public static final int FOR_CONDITION=105;
     public static final int NOT=34;
-    public static final int VAR_DECLARATION=129;
+    public static final int VAR_DECLARATION=130;
     public static final int EOF=-1;
     public static final int DIV_ASSIGN=14;
     public static final int BREAK=54;
     public static final int LOGICAL_AND=26;
     public static final int BIT_SHIFT_RIGHT_ASSIGN=9;
-    public static final int UNARY_PLUS=128;
-    public static final int TYPE=126;
+    public static final int UNARY_PLUS=129;
+    public static final int TYPE=127;
     public static final int FINAL=64;
     public static final int INC=21;
     public static final int RPAREN=43;
     public static final int IMPORT=68;
-    public static final int STRING_LITERAL=139;
-    public static final int FOR_UPDATE=107;
-    public static final int FLOATING_POINT_LITERAL=137;
-    public static final int CAST_EXPR=93;
+    public static final int STRING_LITERAL=140;
+    public static final int FOR_UPDATE=108;
+    public static final int FLOATING_POINT_LITERAL=138;
+    public static final int CAST_EXPR=94;
     public static final int NOT_EQUAL=35;
-    public static final int VOID_METHOD_DECL=132;
-    public static final int THIS=82;
+    public static final int VOID_METHOD_DECL=133;
+    public static final int THIS=83;
     public static final int RETURN=77;
     public static final int DOUBLE=60;
-    public static final int VOID=85;
-    public static final int ENUM_TOP_LEVEL_SCOPE=100;
-    public static final int SUPER=80;
-    public static final int COMMENT=150;
-    public static final int FLOAT_TYPE_SUFFIX=143;
-    public static final int JAVA_ID_START=147;
-    public static final int PRE_DEC=119;
+    public static final int VOID=86;
+    public static final int ENUM_TOP_LEVEL_SCOPE=101;
+    public static final int SUPER=81;
+    public static final int COMMENT=151;
+    public static final int FLOAT_TYPE_SUFFIX=144;
+    public static final int JAVA_ID_START=148;
+    public static final int PRE_DEC=120;
     public static final int RBRACK=41;
-    public static final int SWITCH_BLOCK_LABEL_LIST=124;
-    public static final int LINE_COMMENT=151;
+    public static final int SWITCH_BLOCK_LABEL_LIST=125;
+    public static final int LINE_COMMENT=152;
     public static final int PRIVATE=74;
     public static final int STATIC=79;
-    public static final int BLOCK_SCOPE=92;
-    public static final int SWITCH=81;
+    public static final int BLOCK_SCOPE=93;
+    public static final int SWITCH=82;
     public static final int NULL=72;
-    public static final int VAR_DECLARATOR=130;
+    public static final int VAR_DECLARATOR=131;
     public static final int MINUS_ASSIGN=31;
     public static final int ELSE=61;
-    public static final int CHARACTER_LITERAL=138;
-    public static final int PRE_INC=120;
+    public static final int CHARACTER_LITERAL=139;
+    public static final int PRE_INC=121;
     public static final int ELLIPSIS=17;
-    public static final int OCTAL_ESCAPE=146;
-    public static final int UNARY_MINUS=127;
+    public static final int OCTAL_ESCAPE=147;
+    public static final int UNARY_MINUS=128;
     public static final int LCURLY=23;
     public static final int INT=69;
-    public static final int METHOD_CALL=114;
-    public static final int TRY=84;
+    public static final int METHOD_CALL=115;
+    public static final int TRY=85;
     public static final int SHIFT_LEFT=45;
-    public static final int WS=149;
+    public static final int WS=150;
     public static final int SHIFT_RIGHT=47;
-    public static final int FORMAL_PARAM_STD_DECL=109;
-    public static final int LOCAL_MODIFIER_LIST=112;
+    public static final int FORMAL_PARAM_STD_DECL=110;
+    public static final int LOCAL_MODIFIER_LIST=113;
     public static final int OR=36;
     public static final int LESS_THAN=25;
     public static final int SHIFT_RIGHT_ASSIGN=48;
-    public static final int EXTENDS_BOUND_LIST=102;
-    public static final int JAVA_SOURCE=113;
+    public static final int EXTENDS_BOUND_LIST=103;
+    public static final int JAVA_SOURCE=114;
     public static final int FALSE=63;
-    public static final int INTEGER_TYPE_SUFFIX=141;
-    public static final int DECIMAL_LITERAL=136;
-    public static final int FOR_INIT=106;
+    public static final int INTEGER_TYPE_SUFFIX=142;
+    public static final int DECIMAL_LITERAL=137;
+    public static final int FOR_INIT=107;
     public static final int DEC=12;
     public static final int PROTECTED=75;
     public static final int CLASS=56;
@@ -91,73 +91,74 @@ public class LeMaVMLexer extends Lexer {
     public static final int BIT_SHIFT_RIGHT=8;
     public static final int GREATER_OR_EQUAL=19;
     public static final int FOR=65;
-    public static final int THIS_CONSTRUCTOR_CALL=125;
+    public static final int THIS_CONSTRUCTOR_CALL=126;
     public static final int LOGICAL_NOT=27;
     public static final int AND=4;
-    public static final int POST_DEC=117;
+    public static final int POST_DEC=118;
     public static final int AND_ASSIGN=5;
-    public static final int STATIC_ARRAY_CREATOR=122;
-    public static final int MODIFIER_LIST=115;
+    public static final int STATIC_ARRAY_CREATOR=123;
+    public static final int MODIFIER_LIST=116;
     public static final int LPAREN=29;
     public static final int IF=66;
     public static final int AT=7;
-    public static final int CONSTRUCTOR_DECL=99;
-    public static final int ESCAPE_SEQUENCE=144;
-    public static final int LABELED_STATEMENT=111;
-    public static final int UNICODE_ESCAPE=145;
+    public static final int CONSTRUCTOR_DECL=100;
+    public static final int ESCAPE_SEQUENCE=145;
+    public static final int LABELED_STATEMENT=112;
+    public static final int UNICODE_ESCAPE=146;
     public static final int BOOLEAN=53;
-    public static final int EXPR=101;
-    public static final int CLASS_TOP_LEVEL_SCOPE=98;
+    public static final int EXPR=102;
+    public static final int CLASS_TOP_LEVEL_SCOPE=99;
     public static final int CONTINUE=57;
     public static final int COMMA=11;
     public static final int XOR_ASSIGN=52;
     public static final int EQUAL=18;
     public static final int LOGICAL_OR=28;
-    public static final int ARGUMENT_LIST=87;
-    public static final int QUALIFIED_TYPE_IDENT=121;
-    public static final int IDENT=133;
+    public static final int ARGUMENT_LIST=88;
+    public static final int QUALIFIED_TYPE_IDENT=122;
+    public static final int IDENT=134;
     public static final int PLUS=38;
-    public static final int HEX_LITERAL=134;
+    public static final int HEX_LITERAL=135;
     public static final int DOT=15;
     public static final int SHIFT_LEFT_ASSIGN=46;
-    public static final int FORMAL_PARAM_LIST=108;
+    public static final int FORMAL_PARAM_LIST=109;
     public static final int DOTSTAR=16;
     public static final int XOR=51;
-    public static final int JAVA_ID_PART=148;
+    public static final int JAVA_ID_PART=149;
     public static final int GREATER_THAN=20;
-    public static final int PARENTESIZED_EXPR=116;
-    public static final int ARRAY_DECLARATOR_LIST=89;
+    public static final int PARENTESIZED_EXPR=117;
+    public static final int ARRAY_DECLARATOR_LIST=90;
     public static final int LESS_OR_EQUAL=24;
-    public static final int CLASS_STATIC_INITIALIZER=97;
+    public static final int CLASS_STATIC_INITIALIZER=98;
     public static final int DEFAULT=58;
-    public static final int OCTAL_LITERAL=135;
-    public static final int HEX_DIGIT=140;
+    public static final int OCTAL_LITERAL=136;
+    public static final int HEX_DIGIT=141;
     public static final int SHORT=78;
     public static final int INSTANCEOF=67;
     public static final int MINUS=30;
-    public static final int TRUE=83;
+    public static final int TRUE=84;
     public static final int SEMI=44;
-    public static final int EXTENDS_CLAUSE=103;
+    public static final int EXTENDS_CLAUSE=104;
     public static final int STAR_ASSIGN=50;
-    public static final int VAR_DECLARATOR_LIST=131;
-    public static final int ARRAY_DECLARATOR=88;
+    public static final int VAR_DECLARATOR_LIST=132;
+    public static final int ARRAY_DECLARATOR=89;
     public static final int COLON=10;
     public static final int OR_ASSIGN=37;
     public static final int QUESTION=40;
     public static final int RCURLY=42;
     public static final int ASSIGN=6;
     public static final int PLUS_ASSIGN=39;
-    public static final int FUNCTION_METHOD_DECL=110;
+    public static final int FUNCTION_METHOD_DECL=111;
     public static final int DIV=13;
-    public static final int POST_INC=118;
+    public static final int POST_INC=119;
     public static final int LONG=70;
-    public static final int CLASS_CONSTRUCTOR_CALL=95;
+    public static final int CLASS_CONSTRUCTOR_CALL=96;
     public static final int PUBLIC=76;
     public static final int EXTENDS=62;
-    public static final int FOR_EACH=105;
-    public static final int ARRAY_INITIALIZER=91;
-    public static final int CATCH_CLAUSE_LIST=94;
-    public static final int SUPER_CONSTRUCTOR_CALL=123;
+    public static final int FOR_EACH=106;
+    public static final int ARRAY_INITIALIZER=92;
+    public static final int CATCH_CLAUSE_LIST=95;
+    public static final int STRING=80;
+    public static final int SUPER_CONSTRUCTOR_CALL=124;
 
     /** 
      *  Determines if whitespaces and comments should be preserved or thrown away.
@@ -1755,13 +1756,34 @@ public class LeMaVMLexer extends Lexer {
     }
     // $ANTLR end "STATIC"
 
+    // $ANTLR start "STRING"
+    public final void mSTRING() throws RecognitionException {
+        try {
+            int _type = STRING;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // LeMaVM.g:95:8: ( 'string' )
+            // LeMaVM.g:95:10: 'string'
+            {
+            match("string"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "STRING"
+
     // $ANTLR start "SUPER"
     public final void mSUPER() throws RecognitionException {
         try {
             int _type = SUPER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:95:7: ( 'super' )
-            // LeMaVM.g:95:9: 'super'
+            // LeMaVM.g:96:7: ( 'super' )
+            // LeMaVM.g:96:9: 'super'
             {
             match("super"); 
 
@@ -1781,8 +1803,8 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = SWITCH;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:96:8: ( 'switch' )
-            // LeMaVM.g:96:10: 'switch'
+            // LeMaVM.g:97:8: ( 'switch' )
+            // LeMaVM.g:97:10: 'switch'
             {
             match("switch"); 
 
@@ -1802,8 +1824,8 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = THIS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:97:6: ( 'this' )
-            // LeMaVM.g:97:8: 'this'
+            // LeMaVM.g:98:6: ( 'this' )
+            // LeMaVM.g:98:8: 'this'
             {
             match("this"); 
 
@@ -1823,8 +1845,8 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = TRUE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:98:6: ( 'true' )
-            // LeMaVM.g:98:8: 'true'
+            // LeMaVM.g:99:6: ( 'true' )
+            // LeMaVM.g:99:8: 'true'
             {
             match("true"); 
 
@@ -1844,8 +1866,8 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = TRY;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:99:5: ( 'try' )
-            // LeMaVM.g:99:7: 'try'
+            // LeMaVM.g:100:5: ( 'try' )
+            // LeMaVM.g:100:7: 'try'
             {
             match("try"); 
 
@@ -1865,8 +1887,8 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = VOID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:100:6: ( 'void' )
-            // LeMaVM.g:100:8: 'void'
+            // LeMaVM.g:101:6: ( 'void' )
+            // LeMaVM.g:101:8: 'void'
             {
             match("void"); 
 
@@ -1886,8 +1908,8 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = WHILE;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:101:7: ( 'while' )
-            // LeMaVM.g:101:9: 'while'
+            // LeMaVM.g:102:7: ( 'while' )
+            // LeMaVM.g:102:9: 'while'
             {
             match("while"); 
 
@@ -1907,8 +1929,8 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = HEX_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:812:13: ( '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )? )
-            // LeMaVM.g:812:15: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )?
+            // LeMaVM.g:814:13: ( '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )? )
+            // LeMaVM.g:814:15: '0' ( 'x' | 'X' ) ( HEX_DIGIT )+ ( INTEGER_TYPE_SUFFIX )?
             {
             match('0'); 
             if ( input.LA(1)=='X'||input.LA(1)=='x' ) {
@@ -1920,7 +1942,7 @@ public class LeMaVMLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // LeMaVM.g:812:29: ( HEX_DIGIT )+
+            // LeMaVM.g:814:29: ( HEX_DIGIT )+
             int cnt1=0;
             loop1:
             do {
@@ -1934,7 +1956,7 @@ public class LeMaVMLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // LeMaVM.g:812:29: HEX_DIGIT
+            	    // LeMaVM.g:814:29: HEX_DIGIT
             	    {
             	    mHEX_DIGIT(); 
 
@@ -1950,7 +1972,7 @@ public class LeMaVMLexer extends Lexer {
                 cnt1++;
             } while (true);
 
-            // LeMaVM.g:812:40: ( INTEGER_TYPE_SUFFIX )?
+            // LeMaVM.g:814:40: ( INTEGER_TYPE_SUFFIX )?
             int alt2=2;
             int LA2_0 = input.LA(1);
 
@@ -1959,7 +1981,7 @@ public class LeMaVMLexer extends Lexer {
             }
             switch (alt2) {
                 case 1 :
-                    // LeMaVM.g:812:40: INTEGER_TYPE_SUFFIX
+                    // LeMaVM.g:814:40: INTEGER_TYPE_SUFFIX
                     {
                     mINTEGER_TYPE_SUFFIX(); 
 
@@ -1984,10 +2006,10 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = DECIMAL_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:814:17: ( ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )? )
-            // LeMaVM.g:814:19: ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )?
+            // LeMaVM.g:816:17: ( ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )? )
+            // LeMaVM.g:816:19: ( '0' | '1' .. '9' ( '0' .. '9' )* ) ( INTEGER_TYPE_SUFFIX )?
             {
-            // LeMaVM.g:814:19: ( '0' | '1' .. '9' ( '0' .. '9' )* )
+            // LeMaVM.g:816:19: ( '0' | '1' .. '9' ( '0' .. '9' )* )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -2005,17 +2027,17 @@ public class LeMaVMLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // LeMaVM.g:814:20: '0'
+                    // LeMaVM.g:816:20: '0'
                     {
                     match('0'); 
 
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:814:26: '1' .. '9' ( '0' .. '9' )*
+                    // LeMaVM.g:816:26: '1' .. '9' ( '0' .. '9' )*
                     {
                     matchRange('1','9'); 
-                    // LeMaVM.g:814:35: ( '0' .. '9' )*
+                    // LeMaVM.g:816:35: ( '0' .. '9' )*
                     loop3:
                     do {
                         int alt3=2;
@@ -2028,7 +2050,7 @@ public class LeMaVMLexer extends Lexer {
 
                         switch (alt3) {
                     	case 1 :
-                    	    // LeMaVM.g:814:35: '0' .. '9'
+                    	    // LeMaVM.g:816:35: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -2046,7 +2068,7 @@ public class LeMaVMLexer extends Lexer {
 
             }
 
-            // LeMaVM.g:814:46: ( INTEGER_TYPE_SUFFIX )?
+            // LeMaVM.g:816:46: ( INTEGER_TYPE_SUFFIX )?
             int alt5=2;
             int LA5_0 = input.LA(1);
 
@@ -2055,7 +2077,7 @@ public class LeMaVMLexer extends Lexer {
             }
             switch (alt5) {
                 case 1 :
-                    // LeMaVM.g:814:46: INTEGER_TYPE_SUFFIX
+                    // LeMaVM.g:816:46: INTEGER_TYPE_SUFFIX
                     {
                     mINTEGER_TYPE_SUFFIX(); 
 
@@ -2080,11 +2102,11 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = OCTAL_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:816:15: ( '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )? )
-            // LeMaVM.g:816:17: '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )?
+            // LeMaVM.g:818:15: ( '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )? )
+            // LeMaVM.g:818:17: '0' ( '0' .. '7' )+ ( INTEGER_TYPE_SUFFIX )?
             {
             match('0'); 
-            // LeMaVM.g:816:21: ( '0' .. '7' )+
+            // LeMaVM.g:818:21: ( '0' .. '7' )+
             int cnt6=0;
             loop6:
             do {
@@ -2098,7 +2120,7 @@ public class LeMaVMLexer extends Lexer {
 
                 switch (alt6) {
             	case 1 :
-            	    // LeMaVM.g:816:22: '0' .. '7'
+            	    // LeMaVM.g:818:22: '0' .. '7'
             	    {
             	    matchRange('0','7'); 
 
@@ -2114,7 +2136,7 @@ public class LeMaVMLexer extends Lexer {
                 cnt6++;
             } while (true);
 
-            // LeMaVM.g:816:33: ( INTEGER_TYPE_SUFFIX )?
+            // LeMaVM.g:818:33: ( INTEGER_TYPE_SUFFIX )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2123,7 +2145,7 @@ public class LeMaVMLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // LeMaVM.g:816:33: INTEGER_TYPE_SUFFIX
+                    // LeMaVM.g:818:33: INTEGER_TYPE_SUFFIX
                     {
                     mINTEGER_TYPE_SUFFIX(); 
 
@@ -2146,8 +2168,8 @@ public class LeMaVMLexer extends Lexer {
     // $ANTLR start "HEX_DIGIT"
     public final void mHEX_DIGIT() throws RecognitionException {
         try {
-            // LeMaVM.g:819:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
-            // LeMaVM.g:819:13: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
+            // LeMaVM.g:821:11: ( ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' ) )
+            // LeMaVM.g:821:13: ( '0' .. '9' | 'a' .. 'f' | 'A' .. 'F' )
             {
             if ( (input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='F')||(input.LA(1)>='a' && input.LA(1)<='f') ) {
                 input.consume();
@@ -2170,8 +2192,8 @@ public class LeMaVMLexer extends Lexer {
     // $ANTLR start "INTEGER_TYPE_SUFFIX"
     public final void mINTEGER_TYPE_SUFFIX() throws RecognitionException {
         try {
-            // LeMaVM.g:822:21: ( ( 'l' | 'L' ) )
-            // LeMaVM.g:822:23: ( 'l' | 'L' )
+            // LeMaVM.g:824:21: ( ( 'l' | 'L' ) )
+            // LeMaVM.g:824:23: ( 'l' | 'L' )
             {
             if ( input.LA(1)=='L'||input.LA(1)=='l' ) {
                 input.consume();
@@ -2196,7 +2218,7 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = FLOATING_POINT_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:825:5: ( ( '0' .. '9' )+ ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX ) | DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? )
+            // LeMaVM.g:827:5: ( ( '0' .. '9' )+ ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX ) | DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? )
             int alt17=2;
             int LA17_0 = input.LA(1);
 
@@ -2214,9 +2236,9 @@ public class LeMaVMLexer extends Lexer {
             }
             switch (alt17) {
                 case 1 :
-                    // LeMaVM.g:825:9: ( '0' .. '9' )+ ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
+                    // LeMaVM.g:827:9: ( '0' .. '9' )+ ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
                     {
-                    // LeMaVM.g:825:9: ( '0' .. '9' )+
+                    // LeMaVM.g:827:9: ( '0' .. '9' )+
                     int cnt8=0;
                     loop8:
                     do {
@@ -2230,7 +2252,7 @@ public class LeMaVMLexer extends Lexer {
 
                         switch (alt8) {
                     	case 1 :
-                    	    // LeMaVM.g:825:10: '0' .. '9'
+                    	    // LeMaVM.g:827:10: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -2246,7 +2268,7 @@ public class LeMaVMLexer extends Lexer {
                         cnt8++;
                     } while (true);
 
-                    // LeMaVM.g:826:9: ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
+                    // LeMaVM.g:828:9: ( DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )? | EXPONENT ( FLOAT_TYPE_SUFFIX )? | FLOAT_TYPE_SUFFIX )
                     int alt13=3;
                     switch ( input.LA(1) ) {
                     case '.':
@@ -2275,10 +2297,10 @@ public class LeMaVMLexer extends Lexer {
 
                     switch (alt13) {
                         case 1 :
-                            // LeMaVM.g:827:13: DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
+                            // LeMaVM.g:829:13: DOT ( '0' .. '9' )* ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
                             {
                             mDOT(); 
-                            // LeMaVM.g:827:17: ( '0' .. '9' )*
+                            // LeMaVM.g:829:17: ( '0' .. '9' )*
                             loop9:
                             do {
                                 int alt9=2;
@@ -2291,7 +2313,7 @@ public class LeMaVMLexer extends Lexer {
 
                                 switch (alt9) {
                             	case 1 :
-                            	    // LeMaVM.g:827:18: '0' .. '9'
+                            	    // LeMaVM.g:829:18: '0' .. '9'
                             	    {
                             	    matchRange('0','9'); 
 
@@ -2303,7 +2325,7 @@ public class LeMaVMLexer extends Lexer {
                                 }
                             } while (true);
 
-                            // LeMaVM.g:827:29: ( EXPONENT )?
+                            // LeMaVM.g:829:29: ( EXPONENT )?
                             int alt10=2;
                             int LA10_0 = input.LA(1);
 
@@ -2312,7 +2334,7 @@ public class LeMaVMLexer extends Lexer {
                             }
                             switch (alt10) {
                                 case 1 :
-                                    // LeMaVM.g:827:29: EXPONENT
+                                    // LeMaVM.g:829:29: EXPONENT
                                     {
                                     mEXPONENT(); 
 
@@ -2321,7 +2343,7 @@ public class LeMaVMLexer extends Lexer {
 
                             }
 
-                            // LeMaVM.g:827:39: ( FLOAT_TYPE_SUFFIX )?
+                            // LeMaVM.g:829:39: ( FLOAT_TYPE_SUFFIX )?
                             int alt11=2;
                             int LA11_0 = input.LA(1);
 
@@ -2330,7 +2352,7 @@ public class LeMaVMLexer extends Lexer {
                             }
                             switch (alt11) {
                                 case 1 :
-                                    // LeMaVM.g:827:39: FLOAT_TYPE_SUFFIX
+                                    // LeMaVM.g:829:39: FLOAT_TYPE_SUFFIX
                                     {
                                     mFLOAT_TYPE_SUFFIX(); 
 
@@ -2343,10 +2365,10 @@ public class LeMaVMLexer extends Lexer {
                             }
                             break;
                         case 2 :
-                            // LeMaVM.g:828:13: EXPONENT ( FLOAT_TYPE_SUFFIX )?
+                            // LeMaVM.g:830:13: EXPONENT ( FLOAT_TYPE_SUFFIX )?
                             {
                             mEXPONENT(); 
-                            // LeMaVM.g:828:22: ( FLOAT_TYPE_SUFFIX )?
+                            // LeMaVM.g:830:22: ( FLOAT_TYPE_SUFFIX )?
                             int alt12=2;
                             int LA12_0 = input.LA(1);
 
@@ -2355,7 +2377,7 @@ public class LeMaVMLexer extends Lexer {
                             }
                             switch (alt12) {
                                 case 1 :
-                                    // LeMaVM.g:828:22: FLOAT_TYPE_SUFFIX
+                                    // LeMaVM.g:830:22: FLOAT_TYPE_SUFFIX
                                     {
                                     mFLOAT_TYPE_SUFFIX(); 
 
@@ -2368,7 +2390,7 @@ public class LeMaVMLexer extends Lexer {
                             }
                             break;
                         case 3 :
-                            // LeMaVM.g:829:13: FLOAT_TYPE_SUFFIX
+                            // LeMaVM.g:831:13: FLOAT_TYPE_SUFFIX
                             {
                             mFLOAT_TYPE_SUFFIX(); 
 
@@ -2381,10 +2403,10 @@ public class LeMaVMLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:831:9: DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
+                    // LeMaVM.g:833:9: DOT ( '0' .. '9' )+ ( EXPONENT )? ( FLOAT_TYPE_SUFFIX )?
                     {
                     mDOT(); 
-                    // LeMaVM.g:831:13: ( '0' .. '9' )+
+                    // LeMaVM.g:833:13: ( '0' .. '9' )+
                     int cnt14=0;
                     loop14:
                     do {
@@ -2398,7 +2420,7 @@ public class LeMaVMLexer extends Lexer {
 
                         switch (alt14) {
                     	case 1 :
-                    	    // LeMaVM.g:831:14: '0' .. '9'
+                    	    // LeMaVM.g:833:14: '0' .. '9'
                     	    {
                     	    matchRange('0','9'); 
 
@@ -2414,7 +2436,7 @@ public class LeMaVMLexer extends Lexer {
                         cnt14++;
                     } while (true);
 
-                    // LeMaVM.g:831:25: ( EXPONENT )?
+                    // LeMaVM.g:833:25: ( EXPONENT )?
                     int alt15=2;
                     int LA15_0 = input.LA(1);
 
@@ -2423,7 +2445,7 @@ public class LeMaVMLexer extends Lexer {
                     }
                     switch (alt15) {
                         case 1 :
-                            // LeMaVM.g:831:25: EXPONENT
+                            // LeMaVM.g:833:25: EXPONENT
                             {
                             mEXPONENT(); 
 
@@ -2432,7 +2454,7 @@ public class LeMaVMLexer extends Lexer {
 
                     }
 
-                    // LeMaVM.g:831:35: ( FLOAT_TYPE_SUFFIX )?
+                    // LeMaVM.g:833:35: ( FLOAT_TYPE_SUFFIX )?
                     int alt16=2;
                     int LA16_0 = input.LA(1);
 
@@ -2441,7 +2463,7 @@ public class LeMaVMLexer extends Lexer {
                     }
                     switch (alt16) {
                         case 1 :
-                            // LeMaVM.g:831:35: FLOAT_TYPE_SUFFIX
+                            // LeMaVM.g:833:35: FLOAT_TYPE_SUFFIX
                             {
                             mFLOAT_TYPE_SUFFIX(); 
 
@@ -2466,8 +2488,8 @@ public class LeMaVMLexer extends Lexer {
     // $ANTLR start "EXPONENT"
     public final void mEXPONENT() throws RecognitionException {
         try {
-            // LeMaVM.g:835:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
-            // LeMaVM.g:835:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
+            // LeMaVM.g:837:10: ( ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+ )
+            // LeMaVM.g:837:12: ( 'e' | 'E' ) ( '+' | '-' )? ( '0' .. '9' )+
             {
             if ( input.LA(1)=='E'||input.LA(1)=='e' ) {
                 input.consume();
@@ -2478,7 +2500,7 @@ public class LeMaVMLexer extends Lexer {
                 recover(mse);
                 throw mse;}
 
-            // LeMaVM.g:835:22: ( '+' | '-' )?
+            // LeMaVM.g:837:22: ( '+' | '-' )?
             int alt18=2;
             int LA18_0 = input.LA(1);
 
@@ -2504,7 +2526,7 @@ public class LeMaVMLexer extends Lexer {
 
             }
 
-            // LeMaVM.g:835:33: ( '0' .. '9' )+
+            // LeMaVM.g:837:33: ( '0' .. '9' )+
             int cnt19=0;
             loop19:
             do {
@@ -2518,7 +2540,7 @@ public class LeMaVMLexer extends Lexer {
 
                 switch (alt19) {
             	case 1 :
-            	    // LeMaVM.g:835:34: '0' .. '9'
+            	    // LeMaVM.g:837:34: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2546,8 +2568,8 @@ public class LeMaVMLexer extends Lexer {
     // $ANTLR start "FLOAT_TYPE_SUFFIX"
     public final void mFLOAT_TYPE_SUFFIX() throws RecognitionException {
         try {
-            // LeMaVM.g:838:19: ( ( 'd' | 'D' ) )
-            // LeMaVM.g:838:21: ( 'd' | 'D' )
+            // LeMaVM.g:840:19: ( ( 'd' | 'D' ) )
+            // LeMaVM.g:840:21: ( 'd' | 'D' )
             {
             if ( input.LA(1)=='D'||input.LA(1)=='d' ) {
                 input.consume();
@@ -2572,11 +2594,11 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = CHARACTER_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:841:5: ( '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) ) '\\'' )
-            // LeMaVM.g:841:9: '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) ) '\\''
+            // LeMaVM.g:843:5: ( '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) ) '\\'' )
+            // LeMaVM.g:843:9: '\\'' ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) ) '\\''
             {
             match('\''); 
-            // LeMaVM.g:841:14: ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) )
+            // LeMaVM.g:843:14: ( ESCAPE_SEQUENCE | ~ ( '\\'' | '\\\\' ) )
             int alt20=2;
             int LA20_0 = input.LA(1);
 
@@ -2594,14 +2616,14 @@ public class LeMaVMLexer extends Lexer {
             }
             switch (alt20) {
                 case 1 :
-                    // LeMaVM.g:841:16: ESCAPE_SEQUENCE
+                    // LeMaVM.g:843:16: ESCAPE_SEQUENCE
                     {
                     mESCAPE_SEQUENCE(); 
 
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:841:34: ~ ( '\\'' | '\\\\' )
+                    // LeMaVM.g:843:34: ~ ( '\\'' | '\\\\' )
                     {
                     if ( (input.LA(1)>='\u0000' && input.LA(1)<='&')||(input.LA(1)>='(' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
                         input.consume();
@@ -2635,11 +2657,11 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = STRING_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:845:5: ( '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"' )
-            // LeMaVM.g:845:8: '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"'
+            // LeMaVM.g:847:5: ( '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"' )
+            // LeMaVM.g:847:8: '\"' ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )* '\"'
             {
             match('\"'); 
-            // LeMaVM.g:845:12: ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )*
+            // LeMaVM.g:847:12: ( ESCAPE_SEQUENCE | ~ ( '\\\\' | '\"' ) )*
             loop21:
             do {
                 int alt21=3;
@@ -2655,14 +2677,14 @@ public class LeMaVMLexer extends Lexer {
 
                 switch (alt21) {
             	case 1 :
-            	    // LeMaVM.g:845:14: ESCAPE_SEQUENCE
+            	    // LeMaVM.g:847:14: ESCAPE_SEQUENCE
             	    {
             	    mESCAPE_SEQUENCE(); 
 
             	    }
             	    break;
             	case 2 :
-            	    // LeMaVM.g:845:32: ~ ( '\\\\' | '\"' )
+            	    // LeMaVM.g:847:32: ~ ( '\\\\' | '\"' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2697,7 +2719,7 @@ public class LeMaVMLexer extends Lexer {
     // $ANTLR start "ESCAPE_SEQUENCE"
     public final void mESCAPE_SEQUENCE() throws RecognitionException {
         try {
-            // LeMaVM.g:850:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESCAPE | OCTAL_ESCAPE )
+            // LeMaVM.g:852:5: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' ) | UNICODE_ESCAPE | OCTAL_ESCAPE )
             int alt22=3;
             int LA22_0 = input.LA(1);
 
@@ -2748,7 +2770,7 @@ public class LeMaVMLexer extends Lexer {
             }
             switch (alt22) {
                 case 1 :
-                    // LeMaVM.g:850:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
+                    // LeMaVM.g:852:9: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\\\"' | '\\'' | '\\\\' )
                     {
                     match('\\'); 
                     if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -2764,14 +2786,14 @@ public class LeMaVMLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:851:9: UNICODE_ESCAPE
+                    // LeMaVM.g:853:9: UNICODE_ESCAPE
                     {
                     mUNICODE_ESCAPE(); 
 
                     }
                     break;
                 case 3 :
-                    // LeMaVM.g:852:9: OCTAL_ESCAPE
+                    // LeMaVM.g:854:9: OCTAL_ESCAPE
                     {
                     mOCTAL_ESCAPE(); 
 
@@ -2788,7 +2810,7 @@ public class LeMaVMLexer extends Lexer {
     // $ANTLR start "OCTAL_ESCAPE"
     public final void mOCTAL_ESCAPE() throws RecognitionException {
         try {
-            // LeMaVM.g:857:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
+            // LeMaVM.g:859:5: ( '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) ( '0' .. '7' ) | '\\\\' ( '0' .. '7' ) )
             int alt23=3;
             int LA23_0 = input.LA(1);
 
@@ -2799,9 +2821,9 @@ public class LeMaVMLexer extends Lexer {
                     int LA23_2 = input.LA(3);
 
                     if ( ((LA23_2>='0' && LA23_2<='7')) ) {
-                        int LA23_5 = input.LA(4);
+                        int LA23_4 = input.LA(4);
 
-                        if ( ((LA23_5>='0' && LA23_5<='7')) ) {
+                        if ( ((LA23_4>='0' && LA23_4<='7')) ) {
                             alt23=1;
                         }
                         else {
@@ -2834,25 +2856,25 @@ public class LeMaVMLexer extends Lexer {
             }
             switch (alt23) {
                 case 1 :
-                    // LeMaVM.g:857:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
+                    // LeMaVM.g:859:9: '\\\\' ( '0' .. '3' ) ( '0' .. '7' ) ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // LeMaVM.g:857:14: ( '0' .. '3' )
-                    // LeMaVM.g:857:15: '0' .. '3'
+                    // LeMaVM.g:859:14: ( '0' .. '3' )
+                    // LeMaVM.g:859:15: '0' .. '3'
                     {
                     matchRange('0','3'); 
 
                     }
 
-                    // LeMaVM.g:857:25: ( '0' .. '7' )
-                    // LeMaVM.g:857:26: '0' .. '7'
+                    // LeMaVM.g:859:25: ( '0' .. '7' )
+                    // LeMaVM.g:859:26: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
                     }
 
-                    // LeMaVM.g:857:36: ( '0' .. '7' )
-                    // LeMaVM.g:857:37: '0' .. '7'
+                    // LeMaVM.g:859:36: ( '0' .. '7' )
+                    // LeMaVM.g:859:37: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -2862,18 +2884,18 @@ public class LeMaVMLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // LeMaVM.g:858:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
+                    // LeMaVM.g:860:9: '\\\\' ( '0' .. '7' ) ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // LeMaVM.g:858:14: ( '0' .. '7' )
-                    // LeMaVM.g:858:15: '0' .. '7'
+                    // LeMaVM.g:860:14: ( '0' .. '7' )
+                    // LeMaVM.g:860:15: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
                     }
 
-                    // LeMaVM.g:858:25: ( '0' .. '7' )
-                    // LeMaVM.g:858:26: '0' .. '7'
+                    // LeMaVM.g:860:25: ( '0' .. '7' )
+                    // LeMaVM.g:860:26: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -2883,11 +2905,11 @@ public class LeMaVMLexer extends Lexer {
                     }
                     break;
                 case 3 :
-                    // LeMaVM.g:859:9: '\\\\' ( '0' .. '7' )
+                    // LeMaVM.g:861:9: '\\\\' ( '0' .. '7' )
                     {
                     match('\\'); 
-                    // LeMaVM.g:859:14: ( '0' .. '7' )
-                    // LeMaVM.g:859:15: '0' .. '7'
+                    // LeMaVM.g:861:14: ( '0' .. '7' )
+                    // LeMaVM.g:861:15: '0' .. '7'
                     {
                     matchRange('0','7'); 
 
@@ -2907,8 +2929,8 @@ public class LeMaVMLexer extends Lexer {
     // $ANTLR start "UNICODE_ESCAPE"
     public final void mUNICODE_ESCAPE() throws RecognitionException {
         try {
-            // LeMaVM.g:864:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
-            // LeMaVM.g:864:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
+            // LeMaVM.g:866:5: ( '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT )
+            // LeMaVM.g:866:9: '\\\\' 'u' HEX_DIGIT HEX_DIGIT HEX_DIGIT HEX_DIGIT
             {
             match('\\'); 
             match('u'); 
@@ -2930,11 +2952,11 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = IDENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:868:5: ( JAVA_ID_START ( JAVA_ID_PART )* )
-            // LeMaVM.g:868:9: JAVA_ID_START ( JAVA_ID_PART )*
+            // LeMaVM.g:870:5: ( JAVA_ID_START ( JAVA_ID_PART )* )
+            // LeMaVM.g:870:9: JAVA_ID_START ( JAVA_ID_PART )*
             {
             mJAVA_ID_START(); 
-            // LeMaVM.g:868:23: ( JAVA_ID_PART )*
+            // LeMaVM.g:870:23: ( JAVA_ID_PART )*
             loop24:
             do {
                 int alt24=2;
@@ -2947,7 +2969,7 @@ public class LeMaVMLexer extends Lexer {
 
                 switch (alt24) {
             	case 1 :
-            	    // LeMaVM.g:868:24: JAVA_ID_PART
+            	    // LeMaVM.g:870:24: JAVA_ID_PART
             	    {
             	    mJAVA_ID_PART(); 
 
@@ -2973,7 +2995,7 @@ public class LeMaVMLexer extends Lexer {
     // $ANTLR start "JAVA_ID_START"
     public final void mJAVA_ID_START() throws RecognitionException {
         try {
-            // LeMaVM.g:873:5: ( '\\u0024' | '\\u0041' .. '\\u005a' | '\\u005f' | '\\u0061' .. '\\u007a' | '\\u00c0' .. '\\u00d6' | '\\u00d8' .. '\\u00f6' | '\\u00f8' .. '\\u00ff' | '\\u0100' .. '\\u1fff' | '\\u3040' .. '\\u318f' | '\\u3300' .. '\\u337f' | '\\u3400' .. '\\u3d2d' | '\\u4e00' .. '\\u9fff' | '\\uf900' .. '\\ufaff' )
+            // LeMaVM.g:875:5: ( '\\u0024' | '\\u0041' .. '\\u005a' | '\\u005f' | '\\u0061' .. '\\u007a' | '\\u00c0' .. '\\u00d6' | '\\u00d8' .. '\\u00f6' | '\\u00f8' .. '\\u00ff' | '\\u0100' .. '\\u1fff' | '\\u3040' .. '\\u318f' | '\\u3300' .. '\\u337f' | '\\u3400' .. '\\u3d2d' | '\\u4e00' .. '\\u9fff' | '\\uf900' .. '\\ufaff' )
             // LeMaVM.g:
             {
             if ( input.LA(1)=='$'||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u1FFF')||(input.LA(1)>='\u3040' && input.LA(1)<='\u318F')||(input.LA(1)>='\u3300' && input.LA(1)<='\u337F')||(input.LA(1)>='\u3400' && input.LA(1)<='\u3D2D')||(input.LA(1)>='\u4E00' && input.LA(1)<='\u9FFF')||(input.LA(1)>='\uF900' && input.LA(1)<='\uFAFF') ) {
@@ -2997,7 +3019,7 @@ public class LeMaVMLexer extends Lexer {
     // $ANTLR start "JAVA_ID_PART"
     public final void mJAVA_ID_PART() throws RecognitionException {
         try {
-            // LeMaVM.g:890:5: ( JAVA_ID_START | '\\u0030' .. '\\u0039' )
+            // LeMaVM.g:892:5: ( JAVA_ID_START | '\\u0030' .. '\\u0039' )
             // LeMaVM.g:
             {
             if ( input.LA(1)=='$'||(input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z')||(input.LA(1)>='\u00C0' && input.LA(1)<='\u00D6')||(input.LA(1)>='\u00D8' && input.LA(1)<='\u00F6')||(input.LA(1)>='\u00F8' && input.LA(1)<='\u1FFF')||(input.LA(1)>='\u3040' && input.LA(1)<='\u318F')||(input.LA(1)>='\u3300' && input.LA(1)<='\u337F')||(input.LA(1)>='\u3400' && input.LA(1)<='\u3D2D')||(input.LA(1)>='\u4E00' && input.LA(1)<='\u9FFF')||(input.LA(1)>='\uF900' && input.LA(1)<='\uFAFF') ) {
@@ -3023,8 +3045,8 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:894:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
-            // LeMaVM.g:894:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
+            // LeMaVM.g:896:5: ( ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' ) )
+            // LeMaVM.g:896:8: ( ' ' | '\\r' | '\\t' | '\\u000C' | '\\n' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||(input.LA(1)>='\f' && input.LA(1)<='\r')||input.LA(1)==' ' ) {
                 input.consume();
@@ -3058,12 +3080,12 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:905:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
-            // LeMaVM.g:905:9: '/*' ( options {greedy=false; } : . )* '*/'
+            // LeMaVM.g:907:5: ( '/*' ( options {greedy=false; } : . )* '*/' )
+            // LeMaVM.g:907:9: '/*' ( options {greedy=false; } : . )* '*/'
             {
             match("/*"); 
 
-            // LeMaVM.g:905:14: ( options {greedy=false; } : . )*
+            // LeMaVM.g:907:14: ( options {greedy=false; } : . )*
             loop25:
             do {
                 int alt25=2;
@@ -3088,7 +3110,7 @@ public class LeMaVMLexer extends Lexer {
 
                 switch (alt25) {
             	case 1 :
-            	    // LeMaVM.g:905:42: .
+            	    // LeMaVM.g:907:42: .
             	    {
             	    matchAny(); 
 
@@ -3125,12 +3147,12 @@ public class LeMaVMLexer extends Lexer {
         try {
             int _type = LINE_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // LeMaVM.g:916:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
-            // LeMaVM.g:916:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
+            // LeMaVM.g:918:5: ( '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n' )
+            // LeMaVM.g:918:7: '//' (~ ( '\\n' | '\\r' ) )* ( '\\r' )? '\\n'
             {
             match("//"); 
 
-            // LeMaVM.g:916:12: (~ ( '\\n' | '\\r' ) )*
+            // LeMaVM.g:918:12: (~ ( '\\n' | '\\r' ) )*
             loop26:
             do {
                 int alt26=2;
@@ -3143,7 +3165,7 @@ public class LeMaVMLexer extends Lexer {
 
                 switch (alt26) {
             	case 1 :
-            	    // LeMaVM.g:916:12: ~ ( '\\n' | '\\r' )
+            	    // LeMaVM.g:918:12: ~ ( '\\n' | '\\r' )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -3163,7 +3185,7 @@ public class LeMaVMLexer extends Lexer {
                 }
             } while (true);
 
-            // LeMaVM.g:916:26: ( '\\r' )?
+            // LeMaVM.g:918:26: ( '\\r' )?
             int alt27=2;
             int LA27_0 = input.LA(1);
 
@@ -3172,7 +3194,7 @@ public class LeMaVMLexer extends Lexer {
             }
             switch (alt27) {
                 case 1 :
-                    // LeMaVM.g:916:26: '\\r'
+                    // LeMaVM.g:918:26: '\\r'
                     {
                     match('\r'); 
 
@@ -3201,8 +3223,8 @@ public class LeMaVMLexer extends Lexer {
     // $ANTLR end "LINE_COMMENT"
 
     public void mTokens() throws RecognitionException {
-        // LeMaVM.g:1:8: ( AND | AND_ASSIGN | ASSIGN | AT | BIT_SHIFT_RIGHT | BIT_SHIFT_RIGHT_ASSIGN | COLON | COMMA | DEC | DIV | DIV_ASSIGN | DOT | DOTSTAR | ELLIPSIS | EQUAL | GREATER_OR_EQUAL | GREATER_THAN | INC | LBRACK | LCURLY | LESS_OR_EQUAL | LESS_THAN | LOGICAL_AND | LOGICAL_NOT | LOGICAL_OR | LPAREN | MINUS | MINUS_ASSIGN | MOD | MOD_ASSIGN | NOT | NOT_EQUAL | OR | OR_ASSIGN | PLUS | PLUS_ASSIGN | QUESTION | RBRACK | RCURLY | RPAREN | SEMI | SHIFT_LEFT | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT | SHIFT_RIGHT_ASSIGN | STAR | STAR_ASSIGN | XOR | XOR_ASSIGN | BOOLEAN | BREAK | CASE | CLASS | CONTINUE | DEFAULT | DO | DOUBLE | ELSE | EXTENDS | FALSE | FINAL | FOR | IF | INSTANCEOF | IMPORT | INT | LONG | NEW | NULL | PACKAGE | PRIVATE | PROTECTED | PUBLIC | RETURN | SHORT | STATIC | SUPER | SWITCH | THIS | TRUE | TRY | VOID | WHILE | HEX_LITERAL | DECIMAL_LITERAL | OCTAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | IDENT | WS | COMMENT | LINE_COMMENT )
-        int alt28=93;
+        // LeMaVM.g:1:8: ( AND | AND_ASSIGN | ASSIGN | AT | BIT_SHIFT_RIGHT | BIT_SHIFT_RIGHT_ASSIGN | COLON | COMMA | DEC | DIV | DIV_ASSIGN | DOT | DOTSTAR | ELLIPSIS | EQUAL | GREATER_OR_EQUAL | GREATER_THAN | INC | LBRACK | LCURLY | LESS_OR_EQUAL | LESS_THAN | LOGICAL_AND | LOGICAL_NOT | LOGICAL_OR | LPAREN | MINUS | MINUS_ASSIGN | MOD | MOD_ASSIGN | NOT | NOT_EQUAL | OR | OR_ASSIGN | PLUS | PLUS_ASSIGN | QUESTION | RBRACK | RCURLY | RPAREN | SEMI | SHIFT_LEFT | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT | SHIFT_RIGHT_ASSIGN | STAR | STAR_ASSIGN | XOR | XOR_ASSIGN | BOOLEAN | BREAK | CASE | CLASS | CONTINUE | DEFAULT | DO | DOUBLE | ELSE | EXTENDS | FALSE | FINAL | FOR | IF | INSTANCEOF | IMPORT | INT | LONG | NEW | NULL | PACKAGE | PRIVATE | PROTECTED | PUBLIC | RETURN | SHORT | STATIC | STRING | SUPER | SWITCH | THIS | TRUE | TRY | VOID | WHILE | HEX_LITERAL | DECIMAL_LITERAL | OCTAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | IDENT | WS | COMMENT | LINE_COMMENT )
+        int alt28=94;
         alt28 = dfa28.predict(input);
         switch (alt28) {
             case 1 :
@@ -3738,119 +3760,126 @@ public class LeMaVMLexer extends Lexer {
                 }
                 break;
             case 77 :
-                // LeMaVM.g:1:624: SUPER
+                // LeMaVM.g:1:624: STRING
+                {
+                mSTRING(); 
+
+                }
+                break;
+            case 78 :
+                // LeMaVM.g:1:631: SUPER
                 {
                 mSUPER(); 
 
                 }
                 break;
-            case 78 :
-                // LeMaVM.g:1:630: SWITCH
+            case 79 :
+                // LeMaVM.g:1:637: SWITCH
                 {
                 mSWITCH(); 
 
                 }
                 break;
-            case 79 :
-                // LeMaVM.g:1:637: THIS
+            case 80 :
+                // LeMaVM.g:1:644: THIS
                 {
                 mTHIS(); 
 
                 }
                 break;
-            case 80 :
-                // LeMaVM.g:1:642: TRUE
+            case 81 :
+                // LeMaVM.g:1:649: TRUE
                 {
                 mTRUE(); 
 
                 }
                 break;
-            case 81 :
-                // LeMaVM.g:1:647: TRY
+            case 82 :
+                // LeMaVM.g:1:654: TRY
                 {
                 mTRY(); 
 
                 }
                 break;
-            case 82 :
-                // LeMaVM.g:1:651: VOID
+            case 83 :
+                // LeMaVM.g:1:658: VOID
                 {
                 mVOID(); 
 
                 }
                 break;
-            case 83 :
-                // LeMaVM.g:1:656: WHILE
+            case 84 :
+                // LeMaVM.g:1:663: WHILE
                 {
                 mWHILE(); 
 
                 }
                 break;
-            case 84 :
-                // LeMaVM.g:1:662: HEX_LITERAL
+            case 85 :
+                // LeMaVM.g:1:669: HEX_LITERAL
                 {
                 mHEX_LITERAL(); 
 
                 }
                 break;
-            case 85 :
-                // LeMaVM.g:1:674: DECIMAL_LITERAL
+            case 86 :
+                // LeMaVM.g:1:681: DECIMAL_LITERAL
                 {
                 mDECIMAL_LITERAL(); 
 
                 }
                 break;
-            case 86 :
-                // LeMaVM.g:1:690: OCTAL_LITERAL
+            case 87 :
+                // LeMaVM.g:1:697: OCTAL_LITERAL
                 {
                 mOCTAL_LITERAL(); 
 
                 }
                 break;
-            case 87 :
-                // LeMaVM.g:1:704: FLOATING_POINT_LITERAL
+            case 88 :
+                // LeMaVM.g:1:711: FLOATING_POINT_LITERAL
                 {
                 mFLOATING_POINT_LITERAL(); 
 
                 }
                 break;
-            case 88 :
-                // LeMaVM.g:1:727: CHARACTER_LITERAL
+            case 89 :
+                // LeMaVM.g:1:734: CHARACTER_LITERAL
                 {
                 mCHARACTER_LITERAL(); 
 
                 }
                 break;
-            case 89 :
-                // LeMaVM.g:1:745: STRING_LITERAL
+            case 90 :
+                // LeMaVM.g:1:752: STRING_LITERAL
                 {
                 mSTRING_LITERAL(); 
 
                 }
                 break;
-            case 90 :
-                // LeMaVM.g:1:760: IDENT
+            case 91 :
+                // LeMaVM.g:1:767: IDENT
                 {
                 mIDENT(); 
 
                 }
                 break;
-            case 91 :
-                // LeMaVM.g:1:766: WS
+            case 92 :
+                // LeMaVM.g:1:773: WS
                 {
                 mWS(); 
 
                 }
                 break;
-            case 92 :
-                // LeMaVM.g:1:769: COMMENT
+            case 93 :
+                // LeMaVM.g:1:776: COMMENT
                 {
                 mCOMMENT(); 
 
                 }
                 break;
-            case 93 :
-                // LeMaVM.g:1:777: LINE_COMMENT
+            case 94 :
+                // LeMaVM.g:1:784: LINE_COMMENT
                 {
                 mLINE_COMMENT(); 
 
@@ -3867,18 +3896,19 @@ public class LeMaVMLexer extends Lexer {
         "\1\uffff\1\60\1\62\1\uffff\1\65\2\uffff\1\70\1\74\1\77\1\103\2\uffff"+
         "\1\106\1\110\1\113\1\uffff\1\115\6\uffff\1\117\1\121\16\54\2\162"+
         "\11\uffff\1\166\21\uffff\1\170\14\uffff\6\54\1\u0080\5\54\1\u0086"+
-        "\21\54\1\uffff\1\u009b\1\uffff\1\162\1\u009d\4\uffff\7\54\1\uffff"+
-        "\4\54\1\u00a9\1\uffff\1\54\1\u00ab\2\54\1\u00ae\14\54\1\u00bb\2"+
-        "\54\3\uffff\2\54\1\u00c0\4\54\1\u00c5\3\54\1\uffff\1\54\1\uffff"+
-        "\1\54\1\u00cb\1\uffff\1\u00cc\11\54\1\u00d6\1\u00d7\1\uffff\1\u00d8"+
-        "\2\54\1\u00db\1\uffff\1\u00dc\3\54\1\uffff\1\54\1\u00e1\1\u00e2"+
-        "\2\54\2\uffff\5\54\1\u00ea\1\54\1\u00ec\1\54\3\uffff\1\u00ee\1\54"+
-        "\2\uffff\2\54\1\u00f2\1\54\2\uffff\1\54\1\u00f5\3\54\1\u00f9\1\u00fa"+
-        "\1\uffff\1\u00fb\1\uffff\1\u00fc\1\uffff\1\u00fd\1\54\1\u00ff\1"+
-        "\uffff\1\u0100\1\54\1\uffff\1\u0102\1\u0103\1\54\5\uffff\1\u0105"+
-        "\2\uffff\1\54\2\uffff\1\54\1\uffff\1\54\1\u0109\1\u010a\2\uffff";
+        "\21\54\1\uffff\1\u009c\1\uffff\1\162\1\u009e\4\uffff\7\54\1\uffff"+
+        "\4\54\1\u00aa\1\uffff\1\54\1\u00ac\2\54\1\u00af\15\54\1\u00bd\2"+
+        "\54\3\uffff\2\54\1\u00c2\4\54\1\u00c7\3\54\1\uffff\1\54\1\uffff"+
+        "\1\54\1\u00cd\1\uffff\1\u00ce\12\54\1\u00d9\1\u00da\1\uffff\1\u00db"+
+        "\2\54\1\u00de\1\uffff\1\u00df\3\54\1\uffff\1\54\1\u00e4\1\u00e5"+
+        "\2\54\2\uffff\5\54\1\u00ed\2\54\1\u00f0\1\54\3\uffff\1\u00f2\1\54"+
+        "\2\uffff\2\54\1\u00f6\1\54\2\uffff\1\54\1\u00f9\3\54\1\u00fd\1\u00fe"+
+        "\1\uffff\1\u00ff\1\u0100\1\uffff\1\u0101\1\uffff\1\u0102\1\54\1"+
+        "\u0104\1\uffff\1\u0105\1\54\1\uffff\1\u0107\1\u0108\1\54\6\uffff"+
+        "\1\u010a\2\uffff\1\54\2\uffff\1\54\1\uffff\1\54\1\u010e\1\u010f"+
+        "\2\uffff";
     static final String DFA28_eofS =
-        "\u010b\uffff";
+        "\u0110\uffff";
     static final String DFA28_minS =
         "\1\11\1\46\1\75\1\uffff\1\75\2\uffff\1\55\2\52\1\53\2\uffff\1\74"+
         "\2\75\1\uffff\1\75\6\uffff\2\75\1\157\1\141\1\145\1\154\1\141\1"+
@@ -3888,53 +3918,53 @@ public class LeMaVMLexer extends Lexer {
         "\1\143\1\151\1\142\1\164\1\157\1\141\1\160\2\151\1\165\2\151\1\uffff"+
         "\1\56\1\uffff\1\56\1\75\4\uffff\1\154\1\141\1\145\1\163\1\164\1"+
         "\141\1\142\1\uffff\2\145\1\163\1\141\1\44\1\uffff\1\164\1\44\1\157"+
-        "\1\147\1\44\1\154\1\153\1\166\1\164\1\154\1\165\1\162\1\164\1\145"+
-        "\1\164\1\163\1\145\1\44\1\144\1\154\3\uffff\1\145\1\153\1\44\1\163"+
-        "\1\151\1\165\1\154\1\44\1\156\1\145\1\154\1\uffff\1\141\1\uffff"+
-        "\1\162\1\44\1\uffff\1\44\2\141\1\145\1\151\1\162\1\164\1\151\1\162"+
-        "\1\143\2\44\1\uffff\1\44\1\145\1\141\1\44\1\uffff\1\44\1\156\1\154"+
-        "\1\145\1\uffff\1\144\2\44\1\156\1\164\2\uffff\1\147\1\164\2\143"+
-        "\1\156\1\44\1\143\1\44\1\150\3\uffff\1\44\1\156\2\uffff\1\165\1"+
-        "\164\1\44\1\163\2\uffff\1\143\1\44\2\145\1\164\2\44\1\uffff\1\44"+
-        "\1\uffff\1\44\1\uffff\1\44\1\145\1\44\1\uffff\1\44\1\145\1\uffff"+
-        "\2\44\1\145\5\uffff\1\44\2\uffff\1\157\2\uffff\1\144\1\uffff\1\146"+
-        "\2\44\2\uffff";
+        "\1\147\1\44\1\154\1\153\1\166\1\164\1\154\1\165\1\162\1\164\1\151"+
+        "\1\145\1\164\1\163\1\145\1\44\1\144\1\154\3\uffff\1\145\1\153\1"+
+        "\44\1\163\1\151\1\165\1\154\1\44\1\156\1\145\1\154\1\uffff\1\141"+
+        "\1\uffff\1\162\1\44\1\uffff\1\44\2\141\1\145\1\151\1\162\1\164\1"+
+        "\151\1\156\1\162\1\143\2\44\1\uffff\1\44\1\145\1\141\1\44\1\uffff"+
+        "\1\44\1\156\1\154\1\145\1\uffff\1\144\2\44\1\156\1\164\2\uffff\1"+
+        "\147\1\164\2\143\1\156\1\44\1\143\1\147\1\44\1\150\3\uffff\1\44"+
+        "\1\156\2\uffff\1\165\1\164\1\44\1\163\2\uffff\1\143\1\44\2\145\1"+
+        "\164\2\44\1\uffff\2\44\1\uffff\1\44\1\uffff\1\44\1\145\1\44\1\uffff"+
+        "\1\44\1\145\1\uffff\2\44\1\145\6\uffff\1\44\2\uffff\1\157\2\uffff"+
+        "\1\144\1\uffff\1\146\2\44\2\uffff";
     static final String DFA28_maxS =
         "\1\ufaff\2\75\1\uffff\1\76\2\uffff\2\75\1\71\1\75\2\uffff\2\75\1"+
         "\174\1\uffff\1\75\6\uffff\2\75\1\162\2\157\1\170\1\157\1\156\1\157"+
         "\2\165\1\145\1\167\1\162\1\157\1\150\1\170\1\145\11\uffff\1\76\21"+
         "\uffff\1\75\14\uffff\1\157\1\145\1\163\1\141\1\156\1\146\1\ufaff"+
         "\1\163\1\164\1\154\1\156\1\162\1\ufaff\1\164\1\160\1\156\1\167\1"+
-        "\154\1\143\1\157\1\142\1\164\1\157\1\141\1\160\2\151\1\171\2\151"+
+        "\154\1\143\1\157\1\142\1\164\1\157\1\162\1\160\2\151\1\171\2\151"+
         "\1\uffff\1\145\1\uffff\1\145\1\75\4\uffff\1\154\1\141\1\145\1\163"+
         "\1\164\1\141\1\142\1\uffff\2\145\1\163\1\141\1\ufaff\1\uffff\1\164"+
         "\1\ufaff\1\157\1\147\1\ufaff\1\154\1\153\1\166\1\164\1\154\1\165"+
-        "\1\162\1\164\1\145\1\164\1\163\1\145\1\ufaff\1\144\1\154\3\uffff"+
-        "\1\145\1\153\1\ufaff\1\163\1\151\1\165\1\154\1\ufaff\1\156\1\145"+
-        "\1\154\1\uffff\1\141\1\uffff\1\162\1\ufaff\1\uffff\1\ufaff\2\141"+
-        "\1\145\1\151\1\162\1\164\1\151\1\162\1\143\2\ufaff\1\uffff\1\ufaff"+
-        "\1\145\1\141\1\ufaff\1\uffff\1\ufaff\1\156\1\154\1\145\1\uffff\1"+
-        "\144\2\ufaff\1\156\1\164\2\uffff\1\147\1\164\2\143\1\156\1\ufaff"+
-        "\1\143\1\ufaff\1\150\3\uffff\1\ufaff\1\156\2\uffff\1\165\1\164\1"+
-        "\ufaff\1\163\2\uffff\1\143\1\ufaff\2\145\1\164\2\ufaff\1\uffff\1"+
-        "\ufaff\1\uffff\1\ufaff\1\uffff\1\ufaff\1\145\1\ufaff\1\uffff\1\ufaff"+
-        "\1\145\1\uffff\2\ufaff\1\145\5\uffff\1\ufaff\2\uffff\1\157\2\uffff"+
-        "\1\144\1\uffff\1\146\2\ufaff\2\uffff";
+        "\1\162\1\164\1\151\1\145\1\164\1\163\1\145\1\ufaff\1\144\1\154\3"+
+        "\uffff\1\145\1\153\1\ufaff\1\163\1\151\1\165\1\154\1\ufaff\1\156"+
+        "\1\145\1\154\1\uffff\1\141\1\uffff\1\162\1\ufaff\1\uffff\1\ufaff"+
+        "\2\141\1\145\1\151\1\162\1\164\1\151\1\156\1\162\1\143\2\ufaff\1"+
+        "\uffff\1\ufaff\1\145\1\141\1\ufaff\1\uffff\1\ufaff\1\156\1\154\1"+
+        "\145\1\uffff\1\144\2\ufaff\1\156\1\164\2\uffff\1\147\1\164\2\143"+
+        "\1\156\1\ufaff\1\143\1\147\1\ufaff\1\150\3\uffff\1\ufaff\1\156\2"+
+        "\uffff\1\165\1\164\1\ufaff\1\163\2\uffff\1\143\1\ufaff\2\145\1\164"+
+        "\2\ufaff\1\uffff\2\ufaff\1\uffff\1\ufaff\1\uffff\1\ufaff\1\145\1"+
+        "\ufaff\1\uffff\1\ufaff\1\145\1\uffff\2\ufaff\1\145\6\uffff\1\ufaff"+
+        "\2\uffff\1\157\2\uffff\1\144\1\uffff\1\146\2\ufaff\2\uffff";
     static final String DFA28_acceptS =
         "\3\uffff\1\4\1\uffff\1\7\1\10\4\uffff\1\23\1\24\3\uffff\1\32\1\uffff"+
-        "\1\37\1\45\1\46\1\47\1\50\1\51\22\uffff\1\130\1\131\1\132\1\133"+
-        "\1\2\1\27\1\1\1\17\1\3\1\uffff\1\20\1\21\1\11\1\34\1\33\1\13\1\134"+
-        "\1\135\1\12\1\15\1\16\1\14\1\127\1\22\1\44\1\43\1\25\1\uffff\1\26"+
+        "\1\37\1\45\1\46\1\47\1\50\1\51\22\uffff\1\131\1\132\1\133\1\134"+
+        "\1\2\1\27\1\1\1\17\1\3\1\uffff\1\20\1\21\1\11\1\34\1\33\1\13\1\135"+
+        "\1\136\1\12\1\15\1\16\1\14\1\130\1\22\1\44\1\43\1\25\1\uffff\1\26"+
         "\1\40\1\30\1\31\1\42\1\41\1\36\1\35\1\57\1\56\1\61\1\60\36\uffff"+
-        "\1\124\1\uffff\1\125\2\uffff\1\55\1\54\1\53\1\52\7\uffff\1\70\5"+
-        "\uffff\1\77\24\uffff\1\126\1\6\1\5\13\uffff\1\76\1\uffff\1\102\2"+
-        "\uffff\1\104\14\uffff\1\121\4\uffff\1\64\4\uffff\1\72\5\uffff\1"+
-        "\103\1\105\11\uffff\1\117\1\120\1\122\2\uffff\1\63\1\65\4\uffff"+
-        "\1\74\1\75\7\uffff\1\113\1\uffff\1\115\1\uffff\1\123\3\uffff\1\71"+
-        "\2\uffff\1\101\3\uffff\1\111\1\112\1\114\1\116\1\62\1\uffff\1\67"+
-        "\1\73\1\uffff\1\106\1\107\1\uffff\1\66\3\uffff\1\110\1\100";
+        "\1\125\1\uffff\1\126\2\uffff\1\55\1\54\1\53\1\52\7\uffff\1\70\5"+
+        "\uffff\1\77\25\uffff\1\127\1\6\1\5\13\uffff\1\76\1\uffff\1\102\2"+
+        "\uffff\1\104\15\uffff\1\122\4\uffff\1\64\4\uffff\1\72\5\uffff\1"+
+        "\103\1\105\12\uffff\1\120\1\121\1\123\2\uffff\1\63\1\65\4\uffff"+
+        "\1\74\1\75\7\uffff\1\113\2\uffff\1\116\1\uffff\1\124\3\uffff\1\71"+
+        "\2\uffff\1\101\3\uffff\1\111\1\112\1\114\1\115\1\117\1\62\1\uffff"+
+        "\1\67\1\73\1\uffff\1\106\1\107\1\uffff\1\66\3\uffff\1\110\1\100";
     static final String DFA28_specialS =
-        "\u010b\uffff}>";
+        "\u0110\uffff}>";
     static final String[] DFA28_transitionS = {
             "\2\55\1\uffff\2\55\22\uffff\1\55\1\16\1\53\1\uffff\1\54\1\21"+
             "\1\1\1\52\1\20\1\26\1\30\1\12\1\6\1\7\1\11\1\10\1\50\11\51\1"+
@@ -4055,51 +4085,50 @@ public class LeMaVMLexer extends Lexer {
             "\1\u0090",
             "\1\u0091",
             "\1\u0092",
-            "\1\u0093",
-            "\1\u0094",
+            "\1\u0093\20\uffff\1\u0094",
             "\1\u0095",
             "\1\u0096",
-            "\1\u0097\3\uffff\1\u0098",
-            "\1\u0099",
+            "\1\u0097",
+            "\1\u0098\3\uffff\1\u0099",
             "\1\u009a",
+            "\1\u009b",
             "",
             "\1\100\1\uffff\10\161\2\100\12\uffff\2\100\36\uffff\2\100",
             "",
             "\1\100\1\uffff\12\163\12\uffff\2\100\36\uffff\2\100",
-            "\1\u009c",
+            "\1\u009d",
             "",
             "",
             "",
             "",
-            "\1\u009e",
             "\1\u009f",
             "\1\u00a0",
             "\1\u00a1",
             "\1\u00a2",
             "\1\u00a3",
             "\1\u00a4",
-            "",
             "\1\u00a5",
+            "",
             "\1\u00a6",
             "\1\u00a7",
             "\1\u00a8",
+            "\1\u00a9",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
             "\u5200\54\u5900\uffff\u0200\54",
             "",
-            "\1\u00aa",
+            "\1\u00ab",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
             "\u5200\54\u5900\uffff\u0200\54",
-            "\1\u00ac",
             "\1\u00ad",
+            "\1\u00ae",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
             "\u5200\54\u5900\uffff\u0200\54",
-            "\1\u00af",
             "\1\u00b0",
             "\1\u00b1",
             "\1\u00b2",
@@ -4111,36 +4140,38 @@ public class LeMaVMLexer extends Lexer {
             "\1\u00b8",
             "\1\u00b9",
             "\1\u00ba",
+            "\1\u00bb",
+            "\1\u00bc",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
             "\u5200\54\u5900\uffff\u0200\54",
-            "\1\u00bc",
-            "\1\u00bd",
-            "",
-            "",
-            "",
             "\1\u00be",
             "\1\u00bf",
+            "",
+            "",
+            "",
+            "\1\u00c0",
+            "\1\u00c1",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
             "\u5200\54\u5900\uffff\u0200\54",
-            "\1\u00c1",
-            "\1\u00c2",
             "\1\u00c3",
             "\1\u00c4",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
-            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
-            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
-            "\u5200\54\u5900\uffff\u0200\54",
+            "\1\u00c5",
             "\1\u00c6",
-            "\1\u00c7",
+            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
+            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
+            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
+            "\u5200\54\u5900\uffff\u0200\54",
             "\1\u00c8",
-            "",
             "\1\u00c9",
-            "",
             "\1\u00ca",
+            "",
+            "\1\u00cb",
+            "",
+            "\1\u00cc",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
@@ -4150,8 +4181,6 @@ public class LeMaVMLexer extends Lexer {
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
             "\u5200\54\u5900\uffff\u0200\54",
-            "\1\u00cd",
-            "\1\u00ce",
             "\1\u00cf",
             "\1\u00d0",
             "\1\u00d1",
@@ -4159,6 +4188,9 @@ public class LeMaVMLexer extends Lexer {
             "\1\u00d3",
             "\1\u00d4",
             "\1\u00d5",
+            "\1\u00d6",
+            "\1\u00d7",
+            "\1\u00d8",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
@@ -4172,61 +4204,53 @@ public class LeMaVMLexer extends Lexer {
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
             "\u5200\54\u5900\uffff\u0200\54",
-            "\1\u00d9",
-            "\1\u00da",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
-            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
-            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
-            "\u5200\54\u5900\uffff\u0200\54",
-            "",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
-            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
-            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
-            "\u5200\54\u5900\uffff\u0200\54",
+            "\1\u00dc",
             "\1\u00dd",
-            "\1\u00de",
-            "\1\u00df",
+            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
+            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
+            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
+            "\u5200\54\u5900\uffff\u0200\54",
             "",
+            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
+            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
+            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
+            "\u5200\54\u5900\uffff\u0200\54",
             "\1\u00e0",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
-            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
-            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
-            "\u5200\54\u5900\uffff\u0200\54",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
-            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
-            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
-            "\u5200\54\u5900\uffff\u0200\54",
+            "\1\u00e1",
+            "\1\u00e2",
+            "",
             "\1\u00e3",
-            "\1\u00e4",
-            "",
-            "",
-            "\1\u00e5",
+            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
+            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
+            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
+            "\u5200\54\u5900\uffff\u0200\54",
+            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
+            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
+            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
+            "\u5200\54\u5900\uffff\u0200\54",
             "\1\u00e6",
             "\1\u00e7",
+            "",
+            "",
             "\1\u00e8",
             "\1\u00e9",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
-            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
-            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
-            "\u5200\54\u5900\uffff\u0200\54",
+            "\1\u00ea",
             "\1\u00eb",
+            "\1\u00ec",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
             "\u5200\54\u5900\uffff\u0200\54",
-            "\1\u00ed",
-            "",
-            "",
-            "",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
-            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
-            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
-            "\u5200\54\u5900\uffff\u0200\54",
+            "\1\u00ee",
             "\1\u00ef",
-            "",
-            "",
-            "\1\u00f0",
+            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
+            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
+            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
+            "\u5200\54\u5900\uffff\u0200\54",
             "\1\u00f1",
+            "",
+            "",
+            "",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
@@ -4235,37 +4259,26 @@ public class LeMaVMLexer extends Lexer {
             "",
             "",
             "\1\u00f4",
+            "\1\u00f5",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
             "\u5200\54\u5900\uffff\u0200\54",
-            "\1\u00f6",
             "\1\u00f7",
+            "",
+            "",
             "\1\u00f8",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
             "\u5200\54\u5900\uffff\u0200\54",
+            "\1\u00fa",
+            "\1\u00fb",
+            "\1\u00fc",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
             "\u5200\54\u5900\uffff\u0200\54",
-            "",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
-            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
-            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
-            "\u5200\54\u5900\uffff\u0200\54",
-            "",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
-            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
-            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
-            "\u5200\54\u5900\uffff\u0200\54",
-            "",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
-            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
-            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
-            "\u5200\54\u5900\uffff\u0200\54",
-            "\1\u00fe",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
@@ -4275,34 +4288,59 @@ public class LeMaVMLexer extends Lexer {
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
             "\u5200\54\u5900\uffff\u0200\54",
-            "\1\u0101",
-            "",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
             "\u5200\54\u5900\uffff\u0200\54",
-            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
-            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
-            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
-            "\u5200\54\u5900\uffff\u0200\54",
-            "\1\u0104",
-            "",
-            "",
-            "",
-            "",
             "",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
             "\u5200\54\u5900\uffff\u0200\54",
             "",
+            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
+            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
+            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
+            "\u5200\54\u5900\uffff\u0200\54",
+            "\1\u0103",
+            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
+            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
+            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
+            "\u5200\54\u5900\uffff\u0200\54",
             "",
+            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
+            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
+            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
+            "\u5200\54\u5900\uffff\u0200\54",
             "\1\u0106",
             "",
+            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
+            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
+            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
+            "\u5200\54\u5900\uffff\u0200\54",
+            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
+            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
+            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
+            "\u5200\54\u5900\uffff\u0200\54",
+            "\1\u0109",
             "",
-            "\1\u0107",
             "",
-            "\1\u0108",
+            "",
+            "",
+            "",
+            "",
+            "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
+            "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
+            "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
+            "\u5200\54\u5900\uffff\u0200\54",
+            "",
+            "",
+            "\1\u010b",
+            "",
+            "",
+            "\1\u010c",
+            "",
+            "\1\u010d",
             "\1\54\13\uffff\12\54\7\uffff\32\54\4\uffff\1\54\1\uffff\32"+
             "\54\105\uffff\27\54\1\uffff\37\54\1\uffff\u1f08\54\u1040\uffff"+
             "\u0150\54\u0170\uffff\u0080\54\u0080\uffff\u092e\54\u10d2\uffff"+
@@ -4345,7 +4383,7 @@ public class LeMaVMLexer extends Lexer {
             this.transition = DFA28_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( AND | AND_ASSIGN | ASSIGN | AT | BIT_SHIFT_RIGHT | BIT_SHIFT_RIGHT_ASSIGN | COLON | COMMA | DEC | DIV | DIV_ASSIGN | DOT | DOTSTAR | ELLIPSIS | EQUAL | GREATER_OR_EQUAL | GREATER_THAN | INC | LBRACK | LCURLY | LESS_OR_EQUAL | LESS_THAN | LOGICAL_AND | LOGICAL_NOT | LOGICAL_OR | LPAREN | MINUS | MINUS_ASSIGN | MOD | MOD_ASSIGN | NOT | NOT_EQUAL | OR | OR_ASSIGN | PLUS | PLUS_ASSIGN | QUESTION | RBRACK | RCURLY | RPAREN | SEMI | SHIFT_LEFT | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT | SHIFT_RIGHT_ASSIGN | STAR | STAR_ASSIGN | XOR | XOR_ASSIGN | BOOLEAN | BREAK | CASE | CLASS | CONTINUE | DEFAULT | DO | DOUBLE | ELSE | EXTENDS | FALSE | FINAL | FOR | IF | INSTANCEOF | IMPORT | INT | LONG | NEW | NULL | PACKAGE | PRIVATE | PROTECTED | PUBLIC | RETURN | SHORT | STATIC | SUPER | SWITCH | THIS | TRUE | TRY | VOID | WHILE | HEX_LITERAL | DECIMAL_LITERAL | OCTAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | IDENT | WS | COMMENT | LINE_COMMENT );";
+            return "1:1: Tokens : ( AND | AND_ASSIGN | ASSIGN | AT | BIT_SHIFT_RIGHT | BIT_SHIFT_RIGHT_ASSIGN | COLON | COMMA | DEC | DIV | DIV_ASSIGN | DOT | DOTSTAR | ELLIPSIS | EQUAL | GREATER_OR_EQUAL | GREATER_THAN | INC | LBRACK | LCURLY | LESS_OR_EQUAL | LESS_THAN | LOGICAL_AND | LOGICAL_NOT | LOGICAL_OR | LPAREN | MINUS | MINUS_ASSIGN | MOD | MOD_ASSIGN | NOT | NOT_EQUAL | OR | OR_ASSIGN | PLUS | PLUS_ASSIGN | QUESTION | RBRACK | RCURLY | RPAREN | SEMI | SHIFT_LEFT | SHIFT_LEFT_ASSIGN | SHIFT_RIGHT | SHIFT_RIGHT_ASSIGN | STAR | STAR_ASSIGN | XOR | XOR_ASSIGN | BOOLEAN | BREAK | CASE | CLASS | CONTINUE | DEFAULT | DO | DOUBLE | ELSE | EXTENDS | FALSE | FINAL | FOR | IF | INSTANCEOF | IMPORT | INT | LONG | NEW | NULL | PACKAGE | PRIVATE | PROTECTED | PUBLIC | RETURN | SHORT | STATIC | STRING | SUPER | SWITCH | THIS | TRUE | TRY | VOID | WHILE | HEX_LITERAL | DECIMAL_LITERAL | OCTAL_LITERAL | FLOATING_POINT_LITERAL | CHARACTER_LITERAL | STRING_LITERAL | IDENT | WS | COMMENT | LINE_COMMENT );";
         }
     }
  
