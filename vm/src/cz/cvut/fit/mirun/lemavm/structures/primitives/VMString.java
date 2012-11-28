@@ -2,7 +2,7 @@ package cz.cvut.fit.mirun.lemavm.structures.primitives;
 
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 
-public final class VMString extends VMPrimitive {
+public class VMString extends VMPrimitive {
 
 	private final String value;
 
@@ -35,5 +35,40 @@ public final class VMString extends VMPrimitive {
 		} else {
 			return false;
 		}
+	}
+
+	public VMString charAt(int ind) {
+		return new VMString(String.valueOf(value.charAt(ind)));
+	}
+
+	public int length() {
+		return value.length();
+	}
+
+	public boolean contains(VMString str) {
+		if (str == null) {
+			throw new NullPointerException();
+		}
+		return value.contains(str.getValue());
+	}
+
+	public boolean isEmpty() {
+		return value.isEmpty();
+	}
+
+	public VMString substring(int beginIndex) {
+		return new VMString(value.substring(beginIndex));
+	}
+
+	public VMString substring(int beginIndex, int endIndex) {
+		return new VMString(value.substring(beginIndex, endIndex));
+	}
+
+	public VMString toLowerCase() {
+		return new VMString(value.toLowerCase());
+	}
+
+	public VMString toUpperCase() {
+		return new VMString(value.toUpperCase());
 	}
 }

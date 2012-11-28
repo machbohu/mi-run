@@ -11,6 +11,9 @@ public abstract class VMBinaryShortCompOperator extends VMOperator {
 
 	public VMBinaryShortCompOperator(short opOne, VMOperator operTwo) {
 		super();
+		if (operTwo == null) {
+			throw new NullPointerException();
+		}
 		this.opOne = opOne;
 		this.operTwo = operTwo;
 		this.operOne = null;
@@ -19,6 +22,9 @@ public abstract class VMBinaryShortCompOperator extends VMOperator {
 
 	public VMBinaryShortCompOperator(VMOperator operOne, short opTwo) {
 		super();
+		if (operOne == null) {
+			throw new NullPointerException();
+		}
 		this.operOne = operOne;
 		this.opTwo = opTwo;
 		this.operTwo = null;

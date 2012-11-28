@@ -17,13 +17,13 @@ public final class VMShortCompDivide extends VMBinaryShortCompOperator {
 	@Override
 	public double evaluateDouble() {
 		if (operOne != null) {
-			short d = operOne.evaluateShort();
+			double d = operOne.evaluateDouble();
 			if (opTwo == 0) {
 				throw new VMDivisionByZeroException();
 			}
 			return (double) (d / opTwo);
 		} else {
-			short d = operOne.evaluateShort();
+			double d = operTwo.evaluateDouble();
 			if (d == 0) {
 				throw new VMDivisionByZeroException();
 			}
@@ -34,13 +34,13 @@ public final class VMShortCompDivide extends VMBinaryShortCompOperator {
 	@Override
 	public long evaluateLong() {
 		if (operOne != null) {
-			short d = operOne.evaluateShort();
+			long d = operOne.evaluateLong();
 			if (opTwo == 0) {
 				throw new VMDivisionByZeroException();
 			}
 			return (long) (d / opTwo);
 		} else {
-			short d = operOne.evaluateShort();
+			long d = operTwo.evaluateLong();
 			if (d == 0) {
 				throw new VMDivisionByZeroException();
 			}
@@ -51,13 +51,13 @@ public final class VMShortCompDivide extends VMBinaryShortCompOperator {
 	@Override
 	public int evaluateInt() {
 		if (operOne != null) {
-			short d = operOne.evaluateShort();
+			int d = operOne.evaluateInt();
 			if (opTwo == 0) {
 				throw new VMDivisionByZeroException();
 			}
 			return (int) (d / opTwo);
 		} else {
-			short d = operOne.evaluateShort();
+			int d = operTwo.evaluateInt();
 			if (d == 0) {
 				throw new VMDivisionByZeroException();
 			}
@@ -68,13 +68,13 @@ public final class VMShortCompDivide extends VMBinaryShortCompOperator {
 	@Override
 	public short evaluateShort() {
 		if (operOne != null) {
-			short d = operOne.evaluateShort();
+			int d = operOne.evaluateInt();
 			if (opTwo == 0) {
 				throw new VMDivisionByZeroException();
 			}
 			return (short) (d / opTwo);
 		} else {
-			short d = operOne.evaluateShort();
+			int d = operTwo.evaluateInt();
 			if (d == 0) {
 				throw new VMDivisionByZeroException();
 			}

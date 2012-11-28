@@ -17,13 +17,13 @@ public final class VMLongCompDivide extends VMBinaryLongCompOperator {
 	@Override
 	public double evaluateDouble() {
 		if (operOne != null) {
-			long d = operOne.evaluateLong();
 			if (opTwo == 0) {
 				throw new VMDivisionByZeroException();
 			}
+			double d = operOne.evaluateDouble();
 			return (double) (d / opTwo);
 		} else {
-			long d = operTwo.evaluateLong();
+			double d = operTwo.evaluateDouble();
 			if (d == 0) {
 				throw new VMDivisionByZeroException();
 			}
@@ -51,13 +51,13 @@ public final class VMLongCompDivide extends VMBinaryLongCompOperator {
 	@Override
 	public int evaluateInt() {
 		if (operOne != null) {
-			long d = operOne.evaluateLong();
+			int d = operOne.evaluateInt();
 			if (opTwo == 0) {
 				throw new VMDivisionByZeroException();
 			}
 			return (int) (d / opTwo);
 		} else {
-			long d = operOne.evaluateLong();
+			int d = operTwo.evaluateInt();
 			if (d == 0) {
 				throw new VMDivisionByZeroException();
 			}
@@ -68,13 +68,13 @@ public final class VMLongCompDivide extends VMBinaryLongCompOperator {
 	@Override
 	public short evaluateShort() {
 		if (operOne != null) {
-			long d = operOne.evaluateLong();
+			int d = operOne.evaluateInt();
 			if (opTwo == 0) {
 				throw new VMDivisionByZeroException();
 			}
 			return (short) (d / opTwo);
 		} else {
-			long d = operOne.evaluateLong();
+			int d = operTwo.evaluateInt();
 			if (d == 0) {
 				throw new VMDivisionByZeroException();
 			}

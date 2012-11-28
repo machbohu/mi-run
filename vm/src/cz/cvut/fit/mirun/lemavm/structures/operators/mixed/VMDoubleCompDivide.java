@@ -34,7 +34,7 @@ public final class VMDoubleCompDivide extends VMBinaryDoubleCompOperator {
 			}
 			return (long) (d / opTwo);
 		} else {
-			double d = operOne.evaluateDouble();
+			double d = operTwo.evaluateDouble();
 			if (d == 0) {
 				throw new VMDivisionByZeroException();
 			}
@@ -51,7 +51,7 @@ public final class VMDoubleCompDivide extends VMBinaryDoubleCompOperator {
 			}
 			return (int) (d / opTwo);
 		} else {
-			double d = operOne.evaluateDouble();
+			double d = operTwo.evaluateDouble();
 			if (d == 0) {
 				throw new VMDivisionByZeroException();
 			}
@@ -68,7 +68,7 @@ public final class VMDoubleCompDivide extends VMBinaryDoubleCompOperator {
 			}
 			return (short) (d / opTwo);
 		} else {
-			double d = operOne.evaluateDouble();
+			double d = operTwo.evaluateDouble();
 			if (d == 0) {
 				throw new VMDivisionByZeroException();
 			}

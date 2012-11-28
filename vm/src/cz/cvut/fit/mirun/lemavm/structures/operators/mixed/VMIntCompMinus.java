@@ -1,6 +1,5 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators.mixed;
 
-import cz.cvut.fit.mirun.lemavm.exceptions.VMDivisionByZeroException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
@@ -17,16 +16,10 @@ public final class VMIntCompMinus extends VMBinaryIntCompOperator {
 	@Override
 	public double evaluateDouble() {
 		if (operOne != null) {
-			int d = operOne.evaluateInt();
-			if (opTwo == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			double d = operOne.evaluateDouble();
 			return (double) (d - opTwo);
 		} else {
-			int d = operOne.evaluateInt();
-			if (d == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			double d = operTwo.evaluateDouble();
 			return (double) (opOne - d);
 		}
 	}
@@ -34,16 +27,10 @@ public final class VMIntCompMinus extends VMBinaryIntCompOperator {
 	@Override
 	public long evaluateLong() {
 		if (operOne != null) {
-			int d = operOne.evaluateInt();
-			if (opTwo == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			long d = operOne.evaluateLong();
 			return (long) (d - opTwo);
 		} else {
-			int d = operOne.evaluateInt();
-			if (d == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			long d = operTwo.evaluateLong();
 			return (long) (opOne - d);
 		}
 	}
@@ -52,15 +39,9 @@ public final class VMIntCompMinus extends VMBinaryIntCompOperator {
 	public int evaluateInt() {
 		if (operOne != null) {
 			int d = operOne.evaluateInt();
-			if (opTwo == 0) {
-				throw new VMDivisionByZeroException();
-			}
 			return (d - opTwo);
 		} else {
-			int d = operOne.evaluateInt();
-			if (d == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			int d = operTwo.evaluateInt();
 			return (opOne - d);
 		}
 	}
@@ -68,16 +49,10 @@ public final class VMIntCompMinus extends VMBinaryIntCompOperator {
 	@Override
 	public short evaluateShort() {
 		if (operOne != null) {
-			int d = operOne.evaluateInt();
-			if (opTwo == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			int d = operTwo.evaluateInt();
 			return (short) (d - opTwo);
 		} else {
-			int d = operOne.evaluateInt();
-			if (d == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			int d = operTwo.evaluateInt();
 			return (short) (opOne - d);
 		}
 	}

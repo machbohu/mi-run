@@ -1,6 +1,5 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators.mixed;
 
-import cz.cvut.fit.mirun.lemavm.exceptions.VMDivisionByZeroException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
@@ -28,16 +27,10 @@ public final class VMDoubleCompMultiply extends VMBinaryDoubleCompOperator {
 	@Override
 	public long evaluateLong() {
 		if (operOne != null) {
-			double d = operOne.evaluateDouble();
-			if (opTwo == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			long d = operOne.evaluateLong();
 			return (long) (d * opTwo);
 		} else {
-			double d = operOne.evaluateDouble();
-			if (d == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			long d = operTwo.evaluateLong();
 			return (long) (opOne * d);
 		}
 	}
@@ -45,16 +38,10 @@ public final class VMDoubleCompMultiply extends VMBinaryDoubleCompOperator {
 	@Override
 	public int evaluateInt() {
 		if (operOne != null) {
-			double d = operOne.evaluateDouble();
-			if (opTwo == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			int d = operOne.evaluateInt();
 			return (int) (d * opTwo);
 		} else {
-			double d = operOne.evaluateDouble();
-			if (d == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			int d = operTwo.evaluateInt();
 			return (int) (opOne * d);
 		}
 	}
@@ -62,16 +49,10 @@ public final class VMDoubleCompMultiply extends VMBinaryDoubleCompOperator {
 	@Override
 	public short evaluateShort() {
 		if (operOne != null) {
-			double d = operOne.evaluateDouble();
-			if (opTwo == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			int d = operOne.evaluateInt();
 			return (short) (d * opTwo);
 		} else {
-			double d = operOne.evaluateDouble();
-			if (d == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			int d = operTwo.evaluateInt();
 			return (short) (opOne * d);
 		}
 	}

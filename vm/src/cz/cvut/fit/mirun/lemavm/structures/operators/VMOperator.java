@@ -16,6 +16,7 @@ public abstract class VMOperator {
 	protected static final Logger LOG = Logger.getLogger(VMOperator.class);
 
 	private final VMHeader header;
+	protected ObjectType returnType;
 
 	public VMOperator() {
 		super();
@@ -71,5 +72,13 @@ public abstract class VMOperator {
 
 	public VMHeader getHeader() {
 		return header;
+	}
+
+	public ObjectType getReturnType() {
+		return returnType;
+	}
+
+	public void setReturnType(ObjectType returnType) {
+		this.returnType = returnType;
 	}
 }

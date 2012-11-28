@@ -1,6 +1,5 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators.mixed;
 
-import cz.cvut.fit.mirun.lemavm.exceptions.VMDivisionByZeroException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
@@ -17,16 +16,10 @@ public final class VMShortCompMultiply extends VMBinaryShortCompOperator {
 	@Override
 	public double evaluateDouble() {
 		if (operOne != null) {
-			short d = operOne.evaluateShort();
-			if (opTwo == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			double d = operOne.evaluateDouble();
 			return (double) (d * opTwo);
 		} else {
-			short d = operOne.evaluateShort();
-			if (d == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			double d = operTwo.evaluateDouble();
 			return (double) (opOne * d);
 		}
 	}
@@ -34,16 +27,10 @@ public final class VMShortCompMultiply extends VMBinaryShortCompOperator {
 	@Override
 	public long evaluateLong() {
 		if (operOne != null) {
-			short d = operOne.evaluateShort();
-			if (opTwo == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			long d = operOne.evaluateLong();
 			return (long) (d * opTwo);
 		} else {
-			short d = operOne.evaluateShort();
-			if (d == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			long d = operTwo.evaluateLong();
 			return (long) (opOne * d);
 		}
 	}
@@ -51,16 +38,10 @@ public final class VMShortCompMultiply extends VMBinaryShortCompOperator {
 	@Override
 	public int evaluateInt() {
 		if (operOne != null) {
-			short d = operOne.evaluateShort();
-			if (opTwo == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			int d = operOne.evaluateInt();
 			return (int) (d * opTwo);
 		} else {
-			short d = operOne.evaluateShort();
-			if (d == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			int d = operTwo.evaluateInt();
 			return (int) (opOne * d);
 		}
 	}
@@ -68,16 +49,10 @@ public final class VMShortCompMultiply extends VMBinaryShortCompOperator {
 	@Override
 	public short evaluateShort() {
 		if (operOne != null) {
-			short d = operOne.evaluateShort();
-			if (opTwo == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			int d = operOne.evaluateInt();
 			return (short) (d * opTwo);
 		} else {
-			short d = operOne.evaluateShort();
-			if (d == 0) {
-				throw new VMDivisionByZeroException();
-			}
+			int d = operTwo.evaluateInt();
 			return (short) (opOne * d);
 		}
 	}
