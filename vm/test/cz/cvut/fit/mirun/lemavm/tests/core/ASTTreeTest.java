@@ -49,12 +49,6 @@ public class ASTTreeTest {
 			"        return c;\n" +
 			"    }\n" +
 			"    int a = 5 + 6 * 6 + 2; \n" +
-			"    public class Inside{\n" +
-			"        private int insideMethod(int a, int b) {\n" +
-			"            int c = a + b;\n" +
-			"            return c;\n" +
-			"        }\n" +
-			"    }\n" +
 			"}\n" +
 			"\n" +
 			"public class Main {\n" +
@@ -74,11 +68,11 @@ public class ASTTreeTest {
 		
         try {
 			CommonTree tree = (CommonTree)parser.javaSource().getTree();
-//			System.out.println(parser.getMessages().toString()); // print errors
+			System.out.println(parser.getMessages().toString()); // print errors
 //			printTree(tree, 0);
 	        DOTTreeGenerator gen = new DOTTreeGenerator();
 	        StringTemplate st = gen.toDOT(tree);
-	        System.out.println(st);
+//	        System.out.println(st);
 		} catch (RecognitionException e) {
 			e.printStackTrace();
 		}

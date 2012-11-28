@@ -21,7 +21,9 @@ public final class VMClass extends VMObject {
 
 	private final String name;
 	private final VMClass superClass;
-	private final Map<String, VMVisibilityModifier> fields;
+	private final Map<String, VMVisibilityModifier> fieldMods;
+	private final Map<String, String> fieldTypes;
+	private final Map<String, Object> fieldVals;
 	private final Map<String, VMMethod> methods;
 
 	// TODO What about static fields and methods?
@@ -30,20 +32,34 @@ public final class VMClass extends VMObject {
 		super(ObjectType.META_CLASS);
 		this.name = name;
 		this.superClass = superClass;
-		this.fields = new HashMap<>();
+		this.fieldMods = new HashMap<>();
+		this.fieldTypes = new HashMap<>();
+		this.fieldVals = new HashMap<>();
 		this.methods = new HashMap<>();
 	}
 
 	private VMClass(String name, VMClass superClass,
-			Map<String, VMVisibilityModifier> fields,
+			Map<String, VMVisibilityModifier> fieldMods,
+			Map<String, String> fieldTypes,
+			Map<String, Object> fieldVals,
 			Map<String, VMMethod> methods) {
 		super(ObjectType.META_CLASS);
 		this.name = name;
 		this.superClass = superClass;
-		if (fields == null) {
-			this.fields = Collections.emptyMap();
+		if (fieldMods == null) {
+			this.fieldMods = Collections.emptyMap();
 		} else {
-			this.fields = fields;
+			this.fieldMods = fieldMods;
+		}
+		if (fieldTypes == null) {
+			this.fieldTypes = Collections.emptyMap();
+		} else {
+			this.fieldTypes = fieldTypes;
+		}
+		if (fieldVals == null) {
+			this.fieldVals = Collections.emptyMap();
+		} else {
+			this.fieldVals = fieldVals;
 		}
 		if (methods.isEmpty()) {
 			this.methods = Collections.emptyMap();
@@ -60,8 +76,16 @@ public final class VMClass extends VMObject {
 		return superClass;
 	}
 
-	public Map<String, VMVisibilityModifier> getFields() {
-		return fields;
+	public Map<String, VMVisibilityModifier> getFieldMods() {
+		return fieldMods;
+	}
+
+	public Map<String, String> getFieldTypes() {
+		return fieldTypes;
+	}
+
+	public Map<String, Object> getFieldVals() {
+		return fieldVals;
 	}
 
 	/**
@@ -72,15 +96,17 @@ public final class VMClass extends VMObject {
 	 * @throws VMParsingException
 	 *             If this class already contains a field of that name
 	 */
-	public void addField(String newField, VMVisibilityModifier visibility) {
+	public void addField(String newField, VMVisibilityModifier visibility, String type, Object val) {
 		if (newField == null) {
 			throw new VMNullPointerException();
 		}
-		if (fields.containsKey(newField)) {
+		if (fieldMods.containsKey(newField)) {
 			throw new VMParsingException("Field with name " + newField
 					+ " already exists in class " + name);
 		}
-		fields.put(newField, visibility);
+		fieldMods.put(newField, visibility);
+		fieldTypes.put(newField, type);
+		fieldVals.put(newField, val);
 	}
 
 	public Map<String, VMMethod> getMethods() {
@@ -113,7 +139,8 @@ public final class VMClass extends VMObject {
 					"Invalid VMClass constructor parameters: " + name);
 		}
 		if (classes.containsKey(name)) {
-			return classes.get(name);
+//			return classes.get(name);
+			throw new VMParsingException("Definition of class with name "+name+" already exists.");
 		}
 		final VMClass newClass = new VMClass(name, superClass);
 		classes.put(name, newClass);
@@ -135,16 +162,19 @@ public final class VMClass extends VMObject {
 	 * @see #createClass(String, VMClass)
 	 */
 	public static VMClass createClass(String name, VMClass superClass,
-			Map<String, VMVisibilityModifier> fields,
+			Map<String, VMVisibilityModifier> fieldMods,
+			Map<String, String> fieldTypes,
+			Map<String, Object> fieldVals,
 			Map<String, VMMethod> methods) {
 		if (name == null || name.isEmpty()) {
 			throw new VMParsingException(
 					"Invalid VMClass constructor parameters: " + name);
 		}
 		if (classes.containsKey(name)) {
-			return classes.get(name);
+//			return classes.get(name);
+			throw new VMParsingException("Definition of class with name "+name+" already exists.");
 		}
-		final VMClass newClass = new VMClass(name, superClass, fields, methods);
+		final VMClass newClass = new VMClass(name, superClass, fieldMods, fieldTypes, fieldVals, methods);
 		classes.put(name, newClass);
 		return newClass;
 	}

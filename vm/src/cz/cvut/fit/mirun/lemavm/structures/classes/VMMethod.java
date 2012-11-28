@@ -12,7 +12,7 @@ public class VMMethod extends VMObject {
 
 	private final String name;
 	private VMClass owner;
-	private final Map<String, VMObject> arguments;
+	private final Map<String, String> arguments; // <name, type>
 	private final boolean methodStatic;
 	private final VMVisibilityModifier visibility;
 
@@ -20,7 +20,7 @@ public class VMMethod extends VMObject {
 	private final VMCodeBlock code;
 
 	public VMMethod(String name, VMClass owner, boolean methodStatic,
-			VMVisibilityModifier visibility, Map<String, VMObject> arguments,
+			VMVisibilityModifier visibility, Map<String, String> arguments,
 			VMCodeBlock code) {
 		super(ObjectType.METHOD);
 		if (name == null || name.isEmpty() || visibility == null) {
@@ -64,7 +64,7 @@ public class VMMethod extends VMObject {
 	 * 
 	 * @return Map of argument names and types
 	 */
-	public Map<String, VMObject> getArguments() {
+	public Map<String, String> getArguments() {
 		return arguments;
 	}
 

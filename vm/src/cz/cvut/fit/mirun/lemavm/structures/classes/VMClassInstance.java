@@ -41,7 +41,7 @@ public class VMClassInstance extends VMObject {
 	public void setFieldValue(String fieldName, VMObject value) {
 		assert fieldName != null;
 		assert value != null;
-		if (!cls.getFields().containsKey(fieldName)) {
+		if (!cls.getFieldMods().containsKey(fieldName)) {
 			if (superInst != null) {
 				try {
 					superInst.setFieldValue(fieldName, value);
@@ -79,7 +79,7 @@ public class VMClassInstance extends VMObject {
 	 */
 	public VMVisibilityModifier getFieldVisibility(String fieldName) {
 		assert fieldName != null;
-		return cls.getFields().get(fieldName);
+		return cls.getFieldMods().get(fieldName);
 	}
 
 	public VMClass getVMClass() {
