@@ -1,15 +1,14 @@
 package cz.cvut.fit.mirun.lemavm.structures.control;
 
-import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
-import cz.cvut.fit.mirun.lemavm.structures.primitives.VMBoolean;
+import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMRelationalOperator;
 
 public final class VMIfElse extends VMObject {
 
-	private final VMObject condition;
+	private final VMRelationalOperator condition;
 	private final VMCodeBlock ifPart;
 	private final VMCodeBlock elsePart;
 
@@ -26,7 +25,8 @@ public final class VMIfElse extends VMObject {
 	 * @param elsePart
 	 *            Else part. Optional
 	 */
-	public VMIfElse(VMObject condition, VMCodeBlock ifPart, VMCodeBlock elsePart) {
+	public VMIfElse(VMRelationalOperator condition, VMCodeBlock ifPart,
+			VMCodeBlock elsePart) {
 		super(ObjectType.IF_ELSE);
 		if (condition == null || ifPart == null) {
 			throw new VMParsingException(
@@ -40,13 +40,8 @@ public final class VMIfElse extends VMObject {
 
 	@Override
 	public VMObject evaluate() {
-		final VMObject condRes = condition.evaluate();
-		if (!condRes.getType().equals(ObjectType.BOOLEAN)) {
-			throw new VMEvaluationException(
-					"The result of if condition evaluation is not a boolean.");
-		}
-		final VMBoolean res = (VMBoolean) condRes;
-		if (res.getValue()) {
+		final boolean res = condition.evaluateBoolean();
+		if (res) {
 			return ifPart;
 		} else {
 			return elsePart;

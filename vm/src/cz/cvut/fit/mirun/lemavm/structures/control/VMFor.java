@@ -1,16 +1,15 @@
 package cz.cvut.fit.mirun.lemavm.structures.control;
 
-import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
-import cz.cvut.fit.mirun.lemavm.structures.primitives.VMBoolean;
+import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMRelationalOperator;
 
 public final class VMFor extends VMObject {
 
-//	private final VMObject index;
-	private final VMObject condition;
+	// private final VMObject index;
+	private final VMRelationalOperator condition;
 	private final VMObject operation;
 	private final VMCodeBlock forPart;
 
@@ -26,14 +25,17 @@ public final class VMFor extends VMObject {
 	 * @param forPart
 	 *            For part
 	 */
-	public VMFor(/*VMObject index, */VMObject condition, VMObject operation, VMCodeBlock forPart) {
+	public VMFor(/* VMObject index, */VMRelationalOperator condition,
+			VMObject operation, VMCodeBlock forPart) {
 		super(ObjectType.FOR);
-		if (/*index == null || */condition == null || operation == null || forPart == null) {
+		if (/* index == null || */condition == null || operation == null
+				|| forPart == null) {
 			throw new VMParsingException(
 					"Illegal arguments passed to VMFor constructor: "
-							/*+ index + ", "*/ + condition + ", " + operation + ", " + forPart);
+					/* + index + ", " */+ condition + ", " + operation + ", "
+							+ forPart);
 		}
-//		this.index = index;
+		// this.index = index;
 		this.condition = condition;
 		this.operation = operation;
 		this.forPart = forPart;
@@ -41,15 +43,11 @@ public final class VMFor extends VMObject {
 
 	@Override
 	public VMObject evaluate() {
-		final VMObject condRes = condition.evaluate();
-		if (!condRes.getType().equals(ObjectType.BOOLEAN)) {
-			throw new VMEvaluationException(
-					"The result of for condition evaluation is not a boolean.");
-		}
-		final VMBoolean res = (VMBoolean) condRes;
-		if (res.getValue()) {
-			// TODO prepend operation and 
-			// this instance of for to the CodeBlock forPart for later repeated evaluation
+		final boolean res = condition.evaluateBoolean();
+		if (res) {
+			// TODO prepend operation and
+			// this instance of for to the CodeBlock forPart for later repeated
+			// evaluation
 			return forPart;
 		} else {
 			return null;

@@ -19,11 +19,14 @@ public class VMEnvironment {
 
 	private static final Set<String> knownTypes = initTypes();
 
-	// Contains all bindings (including final ones)
+	// Contains all reference bindings (including final ones)
 	private final Map<String, VMObject> bindings;
+	// Contains primitive bindings
 	private final Map<String, String> bindingTypes;
+	// Contains all final bindings (primitive and reference)
+	private final Map<String, Object> primitiveBindings;
 	// Bindings with the final keyword
-	private final Map<String, VMObject> finalBindings;
+	private final Map<String, Object> finalBindings;
 	private final VMEnvironment parent;
 
 	public VMEnvironment() {
@@ -31,6 +34,7 @@ public class VMEnvironment {
 		this.bindings = new HashMap<>();
 		this.finalBindings = new HashMap<>();
 		this.bindingTypes = new HashMap<>();
+		this.primitiveBindings = new HashMap<>();
 		// This will be the top environment
 		this.parent = null;
 	}
@@ -40,6 +44,7 @@ public class VMEnvironment {
 		this.bindings = new HashMap<>();
 		this.finalBindings = new HashMap<>();
 		this.bindingTypes = new HashMap<>();
+		this.primitiveBindings = new HashMap<>();
 		this.parent = parent;
 	}
 
@@ -47,20 +52,31 @@ public class VMEnvironment {
 	 * Get binding for the specified name. Parent environments are searched too.
 	 * </p>
 	 * 
+	 * The value returned is cast to the specified class, which will probably be
+	 * either {@code VMObject} or a primitive type wrapper ({@code Integer}
+	 * etc.). </p>
+	 * 
 	 * This method return null if there is no binding with such name. Callers
 	 * should handle this situation and throw evaluation error for using
 	 * undefined binding name.
 	 * 
 	 * @param name
 	 *            Name of the bound value
+	 * @param cls
+	 *            The expected runtime type of the returned value
 	 * @return Value bound to the specified name
+	 * @throws ClassCastException
+	 *             If the returned value cannot be cast to the specified class
 	 */
-	public VMObject getBinding(String name) {
-		VMObject res = bindings.get(name);
-		if (res == null && parent != null) {
-			res = parent.getBinding(name);
+	public <T> T getBinding(String name, Class<T> cls) {
+		Object res = bindings.get(name);
+		if (res == null) {
+			res = primitiveBindings.get(name);
 		}
-		return res;
+		if (res == null && parent != null) {
+			res = parent.getBinding(name, cls);
+		}
+		return cls.cast(res);
 	}
 
 	/**
@@ -116,21 +132,14 @@ public class VMEnvironment {
 			LOG.debug("Creating binding for name " + name + " and value "
 					+ value);
 		}
-		if (name == null || name.isEmpty() || value == null) {
-			throw new VMEvaluationException(
-					"Cannot create binding for this values: name = " + name
-							+ ", value = " + value);
-		}
-		if (!knownTypes.contains(type)) {
-			throw new VMUnknownTypeException("Uknown type " + type);
-		}
+		checkParams(name, value, type);
 		checkFinalBinding(name);
 		bindings.put(name, value);
 		bindingTypes.put(name, type);
 	}
 
 	/**
-	 * Add new binding with a final keyword </p>
+	 * Add new binding with a final keyword. </p>
 	 * 
 	 * Such binding cannot be changed to another value.
 	 * 
@@ -143,16 +152,42 @@ public class VMEnvironment {
 			LOG.debug("Creating final binding for name " + name + " and value "
 					+ value);
 		}
-		if (name == null || name.isEmpty() || value == null) {
-			throw new VMEvaluationException(
-					"Cannot create binding for this values: name = " + name
-							+ ", value = " + value);
-		}
-		if (!knownTypes.contains(type)) {
-			throw new VMUnknownTypeException("Uknown type " + type);
-		}
+		checkParams(name, value, type);
 		checkFinalBinding(name);
 		bindings.put(name, value);
+		bindingTypes.put(name, type);
+		finalBindings.put(name, value);
+	}
+
+	/**
+	 * Add a new binding for the specified primitive value (boxed).
+	 * 
+	 * @see #addBinding(String, VMObject, String)
+	 */
+	public void addPrimitiveBinding(String name, Object value, String type) {
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Creating primitive binding for name " + name
+					+ " and value " + value);
+		}
+		checkParams(name, value, type);
+		checkFinalBinding(name);
+		primitiveBindings.put(name, value);
+		bindingTypes.put(name, type);
+	}
+
+	/**
+	 * Add a new final binding for the specified primitive value (boxed). </p>
+	 * 
+	 * @see #addFinalBinding(String, VMObject, String)
+	 */
+	public void addPrimitiveFinalBinding(String name, Object value, String type) {
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Creating primitive final binding for name " + name
+					+ " and value " + value);
+		}
+		checkParams(name, value, type);
+		checkFinalBinding(name);
+		primitiveBindings.put(name, value);
 		bindingTypes.put(name, type);
 		finalBindings.put(name, value);
 	}
@@ -175,6 +210,17 @@ public class VMEnvironment {
 		if (finalBindings.containsKey(name)) {
 			throw new VMFinalBindingExistsException("Binding with name " + name
 					+ " already exists.");
+		}
+	}
+
+	private void checkParams(String name, Object value, String type) {
+		if (name == null || name.isEmpty() || value == null) {
+			throw new VMEvaluationException(
+					"Cannot create binding for this values: name = " + name
+							+ ", value = " + value);
+		}
+		if (!knownTypes.contains(type)) {
+			throw new VMUnknownTypeException("Uknown type " + type);
 		}
 	}
 
