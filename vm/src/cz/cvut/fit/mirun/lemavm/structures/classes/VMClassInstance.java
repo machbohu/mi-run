@@ -19,14 +19,16 @@ public class VMClassInstance extends VMObject {
 	private final VMClass cls;
 	// For possible inheritance support
 	private final VMClassInstance superInst;
-
 	private final Map<String, VMObject> fieldValues;
+	private final VMEnvironment env;
 
 	public VMClassInstance(VMClass cls, VMClassInstance superInst) {
 		super(ObjectType.OBJECT);
 		fieldValues = new HashMap<>();
 		this.cls = cls;
 		this.superInst = superInst;
+		// TODO set env with default values in VMClass cls
+		this.env = new VMEnvironment();
 	}
 
 	/**

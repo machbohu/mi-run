@@ -36,7 +36,15 @@ public class ASTTreeTest {
 //			"public static int a = 5;\n" +
 			"public class Test {\n" +
 			"    int b = 5 + 6 * 6 + 2; \n" +
-			"    int testMethod(int a) {\n" +
+			"    public static int str = \"a\"; \n" +
+			"    int char = 'a'; \n" +
+			"    int num = 5; \n" +
+//			"    int f = ; \n" +
+//			"    int g = 5 \n" +
+			"    public Test(int a) {\n" +
+			"        this.b = a;\n" +
+			"    }\n" +
+			"    static int testMethod(int a) {\n" +
 			"        if(a == 0){\n" +
 			"            a = 1;\n" +
 			"        }\n" +
@@ -51,7 +59,7 @@ public class ASTTreeTest {
 			"    int a = 5 + 6 * 6 + 2; \n" +
 			"}\n" +
 			"\n" +
-			"public class Main {\n" +
+			"public static class Main {\n" +
 			"\n" +
 			"    public void main() {\n" +
 			"        int a = 5, b = 2;\n" +
@@ -68,11 +76,14 @@ public class ASTTreeTest {
 		
         try {
 			CommonTree tree = (CommonTree)parser.javaSource().getTree();
-			System.out.println(parser.getMessages().toString()); // print errors
-//			printTree(tree, 0);
-	        DOTTreeGenerator gen = new DOTTreeGenerator();
-	        StringTemplate st = gen.toDOT(tree);
-//	        System.out.println(st);
+			if(parser.getMessages().size() > 0){
+				System.out.println(parser.getMessages().toString()); // print errors
+			}else{
+	//			printTree(tree, 0);
+		        DOTTreeGenerator gen = new DOTTreeGenerator();
+		        StringTemplate st = gen.toDOT(tree);
+		        System.out.println(st);
+			}
 		} catch (RecognitionException e) {
 			e.printStackTrace();
 		}

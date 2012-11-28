@@ -24,6 +24,7 @@ public final class VMClass extends VMObject {
 	private final Map<String, VMVisibilityModifier> fieldMods;
 	private final Map<String, String> fieldTypes;
 	private final Map<String, Object> fieldVals;
+	private final Map<String, VMMethod> constructors;
 	private final Map<String, VMMethod> methods;
 
 	// TODO What about static fields and methods?
@@ -35,6 +36,7 @@ public final class VMClass extends VMObject {
 		this.fieldMods = new HashMap<>();
 		this.fieldTypes = new HashMap<>();
 		this.fieldVals = new HashMap<>();
+		this.constructors = new HashMap<>();
 		this.methods = new HashMap<>();
 	}
 
@@ -42,6 +44,7 @@ public final class VMClass extends VMObject {
 			Map<String, VMVisibilityModifier> fieldMods,
 			Map<String, String> fieldTypes,
 			Map<String, Object> fieldVals,
+			Map<String, VMMethod> constructors,
 			Map<String, VMMethod> methods) {
 		super(ObjectType.META_CLASS);
 		this.name = name;
@@ -60,6 +63,11 @@ public final class VMClass extends VMObject {
 			this.fieldVals = Collections.emptyMap();
 		} else {
 			this.fieldVals = fieldVals;
+		}
+		if (constructors.isEmpty()) {
+			this.constructors = Collections.emptyMap();
+		} else {
+			this.constructors = constructors;
 		}
 		if (methods.isEmpty()) {
 			this.methods = Collections.emptyMap();
@@ -165,6 +173,7 @@ public final class VMClass extends VMObject {
 			Map<String, VMVisibilityModifier> fieldMods,
 			Map<String, String> fieldTypes,
 			Map<String, Object> fieldVals,
+			Map<String, VMMethod> constructors,
 			Map<String, VMMethod> methods) {
 		if (name == null || name.isEmpty()) {
 			throw new VMParsingException(
@@ -174,7 +183,8 @@ public final class VMClass extends VMObject {
 //			return classes.get(name);
 			throw new VMParsingException("Definition of class with name "+name+" already exists.");
 		}
-		final VMClass newClass = new VMClass(name, superClass, fieldMods, fieldTypes, fieldVals, methods);
+		final VMClass newClass = 
+				new VMClass(name, superClass, fieldMods, fieldTypes, fieldVals, constructors, methods);
 		classes.put(name, newClass);
 		return newClass;
 	}

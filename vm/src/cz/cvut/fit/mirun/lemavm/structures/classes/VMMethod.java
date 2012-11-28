@@ -3,6 +3,8 @@ package cz.cvut.fit.mirun.lemavm.structures.classes;
 import java.util.Collections;
 import java.util.Map;
 
+import org.antlr.runtime.tree.CommonTree;
+
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
@@ -15,13 +17,15 @@ public class VMMethod extends VMObject {
 	private final Map<String, String> arguments; // <name, type>
 	private final boolean methodStatic;
 	private final VMVisibilityModifier visibility;
+	private final VMEnvironment env;
 
+	private final CommonTree subTree;
 	// TODO This may not be the best representation of a code block
 	private final VMCodeBlock code;
 
 	public VMMethod(String name, VMClass owner, boolean methodStatic,
 			VMVisibilityModifier visibility, Map<String, String> arguments,
-			VMCodeBlock code) {
+			CommonTree tree) {
 		super(ObjectType.METHOD);
 		if (name == null || name.isEmpty() || visibility == null) {
 			throw new VMParsingException(
@@ -32,12 +36,16 @@ public class VMMethod extends VMObject {
 		this.owner = owner;
 		this.methodStatic = methodStatic;
 		this.visibility = visibility;
+		this.env = new VMEnvironment();
+		
 		if (arguments == null) {
 			this.arguments = Collections.emptyMap();
 		} else {
 			this.arguments = arguments;
 		}
-		this.code = code;
+		
+		this.subTree = tree;
+		this.code = null;
 	}
 
 	public String getName() {
