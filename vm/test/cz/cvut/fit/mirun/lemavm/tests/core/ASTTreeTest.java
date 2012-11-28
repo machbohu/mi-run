@@ -3,14 +3,11 @@ package cz.cvut.fit.mirun.lemavm.tests.core;
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.TokenRewriteStream;
 import org.antlr.runtime.tree.CommonTree;
-import org.antlr.runtime.tree.DOTTreeGenerator;
-import org.antlr.stringtemplate.StringTemplate;
 import org.junit.Test;
 
-import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMLexer;
-import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMParser;
+import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 
 public class ASTTreeTest {
 
@@ -69,23 +66,14 @@ public class ASTTreeTest {
 			"    }\n" +
 			"}"
 		);
-		LeMaVMLexer lexer = new LeMaVMLexer(chs);
-		TokenRewriteStream tokens = new TokenRewriteStream(lexer);
-		LeMaVMParser parser = new LeMaVMParser(tokens);
-		parser.enableErrorMessageCollection(true);
 		
         try {
-			CommonTree tree = (CommonTree)parser.javaSource().getTree();
-			if(parser.getMessages().size() > 0){
-				System.out.println(parser.getMessages().toString()); // print errors
-			}else{
-	//			printTree(tree, 0);
-		        DOTTreeGenerator gen = new DOTTreeGenerator();
-		        StringTemplate st = gen.toDOT(tree);
-		        System.out.println(st);
-			}
+        	VMInterpreter interpreter = new VMInterpreter(chs);
+        	interpreter.run();
 		} catch (RecognitionException e) {
 			e.printStackTrace();
+		} catch (VMParsingException e) {
+			System.out.println(e.getMessage());
 		}
 	}
 
