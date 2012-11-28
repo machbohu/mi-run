@@ -21,6 +21,8 @@ public final class VMClass extends VMObject {
 
 	private final String name;
 	private final VMClass superClass;
+	private final boolean isStatic;
+	private final VMVisibilityModifier visibility;
 	private final Map<String, VMVisibilityModifier> fieldMods;
 	private final Map<String, String> fieldTypes;
 	private final Map<String, Object> fieldVals;
@@ -29,10 +31,12 @@ public final class VMClass extends VMObject {
 
 	// TODO What about static fields and methods?
 
-	private VMClass(String name, VMClass superClass) {
+	private VMClass(String name, VMClass superClass, boolean isStatic, VMVisibilityModifier visibility) {
 		super(ObjectType.META_CLASS);
 		this.name = name;
 		this.superClass = superClass;
+		this.isStatic = isStatic;
+		this.visibility = visibility;
 		this.fieldMods = new HashMap<>();
 		this.fieldTypes = new HashMap<>();
 		this.fieldVals = new HashMap<>();
@@ -40,7 +44,7 @@ public final class VMClass extends VMObject {
 		this.methods = new HashMap<>();
 	}
 
-	private VMClass(String name, VMClass superClass,
+	private VMClass(String name, VMClass superClass, boolean isStatic, VMVisibilityModifier visibility,
 			Map<String, VMVisibilityModifier> fieldMods,
 			Map<String, String> fieldTypes,
 			Map<String, Object> fieldVals,
@@ -49,6 +53,9 @@ public final class VMClass extends VMObject {
 		super(ObjectType.META_CLASS);
 		this.name = name;
 		this.superClass = superClass;
+		this.isStatic = isStatic;
+		this.visibility = visibility;
+		
 		if (fieldMods == null) {
 			this.fieldMods = Collections.emptyMap();
 		} else {
@@ -141,7 +148,8 @@ public final class VMClass extends VMObject {
 	 *            Super class of the new class. Can be null
 	 * @return The new meta class
 	 */
-	public static VMClass createClass(String name, VMClass superClass) {
+	public static VMClass createClass(String name, VMClass superClass, 
+			boolean isStatic, VMVisibilityModifier visibility) {
 		if (name == null || name.isEmpty()) {
 			throw new VMParsingException(
 					"Invalid VMClass constructor parameters: " + name);
@@ -150,7 +158,7 @@ public final class VMClass extends VMObject {
 //			return classes.get(name);
 			throw new VMParsingException("Definition of class with name "+name+" already exists.");
 		}
-		final VMClass newClass = new VMClass(name, superClass);
+		final VMClass newClass = new VMClass(name, superClass, isStatic, visibility);
 		classes.put(name, newClass);
 		return newClass;
 	}
@@ -170,6 +178,7 @@ public final class VMClass extends VMObject {
 	 * @see #createClass(String, VMClass)
 	 */
 	public static VMClass createClass(String name, VMClass superClass,
+			boolean isStatic, VMVisibilityModifier visibility,
 			Map<String, VMVisibilityModifier> fieldMods,
 			Map<String, String> fieldTypes,
 			Map<String, Object> fieldVals,
@@ -183,8 +192,8 @@ public final class VMClass extends VMObject {
 //			return classes.get(name);
 			throw new VMParsingException("Definition of class with name "+name+" already exists.");
 		}
-		final VMClass newClass = 
-				new VMClass(name, superClass, fieldMods, fieldTypes, fieldVals, constructors, methods);
+		final VMClass newClass = new VMClass(name, superClass, isStatic, visibility, 
+				fieldMods, fieldTypes, fieldVals, constructors, methods);
 		classes.put(name, newClass);
 		return newClass;
 	}

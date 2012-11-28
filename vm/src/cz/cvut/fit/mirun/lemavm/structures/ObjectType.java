@@ -13,7 +13,7 @@ public enum ObjectType {
 	META_CLASS("meta_class"), OBJECT("object"), METHOD("method"), SHORT("short"), INTEGER(
 			"int"), LONG("long"), DOUBLE("double"), STRING("string"), BOOLEAN(
 			"boolean"), OPERATOR("operator"), IF_ELSE("if-else"), FOR("for"), WHILE(
-			"while"), CODE_BLOCK("code"), NULL("null");
+			"while"), CODE_BLOCK("code"), NULL("null"), VOID("void");
 
 	private final String name;
 

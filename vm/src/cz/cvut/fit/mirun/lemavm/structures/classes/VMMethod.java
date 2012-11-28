@@ -15,8 +15,9 @@ public class VMMethod extends VMObject {
 	private final String name;
 	private VMClass owner;
 	private final Map<String, String> arguments; // <name, type>
-	private final boolean methodStatic;
+	private final boolean isStatic;
 	private final VMVisibilityModifier visibility;
+	private final String returnType; 
 	private final VMEnvironment env;
 
 	private final CommonTree subTree;
@@ -24,7 +25,7 @@ public class VMMethod extends VMObject {
 	private final VMCodeBlock code;
 
 	public VMMethod(String name, VMClass owner, boolean methodStatic,
-			VMVisibilityModifier visibility, Map<String, String> arguments,
+			VMVisibilityModifier visibility, String returnType, Map<String, String> arguments,
 			CommonTree tree) {
 		super(ObjectType.METHOD);
 		if (name == null || name.isEmpty() || visibility == null) {
@@ -34,8 +35,9 @@ public class VMMethod extends VMObject {
 		}
 		this.name = name;
 		this.owner = owner;
-		this.methodStatic = methodStatic;
+		this.isStatic = methodStatic;
 		this.visibility = visibility;
+		this.returnType = returnType;
 		this.env = new VMEnvironment();
 		
 		if (arguments == null) {
@@ -77,7 +79,7 @@ public class VMMethod extends VMObject {
 	}
 
 	public boolean isMethodStatic() {
-		return methodStatic;
+		return isStatic;
 	}
 
 	public VMVisibilityModifier getVisibility() {

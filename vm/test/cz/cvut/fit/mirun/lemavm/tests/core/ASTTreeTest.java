@@ -34,8 +34,9 @@ public class ASTTreeTest {
 			"public class Test {\n" +
 			"    int b = 5 + 6 * 6 + 2; \n" +
 			"    public static int str = \"a\"; \n" +
-			"    int char = 'a'; \n" +
+			"    Test char = 'a'; \n" +
 			"    int num = 5; \n" +
+//			"    f = 5; \n" +
 //			"    int f = ; \n" +
 //			"    int g = 5 \n" +
 			"    public Test(int a) {\n" +
@@ -47,7 +48,7 @@ public class ASTTreeTest {
 			"        }\n" +
 			"        return a;\n" +
 			"    }\n" +
-			"    public int testMethod2(int a, int b) {\n" +
+			"    public non testMethod2(int a, int b) {\n" +
 			"        int c = a + b;\n" +
 			"        testMethod(a);\n" +
 			"        b = testMethod(a);\n" +
@@ -73,7 +74,7 @@ public class ASTTreeTest {
 		} catch (RecognitionException e) {
 			e.printStackTrace();
 		} catch (VMParsingException e) {
-			System.out.println(e.getMessage());
+			System.err.println(e.getMessage());
 		}
 	}
 

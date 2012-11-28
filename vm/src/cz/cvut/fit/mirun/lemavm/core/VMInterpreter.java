@@ -12,6 +12,7 @@ import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMLexer;
 import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMParser;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMVisibilityModifier;
 
 public class VMInterpreter {
 	private static final Logger LOG = Logger.getLogger(VMInterpreter.class);
@@ -37,19 +38,76 @@ public class VMInterpreter {
         System.out.println(st);
 	}
 	
-	private void buildClass(CommonTree node){
-		VMClass cls = null;
+	private void buildVar(CommonTree node, VMClass cls){
 		
+	}
+	
+	private void buildConstructor(CommonTree node, VMClass cls){
+		
+	}
+
+	private void buildMethod(CommonTree node, VMClass cls){
+		String returnType = "void";
+	}
+	
+	private void buildVarsAndMethods(CommonTree node, VMClass cls){
+		CommonTree child = null;
 		
 		for(Object o : node.getChildren()){
-			switch(o.toString()){
-			case "MODIFIER_LIST":
+			child = (CommonTree) o;
+			
+			switch(child.toString()){
+			case "VAR_DECLARATION":
+				buildVar(child, cls);
 				break;
-			case "CLASS_TOP_LEVEL_SCOPE":
+			case "CONSTRUCTOR_DECL":
+				buildConstructor(child, cls);
+				break;
+			case "FUNCTION_METHOD_DECL":
+				buildMethod(child, cls);
+				break;
+			case "VOID_METHOD_DECL":
+				buildMethod(child, cls);
 				break;
 			default:
+				throw new VMParsingException(
+						"Unexpected program syntax "+o.toString()+" in class "+cls.getName());
+			}
+		}
+	}
+	
+	private void buildClass(CommonTree node){
+		CommonTree child = null;
+		VMClass cls = null;
+		String name = null;
+		VMVisibilityModifier visibility = VMVisibilityModifier.PROTECTED;
+		boolean isStatic = false;
+		
+		for(Object o : node.getChildren()){
+			child = (CommonTree) o;
+			
+			// TODO extend switch in case of class inheritance
+			switch(child.toString()){
+			case "MODIFIER_LIST":
+				// TODO if has more than two children, throw exception? (i.e. public, static)
+				if(child.getChildCount() > 0){
+					visibility = VMVisibilityModifier.fromString(child.getChildren().get(0).toString());
+					isStatic = (child.getChildren().indexOf("static") != -1);
+				}
 				
-//				throw new VMParsingException("Unexpected program syntax: " + o.toString());
+				break;
+			case "CLASS_TOP_LEVEL_SCOPE":
+				// null == no parent
+				cls = VMClass.createClass(name, null, isStatic, visibility);
+				buildVarsAndMethods(child, cls);
+				
+				break;
+			default:
+				if(name == null){
+					name = child.toString();
+				}else{
+					throw new VMParsingException("Unexpected program syntax: " + o.toString());
+				}
 				break;
 			}
 		}
