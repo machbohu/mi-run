@@ -10,7 +10,7 @@ public final class VMGreaterThanOperatorFactory {
 	/**
 	 * Create the relational operator.
 	 */
-	public static VMRelationalOperator createLessThanOperator(double opOne,
+	public VMRelationalOperator createLessThanOperator(double opOne,
 			double opTwo) {
 		return new DoubleGreaterThan(opOne, opTwo);
 	}
@@ -18,15 +18,14 @@ public final class VMGreaterThanOperatorFactory {
 	/**
 	 * Create the relational operator.
 	 */
-	public static VMRelationalOperator createLessThanOperator(long opOne,
-			long opTwo) {
+	public VMRelationalOperator createLessThanOperator(long opOne, long opTwo) {
 		return new LongGreaterThan(opOne, opTwo);
 	}
 
 	/**
 	 * Create the relational operator.
 	 */
-	public static VMRelationalOperator createLessThanOperator(double opOne,
+	public VMRelationalOperator createLessThanOperator(double opOne,
 			VMOperator opTwo) {
 		return new DoubleCompGreaterThan(opOne, opTwo);
 	}
@@ -34,7 +33,7 @@ public final class VMGreaterThanOperatorFactory {
 	/**
 	 * Create the relational operator.
 	 */
-	public static VMRelationalOperator createLessThanOperator(long opOne,
+	public VMRelationalOperator createLessThanOperator(long opOne,
 			VMOperator opTwo) {
 		return new LongCompGreaterThan(opOne, opTwo);
 	}
@@ -42,7 +41,7 @@ public final class VMGreaterThanOperatorFactory {
 	/**
 	 * Create the relational operator.
 	 */
-	public static VMRelationalOperator createLessThanOperator(VMOperator opOne,
+	public VMRelationalOperator createLessThanOperator(VMOperator opOne,
 			double opTwo) {
 		return new CompDoubleGreaterThan(opOne, opTwo);
 	}
@@ -50,7 +49,7 @@ public final class VMGreaterThanOperatorFactory {
 	/**
 	 * Create the relational operator.
 	 */
-	public static VMRelationalOperator createLessThanOperator(VMOperator opOne,
+	public VMRelationalOperator createLessThanOperator(VMOperator opOne,
 			long opTwo) {
 		return new CompLongGreaterThan(opOne, opTwo);
 	}
@@ -58,7 +57,7 @@ public final class VMGreaterThanOperatorFactory {
 	/**
 	 * Create the relational operator.
 	 */
-	public static VMRelationalOperator createLessThanOperator(VMOperator opOne,
+	public VMRelationalOperator createLessThanOperator(VMOperator opOne,
 			VMOperator opTwo) {
 		return new CompCompGreaterThan(opOne, opTwo);
 	}

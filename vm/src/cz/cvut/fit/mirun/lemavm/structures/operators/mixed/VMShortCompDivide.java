@@ -86,9 +86,4 @@ public final class VMShortCompDivide extends VMBinaryShortCompOperator {
 	public boolean evaluateBoolean() {
 		throw new VMEvaluationException("Operator cannot return boolean value.");
 	}
-
-	@Override
-	public String evaluateString() {
-		return ("" + opOne + " / " + opTwo);
-	}
 }

@@ -86,9 +86,4 @@ public final class VMLongCompDivide extends VMBinaryLongCompOperator {
 	public boolean evaluateBoolean() {
 		throw new VMEvaluationException("Operator cannot return boolean value.");
 	}
-
-	@Override
-	public String evaluateString() {
-		return ("" + opOne + " / " + opTwo);
-	}
 }

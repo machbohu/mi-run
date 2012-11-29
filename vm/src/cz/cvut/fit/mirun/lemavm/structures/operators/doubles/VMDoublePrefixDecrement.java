@@ -32,9 +32,4 @@ public final class VMDoublePrefixDecrement extends VMUnaryDoubleOperator {
 	public boolean evaluateBoolean() {
 		throw new VMEvaluationException("Operator cannot return boolean value.");
 	}
-
-	@Override
-	public String evaluateString() {
-		return ("--" + op);
-	}
 }

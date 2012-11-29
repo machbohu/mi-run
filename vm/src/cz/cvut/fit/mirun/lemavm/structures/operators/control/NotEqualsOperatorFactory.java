@@ -6,13 +6,10 @@ import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
 public final class NotEqualsOperatorFactory {
 
-	private NotEqualsOperatorFactory() {
-	}
-	
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createNotEqualsOperator(double opOne,
+	public VMRelationalOperator createNotEqualsOperator(double opOne,
 			double opTwo) {
 		return new DoubleNotEquals(opOne, opTwo);
 	}
@@ -20,15 +17,14 @@ public final class NotEqualsOperatorFactory {
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createNotEqualsOperator(long opOne,
-			long opTwo) {
+	public VMRelationalOperator createNotEqualsOperator(long opOne, long opTwo) {
 		return new LongNotEquals(opOne, opTwo);
 	}
 
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createNotEqualsOperator(boolean opOne,
+	public VMRelationalOperator createNotEqualsOperator(boolean opOne,
 			boolean opTwo) {
 		return new BooleanNotEquals(opOne, opTwo);
 	}
@@ -36,7 +32,7 @@ public final class NotEqualsOperatorFactory {
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createNotEqualsOperator(double opOne,
+	public VMRelationalOperator createNotEqualsOperator(double opOne,
 			VMOperator opTwo) {
 		return new DoubleCompNotEquals(opOne, opTwo);
 	}
@@ -44,7 +40,7 @@ public final class NotEqualsOperatorFactory {
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createNotEqualsOperator(long opOne,
+	public VMRelationalOperator createNotEqualsOperator(long opOne,
 			VMOperator opTwo) {
 		return new LongCompNotEquals(opOne, opTwo);
 	}
@@ -52,7 +48,7 @@ public final class NotEqualsOperatorFactory {
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createNotEqualsOperator(boolean opOne,
+	public VMRelationalOperator createNotEqualsOperator(boolean opOne,
 			VMOperator opTwo) {
 		return new BooleanCompNotEquals(opOne, opTwo);
 	}
@@ -60,39 +56,39 @@ public final class NotEqualsOperatorFactory {
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createNotEqualsOperator(
-			VMOperator opOne, double opTwo) {
+	public VMRelationalOperator createNotEqualsOperator(VMOperator opOne,
+			double opTwo) {
 		return createNotEqualsOperator(opTwo, opOne);
 	}
 
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createNotEqualsOperator(
-			VMOperator opOne, long opTwo) {
+	public VMRelationalOperator createNotEqualsOperator(VMOperator opOne,
+			long opTwo) {
 		return createNotEqualsOperator(opTwo, opOne);
 	}
 
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createNotEqualsOperator(
-			VMOperator opOne, boolean opTwo) {
+	public VMRelationalOperator createNotEqualsOperator(VMOperator opOne,
+			boolean opTwo) {
 		return new BooleanCompNotEquals(opTwo, opOne);
 	}
 
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createNotEqualsOperator(
-			VMOperator opOne, VMOperator opTwo) {
+	public VMRelationalOperator createNotEqualsOperator(VMOperator opOne,
+			VMOperator opTwo) {
 		return new VMOperatorNotEquals(opOne, opTwo);
 	}
 
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createNotEqualsOperator(VMObject opOne,
+	public VMRelationalOperator createNotEqualsOperator(VMObject opOne,
 			VMObject opTwo) {
 		return new VMGeneralNotEquals(opOne, opTwo);
 	}

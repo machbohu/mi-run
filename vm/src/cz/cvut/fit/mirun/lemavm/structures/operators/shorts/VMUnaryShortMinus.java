@@ -32,9 +32,4 @@ public class VMUnaryShortMinus extends VMUnaryShortOperator {
 	public boolean evaluateBoolean() {
 		throw new VMEvaluationException("Operator cannot return boolean value.");
 	}
-
-	@Override
-	public String evaluateString() {
-		return ("-" + op);
-	}
 }

@@ -2,6 +2,7 @@ package cz.cvut.fit.mirun.lemavm.structures.operators.compounds;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
+import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 public final class VMCompoundNegation extends VMUnaryCompoundOperator {
 
@@ -40,7 +41,7 @@ public final class VMCompoundNegation extends VMUnaryCompoundOperator {
 	}
 
 	@Override
-	public String evaluateString() {
+	public VMString evaluateString() {
 		throw new VMEvaluationException(
 				"Operator is not applicable for type string.");
 	}

@@ -10,7 +10,7 @@ public final class VMGreaterEqualsOperatorFactory {
 	/**
 	 * Create the relational operator.
 	 */
-	public static VMRelationalOperator createLessEqualOperator(double opOne,
+	public VMRelationalOperator createLessEqualOperator(double opOne,
 			double opTwo) {
 		return new DoubleGreaterEqual(opOne, opTwo);
 	}
@@ -18,15 +18,14 @@ public final class VMGreaterEqualsOperatorFactory {
 	/**
 	 * Create the relational operator.
 	 */
-	public static VMRelationalOperator createLessEqualOperator(long opOne,
-			long opTwo) {
+	public VMRelationalOperator createLessEqualOperator(long opOne, long opTwo) {
 		return new LongGreaterEqual(opOne, opTwo);
 	}
 
 	/**
 	 * Create the relational operator.
 	 */
-	public static VMRelationalOperator createLessEqualOperator(double opOne,
+	public VMRelationalOperator createLessEqualOperator(double opOne,
 			VMOperator opTwo) {
 		return new DoubleCompGreaterEqual(opOne, opTwo);
 	}
@@ -34,7 +33,7 @@ public final class VMGreaterEqualsOperatorFactory {
 	/**
 	 * Create the relational operator.
 	 */
-	public static VMRelationalOperator createLessEqualOperator(long opOne,
+	public VMRelationalOperator createLessEqualOperator(long opOne,
 			VMOperator opTwo) {
 		return new LongCompGreaterEqual(opOne, opTwo);
 	}
@@ -42,24 +41,24 @@ public final class VMGreaterEqualsOperatorFactory {
 	/**
 	 * Create the relational operator.
 	 */
-	public static VMRelationalOperator createLessEqualOperator(
-			VMOperator opOne, double opTwo) {
+	public VMRelationalOperator createLessEqualOperator(VMOperator opOne,
+			double opTwo) {
 		return new CompDoubleGreaterEqual(opOne, opTwo);
 	}
 
 	/**
 	 * Create the relational operator.
 	 */
-	public static VMRelationalOperator createLessEqualOperator(
-			VMOperator opOne, long opTwo) {
+	public VMRelationalOperator createLessEqualOperator(VMOperator opOne,
+			long opTwo) {
 		return new CompLongGreaterEqual(opOne, opTwo);
 	}
 
 	/**
 	 * Create the relational operator.
 	 */
-	public static VMRelationalOperator createLessEqualOperator(
-			VMOperator opOne, VMOperator opTwo) {
+	public VMRelationalOperator createLessEqualOperator(VMOperator opOne,
+			VMOperator opTwo) {
 		return new CompCompGreaterEqual(opOne, opTwo);
 	}
 

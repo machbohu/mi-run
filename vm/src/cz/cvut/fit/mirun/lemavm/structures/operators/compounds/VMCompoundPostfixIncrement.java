@@ -2,6 +2,7 @@ package cz.cvut.fit.mirun.lemavm.structures.operators.compounds;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
+import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 public final class VMCompoundPostfixIncrement extends VMUnaryCompoundOperator {
 
@@ -39,7 +40,7 @@ public final class VMCompoundPostfixIncrement extends VMUnaryCompoundOperator {
 	}
 
 	@Override
-	public String evaluateString() {
-		return ("" + op + "++");
+	public VMString evaluateString() {
+		return new VMString("" + evaluateInt());
 	}
 }

@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMHeader;
+import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 /**
  * Base class for operators. It just defines the type. </p>
@@ -64,7 +65,7 @@ public abstract class VMOperator {
 	 * 
 	 * @return String
 	 */
-	public abstract String evaluateString();
+	public abstract VMString evaluateString();
 
 	public ObjectType getType() {
 		return header.getType();

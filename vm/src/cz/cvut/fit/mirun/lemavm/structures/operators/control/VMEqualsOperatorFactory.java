@@ -17,7 +17,7 @@ public final class VMEqualsOperatorFactory {
 	 *            The literal value, true or false
 	 * @return VMRelationalOperator
 	 */
-	public static VMRelationalOperator createEqualsOperator(boolean value) {
+	public VMRelationalOperator createEqualsOperator(boolean value) {
 		if (value) {
 			return VMLiteralEquals.TRUE;
 		} else {
@@ -28,23 +28,21 @@ public final class VMEqualsOperatorFactory {
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createEqualsOperator(double opOne,
-			double opTwo) {
+	public VMRelationalOperator createEqualsOperator(double opOne, double opTwo) {
 		return new DoubleEquals(opOne, opTwo);
 	}
 
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createEqualsOperator(long opOne,
-			long opTwo) {
+	public VMRelationalOperator createEqualsOperator(long opOne, long opTwo) {
 		return new LongEquals(opOne, opTwo);
 	}
 
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createEqualsOperator(boolean opOne,
+	public VMRelationalOperator createEqualsOperator(boolean opOne,
 			boolean opTwo) {
 		return new BooleanEquals(opOne, opTwo);
 	}
@@ -52,7 +50,7 @@ public final class VMEqualsOperatorFactory {
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createEqualsOperator(double opOne,
+	public VMRelationalOperator createEqualsOperator(double opOne,
 			VMOperator opTwo) {
 		return new DoubleCompEquals(opOne, opTwo);
 	}
@@ -60,7 +58,7 @@ public final class VMEqualsOperatorFactory {
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createEqualsOperator(long opOne,
+	public VMRelationalOperator createEqualsOperator(long opOne,
 			VMOperator opTwo) {
 		return new LongCompEquals(opOne, opTwo);
 	}
@@ -68,7 +66,7 @@ public final class VMEqualsOperatorFactory {
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createEqualsOperator(boolean opOne,
+	public VMRelationalOperator createEqualsOperator(boolean opOne,
 			VMOperator opTwo) {
 		return new BooleanCompEquals(opOne, opTwo);
 	}
@@ -76,7 +74,7 @@ public final class VMEqualsOperatorFactory {
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createEqualsOperator(VMOperator opOne,
+	public VMRelationalOperator createEqualsOperator(VMOperator opOne,
 			double opTwo) {
 		return createEqualsOperator(opTwo, opOne);
 	}
@@ -84,7 +82,7 @@ public final class VMEqualsOperatorFactory {
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createEqualsOperator(VMOperator opOne,
+	public VMRelationalOperator createEqualsOperator(VMOperator opOne,
 			long opTwo) {
 		return createEqualsOperator(opTwo, opOne);
 	}
@@ -92,7 +90,7 @@ public final class VMEqualsOperatorFactory {
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createEqualsOperator(VMOperator opOne,
+	public VMRelationalOperator createEqualsOperator(VMOperator opOne,
 			boolean opTwo) {
 		return new BooleanCompEquals(opTwo, opOne);
 	}
@@ -100,7 +98,7 @@ public final class VMEqualsOperatorFactory {
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createEqualsOperator(VMOperator opOne,
+	public VMRelationalOperator createEqualsOperator(VMOperator opOne,
 			VMOperator opTwo) {
 		return new VMOperatorEquals(opOne, opTwo);
 	}
@@ -108,7 +106,7 @@ public final class VMEqualsOperatorFactory {
 	/**
 	 * Create equality operator.
 	 */
-	public static VMRelationalOperator createEqualsOperator(VMObject opOne,
+	public VMRelationalOperator createEqualsOperator(VMObject opOne,
 			VMObject opTwo) {
 		return new VMGeneralEquals(opOne, opTwo);
 	}
