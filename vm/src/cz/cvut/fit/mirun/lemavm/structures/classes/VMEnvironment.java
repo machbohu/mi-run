@@ -21,11 +21,11 @@ public class VMEnvironment {
 
 	// Contains all reference bindings (including final ones)
 	private final Map<String, VMObject> bindings;
-	// Contains primitive bindings
+	// Contains all binding types
 	private final Map<String, String> bindingTypes;
-	// Contains all final bindings (primitive and reference)
+	// Contains primitive bindings
 	private final Map<String, Object> primitiveBindings;
-	// Bindings with the final keyword
+	// Contains all final bindings (primitive and reference)
 	private final Map<String, Object> finalBindings;
 	private final VMEnvironment parent;
 
