@@ -179,4 +179,9 @@ public class VMMethod extends VMObject {
 		}
 		return true;
 	}
+
+	@Override
+	public String toString() {
+		return owner.toString() + ": " + name;
+	}
 }

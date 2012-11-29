@@ -212,4 +212,9 @@ public final class VMClass extends VMObject {
 	public VMObject evaluate() {
 		return this;
 	}
+	
+	@Override
+	public String toString(){
+		return name;
+	}
 }
