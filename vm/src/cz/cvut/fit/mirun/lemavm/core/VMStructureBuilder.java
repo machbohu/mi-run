@@ -146,7 +146,7 @@ public class VMStructureBuilder {
 				}
 				break;
 			case "TYPE":
-				type = buildTypeFromTree(child);
+				returnType = buildTypeFromTree(child);
 				break;
 			case "FORMAL_PARAM_LIST":
 				if(child.getChildCount() > 0){
