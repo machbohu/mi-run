@@ -68,6 +68,46 @@ public class ASTTreeTest {
 			"        int a = 5, b = 2;\n" +
 			"        Test t = new Test();\n" +
 			"        t.testMethod(a, b);\n" +
+			"        while(a == 5){\n" +
+			"            if(a + 5){\n" +
+			"                int aa = 5 + 6 * 6 + 2;\n"+
+			"            }else{\n" +
+			"                a = 5 + 6 * 6 + 2;\n" +
+			"            }\n" +
+			"        }\n" +
+			"        if(a == 5){\n" +
+			"            int aa = 5 + 6 * 6 + 2;\n"+
+			"        }else{\n" +
+			"            a = 5 + 6 * 6 + 2;\n" +
+			"        }\n" +
+			"        for(int ii=0;ii<5;ii++){\n" +
+			"            if(a + 5){\n" +
+			"                int aa = 5 + 6 * 6 + 2;\n"+
+			"            }else{\n" +
+			"                a = 5 + 6 * 6 + 2;\n" +
+			"            }\n" +
+			"        }\n" +
+			"        for(ii=0;ii<5;2*ii){\n" +
+			"            if(a + 5){\n" +
+			"                int aa = 5 + 6 * 6 + 2;\n"+
+			"            }else{\n" +
+			"                a = 5 + 6 * 6 + 2;\n" +
+			"            }\n" +
+			"        }\n" +
+			"        for(ii;ii;ii){\n" +
+			"            if(a + 5){\n" +
+			"                int aa = 5 + 6 * 6 + 2;\n"+
+			"            }else{\n" +
+			"                a = 5 + 6 * 6 + 2;\n" +
+			"            }\n" +
+			"        }\n" +
+			"        for(;;){\n" +
+			"            if(a + 5){\n" +
+			"                int aa = 5 + 6 * 6 + 2;\n"+
+			"            }else{\n" +
+			"                a = 5 + 6 * 6 + 2;\n" +
+			"            }\n" +
+			"        }\n" +
 			"        return 0;\n" +
 			"    }\n" +
 			"}"
@@ -75,8 +115,8 @@ public class ASTTreeTest {
 		
         try {
         	VMStructureBuilder b = new VMStructureBuilder(chs);
-        	b.printTreeToDot();
         	b.build();
+        	b.printTreeToDot();
 		} catch (RecognitionException e) {
 			e.printStackTrace();
 		} catch (VMParsingException e) {

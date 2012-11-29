@@ -28,7 +28,7 @@ public class VMStructureBuilder {
 		this.cs = cs;
 	}
 	
-	private void buildTree() throws RecognitionException{
+	private void buildASTTree() throws RecognitionException{
 		LeMaVMLexer lexer = new LeMaVMLexer(cs);
 		TokenRewriteStream tokens = new TokenRewriteStream(lexer);
 		LeMaVMParser parser = new LeMaVMParser(tokens);
@@ -156,8 +156,8 @@ public class VMStructureBuilder {
 				block = child;
 				break;
 			default:
+				// TODO error detection
 				name = child.toString();
-				break;
 			}
 		}
 		
@@ -226,7 +226,8 @@ public class VMStructureBuilder {
 				if(name == null){
 					name = child.toString();
 				}else{
-					throw new VMParsingException("Unexpected program syntax: " + child.toString());
+					throw new VMParsingException(
+							"Unexpected program syntax: "+child.toString()+" in class "+name);
 				}
 				break;
 			}
@@ -241,13 +242,14 @@ public class VMStructureBuilder {
 			if(o.toString().equals("class")){
 				buildClassFromTree((CommonTree) o);
 			}else{
-				throw new VMParsingException("Unexpected program syntax: " + o.toString());
+				throw new VMParsingException(
+						"Unexpected program syntax: " + o.toString()+", expecting class");
 			}
 		}
 	}
 	
 	public void build() throws RecognitionException{
-		buildTree();
+		buildASTTree();
 		buildBaseStructureFromTree();
 	}
 }
