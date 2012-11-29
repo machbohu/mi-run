@@ -20,7 +20,7 @@ public class VMMethod extends VMObject {
 	private final String returnType; 
 	private final VMEnvironment env;
 
-	private final CommonTree subTree;
+	private final CommonTree methodTree;
 	// TODO This may not be the best representation of a code block
 	private final VMCodeBlock code;
 
@@ -48,7 +48,7 @@ public class VMMethod extends VMObject {
 			// TODO fill environment with arguments?
 		}
 		
-		this.subTree = tree;
+		this.methodTree = tree;
 		this.code = null;
 	}
 

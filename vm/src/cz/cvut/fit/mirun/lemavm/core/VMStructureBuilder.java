@@ -94,7 +94,7 @@ public class VMStructureBuilder {
 						name = child.getChild(0).toString();
 						try{
 							strVal = child.getChild(1).getChild(0).toString();
-							val = VMUtils.castValue(type, strVal);
+							val = VMUtils.getTypeProperValue(type, strVal);
 						}catch(NumberFormatException e){
 							throw new VMParsingException("Can not assign value '"+strVal+
 									"' to the type '"+type+"' in class '"+cls.getName()+"'");

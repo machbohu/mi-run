@@ -1,5 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures.control;
 
+import org.antlr.runtime.tree.CommonTree;
+
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
@@ -11,6 +13,7 @@ public final class VMFor extends VMObject {
 	// private final VMObject index;
 	private final VMRelationalOperator condition;
 	private final VMObject operation;
+	private final CommonTree forTree;
 	private final VMCodeBlock forPart;
 
 	/**
@@ -26,28 +29,28 @@ public final class VMFor extends VMObject {
 	 *            For part
 	 */
 	public VMFor(/* VMObject index, */VMRelationalOperator condition,
-			VMObject operation, VMCodeBlock forPart) {
+			VMObject operation, CommonTree forTree) {
 		super(ObjectType.FOR);
 		if (/* index == null || */condition == null || operation == null
-				|| forPart == null) {
+				|| forTree == null) {
 			throw new VMParsingException(
 					"Illegal arguments passed to VMFor constructor: "
 					/* + index + ", " */+ condition + ", " + operation + ", "
-							+ forPart);
+							+ forTree);
 		}
 		// this.index = index;
 		this.condition = condition;
 		this.operation = operation;
-		this.forPart = forPart;
+		this.forPart = null;
+		this.forTree = forTree;
 	}
 
 	@Override
 	public VMObject evaluate() {
 		final boolean res = condition.evaluateBoolean();
 		if (res) {
-			// TODO prepend operation and
-			// this instance of for to the CodeBlock forPart for later repeated
-			// evaluation
+			// TODO build codeBlock from AST, prepend operation and
+			// this instance of for to the CodeBlock forPart for later repeated evaluation
 			return forPart;
 		} else {
 			return null;

@@ -1,5 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures.control;
 
+import org.antlr.runtime.tree.CommonTree;
+
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
@@ -9,6 +11,7 @@ import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMRelationalOperato
 public final class VMWhile extends VMObject {
 
 	private final VMRelationalOperator condition;
+	private final CommonTree whileTree;
 	private final VMCodeBlock whilePart;
 
 	/**
@@ -19,22 +22,24 @@ public final class VMWhile extends VMObject {
 	 * @param whilePart
 	 *            While part
 	 */
-	public VMWhile(VMRelationalOperator condition, VMCodeBlock whilePart) {
+	public VMWhile(VMRelationalOperator condition, CommonTree whileTree) {
 		super(ObjectType.WHILE);
-		if (condition == null || whilePart == null) {
+		if (condition == null || whileTree == null) {
 			throw new VMParsingException(
 					"Illegal arguments passed to VMWhile constructor: "
-							+ condition + ", " + whilePart);
+							+ condition + ", " + whileTree);
 		}
 		this.condition = condition;
-		this.whilePart = whilePart;
+		this.whileTree = whileTree;
+		this.whilePart = null;
 	}
 
 	@Override
 	public VMObject evaluate() {
 		final boolean res = condition.evaluateBoolean();
 		if (res) {
-			// TODO prepend this instance of while to the CodeBlock whilePart
+			// TODO build codeBlock from AST and 
+			// prepend this instance of while to the CodeBlock whilePart
 			// for later repeated evaluation
 			return whilePart;
 		} else {

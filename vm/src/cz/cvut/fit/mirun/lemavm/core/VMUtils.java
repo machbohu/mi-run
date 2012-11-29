@@ -6,6 +6,8 @@ import cz.cvut.fit.mirun.lemavm.structures.primitives.VMNull;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 public class VMUtils {
+	private VMUtils(){}
+	
 	public static Object getTypeDefaultValue(String type){
 		switch(type){
 		case "short":
@@ -23,7 +25,7 @@ public class VMUtils {
 		}
 	}
 	
-	public static Object castValue(String type, String value) throws NumberFormatException, ParseException{
+	public static Object getTypeProperValue(String type, String value) throws NumberFormatException, ParseException{
 		switch(type){
 		case "short":
 			return Short.parseShort(value);

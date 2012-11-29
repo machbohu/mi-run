@@ -35,7 +35,7 @@ public class ASTTreeTest {
 			"public class Test {\n" +
 //			"    int b = 5 + 6 * 6 + 2; \n" +
 			"    public static string str = \"a\"; \n" +
-			"    Test char = 'a'; \n" +
+			"    Test char = a; \n" +
 			"    int num = 5; \n" +
 			"    double num1 = 5.2; \n" +
 			"    int num2; \n" +
