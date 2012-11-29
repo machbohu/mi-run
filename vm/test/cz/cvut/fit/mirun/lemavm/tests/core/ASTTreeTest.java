@@ -6,7 +6,7 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
 import org.junit.Test;
 
-import cz.cvut.fit.mirun.lemavm.core.VMStructureBuilder;
+import cz.cvut.fit.mirun.lemavm.builder.VMBaseStructureBuilder;
 import cz.cvut.fit.mirun.lemavm.core.VMUtils;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 
@@ -60,7 +60,6 @@ public class ASTTreeTest {
 			"        b = testMethod(a);\n" +
 			"        return c;\n" +
 			"    }\n" +
-			"    int a = 5 + 6 * 6 + 2; \n" +
 			"}\n" +
 			"\n" +
 			"public static class Main {\n" +
@@ -79,6 +78,7 @@ public class ASTTreeTest {
 			"        }\n" +
 			"        if(a == 5){\n" +
 			"            int aa = 5 + 6 * 6 + 2;\n"+
+			"            return a;\n"+
 			"        }else{\n" +
 			"            a = 5 + 6 * 6 + 2;\n" +
 			"        }\n" +
@@ -116,7 +116,7 @@ public class ASTTreeTest {
 		);
 		
         try {
-        	VMStructureBuilder b = new VMStructureBuilder(chs);
+        	VMBaseStructureBuilder b = new VMBaseStructureBuilder(chs);
         	b.build();
         	b.printTreeToDot();
 		} catch (RecognitionException e) {

@@ -1,4 +1,4 @@
-package cz.cvut.fit.mirun.lemavm.core;
+package cz.cvut.fit.mirun.lemavm.builder;
 
 import java.text.ParseException;
 import java.util.HashMap;
@@ -14,19 +14,20 @@ import org.apache.log4j.Logger;
 
 import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMLexer;
 import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMParser;
+import cz.cvut.fit.mirun.lemavm.core.VMUtils;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMField;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMMethod;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMVisibilityModifier;
 
-public class VMStructureBuilder {
-	private static final Logger LOG = Logger.getLogger(VMStructureBuilder.class);
+public class VMBaseStructureBuilder extends VMBuilder {
+	private static final Logger LOG = Logger.getLogger(VMBaseStructureBuilder.class);
 	
 	private CommonTree tree;
 	private CharStream cs;
 	
-	public VMStructureBuilder(CharStream cs){
+	public VMBaseStructureBuilder(CharStream cs){
 		this.cs = cs;
 	}
 	
@@ -51,72 +52,6 @@ public class VMStructureBuilder {
 		DOTTreeGenerator gen = new DOTTreeGenerator();
         StringTemplate st = gen.toDOT(tree);
         System.out.println(st);
-	}
-	
-	private String buildTypeFromTree(CommonTree node){
-		if(node.getChild(0).getChildCount() == 0){
-			return node.getChild(0).toString();
-		}else{
-			return node.getChild(0).getChild(0).toString();
-		}
-	}
-	
-	/**
-	 * Read variable structure from given node and VMClass.addField
-	 * @param node
-	 * @param cls
-	 */
-	private void buildVarFromTree(CommonTree node, VMClass cls){
-		CommonTree child = null;
-		VMVisibilityModifier visibility = VMVisibilityModifier.getDefault();
-		boolean isStatic = false;
-		String type = null, name = null, strVal = null;
-		Object val = null;
-		
-		for(Object o : node.getChildren()){
-			child = (CommonTree) o;
-			
-			switch(child.toString()){
-			case "MODIFIER_LIST":
-				if(child.getChildCount() > 0){
-					visibility = VMVisibilityModifier.fromString(child.getChild(0).toString());
-					isStatic = (child.getChildren().indexOf("static") != -1);
-				}
-				break;
-			case "TYPE":
-				type = buildTypeFromTree(child);
-				break;
-			// TODO support for expressions like int a = 5 + 5 * 8;
-			case "VAR_DECLARATOR_LIST":
-				for(Object o1 : child.getChildren()){
-					child = (CommonTree) o1;
-					if(child.toString().equals("VAR_DECLARATOR") && child.getChildCount() == 2){
-						name = child.getChild(0).toString();
-						try{
-							strVal = child.getChild(1).getChild(0).toString();
-							val = VMUtils.getTypeProperValue(type, strVal);
-						}catch(NumberFormatException e){
-							throw new VMParsingException("Can not assign value '"+strVal+
-									"' to the type '"+type+"' in class '"+cls.getName()+"'");
-						}catch(ParseException e1){
-							throw new VMParsingException("Can not assign value '"+strVal+
-									"' to the type '"+type+"' in class '"+cls.getName()+"'");
-						}
-					}else if(child.toString().equals("VAR_DECLARATOR") && child.getChildCount() == 1){
-						name = child.getChild(0).toString();
-						val = VMUtils.getTypeDefaultValue(type);
-					}else{
-						throw new VMParsingException("Unexpected program syntax '"+child.toString()+
-								"' in class '"+cls.getName()+"'");
-					}
-					cls.addField(new VMField(name, isStatic, visibility, type, val));
-				}
-				break;
-			default:
-				throw new VMParsingException(
-						"Unexpected program syntax '"+child.toString()+"' in class '"+cls.getName()+"'");
-			}
-		}
 	}
 	
 //	/**
@@ -195,7 +130,9 @@ public class VMStructureBuilder {
 			
 			switch(child.toString()){
 			case "VAR_DECLARATION":
-				buildVarFromTree(child, cls);
+				for(VMField f : buildVarFromTree(child, cls)){
+					cls.addField(f);
+				}
 				break;
 			case "CONSTRUCTOR_DECL":
 //				buildConstructor(child, cls);
