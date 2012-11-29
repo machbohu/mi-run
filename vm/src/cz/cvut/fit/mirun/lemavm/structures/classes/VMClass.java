@@ -1,6 +1,5 @@
 package cz.cvut.fit.mirun.lemavm.structures.classes;
 
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -21,47 +20,40 @@ public final class VMClass extends VMObject {
 
 	private final String name;
 	private final VMClass superClass;
-	private final boolean isStatic;
-	private final VMVisibilityModifier visibility;
 	private final Map<String, VMField> fields;
 	private final Map<String, VMMethod> constructors;
 	private final Map<String, VMMethod> methods;
 
 	// TODO What about static fields and methods?
 
-	private VMClass(String name, VMClass superClass, boolean isStatic,
-			VMVisibilityModifier visibility) {
+	private VMClass(String name, VMClass superClass) {
 		super(ObjectType.META_CLASS);
 		this.name = name;
 		this.superClass = superClass;
-		this.isStatic = isStatic;
-		this.visibility = visibility;
 		this.fields = new HashMap<>();
 		this.constructors = new HashMap<>();
 		this.methods = new HashMap<>();
 	}
 
-	private VMClass(String name, VMClass superClass, boolean isStatic,
-			VMVisibilityModifier visibility, Map<String, VMField> fields,
-			Map<String, VMMethod> constructors, Map<String, VMMethod> methods) {
+	private VMClass(String name, VMClass superClass,
+			Map<String, VMField> fields, Map<String, VMMethod> constructors,
+			Map<String, VMMethod> methods) {
 		super(ObjectType.META_CLASS);
 		this.name = name;
 		this.superClass = superClass;
-		this.isStatic = isStatic;
-		this.visibility = visibility;
 
 		if (fields == null) {
-			this.fields = Collections.emptyMap();
+			this.fields = new HashMap<>();
 		} else {
 			this.fields = fields;
 		}
 		if (constructors.isEmpty()) {
-			this.constructors = Collections.emptyMap();
+			this.constructors = new HashMap<>();
 		} else {
 			this.constructors = constructors;
 		}
 		if (methods.isEmpty()) {
-			this.methods = Collections.emptyMap();
+			this.methods = new HashMap<>();
 		} else {
 			this.methods = methods;
 		}
@@ -112,7 +104,7 @@ public final class VMClass extends VMObject {
 			throw new VMParsingException("Method/Constructor with name "
 					+ newMethod.getName() + " already exists in class " + name);
 		}
-		methods.put(newMethod.getName(), newMethod);
+		container.put(newMethod.getName(), newMethod);
 		newMethod.setOwner(this);
 	}
 
@@ -158,8 +150,7 @@ public final class VMClass extends VMObject {
 	 *            Super class of the new class. Can be null
 	 * @return The new meta class
 	 */
-	public static VMClass createClass(String name, VMClass superClass,
-			boolean isStatic, VMVisibilityModifier visibility) {
+	public static VMClass createClass(String name, VMClass superClass) {
 		if (name == null || name.isEmpty()) {
 			throw new VMParsingException(
 					"Invalid VMClass constructor parameters: " + name);
@@ -169,9 +160,9 @@ public final class VMClass extends VMObject {
 			throw new VMParsingException("Definition of class with name "
 					+ name + " already exists.");
 		}
-		final VMClass newClass = new VMClass(name, superClass, isStatic,
-				visibility);
+		final VMClass newClass = new VMClass(name, superClass);
 		classes.put(name, newClass);
+		VMEnvironment.addType(name);
 		return newClass;
 	}
 
@@ -190,7 +181,6 @@ public final class VMClass extends VMObject {
 	 * @see #createClass(String, VMClass)
 	 */
 	public static VMClass createClass(String name, VMClass superClass,
-			boolean isStatic, VMVisibilityModifier visibility,
 			Map<String, VMField> fields, Map<String, VMMethod> constructors,
 			Map<String, VMMethod> methods) {
 		if (name == null || name.isEmpty()) {
@@ -202,9 +192,10 @@ public final class VMClass extends VMObject {
 			throw new VMParsingException("Definition of class with name "
 					+ name + " already exists.");
 		}
-		final VMClass newClass = new VMClass(name, superClass, isStatic,
-				visibility, fields, constructors, methods);
+		final VMClass newClass = new VMClass(name, superClass, fields,
+				constructors, methods);
 		classes.put(name, newClass);
+		VMEnvironment.addType(name);
 		return newClass;
 	}
 

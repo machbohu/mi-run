@@ -246,4 +246,13 @@ public class VMEnvironment {
 	public static void addType(String typeName) {
 		knownTypes.add(typeName);
 	}
+
+	/**
+	 * Get the set of all known type names.
+	 * 
+	 * @return Set of type names
+	 */
+	public static Set<String> getKnownTypes() {
+		return knownTypes;
+	}
 }
