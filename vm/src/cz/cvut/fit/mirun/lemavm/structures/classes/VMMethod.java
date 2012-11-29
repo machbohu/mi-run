@@ -24,7 +24,7 @@ public class VMMethod extends VMObject {
 	// TODO This may not be the best representation of a code block
 	private final VMCodeBlock code;
 
-	public VMMethod(String name, VMClass owner, boolean methodStatic,
+	public VMMethod(String name, VMClass owner, boolean isStatic,
 			VMVisibilityModifier visibility, String returnType, Map<String, String> arguments,
 			CommonTree tree) {
 		super(ObjectType.METHOD);
@@ -35,7 +35,7 @@ public class VMMethod extends VMObject {
 		}
 		this.name = name;
 		this.owner = owner;
-		this.isStatic = methodStatic;
+		this.isStatic = isStatic;
 		this.visibility = visibility;
 		this.returnType = returnType;
 		this.env = new VMEnvironment();

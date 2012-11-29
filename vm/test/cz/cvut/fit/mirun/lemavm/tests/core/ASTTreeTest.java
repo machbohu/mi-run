@@ -6,7 +6,7 @@ import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
 import org.junit.Test;
 
-import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
+import cz.cvut.fit.mirun.lemavm.core.VMStructureBuilder;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 
 public class ASTTreeTest {
@@ -36,6 +36,10 @@ public class ASTTreeTest {
 			"    public static int str = \"a\"; \n" +
 			"    Test char = 'a'; \n" +
 			"    int num = 5; \n" +
+			"    int num1 = 5.2; \n" +
+			"    int num1; \n" +
+//			"    int num1 = 5,2; \n" +
+//			"    error static f = 5; \n" +
 //			"    f = 5; \n" +
 //			"    int f = ; \n" +
 //			"    int g = 5 \n" +
@@ -69,8 +73,8 @@ public class ASTTreeTest {
 		);
 		
         try {
-        	VMInterpreter interpreter = new VMInterpreter(chs);
-        	interpreter.run();
+        	VMStructureBuilder b = new VMStructureBuilder(chs);
+        	b.run();
 		} catch (RecognitionException e) {
 			e.printStackTrace();
 		} catch (VMParsingException e) {

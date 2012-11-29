@@ -6,13 +6,17 @@ public enum VMVisibilityModifier {
 	public static VMVisibilityModifier fromString(String val){
 		switch(val){
 		case "public":
-			return VMVisibilityModifier.PUBLIC;
+			return PUBLIC;
 		case "protected":
-			return VMVisibilityModifier.PROTECTED;
+			return PROTECTED;
 		case "private":
-			return VMVisibilityModifier.PRIVATE;
+			return PRIVATE;
 		default:
-			return VMVisibilityModifier.PROTECTED;
+			return getDefault();
 		}
+	}
+	
+	public static VMVisibilityModifier getDefault(){
+		return PROTECTED;
 	}
 }

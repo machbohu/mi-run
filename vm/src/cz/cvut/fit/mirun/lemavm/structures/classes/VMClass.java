@@ -24,8 +24,8 @@ public final class VMClass extends VMObject {
 	private final boolean isStatic;
 	private final VMVisibilityModifier visibility;
 	private final Map<String, VMVisibilityModifier> fieldMods;
-	private final Map<String, String> fieldTypes;
-	private final Map<String, Object> fieldVals;
+	private final Map<String, String> fieldTypes; // <name, type>
+	private final Map<String, Object> fieldVals; // <name, value>
 	private final Map<String, VMMethod> constructors;
 	private final Map<String, VMMethod> methods;
 
