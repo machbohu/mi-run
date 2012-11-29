@@ -19,11 +19,17 @@ public class VMClassInstance extends VMObject {
 	private final VMClass cls;
 	// For possible inheritance support
 	private final VMClassInstance superInst;
+	//-------------------------------------------------
+	private final Map<String, Object> fields; // copied from VMClass during instantiation
+	// TODO remove structure below and place one above instead
 	private final Map<String, VMObject> fieldValues;
+	//-------------------------------------------------
 	private final VMEnvironment env;
 
 	public VMClassInstance(VMClass cls, VMClassInstance superInst) {
 		super(ObjectType.OBJECT);
+		// TODO copy fields from VMClass
+		fields = new HashMap<>();
 		fieldValues = new HashMap<>();
 		this.cls = cls;
 		this.superInst = superInst;
@@ -43,7 +49,7 @@ public class VMClassInstance extends VMObject {
 	public void setFieldValue(String fieldName, VMObject value) {
 		assert fieldName != null;
 		assert value != null;
-		if (!cls.getFieldMods().containsKey(fieldName)) {
+		if (!cls.getFields().containsKey(fieldName)) {
 			if (superInst != null) {
 				try {
 					superInst.setFieldValue(fieldName, value);
@@ -81,7 +87,11 @@ public class VMClassInstance extends VMObject {
 	 */
 	public VMVisibilityModifier getFieldVisibility(String fieldName) {
 		assert fieldName != null;
-		return cls.getFieldMods().get(fieldName);
+		if(cls.getFields().containsKey(fieldName)){
+			return cls.getFields().get(fieldName).getVisibility();
+		}else{
+			return null;
+		}
 	}
 
 	public VMClass getVMClass() {

@@ -15,6 +15,7 @@ import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMLexer;
 import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMParser;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMField;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMMethod;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMVisibilityModifier;
 
@@ -97,7 +98,7 @@ public class VMStructureBuilder {
 						throw new VMParsingException(
 								"Unexpected program syntax '"+child.toString()+"' in class '"+cls.getName()+"'");
 					}
-					cls.addField(name, visibility, type, val);
+					cls.addField(new VMField(name, isStatic, visibility, type, val));
 				}
 				break;
 			default:
