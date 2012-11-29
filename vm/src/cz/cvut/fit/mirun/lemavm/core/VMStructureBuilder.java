@@ -52,6 +52,14 @@ public class VMStructureBuilder {
         System.out.println(st);
 	}
 	
+	private String buildTypeFromTree(CommonTree node){
+		if(node.getChild(0).getChildCount() == 0){
+			return node.getChild(0).toString();
+		}else{
+			return node.getChild(0).getChild(0).toString();
+		}
+	}
+	
 	/**
 	 * Read variable structure from given node and VMClass.addField
 	 * @param node
@@ -75,7 +83,7 @@ public class VMStructureBuilder {
 				}
 				break;
 			case "TYPE":
-				type = child.getChild(0).toString();
+				type = buildTypeFromTree(child);
 				break;
 			// TODO support for expressions like int a = 5 + 5 * 8;
 			case "VAR_DECLARATOR_LIST":
@@ -90,13 +98,12 @@ public class VMStructureBuilder {
 							throw new VMParsingException("Can not assign value '"+strVal+
 									"' to the type '"+type+"' in class '"+cls.getName()+"'");
 						}
-//						System.out.println(child.getChild(1).getChild(0).getType());
 					}else if(child.toString().equals("VAR_DECLARATOR") && child.getChildCount() == 1){
 						name = child.getChild(0).toString();
 						val = VMUtils.getTypeDefaultValue(type);
 					}else{
-						throw new VMParsingException(
-								"Unexpected program syntax '"+child.toString()+"' in class '"+cls.getName()+"'");
+						throw new VMParsingException("Unexpected program syntax '"+child.toString()+
+								"' in class '"+cls.getName()+"'");
 					}
 					cls.addField(new VMField(name, isStatic, visibility, type, val));
 				}
@@ -139,7 +146,7 @@ public class VMStructureBuilder {
 				}
 				break;
 			case "TYPE":
-				returnType = child.getChild(0).toString();
+				type = buildTypeFromTree(child);
 				break;
 			case "FORMAL_PARAM_LIST":
 				if(child.getChildCount() > 0){
