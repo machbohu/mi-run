@@ -52,7 +52,7 @@ public class VMStructureBuilder {
 	}
 	
 	/**
-	 * Read variable structure from given node and build it
+	 * Read variable structure from given node and VMClass.addField
 	 * @param node
 	 * @param cls
 	 */
@@ -60,7 +60,7 @@ public class VMStructureBuilder {
 		CommonTree child = null;
 		VMVisibilityModifier visibility = VMVisibilityModifier.getDefault();
 		boolean isStatic = false;
-		String type = null, name = null;
+		String type = null, name = null, strVal = null;
 		Object val = null;
 		
 		for(Object o : node.getChildren()){
@@ -82,22 +82,27 @@ public class VMStructureBuilder {
 					child = (CommonTree) o1;
 					if(child.toString().equals("VAR_DECLARATOR") && child.getChildCount() == 2){
 						name = child.getChild(0).toString();
-						// TODO cast value according to type if possible
-						val = child.getChild(1).getChild(0).toString();
+						try{
+							strVal = child.getChild(1).getChild(0).toString();
+							val = VMUtils.castValue(type, strVal);
+						}catch(NumberFormatException e){
+							throw new VMParsingException("Can not assign value '"+strVal+
+									"' to the type '"+type+"' in class '"+cls.getName()+"'");
+						}
 //						System.out.println(child.getChild(1).getChild(0).getType());
 					}else if(child.toString().equals("VAR_DECLARATOR") && child.getChildCount() == 1){
-						// TODO get default value for this type
 						name = child.getChild(0).toString();
+						val = VMUtils.getTypeDefaultValue(type);
 					}else{
 						throw new VMParsingException(
-								"Unexpected program syntax "+child.toString()+" in class "+cls.getName());
+								"Unexpected program syntax '"+child.toString()+"' in class '"+cls.getName()+"'");
 					}
 					cls.addField(name, visibility, type, val);
 				}
 				break;
 			default:
 				throw new VMParsingException(
-						"Unexpected program syntax "+child.toString()+" in class "+cls.getName());
+						"Unexpected program syntax '"+child.toString()+"' in class '"+cls.getName()+"'");
 			}
 		}
 	}
@@ -111,7 +116,7 @@ public class VMStructureBuilder {
 //	}
 
 	/**
-	 * Read method/constructor structure from given node and build it
+	 * Read method/constructor structure from given node and build VMMethod
 	 * @param node
 	 * @param cls
 	 */
@@ -146,8 +151,8 @@ public class VMStructureBuilder {
 							argName = child.getChild(2).toString();
 							args.put(argName, argType);
 						}else{
-							throw new VMParsingException("Unexpected program syntax "+child.toString()+
-									" in class "+cls.getName()+", method "+name);
+							throw new VMParsingException("Unexpected program syntax '"+child.toString()+
+									"' in class '"+cls.getName()+"', method '"+name+"'");
 						}
 					}
 				}
@@ -189,13 +194,13 @@ public class VMStructureBuilder {
 				break;
 			default:
 				throw new VMParsingException(
-						"Unexpected program syntax "+child.toString()+" in class "+cls.getName());
+						"Unexpected program syntax '"+child.toString()+"' in class '"+cls.getName()+"'");
 			}
 		}
 	}
 	
 	/**
-	 * Read class structure from node and build it
+	 * Read class structure from node and build VMClass
 	 * @param node
 	 */
 	private void buildClassFromTree(CommonTree node){
@@ -227,7 +232,7 @@ public class VMStructureBuilder {
 					name = child.toString();
 				}else{
 					throw new VMParsingException(
-							"Unexpected program syntax: "+child.toString()+" in class "+name);
+							"Unexpected program syntax '"+child.toString()+"' in class '"+name+"'");
 				}
 				break;
 			}
@@ -243,7 +248,7 @@ public class VMStructureBuilder {
 				buildClassFromTree((CommonTree) o);
 			}else{
 				throw new VMParsingException(
-						"Unexpected program syntax: " + o.toString()+", expecting class");
+						"Unexpected program syntax '" + o.toString()+"', expecting class");
 			}
 		}
 	}

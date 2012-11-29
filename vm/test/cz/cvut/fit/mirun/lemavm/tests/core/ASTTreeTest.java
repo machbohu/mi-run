@@ -7,6 +7,7 @@ import org.antlr.runtime.tree.CommonTree;
 import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.core.VMStructureBuilder;
+import cz.cvut.fit.mirun.lemavm.core.VMUtils;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 
 public class ASTTreeTest {
@@ -66,6 +67,7 @@ public class ASTTreeTest {
 			"\n" +
 			"    public void main() {\n" +
 			"        int a = 5, b = 2;\n" +
+			"        c = 2;\n" +
 			"        Test t = new Test();\n" +
 			"        t.testMethod(a, b);\n" +
 			"        while(a == 5){\n" +
