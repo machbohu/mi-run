@@ -3,6 +3,7 @@ package cz.cvut.fit.mirun.lemavm.structures.operators.compounds;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMDivisionByZeroException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
+import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 public final class VMCompoundPlus extends VMBinaryComposedOperator {
 
@@ -53,7 +54,7 @@ public final class VMCompoundPlus extends VMBinaryComposedOperator {
 	}
 
 	@Override
-	public String evaluateString() {
-		return ("" + opOne + opTwo);
+	public VMString evaluateString() {
+		return new VMString("" + evaluateInt());
 	}
 }

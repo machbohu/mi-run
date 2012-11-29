@@ -1,5 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.structures.primitives;
 
+import cz.cvut.fit.mirun.lemavm.core.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 
 public class VMString extends VMPrimitive {
@@ -9,6 +10,7 @@ public class VMString extends VMPrimitive {
 	public VMString(String value) {
 		super(ObjectType.STRING);
 		this.value = value;
+		VMMemoryManager.allocateObject(this);
 	}
 
 	public String getValue() {

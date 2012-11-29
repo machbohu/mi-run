@@ -1,6 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators.ints;
 
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
+import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 public abstract class VMBinaryIntOperator extends VMOperator {
 
@@ -11,5 +12,10 @@ public abstract class VMBinaryIntOperator extends VMOperator {
 		super();
 		this.opOne = opOne;
 		this.opTwo = opTwo;
+	}
+
+	@Override
+	public VMString evaluateString() {
+		return new VMString("" + evaluateInt());
 	}
 }

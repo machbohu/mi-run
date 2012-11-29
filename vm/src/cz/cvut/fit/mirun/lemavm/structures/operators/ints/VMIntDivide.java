@@ -2,6 +2,7 @@ package cz.cvut.fit.mirun.lemavm.structures.operators.ints;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMDivisionByZeroException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
+import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 public final class VMIntDivide extends VMBinaryIntOperator {
 
@@ -47,7 +48,7 @@ public final class VMIntDivide extends VMBinaryIntOperator {
 	}
 
 	@Override
-	public String evaluateString() {
-		return ("" + opOne + " / " + opTwo);
+	public VMString evaluateString() {
+		return new VMString("" + evaluateInt());
 	}
 }

@@ -2,6 +2,7 @@ package cz.cvut.fit.mirun.lemavm.structures.operators.control;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
+import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 public abstract class VMRelationalOperator extends VMOperator {
 
@@ -30,7 +31,7 @@ public abstract class VMRelationalOperator extends VMOperator {
 	}
 
 	@Override
-	public String evaluateString() {
+	public VMString evaluateString() {
 		throw new VMEvaluationException(
 				"Relational operator cannot return double.");
 	}

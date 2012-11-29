@@ -29,7 +29,8 @@ public final class VMClass extends VMObject {
 
 	// TODO What about static fields and methods?
 
-	private VMClass(String name, VMClass superClass, boolean isStatic, VMVisibilityModifier visibility) {
+	private VMClass(String name, VMClass superClass, boolean isStatic,
+			VMVisibilityModifier visibility) {
 		super(ObjectType.META_CLASS);
 		this.name = name;
 		this.superClass = superClass;
@@ -40,16 +41,15 @@ public final class VMClass extends VMObject {
 		this.methods = new HashMap<>();
 	}
 
-	private VMClass(String name, VMClass superClass, boolean isStatic, VMVisibilityModifier visibility,
-			Map<String, VMField> fields,
-			Map<String, VMMethod> constructors,
-			Map<String, VMMethod> methods) {
+	private VMClass(String name, VMClass superClass, boolean isStatic,
+			VMVisibilityModifier visibility, Map<String, VMField> fields,
+			Map<String, VMMethod> constructors, Map<String, VMMethod> methods) {
 		super(ObjectType.META_CLASS);
 		this.name = name;
 		this.superClass = superClass;
 		this.isStatic = isStatic;
 		this.visibility = visibility;
-		
+
 		if (fields == null) {
 			this.fields = Collections.emptyMap();
 		} else {
@@ -101,14 +101,16 @@ public final class VMClass extends VMObject {
 	public Map<String, VMMethod> getMethods() {
 		return methods;
 	}
-	
-	private void addMethodOrConstructor(VMMethod newMethod, Map<String, VMMethod> container){
-		// TODO methods AND CONSTRUCTORS overloading (maybe check number of arguments) 
+
+	private void addMethodOrConstructor(VMMethod newMethod,
+			Map<String, VMMethod> container) {
+		// TODO methods AND CONSTRUCTORS overloading (maybe check number of
+		// arguments)
 		if (newMethod == null) {
 			throw new VMNullPointerException();
-		}else if(container.containsKey(newMethod.getName())){
-			throw new VMParsingException("Method/Constructor with name " + newMethod.getName()
-					+ " already exists in class " + name);
+		} else if (container.containsKey(newMethod.getName())) {
+			throw new VMParsingException("Method/Constructor with name "
+					+ newMethod.getName() + " already exists in class " + name);
 		}
 		methods.put(newMethod.getName(), newMethod);
 		newMethod.setOwner(this);
@@ -117,9 +119,31 @@ public final class VMClass extends VMObject {
 	public void addMethod(VMMethod newMethod) {
 		addMethodOrConstructor(newMethod, methods);
 	}
-	
+
 	public void addConstructor(VMMethod newMethod) {
 		addMethodOrConstructor(newMethod, constructors);
+	}
+
+	/**
+	 * Check if this class instance is the same or is a superclass of the
+	 * specified other class.
+	 * 
+	 * @param other
+	 *            The class to check
+	 * @return True if this class is assignable from the other
+	 */
+	public boolean isAssignableFrom(VMClass other) {
+		if (other.getName().equals(name)) {
+			return true;
+		}
+		VMClass sup = other;
+		while (sup != null) {
+			if (sup.getName().equals(name)) {
+				return true;
+			}
+			sup = sup.getSuperClass();
+		}
+		return false;
 	}
 
 	/**
@@ -134,17 +158,19 @@ public final class VMClass extends VMObject {
 	 *            Super class of the new class. Can be null
 	 * @return The new meta class
 	 */
-	public static VMClass createClass(String name, VMClass superClass, 
+	public static VMClass createClass(String name, VMClass superClass,
 			boolean isStatic, VMVisibilityModifier visibility) {
 		if (name == null || name.isEmpty()) {
 			throw new VMParsingException(
 					"Invalid VMClass constructor parameters: " + name);
 		}
 		if (classes.containsKey(name)) {
-//			return classes.get(name);
-			throw new VMParsingException("Definition of class with name "+name+" already exists.");
+			// return classes.get(name);
+			throw new VMParsingException("Definition of class with name "
+					+ name + " already exists.");
 		}
-		final VMClass newClass = new VMClass(name, superClass, isStatic, visibility);
+		final VMClass newClass = new VMClass(name, superClass, isStatic,
+				visibility);
 		classes.put(name, newClass);
 		return newClass;
 	}
@@ -165,19 +191,19 @@ public final class VMClass extends VMObject {
 	 */
 	public static VMClass createClass(String name, VMClass superClass,
 			boolean isStatic, VMVisibilityModifier visibility,
-			Map<String, VMField> fields,
-			Map<String, VMMethod> constructors,
+			Map<String, VMField> fields, Map<String, VMMethod> constructors,
 			Map<String, VMMethod> methods) {
 		if (name == null || name.isEmpty()) {
 			throw new VMParsingException(
 					"Invalid VMClass constructor parameters: " + name);
 		}
 		if (classes.containsKey(name)) {
-//			return classes.get(name);
-			throw new VMParsingException("Definition of class with name "+name+" already exists.");
+			// return classes.get(name);
+			throw new VMParsingException("Definition of class with name "
+					+ name + " already exists.");
 		}
-		final VMClass newClass = new VMClass(name, superClass, isStatic, visibility, 
-				fields, constructors, methods);
+		final VMClass newClass = new VMClass(name, superClass, isStatic,
+				visibility, fields, constructors, methods);
 		classes.put(name, newClass);
 		return newClass;
 	}
