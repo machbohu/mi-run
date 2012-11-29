@@ -38,12 +38,14 @@ public class VMMethod extends VMObject {
 		this.isStatic = isStatic;
 		this.visibility = visibility;
 		this.returnType = returnType;
+		// TODO should be created in time of method call?
 		this.env = new VMEnvironment();
 		
 		if (arguments == null) {
 			this.arguments = Collections.emptyMap();
 		} else {
 			this.arguments = arguments;
+			// TODO fill environment with arguments?
 		}
 		
 		this.subTree = tree;

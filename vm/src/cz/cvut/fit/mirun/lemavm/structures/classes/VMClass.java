@@ -127,13 +127,25 @@ public final class VMClass extends VMObject {
 	public Map<String, VMMethod> getMethods() {
 		return methods;
 	}
-
-	public void addMethod(VMMethod newMethod) {
+	
+	private void addMethodOrConstructor(VMMethod newMethod, Map<String, VMMethod> container){
+		// TODO methods AND CONSTRUCTORS overloading (maybe check number of arguments) 
 		if (newMethod == null) {
 			throw new VMNullPointerException();
+		}else if(container.containsKey(newMethod.getName())){
+			throw new VMParsingException("Method/Constructor with name " + newMethod.getName()
+					+ " already exists in class " + name);
 		}
 		methods.put(newMethod.getName(), newMethod);
 		newMethod.setOwner(this);
+	}
+
+	public void addMethod(VMMethod newMethod) {
+		addMethodOrConstructor(newMethod, methods);
+	}
+	
+	public void addConstructor(VMMethod newMethod) {
+		addMethodOrConstructor(newMethod, constructors);
 	}
 
 	/**

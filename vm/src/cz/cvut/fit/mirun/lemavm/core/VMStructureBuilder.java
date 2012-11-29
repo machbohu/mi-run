@@ -1,5 +1,8 @@
 package cz.cvut.fit.mirun.lemavm.core;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenRewriteStream;
@@ -12,14 +15,20 @@ import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMLexer;
 import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMParser;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMMethod;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMVisibilityModifier;
 
 public class VMStructureBuilder {
 	private static final Logger LOG = Logger.getLogger(VMStructureBuilder.class);
 	
 	private CommonTree tree;
+	private CharStream cs;
 	
-	public VMStructureBuilder(CharStream cs) throws RecognitionException{
+	public VMStructureBuilder(CharStream cs){
+		this.cs = cs;
+	}
+	
+	private void buildTree() throws RecognitionException{
 		LeMaVMLexer lexer = new LeMaVMLexer(cs);
 		TokenRewriteStream tokens = new TokenRewriteStream(lexer);
 		LeMaVMParser parser = new LeMaVMParser(tokens);
@@ -47,7 +56,7 @@ public class VMStructureBuilder {
 	 * @param node
 	 * @param cls
 	 */
-	private void buildVar(CommonTree node, VMClass cls){
+	private void buildVarFromTree(CommonTree node, VMClass cls){
 		CommonTree child = null;
 		VMVisibilityModifier visibility = VMVisibilityModifier.getDefault();
 		boolean isStatic = false;
@@ -65,7 +74,7 @@ public class VMStructureBuilder {
 				}
 				break;
 			case "TYPE":
-				type = child.toString();
+				type = child.getChild(0).toString();
 				break;
 			// TODO support for expressions like int a = 5 + 5 * 8;
 			case "VAR_DECLARATOR_LIST":
@@ -77,11 +86,13 @@ public class VMStructureBuilder {
 						val = child.getChild(1).getChild(0).toString();
 //						System.out.println(child.getChild(1).getChild(0).getType());
 					}else if(child.toString().equals("VAR_DECLARATOR") && child.getChildCount() == 1){
+						// TODO get default value for this type
 						name = child.getChild(0).toString();
 					}else{
 						throw new VMParsingException(
 								"Unexpected program syntax "+child.toString()+" in class "+cls.getName());
 					}
+					cls.addField(name, visibility, type, val);
 				}
 				break;
 			default:
@@ -91,22 +102,67 @@ public class VMStructureBuilder {
 		}
 	}
 	
-	/**
-	 * Read constructor structure from given node and build it
-	 * @param node
-	 * @param cls
-	 */
-	private void buildConstructor(CommonTree node, VMClass cls){
-		
-	}
+//	/**
+//	 * Read constructor structure from given node and build it
+//	 * @param node
+//	 * @param cls
+//	 */
+//	private void buildConstructor(CommonTree node, VMClass cls){
+//	}
 
 	/**
-	 * Read method structure from given node and build it
+	 * Read method/constructor structure from given node and build it
 	 * @param node
 	 * @param cls
 	 */
-	private void buildMethod(CommonTree node, VMClass cls){
-		String returnType = "void";
+	private void buildMethodFromTree(CommonTree node, VMClass cls){
+		CommonTree child = null, block = null;
+		VMVisibilityModifier visibility = VMVisibilityModifier.getDefault();
+		boolean isStatic = false;
+		String returnType = "void", name = cls.getName(), argType = null, argName = null;
+		Map<String, String> args = null;
+		
+		for(Object o : node.getChildren()){
+			child = (CommonTree) o;
+			
+			switch(child.toString()){
+			case "MODIFIER_LIST":
+				if(child.getChildCount() > 0){
+					visibility = VMVisibilityModifier.fromString(child.getChild(0).toString());
+					isStatic = (child.getChildren().indexOf("static") != -1);
+				}
+				break;
+			case "TYPE":
+				returnType = child.getChild(0).toString();
+				break;
+			case "FORMAL_PARAM_LIST":
+				if(child.getChildCount() > 0){
+					args = new HashMap<>();
+					
+					for(Object o1 : child.getChildren()){
+						child = (CommonTree) o1;
+						if(child.toString().equals("FORMAL_PARAM_STD_DECL")){
+							argType = child.getChild(1).getChild(0).toString();
+							argName = child.getChild(2).toString();
+							args.put(argName, argType);
+						}else{
+							throw new VMParsingException("Unexpected program syntax "+child.toString()+
+									" in class "+cls.getName()+", method "+name);
+						}
+					}
+				}
+				break;
+			case "BLOCK_SCOPE":
+				block = child;
+				break;
+			default:
+				name = child.toString();
+				break;
+			}
+		}
+		
+		VMMethod method = new VMMethod(name, cls, isStatic, visibility, returnType, args, block);
+		cls.addMethod(method);
 	}
 	
 	/**
@@ -114,7 +170,7 @@ public class VMStructureBuilder {
 	 * @param node
 	 * @param cls
 	 */
-	private void buildVarsAndMethods(CommonTree node, VMClass cls){
+	private void buildVarsAndMethodsFromTree(CommonTree node, VMClass cls){
 		CommonTree child = null;
 		
 		for(Object o : node.getChildren()){
@@ -122,14 +178,14 @@ public class VMStructureBuilder {
 			
 			switch(child.toString()){
 			case "VAR_DECLARATION":
-				buildVar(child, cls);
+				buildVarFromTree(child, cls);
 				break;
 			case "CONSTRUCTOR_DECL":
-				buildConstructor(child, cls);
-				break;
+//				buildConstructor(child, cls);
+//				break;
 			case "FUNCTION_METHOD_DECL":
 			case "VOID_METHOD_DECL":
-				buildMethod(child, cls);
+				buildMethodFromTree(child, cls);
 				break;
 			default:
 				throw new VMParsingException(
@@ -142,7 +198,7 @@ public class VMStructureBuilder {
 	 * Read class structure from node and build it
 	 * @param node
 	 */
-	private void buildClass(CommonTree node){
+	private void buildClassFromTree(CommonTree node){
 		CommonTree child = null;
 		VMClass cls = null;
 		String name = null;
@@ -164,7 +220,7 @@ public class VMStructureBuilder {
 			case "CLASS_TOP_LEVEL_SCOPE":
 				// null == no parent
 				cls = VMClass.createClass(name, null, isStatic, visibility);
-				buildVarsAndMethods(child, cls);
+				buildVarsAndMethodsFromTree(child, cls);
 				break;
 			default:
 				if(name == null){
@@ -180,18 +236,18 @@ public class VMStructureBuilder {
 	/**
 	 * Build Meta classes, their variables, constructors and methods from tree structure
 	 */
-	private void buildClasses(){
+	private void buildBaseStructureFromTree(){
 		for(Object o : tree.getChildren()){
 			if(o.toString().equals("class")){
-				buildClass((CommonTree) o);
+				buildClassFromTree((CommonTree) o);
 			}else{
 				throw new VMParsingException("Unexpected program syntax: " + o.toString());
 			}
 		}
 	}
 	
-	public void run(){
-		printTreeToDot();
-		buildClasses();
+	public void build() throws RecognitionException{
+		buildTree();
+		buildBaseStructureFromTree();
 	}
 }

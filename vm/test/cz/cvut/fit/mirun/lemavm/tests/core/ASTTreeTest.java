@@ -37,7 +37,7 @@ public class ASTTreeTest {
 			"    Test char = 'a'; \n" +
 			"    int num = 5; \n" +
 			"    int num1 = 5.2; \n" +
-			"    int num1; \n" +
+			"    int num2; \n" +
 //			"    int num1 = 5,2; \n" +
 //			"    error static f = 5; \n" +
 //			"    f = 5; \n" +
@@ -45,6 +45,7 @@ public class ASTTreeTest {
 //			"    int g = 5 \n" +
 			"    public Test(int a) {\n" +
 			"        this.b = a;\n" +
+			"        return a;\n" +
 			"    }\n" +
 			"    static int testMethod(int a) {\n" +
 			"        if(a == 0){\n" +
@@ -74,7 +75,8 @@ public class ASTTreeTest {
 		
         try {
         	VMStructureBuilder b = new VMStructureBuilder(chs);
-        	b.run();
+        	b.printTreeToDot();
+        	b.build();
 		} catch (RecognitionException e) {
 			e.printStackTrace();
 		} catch (VMParsingException e) {
