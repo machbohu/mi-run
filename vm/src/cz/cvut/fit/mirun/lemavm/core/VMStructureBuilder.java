@@ -1,5 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.core;
 
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -95,6 +96,9 @@ public class VMStructureBuilder {
 							strVal = child.getChild(1).getChild(0).toString();
 							val = VMUtils.castValue(type, strVal);
 						}catch(NumberFormatException e){
+							throw new VMParsingException("Can not assign value '"+strVal+
+									"' to the type '"+type+"' in class '"+cls.getName()+"'");
+						}catch(ParseException e1){
 							throw new VMParsingException("Can not assign value '"+strVal+
 									"' to the type '"+type+"' in class '"+cls.getName()+"'");
 						}

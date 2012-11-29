@@ -1,5 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.core;
 
+import java.text.ParseException;
+
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMNull;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
@@ -21,7 +23,7 @@ public class VMUtils {
 		}
 	}
 	
-	public static Object castValue(String type, String value) throws NumberFormatException{
+	public static Object castValue(String type, String value) throws NumberFormatException, ParseException{
 		switch(type){
 		case "short":
 			return Short.parseShort(value);
@@ -34,7 +36,11 @@ public class VMUtils {
 		case "boolean":
 			return Boolean.parseBoolean(value);
 		case "string":
-			return new VMString(value);
+			if(value.startsWith("\"") && value.endsWith("\"")){
+				return new VMString(value.substring(1, value.length()-1));
+			}else{
+				throw new ParseException("", 0);
+			}
 		default:
 			return VMNull.getInstance();
 		}
