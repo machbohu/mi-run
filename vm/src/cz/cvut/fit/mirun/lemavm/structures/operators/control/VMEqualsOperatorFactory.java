@@ -1,130 +1,96 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators.control;
 
+import cz.cvut.fit.mirun.lemavm.core.VMConstants;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
 public final class VMEqualsOperatorFactory {
 
-	private VMEqualsOperatorFactory() {
+	public VMRelationalOperator createOperator(Number opOne, Number opTwo) {
+		return new NumberEquals(opOne, opTwo);
 	}
 
-	/**
-	 * This method creates an operator with literal value - for using in e. g.
-	 * while (true)...
-	 * 
-	 * @param value
-	 *            The literal value, true or false
-	 * @return VMRelationalOperator
-	 */
-	public VMRelationalOperator createEqualsOperator(boolean value) {
-		if (value) {
-			return VMLiteralEquals.TRUE;
-		} else {
-			return VMLiteralEquals.FALSE;
-		}
-	}
-
-	/**
-	 * Create equality operator.
-	 */
-	public VMRelationalOperator createEqualsOperator(double opOne, double opTwo) {
-		return new DoubleEquals(opOne, opTwo);
-	}
-
-	/**
-	 * Create equality operator.
-	 */
-	public VMRelationalOperator createEqualsOperator(long opOne, long opTwo) {
-		return new LongEquals(opOne, opTwo);
-	}
-
-	/**
-	 * Create equality operator.
-	 */
-	public VMRelationalOperator createEqualsOperator(boolean opOne,
-			boolean opTwo) {
+	public VMRelationalOperator createOperator(Boolean opOne, Boolean opTwo) {
 		return new BooleanEquals(opOne, opTwo);
 	}
 
-	/**
-	 * Create equality operator.
-	 */
-	public VMRelationalOperator createEqualsOperator(double opOne,
-			VMOperator opTwo) {
-		return new DoubleCompEquals(opOne, opTwo);
+	public VMRelationalOperator createOperator(VMObject opOne, VMObject opTwo) {
+		return new VMGeneralEquals(opOne, opTwo);
 	}
 
-	/**
-	 * Create equality operator.
-	 */
-	public VMRelationalOperator createEqualsOperator(long opOne,
-			VMOperator opTwo) {
-		return new LongCompEquals(opOne, opTwo);
+	public VMRelationalOperator createOperator(Number opOne, VMOperator opTwo) {
+		return new NumberCompEquals(opOne, opTwo);
 	}
 
-	/**
-	 * Create equality operator.
-	 */
-	public VMRelationalOperator createEqualsOperator(boolean opOne,
-			VMOperator opTwo) {
+	public VMRelationalOperator createOperator(Boolean opOne, VMOperator opTwo) {
 		return new BooleanCompEquals(opOne, opTwo);
 	}
 
-	/**
-	 * Create equality operator.
-	 */
-	public VMRelationalOperator createEqualsOperator(VMOperator opOne,
-			double opTwo) {
-		return createEqualsOperator(opTwo, opOne);
+	public VMRelationalOperator createOperator(VMOperator opOne, Number opTwo) {
+		return createOperator(opTwo, opOne);
 	}
 
-	/**
-	 * Create equality operator.
-	 */
-	public VMRelationalOperator createEqualsOperator(VMOperator opOne,
-			long opTwo) {
-		return createEqualsOperator(opTwo, opOne);
+	public VMRelationalOperator createOperator(VMOperator opOne, Boolean opTwo) {
+		return createOperator(opTwo, opOne);
 	}
 
-	/**
-	 * Create equality operator.
-	 */
-	public VMRelationalOperator createEqualsOperator(VMOperator opOne,
-			boolean opTwo) {
-		return new BooleanCompEquals(opTwo, opOne);
-	}
-
-	/**
-	 * Create equality operator.
-	 */
-	public VMRelationalOperator createEqualsOperator(VMOperator opOne,
+	public VMRelationalOperator createOperator(VMOperator opOne,
 			VMOperator opTwo) {
 		return new VMOperatorEquals(opOne, opTwo);
 	}
 
-	/**
-	 * Create equality operator.
-	 */
-	public VMRelationalOperator createEqualsOperator(VMObject opOne,
-			VMObject opTwo) {
-		return new VMGeneralEquals(opOne, opTwo);
+	public VMRelationalOperator createOperator(Number opOne, String opTwo) {
+		return createOperator(opTwo, opOne);
+	}
+
+	public VMRelationalOperator createOperator(String opOne, Number opTwo) {
+		return new VMVariableNumberEquals(opOne, opTwo);
+	}
+
+	public VMRelationalOperator createOperator(Boolean opOne, String opTwo) {
+		return createOperator(opTwo, opOne);
+	}
+
+	public VMRelationalOperator createOperator(String opOne, Boolean opTwo) {
+		return new VMVariableBooleanEquals(opOne, opTwo);
+	}
+
+	public VMRelationalOperator createOperator(String opOne, VMOperator opTwo) {
+		return new VMVariableOperEquals(opOne, opTwo);
+	}
+
+	public VMRelationalOperator createOperator(VMOperator opOne, String opTwo) {
+		return createOperator(opTwo, opOne);
+	}
+
+	public VMRelationalOperator createOperator(String opOne, VMObject opTwo) {
+		return new VMVariableObjEquals(opOne, opTwo);
+	}
+
+	public VMRelationalOperator createOperator(VMObject opOne, String opTwo) {
+		return createOperator(opTwo, opOne);
+	}
+
+	public VMRelationalOperator createOperator(String opOne, String opTwo) {
+		return new VMVariableEquals(opOne, opTwo);
 	}
 
 	// Operator classes definitions
 
-	public static final class DoubleEquals extends VMRelationalOperator {
-		private final double dOne;
-		private final double dTwo;
+	public static final class NumberEquals extends VMRelationalOperator {
+		private final Number opOne;
+		private final Number opTwo;
 
-		public DoubleEquals(double dOne, double dTwo) {
-			this.dOne = dOne;
-			this.dTwo = dTwo;
+		public NumberEquals(Number opOne, Number opTwo) {
+			this.opOne = opOne;
+			this.opTwo = opTwo;
 		}
 
 		@Override
-		public boolean evaluateBoolean() {
-			return (Double.compare(dOne, dTwo) == 0);
+		public Boolean evaluateBoolean(VMEnvironment env) {
+			return (opOne.equals(opTwo));
 		}
 	}
 
@@ -134,78 +100,53 @@ public final class VMEqualsOperatorFactory {
 	 * @author kidney
 	 * 
 	 */
-	public static final class LongEquals extends VMRelationalOperator {
-		private final long dOne;
-		private final long dTwo;
-
-		public LongEquals(long dOne, long dTwo) {
-			this.dOne = dOne;
-			this.dTwo = dTwo;
-		}
-
-		@Override
-		public boolean evaluateBoolean() {
-			return dOne == dTwo;
-		}
-	}
-
 	public static final class BooleanEquals extends VMRelationalOperator {
-		private final boolean dOne;
-		private final boolean dTwo;
+		private final Boolean opOne;
+		private final Boolean opTwo;
 
-		public BooleanEquals(boolean dOne, boolean dTwo) {
-			this.dOne = dOne;
-			this.dTwo = dTwo;
+		public BooleanEquals(Boolean opOne, Boolean opTwo) {
+			this.opOne = opOne;
+			this.opTwo = opTwo;
 		}
 
 		@Override
-		public boolean evaluateBoolean() {
-			return (dOne == dTwo);
+		public Boolean evaluateBoolean(VMEnvironment env) {
+			return (opOne.equals(opTwo));
 		}
 	}
 
-	public static final class DoubleCompEquals extends VMRelationalOperator {
-		private final double dOne;
-		private final VMOperator dTwo;
+	public static final class NumberCompEquals extends VMRelationalOperator {
+		private final Number opOne;
+		private final VMOperator opTwo;
 
-		public DoubleCompEquals(double dOne, VMOperator dTwo) {
-			this.dOne = dOne;
-			this.dTwo = dTwo;
+		public NumberCompEquals(Number opOne, VMOperator opTwo) {
+			this.opOne = opOne;
+			this.opTwo = opTwo;
 		}
 
 		@Override
-		public boolean evaluateBoolean() {
-			return (Double.compare(dOne, dTwo.evaluateDouble()) == 0);
-		}
-	}
-
-	public static final class LongCompEquals extends VMRelationalOperator {
-		private final long dOne;
-		private final VMOperator dTwo;
-
-		public LongCompEquals(long dOne, VMOperator dTwo) {
-			this.dOne = dOne;
-			this.dTwo = dTwo;
-		}
-
-		@Override
-		public boolean evaluateBoolean() {
-			return (dOne == dTwo.evaluateLong());
+		public Boolean evaluateBoolean(VMEnvironment env) {
+			if (opOne instanceof Double) {
+				return (opOne.equals(opTwo.evaluateDouble(env)));
+			} else {
+				return (opOne.longValue() == opTwo.evaluateLong(env)
+						.longValue());
+			}
 		}
 	}
 
 	public static final class BooleanCompEquals extends VMRelationalOperator {
-		private final boolean dOne;
-		private final VMOperator dTwo;
+		private final Boolean opOne;
+		private final VMOperator opTwo;
 
-		public BooleanCompEquals(boolean dOne, VMOperator dTwo) {
-			this.dOne = dOne;
-			this.dTwo = dTwo;
+		public BooleanCompEquals(Boolean opOne, VMOperator opTwo) {
+			this.opOne = opOne;
+			this.opTwo = opTwo;
 		}
 
 		@Override
-		public boolean evaluateBoolean() {
-			return (dOne == dTwo.evaluateBoolean());
+		public Boolean evaluateBoolean(VMEnvironment env) {
+			return (opOne.equals(opTwo.evaluateBoolean(env)));
 		}
 	}
 
@@ -219,12 +160,13 @@ public final class VMEqualsOperatorFactory {
 		}
 
 		@Override
-		public boolean evaluateBoolean() {
+		public Boolean evaluateBoolean(VMEnvironment env) {
 			try {
-				return (Double.compare(dOne.evaluateDouble(),
-						dTwo.evaluateDouble()) == 0);
+				return (dOne.evaluateDouble(env).equals(dTwo
+						.evaluateDouble(env)));
 			} catch (VMEvaluationException e) {
-				return (dOne.evaluateBoolean() == dTwo.evaluateBoolean());
+				return (dOne.evaluateBoolean(env).equals(dTwo
+						.evaluateBoolean(env)));
 			}
 		}
 	}
@@ -239,26 +181,165 @@ public final class VMEqualsOperatorFactory {
 		}
 
 		@Override
-		public boolean evaluateBoolean() {
+		public Boolean evaluateBoolean(VMEnvironment env) {
 			return oOne.equals(oTwo);
 		}
 	}
 
-	public static final class VMLiteralEquals extends VMRelationalOperator {
+	public static final class VMVariableNumberEquals extends
+			VMRelationalOperator {
 
-		public static final VMLiteralEquals TRUE = new VMLiteralEquals(true);
-		public static final VMLiteralEquals FALSE = new VMLiteralEquals(false);
+		private final String opOne;
+		private final Number opTwo;
 
-		private final boolean value;
-
-		private VMLiteralEquals(boolean value) {
-			this.value = value;
+		public VMVariableNumberEquals(String opOne, Number opTwo) {
+			super();
+			this.opOne = opOne;
+			this.opTwo = opTwo;
 		}
 
 		@Override
-		public boolean evaluateBoolean() {
-			return value;
+		public Boolean evaluateBoolean(VMEnvironment env) {
+			try {
+				final Number t = env.getBinding(opOne, Number.class);
+				if (t == null) {
+					throw new VMEvaluationException("Variable with name "
+							+ opOne + "  found.");
+				}
+				return (t.equals(opTwo));
+			} catch (ClassCastException e) {
+				throw new VMEvaluationException(
+						"Incompatible types found. First operand is of type "
+								+ env.getNameType(opOne)
+								+ ", the second is of type "
+								+ opTwo.getClass().getName());
+			}
+		}
+	}
+
+	public static final class VMVariableBooleanEquals extends
+			VMRelationalOperator {
+
+		private final String opOne;
+		private final Boolean opTwo;
+
+		public VMVariableBooleanEquals(String opOne, Boolean opTwo) {
+			super();
+			this.opOne = opOne;
+			this.opTwo = opTwo;
 		}
 
+		@Override
+		public Boolean evaluateBoolean(VMEnvironment env) {
+			try {
+				final Boolean t = env.getBinding(opOne, Boolean.class);
+				if (t == null) {
+					throw new VMEvaluationException("Variable with name "
+							+ opOne + "  found.");
+				}
+				return (t.equals(opTwo));
+			} catch (ClassCastException e) {
+				throw new VMEvaluationException(
+						"Incompatible types found. First operand is of type "
+								+ env.getNameType(opOne)
+								+ ", the second is of type "
+								+ opTwo.getClass().getName());
+			}
+		}
+	}
+
+	public static final class VMVariableOperEquals extends VMRelationalOperator {
+
+		private final String opOne;
+		private final VMOperator opTwo;
+
+		public VMVariableOperEquals(String opOne, VMOperator opTwo) {
+			super();
+			this.opOne = opOne;
+			this.opTwo = opTwo;
+		}
+
+		@Override
+		public Boolean evaluateBoolean(VMEnvironment env) {
+			final String type = env.getNameType(opOne);
+			if (type == null) {
+				throw new VMEvaluationException("Variable with name " + opOne
+						+ "  found.");
+			}
+			if (type.equals(VMConstants.BOOLEAN)) {
+				final Boolean t = env.getBinding(opOne, Boolean.class);
+				final Boolean res = opTwo.evaluateBoolean(env);
+				return (t.equals(res));
+			} else {
+				try {
+					final Number t = env.getBinding(opOne, Number.class);
+					// Double should contain most of the values
+					return !(t.equals(opTwo.evaluateDouble(env)));
+				} catch (ClassCastException e) {
+					throw new VMEvaluationException(
+							"Incompatible types found. First operand is of type "
+									+ env.getNameType(opOne)
+									+ ", the second is of type "
+									+ opTwo.getClass().getName());
+				}
+			}
+		}
+	}
+
+	public static final class VMVariableObjEquals extends VMRelationalOperator {
+
+		private final String opOne;
+		private final VMObject opTwo;
+
+		public VMVariableObjEquals(String opOne, VMObject opTwo) {
+			super();
+			this.opOne = opOne;
+			this.opTwo = opTwo;
+		}
+
+		@Override
+		public Boolean evaluateBoolean(VMEnvironment env) {
+			try {
+				final Object t = env.getBinding(opOne, opTwo.getClass());
+				if (t == null) {
+					throw new VMEvaluationException("Variable with name "
+							+ opOne + "  found.");
+				}
+				return (t.equals(opTwo));
+			} catch (ClassCastException e) {
+				throw new VMEvaluationException(
+						"Incompatible types found. First operand is of type "
+								+ env.getNameType(opOne)
+								+ ", the second is of type "
+								+ opTwo.getClass().getName());
+			}
+		}
+	}
+
+	public static final class VMVariableEquals extends VMRelationalOperator {
+
+		private final String opOne;
+		private final String opTwo;
+
+		public VMVariableEquals(String opOne, String opTwo) {
+			super();
+			this.opOne = opOne;
+			this.opTwo = opTwo;
+		}
+
+		@Override
+		public Boolean evaluateBoolean(VMEnvironment env) {
+			final Object oOne = env.getBinding(opOne, Object.class);
+			if (oOne == null) {
+				throw new VMEvaluationException("Variable with name " + opOne
+						+ " not found.");
+			}
+			final Object oTwo = env.getBinding(opTwo, Object.class);
+			if (oTwo == null) {
+				throw new VMEvaluationException("Variable with name " + opTwo
+						+ " not found.");
+			}
+			return (oOne.equals(oTwo));
+		}
 	}
 }

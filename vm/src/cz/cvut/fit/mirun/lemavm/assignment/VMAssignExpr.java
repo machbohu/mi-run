@@ -21,7 +21,7 @@ public final class VMAssignExpr extends VMAssignOperator {
 		resolveType();
 		switch (type) {
 		case VMConstants.BOOLEAN:
-			final boolean b = value.evaluateBoolean();
+			final boolean b = value.evaluateBoolean(environment);
 			if (isFinal) {
 				environment.addPrimitiveFinalBinding(name, Boolean.valueOf(b),
 						type);
@@ -30,7 +30,7 @@ public final class VMAssignExpr extends VMAssignOperator {
 			}
 			break;
 		case VMConstants.SHORT:
-			final short s = value.evaluateShort();
+			final short s = value.evaluateShort(environment);
 			if (isFinal) {
 				environment.addPrimitiveFinalBinding(name, Short.valueOf(s),
 						type);
@@ -39,7 +39,7 @@ public final class VMAssignExpr extends VMAssignOperator {
 			}
 			break;
 		case VMConstants.INT:
-			final int i = value.evaluateInt();
+			final int i = value.evaluateInt(environment);
 			if (isFinal) {
 				environment.addPrimitiveFinalBinding(name, Integer.valueOf(i),
 						type);
@@ -48,7 +48,7 @@ public final class VMAssignExpr extends VMAssignOperator {
 			}
 			break;
 		case VMConstants.LONG:
-			final long l = value.evaluateLong();
+			final long l = value.evaluateLong(environment);
 			if (isFinal) {
 				environment.addPrimitiveFinalBinding(name, Long.valueOf(l),
 						type);
@@ -57,7 +57,7 @@ public final class VMAssignExpr extends VMAssignOperator {
 			}
 			break;
 		case VMConstants.DOUBLE:
-			final double d = value.evaluateDouble();
+			final double d = value.evaluateDouble(environment);
 			if (isFinal) {
 				environment.addPrimitiveFinalBinding(name, Double.valueOf(d),
 						type);
@@ -66,7 +66,7 @@ public final class VMAssignExpr extends VMAssignOperator {
 			}
 			break;
 		case VMConstants.STRING:
-			final VMString str = value.evaluateString();
+			final VMString str = value.evaluateString(environment);
 			if (isFinal) {
 				environment.addFinalBinding(name, str, type);
 			} else {
