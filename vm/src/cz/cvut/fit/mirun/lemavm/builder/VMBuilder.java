@@ -4,14 +4,18 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
 
 import cz.cvut.fit.mirun.lemavm.core.VMUtils;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMField;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMVisibilityModifier;
 
 public abstract class VMBuilder {
+	public abstract void build() throws RecognitionException;
+	public abstract VMCodeBlock getCodeBlock();
 	
 	protected String buildTypeFromTree(CommonTree node){
 		if(node.getChild(0).getChildCount() == 0){
@@ -22,9 +26,10 @@ public abstract class VMBuilder {
 	}
 	
 	/**
-	 * Read variable structure from given node and VMClass.addField
+	 * Read variable structure from given node and return list of VMField
 	 * @param node
-	 * @param cls
+	 * @param caller - Object, that calls this method
+	 * @return List of VMField
 	 */
 	protected List<VMField> buildVarFromTree(CommonTree node, Object caller){
 		List<VMField> fields = new ArrayList<>();

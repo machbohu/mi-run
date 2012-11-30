@@ -1,6 +1,5 @@
 package cz.cvut.fit.mirun.lemavm.builder;
 
-import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -14,8 +13,8 @@ import org.apache.log4j.Logger;
 
 import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMLexer;
 import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMParser;
-import cz.cvut.fit.mirun.lemavm.core.VMUtils;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMField;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMMethod;
@@ -205,5 +204,9 @@ public class VMBaseStructureBuilder extends VMBuilder {
 	public void build() throws RecognitionException{
 		buildASTTree();
 		buildBaseStructureFromTree();
+	}
+	
+	public VMCodeBlock getCodeBlock(){
+		return null;
 	}
 }

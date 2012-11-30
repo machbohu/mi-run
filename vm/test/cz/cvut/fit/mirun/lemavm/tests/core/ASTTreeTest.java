@@ -67,7 +67,7 @@ public class ASTTreeTest {
 			"    public void main() {\n" +
 			"        int a = 5, b = 2;\n" +
 			"        c = 2;\n" +
-			"        Test t = new Test();\n" +
+			"        Test t = new Test(a, b);\n" +
 			"        t.testMethod(a, b);\n" +
 			"        while(a == 5){\n" +
 			"            if(a + 5){\n" +
