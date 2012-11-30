@@ -1,14 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators;
 
 import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMCompoundPlus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.doubles.VMDoublePlus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.ints.VMIntPlus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.longs.VMLongPlus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.mixed.VMDoubleCompPlus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.mixed.VMIntCompPlus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.mixed.VMLongCompPlus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.mixed.VMShortCompPlus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.shorts.VMShortPlus;
+import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 public final class VMBinaryPlusOperatorFactory implements
 		VMBinaryOperatorFactory {
@@ -19,62 +12,91 @@ public final class VMBinaryPlusOperatorFactory implements
 	}
 
 	@Override
-	public VMOperator createOperator(double opOne, double opTwo) {
-		return new VMDoublePlus(opOne, opTwo);
+	public VMOperator createOperator(VMOperator opOne, Number opTwo) {
+		return createOperator(opTwo, opOne);
 	}
 
 	@Override
-	public VMOperator createOperator(VMOperator opOne, double opTwo) {
-		return new VMDoubleCompPlus(opOne, opTwo);
+	public VMOperator createOperator(Number opOne, VMOperator opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(double opOne, VMOperator opTwo) {
-		return new VMDoubleCompPlus(opOne, opTwo);
+	public VMOperator createOperator(Number opOne, Number opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(long opOne, long opTwo) {
-		return new VMLongPlus(opOne, opTwo);
+	public VMOperator createOperator(VMString opOne, VMOperator opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(VMOperator opOne, long opTwo) {
-		return new VMLongCompPlus(opOne, opTwo);
+	public VMOperator createOperator(VMOperator opOne, VMString opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(long opOne, VMOperator opTwo) {
-		return new VMLongCompPlus(opOne, opTwo);
+	public VMOperator createOperator(VMString opOne, Number opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(int opOne, int opTwo) {
-		return new VMIntPlus(opOne, opTwo);
+	public VMOperator createOperator(Number opOne, VMString opTWo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(VMOperator opOne, int opTwo) {
-		return new VMIntCompPlus(opOne, opTwo);
+	public VMOperator createOperator(VMString opOne, VMString opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(int opOne, VMOperator opTwo) {
-		return new VMLongCompPlus(opOne, opTwo);
+	public VMOperator createOperator(String opOne, VMOperator opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(short opOne, short opTwo) {
-		return new VMShortPlus(opOne, opTwo);
+	public VMOperator createOperator(VMOperator opOne, String opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(VMOperator opOne, short opTwo) {
-		return new VMShortCompPlus(opOne, opTwo);
+	public VMOperator createOperator(String opOne, Number opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(short opOne, VMOperator opTwo) {
-		return new VMShortCompPlus(opOne, opTwo);
+	public VMOperator createOperator(Number opOne, String opTwo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public VMOperator createOperator(String opOne, String opTwo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public VMOperator createOperator(String opOne, VMString opTWo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public VMOperator createOperator(VMString opOne, String opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }

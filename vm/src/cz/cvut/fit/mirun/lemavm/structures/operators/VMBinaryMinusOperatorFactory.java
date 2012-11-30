@@ -1,14 +1,8 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators;
 
+import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMCompoundMinus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.doubles.VMDoubleMinus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.ints.VMIntMinus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.longs.VMLongMinus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.mixed.VMDoubleCompMinus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.mixed.VMIntCompMinus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.mixed.VMLongCompMinus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.mixed.VMShortCompMinus;
-import cz.cvut.fit.mirun.lemavm.structures.operators.shorts.VMShortMinus;
+import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 public final class VMBinaryMinusOperatorFactory implements
 		VMBinaryOperatorFactory {
@@ -19,62 +13,92 @@ public final class VMBinaryMinusOperatorFactory implements
 	}
 
 	@Override
-	public VMOperator createOperator(double opOne, double opTwo) {
-		return new VMDoubleMinus(opOne, opTwo);
+	public VMOperator createOperator(VMOperator opOne, Number opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(VMOperator opOne, double opTwo) {
-		return new VMDoubleCompMinus(opOne, opTwo);
+	public VMOperator createOperator(Number opOne, VMOperator opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(double opOne, VMOperator opTwo) {
-		return new VMDoubleCompMinus(opOne, opTwo);
+	public VMOperator createOperator(Number opOne, Number opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(long opOne, long opTwo) {
-		return new VMLongMinus(opOne, opTwo);
+	public VMOperator createOperator(VMString opOne, VMOperator opTwo) {
+		throw new VMParsingException("Operator - is not applicable for type "
+				+ VMString.class.getName());
 	}
 
 	@Override
-	public VMOperator createOperator(VMOperator opOne, long opTwo) {
-		return new VMLongCompMinus(opOne, opTwo);
+	public VMOperator createOperator(VMOperator opOne, VMString opTwo) {
+		throw new VMParsingException("Operator - is not applicable for type "
+				+ VMString.class.getName());
 	}
 
 	@Override
-	public VMOperator createOperator(long opOne, VMOperator opTwo) {
-		return new VMLongCompMinus(opOne, opTwo);
+	public VMOperator createOperator(VMString opOne, Number opTwo) {
+		throw new VMParsingException("Operator - is not applicable for type "
+				+ VMString.class.getName());
 	}
 
 	@Override
-	public VMOperator createOperator(int opOne, int opTwo) {
-		return new VMIntMinus(opOne, opTwo);
+	public VMOperator createOperator(Number opOne, VMString opTWo) {
+		throw new VMParsingException("Operator - is not applicable for type "
+				+ VMString.class.getName());
 	}
 
 	@Override
-	public VMOperator createOperator(VMOperator opOne, int opTwo) {
-		return new VMIntCompMinus(opOne, opTwo);
+	public VMOperator createOperator(VMString opOne, VMString opTwo) {
+		throw new VMParsingException("Operator - is not applicable for type "
+				+ VMString.class.getName());
 	}
 
 	@Override
-	public VMOperator createOperator(int opOne, VMOperator opTwo) {
-		return new VMIntCompMinus(opOne, opTwo);
+	public VMOperator createOperator(String opOne, VMOperator opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(short opOne, short opTwo) {
-		return new VMShortMinus(opOne, opTwo);
+	public VMOperator createOperator(VMOperator opOne, String opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(VMOperator opOne, short opTwo) {
-		return new VMShortCompMinus(opOne, opTwo);
+	public VMOperator createOperator(String opOne, Number opTwo) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	@Override
-	public VMOperator createOperator(short opOne, VMOperator opTwo) {
-		return new VMShortCompMinus(opOne, opTwo);
+	public VMOperator createOperator(Number opOne, String opTwo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public VMOperator createOperator(String opOne, String opTwo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public VMOperator createOperator(String opOne, VMString opTWo) {
+		throw new VMParsingException("Operator - is not applicable for type "
+				+ VMString.class.getName());
+	}
+
+	@Override
+	public VMOperator createOperator(VMString opOne, String opTwo) {
+		throw new VMParsingException("Operator - is not applicable for type "
+				+ VMString.class.getName());
 	}
 }

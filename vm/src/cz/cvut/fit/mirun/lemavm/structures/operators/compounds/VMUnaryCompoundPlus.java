@@ -1,6 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators.compounds;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
@@ -11,36 +12,36 @@ public final class VMUnaryCompoundPlus extends VMUnaryCompoundOperator {
 	}
 
 	@Override
-	public double evaluateDouble() {
-		double d = op.evaluateDouble();
+	public Double evaluateDouble(VMEnvironment env) {
+		Double d = op.evaluateDouble(env);
 		return (+d);
 	}
 
 	@Override
-	public long evaluateLong() {
-		long d = op.evaluateLong();
+	public Long evaluateLong(VMEnvironment env) {
+		Long d = op.evaluateLong(env);
 		return (+d);
 	}
 
 	@Override
-	public int evaluateInt() {
-		int d = op.evaluateInt();
+	public Integer evaluateInt(VMEnvironment env) {
+		Integer d = op.evaluateInt(env);
 		return (+d);
 	}
 
 	@Override
-	public short evaluateShort() {
-		short d = op.evaluateShort();
+	public Short evaluateShort(VMEnvironment env) {
+		Short d = op.evaluateShort(env);
 		return (short) (+d);
 	}
 
 	@Override
-	public boolean evaluateBoolean() {
+	public Boolean evaluateBoolean(VMEnvironment env) {
 		throw new VMEvaluationException("Operator cannot return boolean value.");
 	}
 
 	@Override
-	public VMString evaluateString() {
-		return new VMString("" + evaluateInt());
+	public VMString evaluateString(VMEnvironment env) {
+		return new VMString(evaluateInt(env).toString());
 	}
 }

@@ -2,6 +2,7 @@ package cz.cvut.fit.mirun.lemavm.structures.operators.control;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
 public final class NotEqualsOperatorFactory {
@@ -105,7 +106,7 @@ public final class NotEqualsOperatorFactory {
 		}
 
 		@Override
-		public boolean evaluateBoolean() {
+		public Boolean evaluateBoolean(VMEnvironment env) {
 			return (Double.compare(dOne, dTwo) != 0);
 		}
 	}

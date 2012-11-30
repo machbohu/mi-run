@@ -93,6 +93,10 @@ public final class VMClass extends VMObject {
 	public Map<String, VMMethod> getMethods() {
 		return methods;
 	}
+	
+	public Map<String, VMMethod> getDeclaredConstructors() {
+		return constructors;
+	}
 
 	private void addMethodOrConstructor(VMMethod newMethod,
 			Map<String, VMMethod> container) {
@@ -109,7 +113,10 @@ public final class VMClass extends VMObject {
 	}
 
 	public void addMethod(VMMethod newMethod) {
-		addMethodOrConstructor(newMethod, methods);
+		if (newMethod == null) {
+			throw new NullPointerException();
+		}
+		
 	}
 
 	public void addConstructor(VMMethod newMethod) {

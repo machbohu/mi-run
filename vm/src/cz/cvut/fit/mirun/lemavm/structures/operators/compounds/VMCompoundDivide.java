@@ -2,6 +2,7 @@ package cz.cvut.fit.mirun.lemavm.structures.operators.compounds;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMDivisionByZeroException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
@@ -12,49 +13,49 @@ public final class VMCompoundDivide extends VMBinaryComposedOperator {
 	}
 
 	@Override
-	public double evaluateDouble() {
-		double dOne = opOne.evaluateDouble();
-		double dTwo = opTwo.evaluateDouble();
-		return (dOne / dTwo);
+	public Double evaluateDouble(VMEnvironment env) {
+		Double dOne = opOne.evaluateDouble(env);
+		Double dTwo = opTwo.evaluateDouble(env);
+		return Double.valueOf(dOne.doubleValue() / dTwo.doubleValue());
 	}
 
 	@Override
-	public long evaluateLong() {
-		long dOne = opOne.evaluateLong();
-		long dTwo = opTwo.evaluateLong();
+	public Long evaluateLong(VMEnvironment env) {
+		Long dOne = opOne.evaluateLong(env);
+		Long dTwo = opTwo.evaluateLong(env);
 		if (dTwo == 0) {
 			throw new VMDivisionByZeroException();
 		}
-		return (dOne / dTwo);
+		return Long.valueOf(dOne.longValue() / dTwo.longValue());
 	}
 
 	@Override
-	public int evaluateInt() {
-		int dOne = opOne.evaluateInt();
-		int dTwo = opTwo.evaluateInt();
+	public Integer evaluateInt(VMEnvironment env) {
+		Integer dOne = opOne.evaluateInt(env);
+		Integer dTwo = opTwo.evaluateInt(env);
 		if (dTwo == 0) {
 			throw new VMDivisionByZeroException();
 		}
-		return (dOne / dTwo);
+		return Integer.valueOf(dOne.intValue() / dTwo.intValue());
 	}
 
 	@Override
-	public short evaluateShort() {
-		short dOne = opOne.evaluateShort();
-		short dTwo = opTwo.evaluateShort();
+	public Short evaluateShort(VMEnvironment env) {
+		Short dOne = opOne.evaluateShort(env);
+		Short dTwo = opTwo.evaluateShort(env);
 		if (dTwo == 0) {
 			throw new VMDivisionByZeroException();
 		}
-		return (short) (dOne / dTwo);
+		return Short.valueOf((short) (dOne.shortValue() / dTwo.shortValue()));
 	}
 
 	@Override
-	public boolean evaluateBoolean() {
+	public Boolean evaluateBoolean(VMEnvironment env) {
 		throw new VMEvaluationException("Operator cannot return boolean value.");
 	}
 
 	@Override
-	public VMString evaluateString() {
-		return new VMString("" + evaluateInt());
+	public VMString evaluateString(VMEnvironment env) {
+		return new VMString(evaluateInt(env).toString());
 	}
 }

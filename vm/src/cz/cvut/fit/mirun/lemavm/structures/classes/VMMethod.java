@@ -1,5 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.structures.classes;
 
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
@@ -183,5 +184,9 @@ public class VMMethod extends VMObject {
 	@Override
 	public String toString() {
 		return owner.toString() + ": " + name;
+	}
+	
+	public static void checkForMethodAmbiguity(Collection<VMMethod> methods, VMMethod newMethod) {
+		
 	}
 }

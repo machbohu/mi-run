@@ -1,6 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators.compounds;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
@@ -11,39 +12,38 @@ public final class VMCompoundNegation extends VMUnaryCompoundOperator {
 	}
 
 	@Override
-	public double evaluateDouble() {
+	public Double evaluateDouble(VMEnvironment env) {
 		throw new VMEvaluationException(
 				"Operator is not applicable for type double.");
 	}
 
 	@Override
-	public long evaluateLong() {
+	public Long evaluateLong(VMEnvironment env) {
 		throw new VMEvaluationException(
 				"Operator is not applicable for type long.");
 	}
 
 	@Override
-	public int evaluateInt() {
+	public Integer evaluateInt(VMEnvironment env) {
 		throw new VMEvaluationException(
 				"Operator is not applicable for type int.");
 	}
 
 	@Override
-	public short evaluateShort() {
+	public Short evaluateShort(VMEnvironment env) {
 		throw new VMEvaluationException(
 				"Operator is not applicable for type short.");
 	}
 
 	@Override
-	public boolean evaluateBoolean() {
-		boolean res = op.evaluateBoolean();
+	public Boolean evaluateBoolean(VMEnvironment env) {
+		boolean res = op.evaluateBoolean(env);
 		return (!res);
 	}
 
 	@Override
-	public VMString evaluateString() {
-		throw new VMEvaluationException(
-				"Operator is not applicable for type string.");
+	public VMString evaluateString(VMEnvironment env) {
+		return new VMString(evaluateBoolean(env).toString());
 	}
 
 }

@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMHeader;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 /**
@@ -28,44 +29,44 @@ public abstract class VMOperator {
 	/**
 	 * Evaluate this operator and return result
 	 * 
-	 * @return double
+	 * @return Double
 	 */
-	public abstract double evaluateDouble();
+	public abstract Double evaluateDouble(VMEnvironment env);
 
 	/**
 	 * Evaluate this operator and return result
 	 * 
-	 * @return long
+	 * @return Long
 	 */
-	public abstract long evaluateLong();
+	public abstract Long evaluateLong(VMEnvironment env);
 
 	/**
 	 * Evaluate this operator and return result
 	 * 
-	 * @return int
+	 * @return Integer
 	 */
-	public abstract int evaluateInt();
+	public abstract Integer evaluateInt(VMEnvironment env);
 
 	/**
 	 * Evaluate this operator and return result
 	 * 
-	 * @return short
+	 * @return Short
 	 */
-	public abstract short evaluateShort();
+	public abstract Short evaluateShort(VMEnvironment env);
 
 	/**
 	 * Evaluate this operator and return result
 	 * 
-	 * @return boolean
+	 * @return Boolean
 	 */
-	public abstract boolean evaluateBoolean();
+	public abstract Boolean evaluateBoolean(VMEnvironment env);
 
 	/**
 	 * Evaluate this operator and return result
 	 * 
-	 * @return String
+	 * @return VMString
 	 */
-	public abstract VMString evaluateString();
+	public abstract VMString evaluateString(VMEnvironment env);
 
 	public ObjectType getType() {
 		return header.getType();
