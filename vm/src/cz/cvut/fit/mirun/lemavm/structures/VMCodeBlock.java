@@ -1,5 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.structures;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,6 +16,11 @@ public final class VMCodeBlock extends VMObject {
 
 	private final List<VMObject> code;
 
+	public VMCodeBlock() {
+		super(ObjectType.CODE_BLOCK);
+		this.code = new ArrayList<>();
+	}
+	
 	public VMCodeBlock(List<VMObject> code) {
 		super(ObjectType.CODE_BLOCK);
 		this.code = code;

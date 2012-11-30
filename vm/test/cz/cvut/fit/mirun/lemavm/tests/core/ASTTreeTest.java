@@ -87,13 +87,19 @@ public class ASTTreeTest {
 			"                a = 5 + 6 * 6 + 2;\n" +
 			"            }\n" +
 			"        }\n" +
+			"        while(a){\n" +
+			"            int aa = 5 + 6 * 6 + 2;\n"+
+			"        }\n" +
+			"        while(true){\n" +
+			"            int aa = 5 + 6 * 6 + 2;\n"+
+			"        }\n" +
 			"        if(a == 5){\n" +
 			"            int aa = 5 + 6 * 6 + 2;\n"+
 			"            return a;\n"+
 			"        }else{\n" +
 			"            a = 5 + 6 * 6 + 2;\n" +
 			"        }\n" +
-			"        for(int ii=0;ii<5;ii++){\n" +
+			"        for(int ii=0;(ii<5);ii++){\n" +
 			"            if(a + 5){\n" +
 			"                int aa = 5 + 6 * 6 + 2;\n"+
 			"            }else{\n" +

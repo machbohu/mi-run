@@ -27,6 +27,7 @@ public abstract class VMBuilder {
 	
 	/**
 	 * Build expression from given tree for future evaluation, i.e. a = (a + 5) * c;
+	 * AST Tree node [EXPR]
 	 * @param node
 	 * @return
 	 */
@@ -101,8 +102,11 @@ public abstract class VMBuilder {
 		case ">=":
 			
 			break;
-		case "PARENTESIZED_EXPR": // skip [PARENTESIZED_EXPR] -> [EXPR] -> [value of interest]
-			return buildExpressionFromTree((CommonTree) node.getChild(0).getChild(0));
+		case "EXPR":
+		case "PARENTESIZED_EXPR":
+			return buildExpressionFromTree((CommonTree) node.getChild(0));
+		case "METHOD_CALL":
+			break;
 		default:
 			throw new VMParsingException("Unsupported operation '"+node.toString()+"'");
 		}
@@ -112,6 +116,7 @@ public abstract class VMBuilder {
 	
 	/**
 	 * Read variable structure from given node and return list of VMField
+	 * AST Tree node [VAR_DECLARATION]
 	 * @param node
 	 * @param caller - Object, that calls this method
 	 * @return List of VMField
@@ -128,6 +133,7 @@ public abstract class VMBuilder {
 			child = (CommonTree) o;
 			
 			switch(child.toString()){
+			case "LOCAL_MODIFIER_LIST":
 			case "MODIFIER_LIST":
 				if(child.getChildCount() > 0){
 					visibility = VMVisibilityModifier.fromString(child.getChild(0).toString());

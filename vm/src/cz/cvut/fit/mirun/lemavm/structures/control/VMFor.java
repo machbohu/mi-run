@@ -1,5 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures.control;
 
+import java.util.List;
+
 import org.antlr.runtime.tree.CommonTree;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
@@ -10,17 +12,17 @@ import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMRelationalOperato
 
 public final class VMFor extends VMObject {
 
-	// private final VMObject index;
-	private final VMRelationalOperator condition;
-	private final VMObject operation;
+	private final List<Object> inits;
+	private final Object condition;
+	private final Object operation;
 	private final CommonTree forTree;
 	private final VMCodeBlock forPart;
 
 	/**
 	 * Constructor for this while statement.</p>
 	 * 
-	 * @param index
-	 *            Index
+	 * @param inits
+	 *            Initialize arguments
 	 * @param condition
 	 *            Condition
 	 * @param operation
@@ -28,8 +30,8 @@ public final class VMFor extends VMObject {
 	 * @param forPart
 	 *            For part
 	 */
-	public VMFor(/* VMObject index, */VMRelationalOperator condition,
-			VMObject operation, CommonTree forTree) {
+	public VMFor(List<Object> inits, Object condition,
+			Object operation, CommonTree forTree) {
 		super(ObjectType.FOR);
 		if (/* index == null || */condition == null || operation == null
 				|| forTree == null) {
@@ -38,7 +40,7 @@ public final class VMFor extends VMObject {
 					/* + index + ", " */+ condition + ", " + operation + ", "
 							+ forTree);
 		}
-		// this.index = index;
+		this.inits = inits;
 		this.condition = condition;
 		this.operation = operation;
 		this.forPart = null;
@@ -47,14 +49,14 @@ public final class VMFor extends VMObject {
 
 	@Override
 	public VMObject evaluate() {
-		final boolean res = condition.evaluateBoolean();
-		if (res) {
-			// TODO build codeBlock from AST, prepend operation and
-			// this instance of for to the CodeBlock forPart for later repeated evaluation
-			return forPart;
-		} else {
-			return null;
-		}
+//		final boolean res = condition.evaluateBoolean();
+//		if (res) {
+//			// TODO build codeBlock from AST, prepend operation and
+//			// this instance of for to the CodeBlock forPart for later repeated evaluation
+//			return forPart;
+//		}
+		
+		return null;
 	}
 
 }
