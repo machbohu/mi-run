@@ -129,7 +129,7 @@ public class VMBaseStructureBuilder extends VMBuilder {
 			
 			switch(child.toString()){
 			case "VAR_DECLARATION":
-				for(VMField f : buildVarFromTree(child, cls)){
+				for(VMField f : buildVarFromTree(child)){
 					cls.addField(f);
 				}
 				break;
@@ -142,7 +142,7 @@ public class VMBaseStructureBuilder extends VMBuilder {
 				break;
 			default:
 				throw new VMParsingException(
-						"Unexpected program syntax '"+child.toString()+"' in class '"+cls.getName()+"'");
+						"Class '"+cls.getName()+"': Unexpected program syntax '"+child.toString()+"'");
 			}
 		}
 	}
@@ -180,7 +180,7 @@ public class VMBaseStructureBuilder extends VMBuilder {
 					name = child.toString();
 				}else{
 					throw new VMParsingException(
-							"Unexpected program syntax '"+child.toString()+"' in class '"+name+"'");
+							"Class '"+name+"': Unexpected program syntax '"+child.toString()+"'");
 				}
 				break;
 			}

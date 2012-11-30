@@ -2,7 +2,10 @@ package cz.cvut.fit.mirun.lemavm.builder;
 
 import org.antlr.runtime.tree.CommonTree;
 
+import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMField;
+import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
 public class VMCodeBlockBuilder extends VMBuilder {
 	private CommonTree top;
@@ -13,17 +16,23 @@ public class VMCodeBlockBuilder extends VMBuilder {
 	}
 	
 	public void build(){
-		CommonTree node = null;
+		CommonTree child = null;
+		Object expr = null;
 		
 		for(Object o : top.getChildren()){
-			node = (CommonTree) o;
+			child = (CommonTree) o;
 			
-			switch(node.toString()){
+			switch(child.toString()){
 			case "VAR_DECLARATION":
+				for(VMField f : buildVarFromTree(child)){
+					// create assign operator and add it to the codeBlock
+				}
 				break;
 			case "EXPR":
+				expr = buildExpressionFromTree(child);
 				break;
 			case "if":
+				
 				break;
 			case "while":
 				break;

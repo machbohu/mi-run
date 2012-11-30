@@ -67,9 +67,20 @@ public class ASTTreeTest {
 			"    public void main() {\n" +
 			"        int a = 5, b = 2;\n" +
 			"        c = 2;\n" +
+			"        c += 2;\n" +
+			"        c = +2 + 2;\n" +
+			"        c = -2;\n" +
+			"        c = !c;\n" +
+			"        c = 2 + a == b;\n" +
+			"        (c = 2 + a == b);\n" +
+			"        c++;\n" +
+			"        c--;\n" +
+			"        c+2;\n" +
+			"        ++c;\n" +
+			"        --c;\n" +
 			"        Test t = new Test(a, b);\n" +
-			"        t.testMethod(a, b);\n" +
-			"        while(a == 5){\n" +
+			"        t.testMethod(a+2, b);\n" +
+			"        while((a != 5 || a <= 5) && a >= 5){\n" +
 			"            if(a + 5){\n" +
 			"                int aa = 5 + 6 * 6 + 2;\n"+
 			"            }else{\n" +

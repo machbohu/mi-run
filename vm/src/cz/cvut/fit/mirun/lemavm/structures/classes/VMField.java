@@ -10,6 +10,7 @@ public class VMField {
 
 	public VMField(String newField, boolean isStatic, 
 			VMVisibilityModifier visibility, String type, Object val){
+		// TODO check if value can be stored in this type
 		this.name = newField;
 		this.isStatic = isStatic;
 		this.visibility = visibility;
