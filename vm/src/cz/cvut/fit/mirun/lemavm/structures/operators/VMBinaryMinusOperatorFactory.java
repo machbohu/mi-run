@@ -2,6 +2,14 @@ package cz.cvut.fit.mirun.lemavm.structures.operators;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMCompoundMinus;
+import cz.cvut.fit.mirun.lemavm.structures.operators.minus.CompNumberBinaryMinus;
+import cz.cvut.fit.mirun.lemavm.structures.operators.minus.CompVariableBinaryMinus;
+import cz.cvut.fit.mirun.lemavm.structures.operators.minus.NumberCompBinaryMinus;
+import cz.cvut.fit.mirun.lemavm.structures.operators.minus.NumberNumberBinaryMinus;
+import cz.cvut.fit.mirun.lemavm.structures.operators.minus.NumberVariableBinaryMinus;
+import cz.cvut.fit.mirun.lemavm.structures.operators.minus.VariableCompBinaryMinus;
+import cz.cvut.fit.mirun.lemavm.structures.operators.minus.VariableNumberBinaryMinus;
+import cz.cvut.fit.mirun.lemavm.structures.operators.minus.VariableVariableBinaryMinus;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 public final class VMBinaryMinusOperatorFactory implements
@@ -14,20 +22,17 @@ public final class VMBinaryMinusOperatorFactory implements
 
 	@Override
 	public VMOperator createOperator(VMOperator opOne, Number opTwo) {
-		// TODO Auto-generated method stub
-		return null;
+		return new CompNumberBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
 	public VMOperator createOperator(Number opOne, VMOperator opTwo) {
-		// TODO Auto-generated method stub
-		return null;
+		return new NumberCompBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
 	public VMOperator createOperator(Number opOne, Number opTwo) {
-		// TODO Auto-generated method stub
-		return null;
+		return new NumberNumberBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
@@ -62,32 +67,27 @@ public final class VMBinaryMinusOperatorFactory implements
 
 	@Override
 	public VMOperator createOperator(String opOne, VMOperator opTwo) {
-		// TODO Auto-generated method stub
-		return null;
+		return new VariableCompBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
 	public VMOperator createOperator(VMOperator opOne, String opTwo) {
-		// TODO Auto-generated method stub
-		return null;
+		return new CompVariableBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
 	public VMOperator createOperator(String opOne, Number opTwo) {
-		// TODO Auto-generated method stub
-		return null;
+		return new VariableNumberBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
 	public VMOperator createOperator(Number opOne, String opTwo) {
-		// TODO Auto-generated method stub
-		return null;
+		return new NumberVariableBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
 	public VMOperator createOperator(String opOne, String opTwo) {
-		// TODO Auto-generated method stub
-		return null;
+		return new VariableVariableBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
