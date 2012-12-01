@@ -200,20 +200,8 @@ public final class VMEqualsOperatorFactory {
 
 		@Override
 		public Boolean evaluateBoolean(VMEnvironment env) {
-			try {
-				final Number t = env.getBinding(opOne, Number.class);
-				if (t == null) {
-					throw new VMEvaluationException("Variable with name "
-							+ opOne + "  found.");
-				}
-				return (t.equals(opTwo));
-			} catch (ClassCastException e) {
-				throw new VMEvaluationException(
-						"Incompatible types found. First operand is of type "
-								+ env.getNameType(opOne)
-								+ ", the second is of type "
-								+ opTwo.getClass().getName());
-			}
+			final Number t = getBindingValue(opOne, Number.class, env);
+			return (t.equals(opTwo));
 		}
 	}
 
@@ -231,20 +219,8 @@ public final class VMEqualsOperatorFactory {
 
 		@Override
 		public Boolean evaluateBoolean(VMEnvironment env) {
-			try {
-				final Boolean t = env.getBinding(opOne, Boolean.class);
-				if (t == null) {
-					throw new VMEvaluationException("Variable with name "
-							+ opOne + "  found.");
-				}
-				return (t.equals(opTwo));
-			} catch (ClassCastException e) {
-				throw new VMEvaluationException(
-						"Incompatible types found. First operand is of type "
-								+ env.getNameType(opOne)
-								+ ", the second is of type "
-								+ opTwo.getClass().getName());
-			}
+			final Boolean t = getBindingValue(opOne, Boolean.class, env);
+			return (t.equals(opTwo));
 		}
 	}
 
@@ -299,20 +275,8 @@ public final class VMEqualsOperatorFactory {
 
 		@Override
 		public Boolean evaluateBoolean(VMEnvironment env) {
-			try {
-				final Object t = env.getBinding(opOne, opTwo.getClass());
-				if (t == null) {
-					throw new VMEvaluationException("Variable with name "
-							+ opOne + "  found.");
-				}
-				return (t.equals(opTwo));
-			} catch (ClassCastException e) {
-				throw new VMEvaluationException(
-						"Incompatible types found. First operand is of type "
-								+ env.getNameType(opOne)
-								+ ", the second is of type "
-								+ opTwo.getClass().getName());
-			}
+			final Object t = getBindingValue(opOne, opTwo.getClass(), env);
+			return (t.equals(opTwo));
 		}
 	}
 
@@ -329,16 +293,8 @@ public final class VMEqualsOperatorFactory {
 
 		@Override
 		public Boolean evaluateBoolean(VMEnvironment env) {
-			final Object oOne = env.getBinding(opOne, Object.class);
-			if (oOne == null) {
-				throw new VMEvaluationException("Variable with name " + opOne
-						+ " not found.");
-			}
-			final Object oTwo = env.getBinding(opTwo, Object.class);
-			if (oTwo == null) {
-				throw new VMEvaluationException("Variable with name " + opTwo
-						+ " not found.");
-			}
+			final Object oOne = getBindingValue(opOne, Object.class, env);
+			final Object oTwo = getBindingValue(opTwo, Object.class, env);
 			return (oOne.equals(oTwo));
 		}
 	}

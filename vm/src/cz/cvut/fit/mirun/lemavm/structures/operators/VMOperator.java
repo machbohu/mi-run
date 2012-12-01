@@ -2,6 +2,7 @@ package cz.cvut.fit.mirun.lemavm.structures.operators;
 
 import org.apache.log4j.Logger;
 
+import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMHeader;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
@@ -82,5 +83,21 @@ public abstract class VMOperator {
 
 	public void setReturnType(ObjectType returnType) {
 		this.returnType = returnType;
+	}
+
+	protected <T> T getBindingValue(String name, Class<T> type,
+			VMEnvironment env) {
+		try {
+			T n = env.getBinding(name, type);
+			if (n == null) {
+				throw new VMEvaluationException("Variable with name " + name
+						+ " not found.");
+			}
+			return n;
+		} catch (ClassCastException e) {
+			throw new VMEvaluationException(
+					"Incompatible types in postfix decrement. Expected a number, but got "
+							+ env.getNameType(name));
+		}
 	}
 }

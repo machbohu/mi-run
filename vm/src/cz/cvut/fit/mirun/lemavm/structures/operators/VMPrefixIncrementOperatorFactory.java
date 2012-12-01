@@ -1,7 +1,10 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators;
 
+import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMCompoundPrefixIncrement;
+import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 public final class VMPrefixIncrementOperatorFactory implements
 		VMUnaryOperatorFactory {
@@ -12,20 +15,71 @@ public final class VMPrefixIncrementOperatorFactory implements
 	}
 
 	@Override
-	public VMOperator createOperator(boolean op) {
+	public VMOperator createOperator(Boolean op) {
 		throw new VMParsingException(
 				"The prefix increment operator is not applicable for type boolean.");
 	}
 
 	@Override
 	public VMOperator createOperator(Number op) {
-		// TODO Auto-generated method stub
-		return null;
+		throw new VMParsingException(
+				"The prefix increment operator is not applicable for a number literal value.");
 	}
 
 	@Override
 	public VMOperator createOperator(String op) {
-		// TODO Auto-generated method stub
-		return null;
+		return new VariablePrefixIncrement(op);
+	}
+
+	public static final class VariablePrefixIncrement extends VMOperator {
+
+		private final String op;
+
+		public VariablePrefixIncrement(String op) {
+			this.op = op;
+		}
+
+		@Override
+		public Double evaluateDouble(VMEnvironment env) {
+			Number n = getBindingValue(op, Number.class, env);
+			final Double d = Double.valueOf(n.doubleValue() + 1);
+			env.addPrimitiveBinding(op, d, env.getNameType(op));
+			return d;
+		}
+
+		@Override
+		public Long evaluateLong(VMEnvironment env) {
+			Number n = getBindingValue(op, Number.class, env);
+			final Long d = Long.valueOf(n.longValue() + 1);
+			env.addPrimitiveBinding(op, d, env.getNameType(op));
+			return d;
+		}
+
+		@Override
+		public Integer evaluateInt(VMEnvironment env) {
+			Number n = getBindingValue(op, Number.class, env);
+			final Integer d = Integer.valueOf(n.intValue() + 1);
+			env.addPrimitiveBinding(op, d, env.getNameType(op));
+			return d;
+		}
+
+		@Override
+		public Short evaluateShort(VMEnvironment env) {
+			Number n = getBindingValue(op, Number.class, env);
+			final Short d = Short.valueOf((short) (n.shortValue() + 1));
+			env.addPrimitiveBinding(op, d, env.getNameType(op));
+			return d;
+		}
+
+		@Override
+		public Boolean evaluateBoolean(VMEnvironment env) {
+			throw new VMEvaluationException(
+					"The postfix decrement operator cannot return a boolean value.");
+		}
+
+		@Override
+		public VMString evaluateString(VMEnvironment env) {
+			return new VMString(evaluateInt(env).toString());
+		}
 	}
 }

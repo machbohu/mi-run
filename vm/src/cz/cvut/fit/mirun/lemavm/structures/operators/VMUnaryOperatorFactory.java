@@ -6,7 +6,7 @@ public interface VMUnaryOperatorFactory {
 
 	public VMOperator createOperator(Number op);
 
-	public VMOperator createOperator(boolean op);
+	public VMOperator createOperator(Boolean op);
 
 	/**
 	 * Create operator for a variable.
