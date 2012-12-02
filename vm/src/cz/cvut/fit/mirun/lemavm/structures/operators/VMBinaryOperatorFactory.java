@@ -66,6 +66,11 @@ public abstract class VMBinaryOperatorFactory {
 			} else if (opTwo instanceof String) {
 				// The second operand is a literal or a variable name
 				final String strOp = (String) opTwo;
+				if (strOp.startsWith("\"")) {
+					// The second operand is a string literal
+					return createOperator(sOne,
+							new VMString(strOp.substring(1, strOp.length())));
+				}
 				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
 				if (b != null) {
 					return createOperator(sOne, b);
@@ -104,6 +109,38 @@ public abstract class VMBinaryOperatorFactory {
 	 * @return VMOperator
 	 */
 	private VMOperator createOperatorFirstString(String opOne, Object opTwo) {
+		if (opOne.startsWith("\"")) {
+			// The first operand is a string literal
+			VMString v = new VMString(opOne.substring(1, opOne.length()));
+			if (opTwo instanceof VMOperator) {
+				// The second operand is an operator
+				return createOperator(v, (VMOperator) opTwo);
+			} else if (opTwo instanceof VMString) {
+				// The second operand is a string
+				return createOperator(v, (VMString) opTwo);
+			} else if (opTwo instanceof String) {
+				// The second operand is a literal or a variable name
+				final String strOp = (String) opTwo;
+				if (strOp.startsWith("\"")) {
+					// The second operand is a string literal
+					return createOperator(v,
+							new VMString(strOp.substring(1, strOp.length())));
+				}
+				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
+				if (b != null) {
+					return createOperator(v, b);
+				}
+				Number n = ParsingUtils.tryParsingNumber(strOp);
+				if (n != null) {
+					return createOperator(v, n);
+				} else {
+					return createOperator(v, strOp);
+				}
+			} else {
+				throw new VMParsingException("Cannot parse the value "
+						+ opTwo.toString() + " and create a binary operator.");
+			}
+		}
 		Boolean bOne = ParsingUtils.tryParsingBoolean(opOne);
 		if (bOne != null) {
 			// The first operand is a boolean
@@ -116,6 +153,11 @@ public abstract class VMBinaryOperatorFactory {
 			} else if (opTwo instanceof String) {
 				// The second operand is a literal or a variable name
 				final String strOp = (String) opTwo;
+				if (strOp.startsWith("\"")) {
+					// The second operand is a string literal
+					return createOperator(bOne,
+							new VMString(strOp.substring(1, strOp.length())));
+				}
 				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
 				if (b != null) {
 					return createOperator(bOne, b);
@@ -144,6 +186,11 @@ public abstract class VMBinaryOperatorFactory {
 			} else if (opTwo instanceof String) {
 				// The second operand is a literal or a variable name
 				final String strOp = (String) opTwo;
+				if (strOp.startsWith("\"")) {
+					// The second operand is a string literal
+					return createOperator(nOne,
+							new VMString(strOp.substring(1, strOp.length())));
+				}
 				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
 				if (b != null) {
 					return createOperator(nOne, b);
@@ -169,6 +216,11 @@ public abstract class VMBinaryOperatorFactory {
 			} else if (opTwo instanceof String) {
 				// The second operand is a literal or a variable name
 				final String strOp = (String) opTwo;
+				if (strOp.startsWith("\"")) {
+					// The second operand is a string literal
+					return createOperator(opOne,
+							new VMString(strOp.substring(1, strOp.length())));
+				}
 				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
 				if (b != null) {
 					return createOperator(opOne, b);
