@@ -1,12 +1,13 @@
 package cz.cvut.fit.mirun.lemavm.structures.classes;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
+import cz.cvut.fit.mirun.lemavm.exceptions.VMAmbiguousMethodDeclaration;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMNullPointerException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
-import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
-import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 
 /**
  * Meta class representing classes defined in the VM.
@@ -14,31 +15,29 @@ import cz.cvut.fit.mirun.lemavm.structures.VMObject;
  * @author kidney
  * 
  */
-public final class VMClass extends VMObject {
+public final class VMClass {
 
-	private static Map<String, VMClass> classes = new HashMap<>();
+	private static final Map<String, VMClass> classes = new HashMap<>();
 
 	private final String name;
 	private final VMClass superClass;
 	private final Map<String, VMField> fields;
-	private final Map<String, VMMethod> constructors;
+	private final List<VMMethod> constructors;
 	private final Map<String, VMMethod> methods;
 
 	// TODO What about static fields and methods?
 
 	private VMClass(String name, VMClass superClass) {
-		super(ObjectType.META_CLASS);
 		this.name = name;
 		this.superClass = superClass;
 		this.fields = new HashMap<>();
-		this.constructors = new HashMap<>();
+		this.constructors = new ArrayList<>();
 		this.methods = new HashMap<>();
 	}
 
 	private VMClass(String name, VMClass superClass,
-			Map<String, VMField> fields, Map<String, VMMethod> constructors,
+			Map<String, VMField> fields, List<VMMethod> constructors,
 			Map<String, VMMethod> methods) {
-		super(ObjectType.META_CLASS);
 		this.name = name;
 		this.superClass = superClass;
 
@@ -48,7 +47,7 @@ public final class VMClass extends VMObject {
 			this.fields = fields;
 		}
 		if (constructors.isEmpty()) {
-			this.constructors = new HashMap<>();
+			this.constructors = new ArrayList<>();
 		} else {
 			this.constructors = constructors;
 		}
@@ -93,34 +92,46 @@ public final class VMClass extends VMObject {
 	public Map<String, VMMethod> getMethods() {
 		return methods;
 	}
-	
-	public Map<String, VMMethod> getDeclaredConstructors() {
+
+	public List<VMMethod> getDeclaredConstructors() {
 		return constructors;
 	}
 
-	private void addMethodOrConstructor(VMMethod newMethod,
-			Map<String, VMMethod> container) {
-		// TODO methods AND CONSTRUCTORS overloading (maybe check number of
-		// arguments)
-		if (newMethod == null) {
-			throw new VMNullPointerException();
-		} else if (container.containsKey(newMethod.getName())) {
-			throw new VMParsingException("Method/Constructor with name "
-					+ newMethod.getName() + " already exists in class " + name);
-		}
-		container.put(newMethod.getName(), newMethod);
-		newMethod.setOwner(this);
-	}
-
+	/**
+	 * Add a new method to this class. </p>
+	 * 
+	 * Method ambiguity check is performed.
+	 * 
+	 * @param newMethod
+	 *            The method to add
+	 * @throws VMAmbiguousMethodDeclaration
+	 */
 	public void addMethod(VMMethod newMethod) {
 		if (newMethod == null) {
 			throw new NullPointerException();
 		}
-		
+		VMMethod.checkForMethodAmbiguity(methods.values(), newMethod);
+		methods.put(newMethod.getName(), newMethod);
+		newMethod.setOwner(this);
 	}
 
-	public void addConstructor(VMMethod newMethod) {
-		addMethodOrConstructor(newMethod, constructors);
+	/**
+	 * Add a new constructor to this class. </p>
+	 * 
+	 * Method ambiguity check is performed.
+	 * 
+	 * @param newConstructor
+	 *            The constructor to add
+	 * @throws VMAmbiguousMethodDeclaration
+	 */
+	public void addConstructor(VMMethod newConstructor) {
+		if (newConstructor == null) {
+			throw new NullPointerException();
+		}
+		VMMethod.checkForMethodAmbiguity(getDeclaredConstructors(),
+				newConstructor);
+		constructors.add(newConstructor);
+		newConstructor.setOwner(this);
 	}
 
 	/**
@@ -188,7 +199,7 @@ public final class VMClass extends VMObject {
 	 * @see #createClass(String, VMClass)
 	 */
 	public static VMClass createClass(String name, VMClass superClass,
-			Map<String, VMField> fields, Map<String, VMMethod> constructors,
+			Map<String, VMField> fields, List<VMMethod> constructors,
 			Map<String, VMMethod> methods) {
 		if (name == null || name.isEmpty()) {
 			throw new VMParsingException(
@@ -216,12 +227,7 @@ public final class VMClass extends VMObject {
 	}
 
 	@Override
-	public VMObject evaluate() {
-		return this;
-	}
-	
-	@Override
-	public String toString(){
+	public String toString() {
 		return name;
 	}
 }

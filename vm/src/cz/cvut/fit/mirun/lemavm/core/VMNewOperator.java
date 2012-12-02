@@ -9,7 +9,6 @@ import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
-import cz.cvut.fit.mirun.lemavm.structures.classes.VMMethod;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 /**
@@ -30,7 +29,7 @@ public final class VMNewOperator {
 	 * Constructor of the new operator. </p>
 	 * 
 	 * The arguments will be passed to the type constructor in the same order
-	 * they are in the list. NOTE: If there are not arguments to pass, give this
+	 * they are in the list. NOTE: If there are no arguments to pass, give this
 	 * method an empty list, do not use null.
 	 * 
 	 * @param typeName

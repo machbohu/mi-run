@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.antlr.runtime.tree.CommonTree;
 
+import cz.cvut.fit.mirun.lemavm.exceptions.VMAmbiguousMethodDeclaration;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
@@ -185,8 +186,30 @@ public class VMMethod extends VMObject {
 	public String toString() {
 		return owner.toString() + ": " + name;
 	}
-	
-	public static void checkForMethodAmbiguity(Collection<VMMethod> methods, VMMethod newMethod) {
-		
+
+	/**
+	 * Check if the specified method is ambiguous when compared with methods
+	 * from the specified container. </p>
+	 * 
+	 * @param methods
+	 *            Already existing methods
+	 * @param newMethod
+	 *            The new method to check
+	 * @throws VMAmbiguousMethodDeclaration
+	 *             If there is already a method with the same signature
+	 */
+	public static void checkForMethodAmbiguity(Collection<VMMethod> methods,
+			VMMethod newMethod) {
+		if (methods == null || newMethod == null) {
+			throw new NullPointerException();
+		}
+		for (VMMethod m : methods) {
+			if (!m.isOverloadable(newMethod)) {
+				throw new VMAmbiguousMethodDeclaration(
+						"Ambiguous method declaration. Existing method: "
+								+ m.toString() + ", the new method: "
+								+ newMethod.toString());
+			}
+		}
 	}
 }
