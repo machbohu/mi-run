@@ -73,4 +73,12 @@ public class VMString extends VMPrimitive {
 	public VMString toUpperCase() {
 		return new VMString(value.toUpperCase());
 	}
+
+	public VMString concat(VMString... args) {
+		final StringBuilder b = new StringBuilder(value);
+		for (VMString s : args) {
+			b.append(s.value);
+		}
+		return new VMString(b.toString());
+	}
 }

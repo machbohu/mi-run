@@ -6,7 +6,7 @@ import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMCompoundPostfixDecrement;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
-public final class VMPostfixDecrementOperatorFactory implements
+public final class VMPostfixDecrementOperatorFactory extends
 		VMUnaryOperatorFactory {
 
 	@Override
@@ -15,19 +15,19 @@ public final class VMPostfixDecrementOperatorFactory implements
 	}
 
 	@Override
-	public VMOperator createOperator(Boolean op) {
+	protected VMOperator createOperator(Boolean op) {
 		throw new VMParsingException(
 				"The postfix decrement operator is not applicable for type boolean.");
 	}
 
 	@Override
-	public VMOperator createOperator(Number op) {
+	protected VMOperator createOperator(Number op) {
 		throw new VMParsingException(
 				"The postfix decrement operator is not applicable for a number literal value.");
 	}
 
 	@Override
-	public VMOperator createOperator(String op) {
+	protected VMOperator createOperator(String op) {
 		return new VariablePostfixDecrement(op);
 	}
 

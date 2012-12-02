@@ -1,38 +1,223 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators;
 
+import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
+import cz.cvut.fit.mirun.lemavm.utils.ParsingUtils;
 
-public interface VMBinaryOperatorFactory {
+public abstract class VMBinaryOperatorFactory {
 
-	public VMOperator createOperator(VMOperator opOne, VMOperator opTwo);
+	/**
+	 * Create binary operator from the specified arguments. </p>
+	 * 
+	 * This method decides the type of the arguments and creates corresponding
+	 * {@code VMOperator} instance.
+	 * 
+	 * @param opOne
+	 *            The first operand
+	 * @param opTwo
+	 *            The second operand
+	 * @return VMOperator
+	 * @throws NullPointerException
+	 *             If one or both arguments are null
+	 * @throws VMParsingException
+	 *             If an incompatible operand type is passed
+	 */
+	public VMOperator createOperator(Object opOne, Object opTwo) {
+		if (opOne == null || opTwo == null) {
+			throw new NullPointerException(
+					"Null passed to createOperator. Operand one = " + opOne
+							+ ", operand two = " + opTwo);
+		}
+		if (opOne instanceof VMOperator) {
+			// The first operand is an operator
+			final VMOperator oOne = (VMOperator) opOne;
+			if (opTwo instanceof VMOperator) {
+				// The second operand is an operator
+				return createOperator(oOne, (VMOperator) opTwo);
+			} else if (opTwo instanceof VMString) {
+				// The second operand is a string
+				return createOperator(oOne, (VMString) opTwo);
+			} else if (opTwo instanceof String) {
+				// The second operand is a literal or a variable name
+				final String strOp = (String) opTwo;
+				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
+				if (b != null) {
+					return createOperator(oOne, b);
+				}
+				Number n = ParsingUtils.tryParsingNumber(strOp);
+				if (n != null) {
+					return createOperator(oOne, n);
+				} else {
+					return createOperator(oOne, strOp);
+				}
+			} else {
+				throw new VMParsingException("Cannot parse the value "
+						+ opTwo.toString() + " and create a binary operator.");
+			}
+		} else if (opOne instanceof VMString) {
+			// The first operand is a string
+			final VMString sOne = (VMString) opOne;
+			if (opTwo instanceof VMOperator) {
+				// The second operand is an operator
+				return createOperator(sOne, (VMOperator) opTwo);
+			} else if (opTwo instanceof VMString) {
+				// The second operand is a string
+				return createOperator(sOne, (VMString) opTwo);
+			} else if (opTwo instanceof String) {
+				// The second operand is a literal or a variable name
+				final String strOp = (String) opTwo;
+				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
+				if (b != null) {
+					return createOperator(sOne, b);
+				}
+				Number n = ParsingUtils.tryParsingNumber(strOp);
+				if (n != null) {
+					return createOperator(sOne, n);
+				} else {
+					return createOperator(sOne, strOp);
+				}
+			} else {
+				throw new VMParsingException("Cannot parse the value "
+						+ opTwo.toString() + " and create a binary operator.");
+			}
+		} else if (opOne instanceof String) {
+			// The first operand is a literal or a variable name
+			final String strOne = (String) opOne;
+			return createOperatorFirstString(strOne, opTwo);
+		} else {
+			throw new VMParsingException("Cannot parse the value "
+					+ opOne.toString() + " and create a binary operator.");
+		}
+	}
 
-	public VMOperator createOperator(VMOperator opOne, Number opTwo);
+	/**
+	 * Create operator if the first operand is a literal or a variable name.
+	 * </p>
+	 * 
+	 * This method must try all the combinations of the first and second operand
+	 * types.
+	 * 
+	 * @param opOne
+	 *            The first operand
+	 * @param opTwo
+	 *            The second operand
+	 * @return VMOperator
+	 */
+	private VMOperator createOperatorFirstString(String opOne, Object opTwo) {
+		Boolean bOne = ParsingUtils.tryParsingBoolean(opOne);
+		if (bOne != null) {
+			// The first operand is a boolean
+			if (opTwo instanceof VMOperator) {
+				// The second operand is an operator
+				return createOperator(bOne, (VMOperator) opTwo);
+			} else if (opTwo instanceof VMString) {
+				// The second operand is a string
+				return createOperator(bOne, (VMString) opTwo);
+			} else if (opTwo instanceof String) {
+				// The second operand is a literal or a variable name
+				final String strOp = (String) opTwo;
+				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
+				if (b != null) {
+					return createOperator(bOne, b);
+				}
+				Number n = ParsingUtils.tryParsingNumber(strOp);
+				if (n != null) {
+					return createOperator(bOne, n);
+				} else {
+					return createOperator(bOne, strOp);
+				}
+			} else {
+				throw new VMParsingException("Cannot parse the value "
+						+ opTwo.toString() + " and create a binary operator.");
+			}
+		}
 
-	public VMOperator createOperator(Number opOne, VMOperator opTwo);
+		Number nOne = ParsingUtils.tryParsingNumber(opOne);
+		if (nOne != null) {
+			// The first operand is a number
+			if (opTwo instanceof VMOperator) {
+				// The second operand is an operator
+				return createOperator(nOne, (VMOperator) opTwo);
+			} else if (opTwo instanceof VMString) {
+				// The second operand is a string
+				return createOperator(nOne, (VMString) opTwo);
+			} else if (opTwo instanceof String) {
+				// The second operand is a literal or a variable name
+				final String strOp = (String) opTwo;
+				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
+				if (b != null) {
+					return createOperator(nOne, b);
+				}
+				Number n = ParsingUtils.tryParsingNumber(strOp);
+				if (n != null) {
+					return createOperator(nOne, n);
+				} else {
+					return createOperator(nOne, strOp);
+				}
+			} else {
+				throw new VMParsingException("Cannot parse the value "
+						+ opTwo.toString() + " and create a binary operator.");
+			}
+		} else {
+			// The first operand is a literal or a variable name
+			if (opTwo instanceof VMOperator) {
+				// The second operand is an operator
+				return createOperator(opOne, (VMOperator) opTwo);
+			} else if (opTwo instanceof VMString) {
+				// The second operand is a string
+				return createOperator(opOne, (VMString) opTwo);
+			} else if (opTwo instanceof String) {
+				// The second operand is a literal or a variable name
+				final String strOp = (String) opTwo;
+				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
+				if (b != null) {
+					return createOperator(opOne, b);
+				}
+				Number n = ParsingUtils.tryParsingNumber(strOp);
+				if (n != null) {
+					return createOperator(opOne, n);
+				} else {
+					return createOperator(opOne, strOp);
+				}
+			} else {
+				throw new VMParsingException("Cannot parse the value "
+						+ opTwo.toString() + " and create a binary operator.");
+			}
+		}
+	}
 
-	public VMOperator createOperator(Number opOne, Number opTwo);
+	protected abstract VMOperator createOperator(VMOperator opOne,
+			VMOperator opTwo);
 
-	public VMOperator createOperator(VMString opOne, VMOperator opTwo);
+	protected abstract VMOperator createOperator(VMOperator opOne, Number opTwo);
 
-	public VMOperator createOperator(VMOperator opOne, VMString opTwo);
+	protected abstract VMOperator createOperator(Number opOne, VMOperator opTwo);
 
-	public VMOperator createOperator(VMString opOne, Number opTwo);
+	protected abstract VMOperator createOperator(Number opOne, Number opTwo);
 
-	public VMOperator createOperator(Number opOne, VMString opTWo);
+	protected abstract VMOperator createOperator(VMString opOne,
+			VMOperator opTwo);
 
-	public VMOperator createOperator(VMString opOne, VMString opTwo);
+	protected abstract VMOperator createOperator(VMOperator opOne,
+			VMString opTwo);
 
-	public VMOperator createOperator(String opOne, VMOperator opTwo);
+	protected abstract VMOperator createOperator(VMString opOne, Number opTwo);
 
-	public VMOperator createOperator(VMOperator opOne, String opTwo);
+	protected abstract VMOperator createOperator(Number opOne, VMString opTWo);
 
-	public VMOperator createOperator(String opOne, Number opTwo);
+	protected abstract VMOperator createOperator(VMString opOne, VMString opTwo);
 
-	public VMOperator createOperator(Number opOne, String opTwo);
+	protected abstract VMOperator createOperator(String opOne, VMOperator opTwo);
 
-	public VMOperator createOperator(String opOne, String opTwo);
+	protected abstract VMOperator createOperator(VMOperator opOne, String opTwo);
 
-	public VMOperator createOperator(String opOne, VMString opTWo);
+	protected abstract VMOperator createOperator(String opOne, Number opTwo);
 
-	public VMOperator createOperator(VMString opOne, String opTwo);
+	protected abstract VMOperator createOperator(Number opOne, String opTwo);
+
+	protected abstract VMOperator createOperator(String opOne, String opTwo);
+
+	protected abstract VMOperator createOperator(String opOne, VMString opTWo);
+
+	protected abstract VMOperator createOperator(VMString opOne, String opTwo);
 }

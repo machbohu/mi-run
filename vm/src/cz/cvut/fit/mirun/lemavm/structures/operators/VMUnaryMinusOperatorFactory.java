@@ -6,27 +6,26 @@ import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMUnaryCompoundMinus;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
-public final class VMUnaryMinusOperatorFactory implements
-		VMUnaryOperatorFactory {
+public final class VMUnaryMinusOperatorFactory extends VMUnaryOperatorFactory {
 
 	@Override
-	public VMOperator createOperator(VMOperator op) {
+	protected VMOperator createOperator(VMOperator op) {
 		return new VMUnaryCompoundMinus(op);
 	}
 
 	@Override
-	public VMOperator createOperator(Boolean op) {
+	protected VMOperator createOperator(Boolean op) {
 		throw new VMParsingException(
 				"The unary minus operator is not applicable for type boolean.");
 	}
 
 	@Override
-	public VMOperator createOperator(Number op) {
+	protected VMOperator createOperator(Number op) {
 		return new NumberUnaryMinus(op);
 	}
 
 	@Override
-	public VMOperator createOperator(String op) {
+	protected VMOperator createOperator(String op) {
 		return new VariableUnaryMinus(op);
 	}
 

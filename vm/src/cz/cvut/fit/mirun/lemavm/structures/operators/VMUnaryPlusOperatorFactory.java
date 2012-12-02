@@ -6,28 +6,30 @@ import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMUnaryCompoundPlus;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
-public final class VMUnaryPlusOperatorFactory implements VMUnaryOperatorFactory {
+public final class VMUnaryPlusOperatorFactory extends VMUnaryOperatorFactory {
 
 	@Override
-	public VMOperator createOperator(VMOperator op) {
+	protected VMOperator createOperator(VMOperator op) {
 		return new VMUnaryCompoundPlus(op);
 	}
 
 	@Override
-	public VMOperator createOperator(Boolean op) {
+	protected VMOperator createOperator(Boolean op) {
 		throw new VMParsingException(
 				"The unary plus operator is not applicable for type boolean.");
 	}
 
 	@Override
-	public VMOperator createOperator(Number op) {
+	protected VMOperator createOperator(Number op) {
 		return new NumberUnaryPlus(op);
 	}
 
 	@Override
-	public VMOperator createOperator(String op) {
+	protected VMOperator createOperator(String op) {
 		return new VariableUnaryPlus(op);
 	}
+
+	// Operator definitions
 
 	public static final class NumberUnaryPlus extends VMOperator {
 		private final Number op;

@@ -9,7 +9,7 @@ public abstract class AbstractBinaryPlus extends VMOperator {
 
 	@Override
 	public Boolean evaluateBoolean(VMEnvironment env) {
-		throw new VMEvaluationException("Operator - cannot return boolean.");
+		throw new VMEvaluationException("Operator + cannot return boolean.");
 	}
 
 	@Override

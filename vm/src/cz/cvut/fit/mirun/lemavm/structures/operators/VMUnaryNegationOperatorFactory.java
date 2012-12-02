@@ -5,27 +5,27 @@ import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMCompoundNegation;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
-public final class VMUnaryNegationOperatorFactory implements
+public final class VMUnaryNegationOperatorFactory extends
 		VMUnaryOperatorFactory {
 
 	@Override
-	public VMOperator createOperator(VMOperator op) {
+	protected VMOperator createOperator(VMOperator op) {
 		return new VMCompoundNegation(op);
 	}
 
 	@Override
-	public VMOperator createOperator(Boolean op) {
+	protected VMOperator createOperator(Boolean op) {
 		return new BooleanUnaryNegation(op);
 	}
 
 	@Override
-	public VMOperator createOperator(Number op) {
+	protected VMOperator createOperator(Number op) {
 		throw new VMParsingException(
 				"The unary negation operator is not applicable for number literal value.");
 	}
 
 	@Override
-	public VMOperator createOperator(String op) {
+	protected VMOperator createOperator(String op) {
 		return new VariableUnaryNegation(op);
 	}
 

@@ -12,92 +12,91 @@ import cz.cvut.fit.mirun.lemavm.structures.operators.minus.VariableNumberBinaryM
 import cz.cvut.fit.mirun.lemavm.structures.operators.minus.VariableVariableBinaryMinus;
 import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
-public final class VMBinaryMinusOperatorFactory implements
-		VMBinaryOperatorFactory {
+public final class VMBinaryMinusOperatorFactory extends VMBinaryOperatorFactory {
 
 	@Override
-	public VMOperator createOperator(VMOperator opOne, VMOperator opTwo) {
+	protected VMOperator createOperator(VMOperator opOne, VMOperator opTwo) {
 		return new VMCompoundMinus(opOne, opTwo);
 	}
 
 	@Override
-	public VMOperator createOperator(VMOperator opOne, Number opTwo) {
+	protected VMOperator createOperator(VMOperator opOne, Number opTwo) {
 		return new CompNumberBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
-	public VMOperator createOperator(Number opOne, VMOperator opTwo) {
+	protected VMOperator createOperator(Number opOne, VMOperator opTwo) {
 		return new NumberCompBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
-	public VMOperator createOperator(Number opOne, Number opTwo) {
+	protected VMOperator createOperator(Number opOne, Number opTwo) {
 		return new NumberNumberBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
-	public VMOperator createOperator(VMString opOne, VMOperator opTwo) {
+	protected VMOperator createOperator(VMString opOne, VMOperator opTwo) {
 		throw new VMParsingException("Operator - is not applicable for type "
 				+ VMString.class.getName());
 	}
 
 	@Override
-	public VMOperator createOperator(VMOperator opOne, VMString opTwo) {
+	protected VMOperator createOperator(VMOperator opOne, VMString opTwo) {
 		throw new VMParsingException("Operator - is not applicable for type "
 				+ VMString.class.getName());
 	}
 
 	@Override
-	public VMOperator createOperator(VMString opOne, Number opTwo) {
+	protected VMOperator createOperator(VMString opOne, Number opTwo) {
 		throw new VMParsingException("Operator - is not applicable for type "
 				+ VMString.class.getName());
 	}
 
 	@Override
-	public VMOperator createOperator(Number opOne, VMString opTWo) {
+	protected VMOperator createOperator(Number opOne, VMString opTWo) {
 		throw new VMParsingException("Operator - is not applicable for type "
 				+ VMString.class.getName());
 	}
 
 	@Override
-	public VMOperator createOperator(VMString opOne, VMString opTwo) {
+	protected VMOperator createOperator(VMString opOne, VMString opTwo) {
 		throw new VMParsingException("Operator - is not applicable for type "
 				+ VMString.class.getName());
 	}
 
 	@Override
-	public VMOperator createOperator(String opOne, VMOperator opTwo) {
+	protected VMOperator createOperator(String opOne, VMOperator opTwo) {
 		return new VariableCompBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
-	public VMOperator createOperator(VMOperator opOne, String opTwo) {
+	protected VMOperator createOperator(VMOperator opOne, String opTwo) {
 		return new CompVariableBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
-	public VMOperator createOperator(String opOne, Number opTwo) {
+	protected VMOperator createOperator(String opOne, Number opTwo) {
 		return new VariableNumberBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
-	public VMOperator createOperator(Number opOne, String opTwo) {
+	protected VMOperator createOperator(Number opOne, String opTwo) {
 		return new NumberVariableBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
-	public VMOperator createOperator(String opOne, String opTwo) {
+	protected VMOperator createOperator(String opOne, String opTwo) {
 		return new VariableVariableBinaryMinus(opOne, opTwo);
 	}
 
 	@Override
-	public VMOperator createOperator(String opOne, VMString opTWo) {
+	protected VMOperator createOperator(String opOne, VMString opTWo) {
 		throw new VMParsingException("Operator - is not applicable for type "
 				+ VMString.class.getName());
 	}
 
 	@Override
-	public VMOperator createOperator(VMString opOne, String opTwo) {
+	protected VMOperator createOperator(VMString opOne, String opTwo) {
 		throw new VMParsingException("Operator - is not applicable for type "
 				+ VMString.class.getName());
 	}
