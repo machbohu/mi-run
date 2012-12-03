@@ -12,22 +12,6 @@ import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public class ASTTreeTest {
 
-	public void printTree(CommonTree t, int indent) {
-		if ( t != null ) {
-			StringBuffer sb = new StringBuffer(indent);
-			
-			if (t.getParent() == null){
-				System.out.println(sb.toString() + t.getText());	
-			}
-			for ( int i = 0; i < indent; i++ )
-				sb = sb.append("   ");
-			for ( int i = 0; i < t.getChildCount(); i++ ) {
-				System.out.println(sb.toString() + t.getChild(i).toString());
-				printTree((CommonTree)t.getChild(i), indent+1);
-			}
-		}
-	}
-	
 	@Test
 	public void test() {
 		CharStream chs = new ANTLRStringStream(
@@ -79,7 +63,10 @@ public class ASTTreeTest {
 			"        ++c;\n" +
 			"        --c;\n" +
 			"        Test t = new Test(a, b);\n" +
+			"        int a = new int[5];\n" +
+			"        a = new Test[5];\n" +
 			"        t.testMethod(a+2, b);\n" +
+			"        a = t.testMethod(a+2, b);\n" +
 			"        while((a != 5 || a <= 5) && a >= 5){\n" +
 			"            if(a + 5){\n" +
 			"                int aa = 5 + 6 * 6 + 2;\n"+

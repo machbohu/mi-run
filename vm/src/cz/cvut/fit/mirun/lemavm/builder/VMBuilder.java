@@ -38,26 +38,28 @@ import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 public abstract class VMBuilder {
 
 	// Operator factories
-	protected VMBinaryOperatorFactory minusFactory;
-	protected VMBinaryOperatorFactory plusFactory;
-	protected VMBinaryOperatorFactory divisionFactory;
-	protected VMBinaryOperatorFactory multiplicationFactory;
-	protected VMUnaryOperatorFactory postfixDecrementFactory;
-	protected VMUnaryOperatorFactory postfixIncrementFactory;
-	protected VMUnaryOperatorFactory prefixDecrementFactory;
-	protected VMUnaryOperatorFactory prefixIncrementFactory;
-	protected VMUnaryOperatorFactory unaryMinusFactory;
-	protected VMUnaryOperatorFactory unaryPlusFactory;
-	protected VMUnaryOperatorFactory unaryNegationFactory;
+	protected static VMBinaryOperatorFactory minusFactory;
+	protected static VMBinaryOperatorFactory plusFactory;
+	protected static VMBinaryOperatorFactory divisionFactory;
+	protected static VMBinaryOperatorFactory multiplicationFactory;
+	protected static VMUnaryOperatorFactory postfixDecrementFactory;
+	protected static VMUnaryOperatorFactory postfixIncrementFactory;
+	protected static VMUnaryOperatorFactory prefixDecrementFactory;
+	protected static VMUnaryOperatorFactory prefixIncrementFactory;
+	protected static VMUnaryOperatorFactory unaryMinusFactory;
+	protected static VMUnaryOperatorFactory unaryPlusFactory;
+	protected static VMUnaryOperatorFactory unaryNegationFactory;
 
-	protected VMRelationalOperatorFactory notEqualsFactory;
-	protected VMRelationalOperatorFactory equalsFactory;
-	protected VMRelationalOperatorFactory lessThanFactory;
-	protected VMRelationalOperatorFactory lessOrEqualFactory;
-	protected VMRelationalOperatorFactory greaterThanFactory;
-	protected VMRelationalOperatorFactory greaterOrEqualFactory;
-	protected VMRelationalOperatorFactory logicalAndFactory;
-	protected VMRelationalOperatorFactory logicalOrFactory;
+	protected static VMRelationalOperatorFactory notEqualsFactory;
+	protected static VMRelationalOperatorFactory equalsFactory;
+	protected static VMRelationalOperatorFactory lessThanFactory;
+	protected static VMRelationalOperatorFactory lessOrEqualFactory;
+	protected static VMRelationalOperatorFactory greaterThanFactory;
+	protected static VMRelationalOperatorFactory greaterOrEqualFactory;
+	protected static VMRelationalOperatorFactory logicalAndFactory;
+	protected static VMRelationalOperatorFactory logicalOrFactory;
+	
+//	protected static AssignOperatorFactory assignFactory
 
 	/**
 	 * Constructor
@@ -67,37 +69,60 @@ public abstract class VMBuilder {
 	}
 
 	private void initOperatorFactories() {
-		this.minusFactory = new VMBinaryMinusOperatorFactory();
-		this.plusFactory = new VMBinaryPlusOperatorFactory();
-		this.divisionFactory = new VMDivisionOperatorFactory();
-		this.multiplicationFactory = new VMMultiplicationOperatorFactory();
-		this.postfixDecrementFactory = new VMPostfixDecrementOperatorFactory();
-		this.postfixIncrementFactory = new VMPostfixIncrementOperatorFactory();
-		this.prefixDecrementFactory = new VMPrefixDecrementOperatorFactory();
-		this.prefixIncrementFactory = new VMPrefixIncrementOperatorFactory();
-		this.unaryMinusFactory = new VMUnaryMinusOperatorFactory();
-		this.unaryPlusFactory = new VMUnaryPlusOperatorFactory();
-		this.unaryNegationFactory = new VMUnaryNegationOperatorFactory();
-		this.notEqualsFactory = new NotEqualsOperatorFactory();
-		this.equalsFactory = new VMEqualsOperatorFactory();
-		this.lessThanFactory = new VMLessThanOperatorFactory();
-		this.lessOrEqualFactory = new VMLessEqualsOperatorFactory();
-		this.greaterThanFactory = new VMGreaterThanOperatorFactory();
-		this.greaterOrEqualFactory = new VMGreaterEqualsOperatorFactory();
-		this.logicalAndFactory = new VMLogicalAndOperatorFactory();
-		this.logicalOrFactory = new VMLogicalOrOperatorFactory();
+		minusFactory = new VMBinaryMinusOperatorFactory();
+		plusFactory = new VMBinaryPlusOperatorFactory();
+		divisionFactory = new VMDivisionOperatorFactory();
+		multiplicationFactory = new VMMultiplicationOperatorFactory();
+		postfixDecrementFactory = new VMPostfixDecrementOperatorFactory();
+		postfixIncrementFactory = new VMPostfixIncrementOperatorFactory();
+		prefixDecrementFactory = new VMPrefixDecrementOperatorFactory();
+		prefixIncrementFactory = new VMPrefixIncrementOperatorFactory();
+		unaryMinusFactory = new VMUnaryMinusOperatorFactory();
+		unaryPlusFactory = new VMUnaryPlusOperatorFactory();
+		unaryNegationFactory = new VMUnaryNegationOperatorFactory();
+		notEqualsFactory = new NotEqualsOperatorFactory();
+		equalsFactory = new VMEqualsOperatorFactory();
+		lessThanFactory = new VMLessThanOperatorFactory();
+		lessOrEqualFactory = new VMLessEqualsOperatorFactory();
+		greaterThanFactory = new VMGreaterThanOperatorFactory();
+		greaterOrEqualFactory = new VMGreaterEqualsOperatorFactory();
+		logicalAndFactory = new VMLogicalAndOperatorFactory();
+		logicalOrFactory = new VMLogicalOrOperatorFactory();
 	}
 
 	public abstract void build() throws RecognitionException;
 
 	public abstract VMCodeBlock getCodeBlock();
 
+	/**
+	 * Get type (int, string ...) from tree.
+	 * Nodes [TYPE] -> [[QUALIFIED_TYPE_IDENT] ->] [VALUE]
+	 * @param node
+	 * @return Type in string representation
+	 */
 	protected String buildTypeFromTree(CommonTree node) {
 		if (node.getChild(0).getChildCount() == 0) {
 			return node.getChild(0).toString();
 		} else {
 			return node.getChild(0).getChild(0).toString();
 		}
+	}
+	
+	protected List<Object> buildArgumentListFromTree(CommonTree node){
+		CommonTree child = null;
+		
+		for(Object o : node.getChildren()){
+			child = (CommonTree) o;
+			
+			switch(child.toString()){
+			case "EXPR":
+				break;
+			default:
+				throw new VMParsingException("Unsupported operation '"
+						+ node.toString() + "'");
+			}
+		}
+		return null;
 	}
 
 	/**
@@ -116,72 +141,101 @@ public abstract class VMBuilder {
 
 		switch (node.toString()) {
 		case "+":
-			// VMBinaryOperatorFactory bin = new VMBinaryPlusOperatorFactory();
-			// op1 = getExpressionFromTree((CommonTree) node.getChild(0));
-			// op2 = getExpressionFromTree((CommonTree) node.getChild(1));
-			// return bin.createOperator(op1, op2);
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			return plusFactory.createOperator(op1, op2);
 		case "POST_INC": // one operand (child)
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			return postfixIncrementFactory.createOperator(op1);
 		case "PRE_INC": // one operand (child)
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			return prefixIncrementFactory.createOperator(op1);
 		case "UNARY_PLUS": // one operand (child)
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			return unaryPlusFactory.createOperator(op1);
 		case "-":
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			return minusFactory.createOperator(op1, op2);
 		case "POST_DEC": // one operand (child)
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			return postfixDecrementFactory.createOperator(op1);
 		case "PRE_DEC": // one operand (child)
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			return prefixDecrementFactory.createOperator(op1);
 		case "UNARY_MINUS": // one operand (child)
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			return unaryMinusFactory.createOperator(op1);
 		case "*":
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			return multiplicationFactory.createOperator(op1, op2);
 		case "/":
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			return divisionFactory.createOperator(op1, op2);
 		case "=":
-
+			// TODO assign
 			break;
 		case "-=":
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			minusFactory.createOperator(op1, op2);
+			// TODO assign
 		case "+=":
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			plusFactory.createOperator(op1, op2);
+			// TODO assign
 		case "&&":
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			return logicalAndFactory.createOperator(op1, op2);
 		case "||":
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			return logicalOrFactory.createOperator(op1, op2);
 		case "!": // one operand (child)
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			return unaryNegationFactory.createOperator(op1);
 		case "==":
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			return equalsFactory.createOperator(op1, op2);
 		case "!=":
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			return notEqualsFactory.createOperator(op1, op2);
+		case "<":
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			return lessThanFactory.createOperator(op1, op2);
 		case "<=":
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			return lessOrEqualFactory.createOperator(op1, op2);
+		case ">":
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			return greaterThanFactory.createOperator(op1, op2);
 		case ">=":
-
-			break;
+			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			return greaterOrEqualFactory.createOperator(op1, op2);
 		case "EXPR":
 		case "PARENTESIZED_EXPR":
 			return buildExpressionFromTree((CommonTree) node.getChild(0));
 		case "METHOD_CALL":
+			
+			break;
+		case "STATIC_ARRAY_CREATOR":
+			// TODO operator new
+			buildTypeFromTree(node);
+			if(node.getChild(0).equals("ARGUMENT_LIST")){
+				buildArgumentListFromTree((CommonTree) node.getChild(1));
+			}else{
+				buildExpressionFromTree((CommonTree) node.getChild(1));
+			}
 			break;
 		default:
 			throw new VMParsingException("Unsupported operation '"
@@ -192,12 +246,10 @@ public abstract class VMBuilder {
 	}
 
 	/**
-	 * Read variable structure from given node and return list of VMField AST
+	 * Read variable structure from given node and return list of VMField; AST
 	 * Tree node [VAR_DECLARATION]
 	 * 
 	 * @param node
-	 * @param caller
-	 *            - Object, that calls this method
 	 * @return List of VMField
 	 */
 	protected List<VMField> buildVarFromTree(CommonTree node) {
