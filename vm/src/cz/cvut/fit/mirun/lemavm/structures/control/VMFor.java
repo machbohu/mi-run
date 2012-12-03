@@ -40,6 +40,7 @@ public final class VMFor extends VMControlStructure {
 					/* + index + ", " */+ condition + ", " + operation + ", "
 							+ forTree);
 		}
+		// TODO check inits if already exists
 		this.inits = inits;
 		this.condition = condition;
 		this.operation = operation;

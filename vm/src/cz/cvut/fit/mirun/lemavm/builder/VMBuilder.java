@@ -95,7 +95,7 @@ public abstract class VMBuilder {
 	public abstract VMCodeBlock getCodeBlock();
 
 	/**
-	 * Get type (int, string ...) from tree.
+	 * Get type (int, string ...) from tree;
 	 * Nodes [TYPE] -> [[QUALIFIED_TYPE_IDENT] ->] [VALUE]
 	 * @param node
 	 * @return Type in string representation
@@ -108,26 +108,35 @@ public abstract class VMBuilder {
 		}
 	}
 	
+	/**
+	 * Build argument list from tree;
+	 * AST node [ARGUMENT_LIST] -> [EXPR]
+	 * @param node
+	 * @return List of arguments
+	 */
 	protected List<Object> buildArgumentListFromTree(CommonTree node){
 		CommonTree child = null;
+		List<Object> args = new ArrayList<>();
 		
 		for(Object o : node.getChildren()){
 			child = (CommonTree) o;
 			
 			switch(child.toString()){
 			case "EXPR":
+				args.add(buildExpressionFromTree(child));
 				break;
 			default:
 				throw new VMParsingException("Unsupported operation '"
 						+ node.toString() + "'");
 			}
 		}
-		return null;
+		return args;
 	}
 
 	/**
-	 * Build expression from given tree for future evaluation, i.e. a = (a + 5)
-	 * * c; AST Tree node [EXPR]
+	 * Build expression from given tree for future evaluation;
+	 * i.e. a = (a + 5) * c, cls.methodCall(a, b);
+	 * AST Tree node [EXPR]
 	 * 
 	 * @param node
 	 * @return
@@ -175,7 +184,7 @@ public abstract class VMBuilder {
 			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
 			return divisionFactory.createOperator(op1, op2);
 		case "=":
-			// TODO assign
+			// TODO assign op1 = op2
 			break;
 		case "-=":
 			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
@@ -226,7 +235,14 @@ public abstract class VMBuilder {
 		case "PARENTESIZED_EXPR":
 			return buildExpressionFromTree((CommonTree) node.getChild(0));
 		case "METHOD_CALL":
-			
+			// TODO method call
+			if(node.getChild(0).toString().equals(".")){
+				node.getChild(0).getChild(0).toString(); // class instance
+				node.getChild(0).getChild(1).toString(); // method to call
+			}else{
+				// class instance = this
+				node.getChild(0).toString(); // method name
+			}
 			break;
 		case "STATIC_ARRAY_CREATOR":
 			// TODO operator new
