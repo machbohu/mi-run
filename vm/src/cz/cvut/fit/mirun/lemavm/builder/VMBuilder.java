@@ -25,6 +25,15 @@ import cz.cvut.fit.mirun.lemavm.structures.operators.VMUnaryMinusOperatorFactory
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMUnaryNegationOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMUnaryOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMUnaryPlusOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.control.NotEqualsOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMEqualsOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMGreaterEqualsOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMGreaterThanOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMLessEqualsOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMLessThanOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMLogicalAndOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMLogicalOrOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMRelationalOperatorFactory;
 
 public abstract class VMBuilder {
 
@@ -41,10 +50,23 @@ public abstract class VMBuilder {
 	protected VMUnaryOperatorFactory unaryPlusFactory;
 	protected VMUnaryOperatorFactory unaryNegationFactory;
 
-	// TODO Relational operator factories should have the same API as binary and
-	// unary operator factories
+	protected VMRelationalOperatorFactory notEqualsFactory;
+	protected VMRelationalOperatorFactory equalsFactory;
+	protected VMRelationalOperatorFactory lessThanFactory;
+	protected VMRelationalOperatorFactory lessOrEqualFactory;
+	protected VMRelationalOperatorFactory greaterThanFactory;
+	protected VMRelationalOperatorFactory greaterOrEqualFactory;
+	protected VMRelationalOperatorFactory logicalAndFactory;
+	protected VMRelationalOperatorFactory logicalOrFactory;
 
+	/**
+	 * Constructor
+	 */
 	public VMBuilder() {
+		initOperatorFactories();
+	}
+
+	private void initOperatorFactories() {
 		this.minusFactory = new VMBinaryMinusOperatorFactory();
 		this.plusFactory = new VMBinaryPlusOperatorFactory();
 		this.divisionFactory = new VMDivisionOperatorFactory();
@@ -56,7 +78,14 @@ public abstract class VMBuilder {
 		this.unaryMinusFactory = new VMUnaryMinusOperatorFactory();
 		this.unaryPlusFactory = new VMUnaryPlusOperatorFactory();
 		this.unaryNegationFactory = new VMUnaryNegationOperatorFactory();
-
+		this.notEqualsFactory = new NotEqualsOperatorFactory();
+		this.equalsFactory = new VMEqualsOperatorFactory();
+		this.lessThanFactory = new VMLessThanOperatorFactory();
+		this.lessOrEqualFactory = new VMLessEqualsOperatorFactory();
+		this.greaterThanFactory = new VMGreaterThanOperatorFactory();
+		this.greaterOrEqualFactory = new VMGreaterEqualsOperatorFactory();
+		this.logicalAndFactory = new VMLogicalAndOperatorFactory();
+		this.logicalOrFactory = new VMLogicalOrOperatorFactory();
 	}
 
 	public abstract void build() throws RecognitionException;

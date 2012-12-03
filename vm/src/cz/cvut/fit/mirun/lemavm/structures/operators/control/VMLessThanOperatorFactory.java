@@ -1,21 +1,24 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators.control;
 
+import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
-public final class VMLessThanOperatorFactory {
+public final class VMLessThanOperatorFactory extends
+		VMRelationalOperatorFactory {
 
 	/**
 	 * Create the relational operator.
 	 */
-	public VMRelationalOperator createOperator(Number opOne, Number opTwo) {
+	protected VMRelationalOperator createOperator(Number opOne, Number opTwo) {
 		return new NumberLessThan(opOne, opTwo);
 	}
 
 	/**
 	 * Create the relational operator.
 	 */
-	public VMRelationalOperator createLessThanOperator(VMOperator opOne,
+	protected VMRelationalOperator createLessThanOperator(VMOperator opOne,
 			VMOperator opTwo) {
 		return new CompCompLessThan(opOne, opTwo);
 	}
@@ -23,50 +26,116 @@ public final class VMLessThanOperatorFactory {
 	/**
 	 * Create the relational operator.
 	 */
-	public VMRelationalOperator createOperator(Number opOne, VMOperator opTwo) {
+	protected VMRelationalOperator createOperator(Number opOne, VMOperator opTwo) {
 		return new NumberCompLessThan(opOne, opTwo);
 	}
 
 	/**
 	 * Create the relational operator.
 	 */
-	public VMRelationalOperator createOperator(VMOperator opOne, Number opTwo) {
+	protected VMRelationalOperator createOperator(VMOperator opOne, Number opTwo) {
 		return new CompNumberLessThan(opOne, opTwo);
 	}
 
 	/**
 	 * Create the relational operator.
 	 */
-	public VMRelationalOperator createOperator(String opOne, Number opTwo) {
+	protected VMRelationalOperator createOperator(String opOne, Number opTwo) {
 		return new VariableNumberLessThan(opOne, opTwo);
 	}
 
 	/**
 	 * Create the relational operator.
 	 */
-	public VMRelationalOperator createOperator(Number opOne, String opTwo) {
+	protected VMRelationalOperator createOperator(Number opOne, String opTwo) {
 		return new NumberVariableLessThan(opOne, opTwo);
 	}
 
 	/**
 	 * Create the relational operator.
 	 */
-	public VMRelationalOperator createOperator(String opOne, VMOperator opTwo) {
+	protected VMRelationalOperator createOperator(String opOne, VMOperator opTwo) {
 		return new VariableCompLessThan(opOne, opTwo);
 	}
 
 	/**
 	 * Create the relational operator.
 	 */
-	public VMRelationalOperator createOperator(VMOperator opOne, String opTwo) {
+	protected VMRelationalOperator createOperator(VMOperator opOne, String opTwo) {
 		return new CompVariableLessThan(opOne, opTwo);
 	}
 
 	/**
 	 * Create the relational operator.
 	 */
-	public VMRelationalOperator createOperator(String opOne, String opTwo) {
+	protected VMRelationalOperator createOperator(String opOne, String opTwo) {
 		return new VariableVariableLessThan(opOne, opTwo);
+	}
+
+	@Override
+	protected VMRelationalOperator createOperator(Boolean opOne, Boolean opTwo) {
+		throw new VMParsingException("Unsupported operand types "
+				+ opOne.getClass().getName() + ", "
+				+ opTwo.getClass().getName());
+	}
+
+	@Override
+	protected VMRelationalOperator createOperator(VMObject opOne, VMObject opTwo) {
+		throw new VMParsingException("Unsupported operand types "
+				+ opOne.getClass().getName() + ", "
+				+ opTwo.getClass().getName());
+	}
+
+	@Override
+	protected VMRelationalOperator createOperator(Boolean opOne,
+			VMOperator opTwo) {
+		throw new VMParsingException("Unsupported operand types "
+				+ opOne.getClass().getName() + ", "
+				+ opTwo.getClass().getName());
+	}
+
+	@Override
+	protected VMRelationalOperator createOperator(VMOperator opOne,
+			Boolean opTwo) {
+		throw new VMParsingException("Unsupported operand types "
+				+ opOne.getClass().getName() + ", "
+				+ opTwo.getClass().getName());
+	}
+
+	@Override
+	protected VMRelationalOperator createOperator(VMOperator opOne,
+			VMOperator opTwo) {
+		throw new VMParsingException("Unsupported operand types "
+				+ opOne.getClass().getName() + ", "
+				+ opTwo.getClass().getName());
+	}
+
+	@Override
+	protected VMRelationalOperator createOperator(Boolean opOne, String opTwo) {
+		throw new VMParsingException("Unsupported operand types "
+				+ opOne.getClass().getName() + ", "
+				+ opTwo.getClass().getName());
+	}
+
+	@Override
+	protected VMRelationalOperator createOperator(String opOne, Boolean opTwo) {
+		throw new VMParsingException("Unsupported operand types "
+				+ opOne.getClass().getName() + ", "
+				+ opTwo.getClass().getName());
+	}
+
+	@Override
+	protected VMRelationalOperator createOperator(String opOne, VMObject opTwo) {
+		throw new VMParsingException("Unsupported operand types "
+				+ opOne.getClass().getName() + ", "
+				+ opTwo.getClass().getName());
+	}
+
+	@Override
+	protected VMRelationalOperator createOperator(VMObject opOne, String opTwo) {
+		throw new VMParsingException("Unsupported operand types "
+				+ opOne.getClass().getName() + ", "
+				+ opTwo.getClass().getName());
 	}
 
 	// Operators definitions

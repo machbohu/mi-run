@@ -6,74 +6,76 @@ import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
-public final class NotEqualsOperatorFactory {
+public final class NotEqualsOperatorFactory extends VMRelationalOperatorFactory {
 
-	public VMRelationalOperator createOperator(Number opOne, Number opTwo) {
+	protected VMRelationalOperator createOperator(Number opOne, Number opTwo) {
 		return new NumberNotEquals(opOne, opTwo);
 	}
 
-	public VMRelationalOperator createOperator(Boolean opOne, Boolean opTwo) {
+	protected VMRelationalOperator createOperator(Boolean opOne, Boolean opTwo) {
 		return new BooleanNotEquals(opOne, opTwo);
 	}
 
-	public VMRelationalOperator createOperator(VMObject opOne, VMObject opTwo) {
+	protected VMRelationalOperator createOperator(VMObject opOne, VMObject opTwo) {
 		return new VMGeneralNotEquals(opOne, opTwo);
 	}
 
-	public VMRelationalOperator createOperator(Number opOne, VMOperator opTwo) {
+	protected VMRelationalOperator createOperator(Number opOne, VMOperator opTwo) {
 		return new NumberCompNotEquals(opOne, opTwo);
 	}
 
-	public VMRelationalOperator createOperator(Boolean opOne, VMOperator opTwo) {
+	protected VMRelationalOperator createOperator(Boolean opOne,
+			VMOperator opTwo) {
 		return new BooleanCompNotEquals(opOne, opTwo);
 	}
 
-	public VMRelationalOperator createOperator(VMOperator opOne, Number opTwo) {
+	protected VMRelationalOperator createOperator(VMOperator opOne, Number opTwo) {
 		return createOperator(opTwo, opOne);
 	}
 
-	public VMRelationalOperator createOperator(VMOperator opOne, Boolean opTwo) {
+	protected VMRelationalOperator createOperator(VMOperator opOne,
+			Boolean opTwo) {
 		return createOperator(opTwo, opOne);
 	}
 
-	public VMRelationalOperator createOperator(VMOperator opOne,
+	protected VMRelationalOperator createOperator(VMOperator opOne,
 			VMOperator opTwo) {
 		return new VMOperatorNotEquals(opOne, opTwo);
 	}
 
-	public VMRelationalOperator createOperator(Number opOne, String opTwo) {
+	protected VMRelationalOperator createOperator(Number opOne, String opTwo) {
 		return createOperator(opTwo, opOne);
 	}
 
-	public VMRelationalOperator createOperator(String opOne, Number opTwo) {
+	protected VMRelationalOperator createOperator(String opOne, Number opTwo) {
 		return new VMVariableNumberNotEquals(opOne, opTwo);
 	}
 
-	public VMRelationalOperator createOperator(Boolean opOne, String opTwo) {
+	protected VMRelationalOperator createOperator(Boolean opOne, String opTwo) {
 		return createOperator(opTwo, opOne);
 	}
 
-	public VMRelationalOperator createOperator(String opOne, Boolean opTwo) {
+	protected VMRelationalOperator createOperator(String opOne, Boolean opTwo) {
 		return new VMVariableBooleanNotEquals(opOne, opTwo);
 	}
 
-	public VMRelationalOperator createOperator(String opOne, VMOperator opTwo) {
+	protected VMRelationalOperator createOperator(String opOne, VMOperator opTwo) {
 		return new VMVariableOperNotEquals(opOne, opTwo);
 	}
 
-	public VMRelationalOperator createOperator(VMOperator opOne, String opTwo) {
+	protected VMRelationalOperator createOperator(VMOperator opOne, String opTwo) {
 		return createOperator(opTwo, opOne);
 	}
 
-	public VMRelationalOperator createOperator(String opOne, VMObject opTwo) {
+	protected VMRelationalOperator createOperator(String opOne, VMObject opTwo) {
 		return new VMVariableObjNotEquals(opOne, opTwo);
 	}
 
-	public VMRelationalOperator createOperator(VMObject opOne, String opTwo) {
+	protected VMRelationalOperator createOperator(VMObject opOne, String opTwo) {
 		return createOperator(opTwo, opOne);
 	}
 
-	public VMRelationalOperator createOperator(String opOne, String opTwo) {
+	protected VMRelationalOperator createOperator(String opOne, String opTwo) {
 		return new VMVariableNotEquals(opOne, opTwo);
 	}
 
