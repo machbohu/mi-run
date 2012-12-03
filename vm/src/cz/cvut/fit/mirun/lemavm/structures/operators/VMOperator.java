@@ -5,8 +5,8 @@ import org.apache.log4j.Logger;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMHeader;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
-import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 /**
  * Base class for operators. It just defines the type. </p>

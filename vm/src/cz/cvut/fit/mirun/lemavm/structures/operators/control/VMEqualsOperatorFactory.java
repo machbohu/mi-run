@@ -1,10 +1,10 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators.control;
 
-import cz.cvut.fit.mirun.lemavm.core.VMConstants;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
+import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 
 public final class VMEqualsOperatorFactory extends VMRelationalOperatorFactory {
 

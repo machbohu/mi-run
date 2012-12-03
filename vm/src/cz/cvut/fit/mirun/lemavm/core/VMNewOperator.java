@@ -7,9 +7,11 @@ import org.apache.log4j.Logger;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMClassNotFoundException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
-import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
+import cz.cvut.fit.mirun.lemavm.utils.ParsingUtils;
+import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 
 /**
  * This class is the new operator which is used to create instances of
@@ -71,34 +73,27 @@ public final class VMNewOperator {
 		}
 		final VMClass cls = VMClass.getClasses().get(typeName);
 		assert cls != null;
-		// TODO Create the instance
-		// Call the invokeConstructor
+		newInstance = cls.createInstance();
+		// TODO invoke constructor
 		VMMemoryManager.allocateObject(newInstance);
 		return null;
 	}
 
 	private VMObject checkForBuiltInTypes() {
 		VMObject instance = null;
-		switch (typeName) {
-		case VMConstants.SHORT:
-		case VMConstants.INT:
-		case VMConstants.LONG:
-		case VMConstants.DOUBLE:
-		case VMConstants.BOOLEAN:
+		if (ParsingUtils.isTypePrimitive(typeName)) {
 			throw new VMEvaluationException(
 					"Cannot use the new operator with primitive type "
 							+ typeName);
-		case VMConstants.STRING:
+		}
+		if (typeName.equals(VMConstants.STRING)) {
 			if (args.size() < 1) {
 				instance = new VMString("");
 			} else {
 				instance = new VMString(args.get(0).toString());
 			}
-			break;
-		// TODO arrays
-		default:
-			break;
 		}
+		// TODO What about arrays?
 		return instance;
 	}
 }

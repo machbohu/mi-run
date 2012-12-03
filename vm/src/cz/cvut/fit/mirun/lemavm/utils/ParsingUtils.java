@@ -55,4 +55,17 @@ public abstract class ParsingUtils {
 		}
 		return n;
 	}
+
+	public static boolean isTypePrimitive(String type) {
+		switch (type) {
+		case VMConstants.BOOLEAN:
+		case VMConstants.SHORT:
+		case VMConstants.INT:
+		case VMConstants.LONG:
+		case VMConstants.DOUBLE:
+			return true;
+		default:
+			return false;
+		}
+	}
 }

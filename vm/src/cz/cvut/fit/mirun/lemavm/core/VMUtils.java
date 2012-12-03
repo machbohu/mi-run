@@ -2,8 +2,8 @@ package cz.cvut.fit.mirun.lemavm.core;
 
 import java.text.ParseException;
 
-import cz.cvut.fit.mirun.lemavm.structures.primitives.VMNull;
-import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMNull;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 
 public class VMUtils {
 	private VMUtils(){}

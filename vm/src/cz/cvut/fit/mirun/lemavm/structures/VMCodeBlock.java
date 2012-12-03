@@ -29,10 +29,4 @@ public final class VMCodeBlock extends VMObject {
 	public List<VMObject> getCode() {
 		return code;
 	}
-
-	@Override
-	public VMObject evaluate() {
-		// TODO
-		return null;
-	}
 }

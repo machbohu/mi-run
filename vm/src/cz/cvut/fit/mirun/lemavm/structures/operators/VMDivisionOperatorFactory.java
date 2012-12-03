@@ -1,6 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMCompoundDivide;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.CompNumberBinaryDivision;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.CompVariableBinaryDivision;
@@ -10,7 +11,6 @@ import cz.cvut.fit.mirun.lemavm.structures.operators.division.NumberVariableBina
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.VariableCompBinaryDivision;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.VariableNumberBinaryDivision;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.VariableVariableBinaryDivision;
-import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 public final class VMDivisionOperatorFactory extends VMBinaryOperatorFactory {
 

@@ -34,5 +34,7 @@ public class VMField {
 		return val;
 	}
 	
-	
+	public boolean isStatic() {
+		return isStatic;
+	}
 }

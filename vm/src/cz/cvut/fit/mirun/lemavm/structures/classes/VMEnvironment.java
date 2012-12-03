@@ -20,14 +20,14 @@ public class VMEnvironment {
 	private static final Set<String> knownTypes = initTypes();
 
 	// Contains all reference bindings (including final ones)
-	private final Map<String, VMObject> bindings;
+	protected final Map<String, VMObject> bindings;
 	// Contains all binding types
-	private final Map<String, String> bindingTypes;
+	protected final Map<String, String> bindingTypes;
 	// Contains primitive bindings
-	private final Map<String, Object> primitiveBindings;
+	protected final Map<String, Object> primitiveBindings;
 	// Contains all final bindings (primitive and reference)
-	private final Map<String, Object> finalBindings;
-	private final VMEnvironment parent;
+	protected final Map<String, Object> finalBindings;
+	protected final VMEnvironment parent;
 
 	public VMEnvironment() {
 		super();

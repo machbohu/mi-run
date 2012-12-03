@@ -1,4 +1,4 @@
-package cz.cvut.fit.mirun.lemavm.structures.primitives;
+package cz.cvut.fit.mirun.lemavm.structures.builtin;
 
 import cz.cvut.fit.mirun.lemavm.core.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;

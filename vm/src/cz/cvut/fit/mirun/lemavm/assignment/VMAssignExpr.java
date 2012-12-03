@@ -1,10 +1,10 @@
 package cz.cvut.fit.mirun.lemavm.assignment;
 
-import cz.cvut.fit.mirun.lemavm.core.VMConstants;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
-import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
+import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 
 public final class VMAssignExpr extends VMAssignOperator {
 

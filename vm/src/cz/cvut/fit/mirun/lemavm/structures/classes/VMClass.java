@@ -135,6 +135,19 @@ public final class VMClass {
 	}
 
 	/**
+	 * Create new instance of this class. </p>
+	 * 
+	 * @return New instance of this class
+	 */
+	public VMClassInstance createInstance() {
+		if (superClass != null) {
+			return new VMClassInstance(this, superClass.createInstance());
+		} else {
+			return new VMClassInstance(this, null);
+		}
+	}
+
+	/**
 	 * Check if this class instance is the same or is a superclass of the
 	 * specified other class.
 	 * 

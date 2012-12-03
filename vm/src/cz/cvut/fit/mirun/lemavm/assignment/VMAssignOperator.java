@@ -2,9 +2,9 @@ package cz.cvut.fit.mirun.lemavm.assignment;
 
 import org.apache.log4j.Logger;
 
-import cz.cvut.fit.mirun.lemavm.core.VMConstants;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
+import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 
 public abstract class VMAssignOperator {
 

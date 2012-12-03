@@ -6,8 +6,8 @@ import java.util.List;
 import org.antlr.runtime.tree.CommonTree;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
-import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMField;
 import cz.cvut.fit.mirun.lemavm.structures.control.VMFor;
 
@@ -20,7 +20,7 @@ public class VMCodeBlockBuilder extends VMBuilder {
 		this.code = new VMCodeBlock();
 	}
 	
-	private VMObject buildForFromTree(CommonTree node){
+	private Evaluable buildForFromTree(CommonTree node){
 		CommonTree child = null, codeTree = null;
 		List<Object> inits = null;
 		Object condition = null, operation = null;

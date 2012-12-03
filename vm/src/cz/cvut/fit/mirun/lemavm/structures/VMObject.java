@@ -1,7 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures;
 
 /**
- * This is the base object from which all definitions in the VM should be
+ * This is the base object from which all reference types in the VM should be
  * derived. It merely declares that all objects have a header and can point to
  * their previous location, which is necessary for correct garbage collection
  * support.
@@ -9,7 +9,7 @@ package cz.cvut.fit.mirun.lemavm.structures;
  * @author kidney
  * 
  */
-public abstract class VMObject implements Recognizable, Evaluable {
+public abstract class VMObject implements Recognizable {
 
 	private final VMHeader header;
 
@@ -46,6 +46,18 @@ public abstract class VMObject implements Recognizable, Evaluable {
 	 */
 	public ObjectType getType() {
 		return header.getType();
+	}
+
+	/**
+	 * Get name of the type represented by this {@code VMObject}. </p>
+	 * 
+	 * Built-in reference types can use this default implementation, class
+	 * instances should override it and return their class name.
+	 * 
+	 * @return Type name
+	 */
+	public String getTypeName() {
+		return header.getType().toString();
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package cz.cvut.fit.mirun.lemavm.structures.primitives;
+package cz.cvut.fit.mirun.lemavm.structures.builtin;
 
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.Printable;
@@ -23,11 +23,6 @@ public abstract class VMPrimitive extends VMObject implements Printable {
 
 	public VMPrimitive(ObjectType type) {
 		super(type);
-	}
-
-	@Override
-	public VMObject evaluate() {
-		return this;
 	}
 
 	/**

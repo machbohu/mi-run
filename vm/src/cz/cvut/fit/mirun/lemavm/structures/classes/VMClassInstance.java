@@ -1,9 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.structures.classes;
 
-import java.util.HashMap;
-import java.util.Map;
-
-import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 
@@ -17,63 +14,39 @@ import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 public class VMClassInstance extends VMObject {
 
 	private final VMClass cls;
-	// For possible inheritance support
+	// For inheritance support
 	private final VMClassInstance superInst;
-	//-------------------------------------------------
-	private final Map<String, Object> fields; // copied from VMClass during instantiation
-	// TODO remove structure below and place one above instead
-	private final Map<String, VMObject> fieldValues;
-	//-------------------------------------------------
-	private final VMEnvironment env;
+	// The environment contains mapping of instance fields and values
+	private final VMEnvironment environment;
 
 	public VMClassInstance(VMClass cls, VMClassInstance superInst) {
 		super(ObjectType.OBJECT);
-		// TODO copy fields from VMClass
-		fields = new HashMap<>();
-		fieldValues = new HashMap<>();
 		this.cls = cls;
 		this.superInst = superInst;
-		// TODO set env with default values in VMClass cls
-		this.env = new VMEnvironment();
+		this.environment = initEnvironment();
 	}
 
 	/**
-	 * Set value of a field. </p>
-	 * 
-	 * The name of the field is specified in the {@code VMField} instance.
+	 * Set value of a field with the specified name. </p>
 	 * 
 	 * @param field
 	 *            The field to set
-	 * @return True if the set was successful, false otherwise
 	 */
-	public void setFieldValue(String fieldName, VMObject value) {
-		assert fieldName != null;
-		assert value != null;
-		if (!cls.getFields().containsKey(fieldName)) {
-			if (superInst != null) {
-				try {
-					superInst.setFieldValue(fieldName, value);
-					return;
-				} catch (VMParsingException e) {
-					// Rethrow, but with correct class name
-					throw new VMParsingException("Unknown field name "
-							+ fieldName + " in class " + cls.getName());
-				}
-			} else {
-				throw new VMParsingException("Unknown field name " + fieldName
-						+ " in class " + cls.getName());
-			}
+	public void setFieldValue(String fieldName, Object value) {
+		if (fieldName == null || value == null) {
+			throw new NullPointerException();
 		}
-		fieldValues.put(fieldName, value);
-	}
-
-	public Map<String, VMObject> getFieldValues() {
-		if (superInst != null) {
-			final Map<String, VMObject> vals = superInst.getFieldValues();
-			vals.putAll(fieldValues);
-			return vals;
+		if (!environment.containsBinding(fieldName)) {
+			throw new VMEvaluationException("Unknown field name " + fieldName
+					+ " in type " + cls.getName());
 		}
-		return fieldValues;
+		if (value instanceof VMObject) {
+			final VMObject obVal = (VMObject) value;
+			environment.addBinding(fieldName, obVal, obVal.getTypeName());
+		} else {
+			environment.addPrimitiveBinding(fieldName, value,
+					environment.getNameType(fieldName));
+		}
 	}
 
 	/**
@@ -87,9 +60,9 @@ public class VMClassInstance extends VMObject {
 	 */
 	public VMVisibilityModifier getFieldVisibility(String fieldName) {
 		assert fieldName != null;
-		if(cls.getFields().containsKey(fieldName)){
+		if (cls.getFields().containsKey(fieldName)) {
 			return cls.getFields().get(fieldName).getVisibility();
-		}else{
+		} else {
 			return null;
 		}
 	}
@@ -102,8 +75,22 @@ public class VMClassInstance extends VMObject {
 		return superInst;
 	}
 
+	public VMEnvironment getEnvironment() {
+		return environment;
+	}
+
 	@Override
-	public VMObject evaluate() {
-		return this;
+	public String getTypeName() {
+		return cls.getName();
+	}
+
+	private VMEnvironment initEnvironment() {
+		VMEnvironment env = null;
+		if (superInst != null) {
+			env = new VMInstanceEnvironment(superInst.environment, this);
+		} else {
+			env = new VMInstanceEnvironment(this);
+		}
+		return env;
 	}
 }

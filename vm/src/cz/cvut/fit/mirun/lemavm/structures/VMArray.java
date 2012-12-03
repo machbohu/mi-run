@@ -15,11 +15,6 @@ public final class VMArray<T> extends VMObject {
 		VMMemoryManager.allocateObject(this);
 	}
 
-	@Override
-	public VMObject evaluate() {
-		return this;
-	}
-
 	/**
 	 * Get value at the specified index.
 	 * 

@@ -10,11 +10,9 @@ import org.antlr.runtime.tree.CommonTree;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMAmbiguousMethodDeclaration;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
-import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
-import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 
-public class VMMethod extends VMObject {
+public class VMMethod {
 
 	private final String name;
 	private VMClass owner;
@@ -22,7 +20,6 @@ public class VMMethod extends VMObject {
 	private final boolean isStatic;
 	private final VMVisibilityModifier visibility;
 	private final String returnType;
-	private final VMEnvironment env;
 
 	private final CommonTree methodTree;
 	// TODO This may not be the best representation of a code block
@@ -44,7 +41,6 @@ public class VMMethod extends VMObject {
 	public VMMethod(String name, VMClass owner, boolean isStatic,
 			VMVisibilityModifier visibility, String returnType,
 			Map<String, String> arguments, CommonTree tree) {
-		super(ObjectType.METHOD);
 		if (name == null || name.isEmpty() || visibility == null) {
 			throw new VMParsingException(
 					"Invalid VMMethod constructor parameters: " + name + ", "
@@ -55,14 +51,11 @@ public class VMMethod extends VMObject {
 		this.isStatic = isStatic;
 		this.visibility = visibility;
 		this.returnType = returnType;
-		// TODO should be created in time of method call?
-		this.env = new VMEnvironment();
 
 		if (arguments == null) {
 			this.arguments = Collections.emptyMap();
 		} else {
 			this.arguments = arguments;
-			// TODO fill environment with arguments?
 		}
 
 		this.methodTree = tree;
@@ -109,9 +102,12 @@ public class VMMethod extends VMObject {
 		return code;
 	}
 
-	@Override
-	public VMObject evaluate() {
-		return this;
+	public CommonTree getMethodTree() {
+		return methodTree;
+	}
+
+	public String getReturnType() {
+		return returnType;
 	}
 
 	/**

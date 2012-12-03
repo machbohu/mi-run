@@ -1,7 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
-import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.utils.ParsingUtils;
 
 public abstract class VMBinaryOperatorFactory {

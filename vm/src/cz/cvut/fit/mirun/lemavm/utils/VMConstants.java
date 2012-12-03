@@ -1,4 +1,4 @@
-package cz.cvut.fit.mirun.lemavm.core;
+package cz.cvut.fit.mirun.lemavm.utils;
 
 public abstract class VMConstants {
 

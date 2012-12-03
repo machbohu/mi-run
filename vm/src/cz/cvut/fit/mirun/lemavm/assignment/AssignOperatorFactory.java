@@ -1,10 +1,10 @@
 package cz.cvut.fit.mirun.lemavm.assignment;
 
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMNull;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
-import cz.cvut.fit.mirun.lemavm.structures.primitives.VMNull;
-import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 public final class AssignOperatorFactory {
 

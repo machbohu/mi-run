@@ -8,9 +8,9 @@ import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
-import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMRelationalOperator;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 
-public final class VMFor extends VMObject {
+public final class VMFor extends VMControlStructure {
 
 	private final List<Object> inits;
 	private final Object condition;
@@ -30,8 +30,8 @@ public final class VMFor extends VMObject {
 	 * @param forPart
 	 *            For part
 	 */
-	public VMFor(List<Object> inits, Object condition,
-			Object operation, CommonTree forTree) {
+	public VMFor(List<Object> inits, Object condition, Object operation,
+			CommonTree forTree) {
 		super(ObjectType.FOR);
 		if (/* index == null || */condition == null || operation == null
 				|| forTree == null) {
@@ -48,14 +48,15 @@ public final class VMFor extends VMObject {
 	}
 
 	@Override
-	public VMObject evaluate() {
-//		final boolean res = condition.evaluateBoolean();
-//		if (res) {
-//			// TODO build codeBlock from AST, prepend operation and
-//			// this instance of for to the CodeBlock forPart for later repeated evaluation
-//			return forPart;
-//		}
-		
+	public VMObject evaluate(VMEnvironment env) {
+		// final boolean res = condition.evaluateBoolean();
+		// if (res) {
+		// // TODO build codeBlock from AST, prepend operation and
+		// // this instance of for to the CodeBlock forPart for later repeated
+		// evaluation
+		// return forPart;
+		// }
+
 		return null;
 	}
 

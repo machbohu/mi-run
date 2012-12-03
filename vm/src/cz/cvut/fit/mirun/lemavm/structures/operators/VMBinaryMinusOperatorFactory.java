@@ -1,6 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMCompoundMinus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.minus.CompNumberBinaryMinus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.minus.CompVariableBinaryMinus;
@@ -10,7 +11,6 @@ import cz.cvut.fit.mirun.lemavm.structures.operators.minus.NumberVariableBinaryM
 import cz.cvut.fit.mirun.lemavm.structures.operators.minus.VariableCompBinaryMinus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.minus.VariableNumberBinaryMinus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.minus.VariableVariableBinaryMinus;
-import cz.cvut.fit.mirun.lemavm.structures.primitives.VMString;
 
 public final class VMBinaryMinusOperatorFactory extends VMBinaryOperatorFactory {
 
