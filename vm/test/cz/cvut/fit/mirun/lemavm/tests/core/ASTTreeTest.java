@@ -7,8 +7,8 @@ import org.antlr.runtime.tree.CommonTree;
 import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMBaseStructureBuilder;
-import cz.cvut.fit.mirun.lemavm.core.VMUtils;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public class ASTTreeTest {
 

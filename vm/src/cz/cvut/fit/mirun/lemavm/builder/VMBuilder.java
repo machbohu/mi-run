@@ -7,7 +7,6 @@ import java.util.List;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
 
-import cz.cvut.fit.mirun.lemavm.core.VMUtils;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMField;
@@ -34,6 +33,7 @@ import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMLessThanOperatorF
 import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMLogicalAndOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMLogicalOrOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMRelationalOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public abstract class VMBuilder {
 

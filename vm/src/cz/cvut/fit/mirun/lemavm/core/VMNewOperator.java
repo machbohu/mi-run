@@ -35,9 +35,11 @@ public final class VMNewOperator {
 	 * method an empty list, do not use null.
 	 * 
 	 * @param typeName
+	 *            Name of the type to instantiate
 	 * @param args
+	 *            Arguments to pass to the type constructor
 	 */
-	private VMNewOperator(String typeName, List<Object> args) {
+	public VMNewOperator(String typeName, List<Object> args) {
 		super();
 		if (typeName == null || args == null) {
 			throw new NullPointerException();
