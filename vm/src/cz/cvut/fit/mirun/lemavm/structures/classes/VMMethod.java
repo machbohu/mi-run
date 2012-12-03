@@ -157,19 +157,19 @@ public class VMMethod {
 	 * 
 	 * @param name
 	 *            Name of the method
-	 * @param args
+	 * @param argTypes
 	 *            List of argument types
 	 * @return True if this method matches the specified description
 	 */
-	public boolean doesMethodMatch(String name, List<String> args) {
-		if (name == null || args == null) {
+	public boolean doesMethodMatch(String name, List<String> argTypes) {
+		if (name == null || argTypes == null) {
 			throw new NullPointerException();
 		}
-		if (!this.name.equals(name) || arguments.size() != args.size()) {
+		if (!this.name.equals(name) || arguments.size() != argTypes.size()) {
 			return false;
 		}
 		final Iterator<String> it = arguments.keySet().iterator();
-		for (String type : args) {
+		for (String type : argTypes) {
 			assert it.hasNext();
 			if (!type.equals(arguments.get(it.next()))) {
 				return false;

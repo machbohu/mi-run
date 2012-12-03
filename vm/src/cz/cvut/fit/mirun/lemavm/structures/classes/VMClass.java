@@ -1,6 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures.classes;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +24,8 @@ public final class VMClass {
 	private final VMClass superClass;
 	private final Map<String, VMField> fields;
 	private final List<VMMethod> constructors;
-	private final Map<String, VMMethod> methods;
+	// Need to use list to support method overloading
+	private final Map<String, List<VMMethod>> methods;
 
 	// TODO What about static fields and methods?
 
@@ -37,7 +39,7 @@ public final class VMClass {
 
 	private VMClass(String name, VMClass superClass,
 			Map<String, VMField> fields, List<VMMethod> constructors,
-			Map<String, VMMethod> methods) {
+			Map<String, List<VMMethod>> methods) {
 		this.name = name;
 		this.superClass = superClass;
 
@@ -89,8 +91,19 @@ public final class VMClass {
 		fields.put(field.getName(), field);
 	}
 
-	public Map<String, VMMethod> getMethods() {
+	public Map<String, List<VMMethod>> getMethods() {
 		return methods;
+	}
+
+	public List<VMMethod> getMethodsForName(String methodName) {
+		if (methodName == null) {
+			throw new NullPointerException();
+		}
+		List<VMMethod> res = methods.get(methodName);
+		if (res == null) {
+			return Collections.emptyList();
+		}
+		return res;
 	}
 
 	public List<VMMethod> getDeclaredConstructors() {
@@ -110,8 +123,16 @@ public final class VMClass {
 		if (newMethod == null) {
 			throw new NullPointerException();
 		}
-		VMMethod.checkForMethodAmbiguity(methods.values(), newMethod);
-		methods.put(newMethod.getName(), newMethod);
+		List<VMMethod> ms = methods.get(newMethod.getName());
+		if (ms != null) {
+			VMMethod.checkForMethodAmbiguity(methods.get(newMethod.getName()),
+					newMethod);
+			ms.add(newMethod);
+		} else {
+			ms = new ArrayList<>();
+			ms.add(newMethod);
+			methods.put(newMethod.getName(), ms);
+		}
 		newMethod.setOwner(this);
 	}
 
@@ -169,6 +190,21 @@ public final class VMClass {
 		return false;
 	}
 
+	@Override
+	public boolean equals(Object other) {
+		if (other instanceof VMClass) {
+			final VMClass c = (VMClass) other;
+			return name.equals(c.getName());
+		}
+		return false;
+	}
+
+	@Override
+	public int hashCode() {
+		int hash = 31 * name.hashCode();
+		return hash;
+	}
+
 	/**
 	 * Create class with the specified parameters. </p>
 	 * 
@@ -213,7 +249,7 @@ public final class VMClass {
 	 */
 	public static VMClass createClass(String name, VMClass superClass,
 			Map<String, VMField> fields, List<VMMethod> constructors,
-			Map<String, VMMethod> methods) {
+			Map<String, List<VMMethod>> methods) {
 		if (name == null || name.isEmpty()) {
 			throw new VMParsingException(
 					"Invalid VMClass constructor parameters: " + name);

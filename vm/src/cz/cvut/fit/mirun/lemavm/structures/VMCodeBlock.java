@@ -12,21 +12,19 @@ import java.util.List;
  * @author kidney
  * 
  */
-public final class VMCodeBlock extends VMObject {
+public final class VMCodeBlock {
 
-	private final List<VMObject> code;
+	private final List<Object> code;
 
 	public VMCodeBlock() {
-		super(ObjectType.CODE_BLOCK);
 		this.code = new ArrayList<>();
 	}
-	
-	public VMCodeBlock(List<VMObject> code) {
-		super(ObjectType.CODE_BLOCK);
+
+	public VMCodeBlock(List<Object> code) {
 		this.code = code;
 	}
 
-	public List<VMObject> getCode() {
+	public List<Object> getCode() {
 		return code;
 	}
 }

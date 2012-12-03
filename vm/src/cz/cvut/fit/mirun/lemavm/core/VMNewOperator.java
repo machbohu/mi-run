@@ -10,8 +10,8 @@ import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
-import cz.cvut.fit.mirun.lemavm.utils.ParsingUtils;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
+import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 /**
  * This class is the new operator which is used to create instances of
@@ -83,7 +83,7 @@ public final class VMNewOperator {
 
 	private VMObject checkForBuiltInTypes() {
 		VMObject instance = null;
-		if (ParsingUtils.isTypePrimitive(typeName)) {
+		if (VMUtils.isTypePrimitive(typeName)) {
 			throw new VMEvaluationException(
 					"Cannot use the new operator with primitive type "
 							+ typeName);

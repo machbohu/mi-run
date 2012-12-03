@@ -11,5 +11,5 @@ public interface Evaluable {
 	 *            The environment in which this method should do the evaluation
 	 * @return Result of the evaluation
 	 */
-	public VMObject evaluate(VMEnvironment env);
+	public Object evaluate(VMEnvironment env);
 }
