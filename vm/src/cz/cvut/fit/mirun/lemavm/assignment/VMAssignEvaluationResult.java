@@ -3,18 +3,18 @@ package cz.cvut.fit.mirun.lemavm.assignment;
 import java.util.Collections;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
-import cz.cvut.fit.mirun.lemavm.structures.VMMethodCallOperator;
+import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
-public final class VMAssignMethodResult extends VMAssignOperator {
+public final class VMAssignEvaluationResult extends VMAssignOperator {
 
-	private final VMMethodCallOperator value;
+	private final Evaluable value;
 
-	public VMAssignMethodResult(String name, String type, boolean isFinal,
-			VMMethodCallOperator value) {
+	public VMAssignEvaluationResult(String name, String type, boolean isFinal,
+			Evaluable value) {
 		super(name, type, isFinal);
 		this.value = value;
 	}
