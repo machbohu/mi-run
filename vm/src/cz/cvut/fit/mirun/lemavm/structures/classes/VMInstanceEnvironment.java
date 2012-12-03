@@ -2,14 +2,16 @@ package cz.cvut.fit.mirun.lemavm.structures.classes;
 
 import java.util.Collection;
 
+import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMNull;
+import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public class VMInstanceEnvironment extends VMEnvironment {
 
 	private final VMClassInstance owner;
-	
+
 	// TODO Do visibility checking
 
 	public VMInstanceEnvironment(VMClassInstance owner) {
@@ -26,6 +28,19 @@ public class VMInstanceEnvironment extends VMEnvironment {
 
 	public VMObject getOwner() {
 		return owner;
+	}
+
+	@Override
+	public <T> T getBinding(String name, Class<T> cls) {
+		if (name.equals(VMConstants.THIS)) {
+			if (!cls.equals(VMObject.class)) {
+				throw new VMEvaluationException(
+						"The this keyword can be used only on VMObject instances.");
+			}
+			return cls.cast(owner);
+		} else {
+			return super.getBinding(name, cls);
+		}
 	}
 
 	/**

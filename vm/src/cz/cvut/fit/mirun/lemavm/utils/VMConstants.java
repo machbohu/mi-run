@@ -19,6 +19,8 @@ public abstract class VMConstants {
 	public static final String STRING = "string";
 
 	public static final String NULL = "null";
-	
+
 	public static final String ARRAY = "array";
+
+	public static final String THIS = "this";
 }

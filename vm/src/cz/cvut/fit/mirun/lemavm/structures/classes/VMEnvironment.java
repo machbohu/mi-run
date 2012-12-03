@@ -29,6 +29,9 @@ public class VMEnvironment {
 	protected final Map<String, Object> finalBindings;
 	protected final VMEnvironment parent;
 
+	// Used for method return values
+	protected Object returnValue;
+
 	public VMEnvironment() {
 		super();
 		this.bindings = new HashMap<>();
@@ -198,6 +201,14 @@ public class VMEnvironment {
 
 	public VMEnvironment getParent() {
 		return parent;
+	}
+
+	public Object getReturnValue() {
+		return returnValue;
+	}
+
+	public void setReturnValue(Object returnValue) {
+		this.returnValue = returnValue;
 	}
 
 	/**

@@ -114,8 +114,10 @@ public class VMInterpreter {
 	 *            Name of the method to invoke
 	 * @param arguments
 	 *            Arguments to pass to the method
+	 * @return The value returned from the invoked method. Null if the method
+	 *         did not return anything
 	 */
-	public void invokeMethod(VMObject receiver, String methodName,
+	public Object invokeMethod(VMObject receiver, String methodName,
 			List<Object> arguments) {
 		if (receiver == null || methodName == null || arguments == null) {
 			throw new NullPointerException();
@@ -125,9 +127,9 @@ public class VMInterpreter {
 					+ receiver);
 		}
 		if (VMUtils.isBuiltInType(receiver)) {
-			invokeNativeMethod(receiver, methodName, arguments);
-			// TODO save the return value if it should be used in assignment
-			return;
+			final Object res = invokeNativeMethod(receiver, methodName,
+					arguments);
+			return res;
 		}
 		final VMClassInstance inst = (VMClassInstance) receiver;
 		final VMMethod m = lookupMethod(inst, methodName, arguments);
@@ -138,8 +140,9 @@ public class VMInterpreter {
 		// TODO Build code block for the constructor if it has not been build
 		// yet
 		executeCodeBlock(m.getCode());
-		// TODO save the return value if it should be used in assignment
+		final Object res = methodEnv.getReturnValue();
 		this.currentEnvironment = stackFrames.pop();
+		return res;
 	}
 
 	/**
@@ -153,10 +156,13 @@ public class VMInterpreter {
 	 *            Name of the method
 	 * @param arguments
 	 *            Arguments to pass to the method
+	 * @return Return value of the invoked method. Null if the method did not
+	 *         return anything
 	 */
-	public void invokeStaticMethod(VMClass receiver, String methodName,
+	public Object invokeStaticMethod(VMClass receiver, String methodName,
 			List<Object> arguments) {
 		// TODO
+		return null;
 	}
 
 	/**
@@ -263,13 +269,14 @@ public class VMInterpreter {
 	 * @param arguments
 	 *            Arguments
 	 */
-	private void invokeNativeMethod(VMObject receiver, String methodName,
+	private Object invokeNativeMethod(VMObject receiver, String methodName,
 			List<Object> arguments) {
 		Method[] methods = receiver.getClass().getDeclaredMethods();
 		for (Method m : methods) {
 			if (m.getName().equals(methodName)) {
 				try {
-					m.invoke(receiver, arguments.toArray());
+					final Object res = m.invoke(receiver, arguments.toArray());
+					return res;
 				} catch (IllegalAccessException | IllegalArgumentException
 						| InvocationTargetException e) {
 					LOG.error("Unable to invoke method " + methodName, e);
@@ -278,5 +285,7 @@ public class VMInterpreter {
 				}
 			}
 		}
+		throw new VMEvaluationException("Native method named " + methodName
+				+ " not found on receiver " + receiver);
 	}
 }

@@ -1,5 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.assignment;
 
+import cz.cvut.fit.mirun.lemavm.structures.VMMethodCallOperator;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
@@ -31,6 +32,9 @@ public final class AssignOperatorFactory {
 			return createOperator(name, type, isFinal, (VMOperator) value);
 		} else if (value instanceof VMObject) {
 			return createOperator(name, type, isFinal, (VMObject) value);
+		} else if (value instanceof VMMethodCallOperator) {
+			return createOperator(name, type, isFinal,
+					(VMMethodCallOperator) value);
 		} else {
 			return createOperator(name, type, isFinal, (String) value);
 		}
@@ -59,5 +63,10 @@ public final class AssignOperatorFactory {
 	protected VMAssignOperator createOpeator(String name, String type,
 			boolean isFinal, String value) {
 		return new VMAssignVariable(name, type, isFinal, value);
+	}
+
+	protected VMAssignOperator createOperator(String name, String type,
+			boolean isFinal, VMMethodCallOperator value) {
+		return new VMAssignMethodResult(name, type, isFinal, value);
 	}
 }
