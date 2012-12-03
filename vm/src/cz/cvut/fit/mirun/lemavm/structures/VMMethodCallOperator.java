@@ -5,7 +5,9 @@ import java.util.List;
 import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
+import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 
 /**
@@ -15,9 +17,7 @@ import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
  * @author kidney
  * 
  */
-public final class VMMethodCallOperator implements Evaluable {
-
-	// TODO Add this operator to the rest of the operators.
+public final class VMMethodCallOperator extends VMOperator implements Evaluable {
 
 	private final String receiver;
 	private final String methodName;
@@ -56,5 +56,77 @@ public final class VMMethodCallOperator implements Evaluable {
 		String out = "MethodCall: receiver = " + receiver + ", method name = "
 				+ methodName;
 		return out;
+	}
+
+	@Override
+	public Double evaluateDouble(VMEnvironment env) {
+		Object res = evaluate(env);
+		try {
+			return Double.class.cast(res);
+		} catch (ClassCastException e) {
+			throw new VMEvaluationException(
+					"The return value of invocation of " + methodName
+							+ " cannot be cast to double.");
+		}
+	}
+
+	@Override
+	public Long evaluateLong(VMEnvironment env) {
+		Object res = evaluate(env);
+		try {
+			return Long.class.cast(res);
+		} catch (ClassCastException e) {
+			throw new VMEvaluationException(
+					"The return value of invocation of " + methodName
+							+ " cannot be cast to long.");
+		}
+	}
+
+	@Override
+	public Integer evaluateInt(VMEnvironment env) {
+		Object res = evaluate(env);
+		try {
+			return Integer.class.cast(res);
+		} catch (ClassCastException e) {
+			throw new VMEvaluationException(
+					"The return value of invocation of " + methodName
+							+ " cannot be cast to int.");
+		}
+	}
+
+	@Override
+	public Short evaluateShort(VMEnvironment env) {
+		Object res = evaluate(env);
+		try {
+			return Short.class.cast(res);
+		} catch (ClassCastException e) {
+			throw new VMEvaluationException(
+					"The return value of invocation of " + methodName
+							+ " cannot be cast to short.");
+		}
+	}
+
+	@Override
+	public Boolean evaluateBoolean(VMEnvironment env) {
+		Object res = evaluate(env);
+		try {
+			return Boolean.class.cast(res);
+		} catch (ClassCastException e) {
+			throw new VMEvaluationException(
+					"The return value of invocation of " + methodName
+							+ " cannot be cast to boolean.");
+		}
+	}
+
+	@Override
+	public VMString evaluateString(VMEnvironment env) {
+		Object res = evaluate(env);
+		try {
+			return VMString.class.cast(res);
+		} catch (ClassCastException e) {
+			throw new VMEvaluationException(
+					"The return value of invocation of " + methodName
+							+ " cannot be cast to VMString.");
+		}
 	}
 }

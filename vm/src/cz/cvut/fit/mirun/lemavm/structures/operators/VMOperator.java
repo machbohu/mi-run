@@ -3,6 +3,7 @@ package cz.cvut.fit.mirun.lemavm.structures.operators;
 import org.apache.log4j.Logger;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
+import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
@@ -13,7 +14,7 @@ import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
  * @author kidney
  * 
  */
-public abstract class VMOperator {
+public abstract class VMOperator implements Evaluable {
 
 	protected static final Logger LOG = Logger.getLogger(VMOperator.class);
 

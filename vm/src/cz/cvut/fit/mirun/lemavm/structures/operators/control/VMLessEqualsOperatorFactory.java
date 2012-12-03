@@ -5,7 +5,8 @@ import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
-public final class VMLessEqualsOperatorFactory extends VMRelationalOperatorFactory {
+public final class VMLessEqualsOperatorFactory extends
+		VMRelationalOperatorFactory {
 
 	/**
 	 * Create the relational operator.
@@ -70,7 +71,7 @@ public final class VMLessEqualsOperatorFactory extends VMRelationalOperatorFacto
 	protected VMRelationalOperator createOperator(String opOne, String opTwo) {
 		return new VariableVariableLessEquals(opOne, opTwo);
 	}
-	
+
 	@Override
 	protected VMRelationalOperator createOperator(Boolean opOne, Boolean opTwo) {
 		throw new VMParsingException("Unsupported operand types "
@@ -136,11 +137,9 @@ public final class VMLessEqualsOperatorFactory extends VMRelationalOperatorFacto
 				+ opOne.getClass().getName() + ", "
 				+ opTwo.getClass().getName());
 	}
-	
 
 	// Operators definitions
 
-	
 	public static final class NumberLessEquals extends VMRelationalOperator {
 		private final Number opOne;
 		private final Number opTwo;
@@ -157,6 +156,11 @@ public final class VMLessEqualsOperatorFactory extends VMRelationalOperatorFacto
 			} else {
 				return (opOne.longValue() <= opTwo.longValue());
 			}
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -177,6 +181,11 @@ public final class VMLessEqualsOperatorFactory extends VMRelationalOperatorFacto
 				return (opOne.longValue() <= opTwo.evaluateLong(env));
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class CompNumberLessEquals extends VMRelationalOperator {
@@ -196,6 +205,11 @@ public final class VMLessEqualsOperatorFactory extends VMRelationalOperatorFacto
 				return (opOne.evaluateLong(env) <= opTwo.longValue());
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class CompCompLessEquals extends VMRelationalOperator {
@@ -212,6 +226,11 @@ public final class VMLessEqualsOperatorFactory extends VMRelationalOperatorFacto
 			Double rOne = opOne.evaluateDouble(env);
 			Double rTwo = opTwo.evaluateDouble(env);
 			return (rOne <= rTwo);
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -234,6 +253,11 @@ public final class VMLessEqualsOperatorFactory extends VMRelationalOperatorFacto
 				return (opOne.longValue() <= nTwo.longValue());
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class VariableNumberLessEquals extends
@@ -254,6 +278,11 @@ public final class VMLessEqualsOperatorFactory extends VMRelationalOperatorFacto
 			} else {
 				return (nOne.longValue() <= opTwo.longValue());
 			}
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -276,6 +305,11 @@ public final class VMLessEqualsOperatorFactory extends VMRelationalOperatorFacto
 				return (nOne.longValue() <= opTwo.evaluateLong(env));
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class CompVariableLessEquals extends
@@ -296,6 +330,11 @@ public final class VMLessEqualsOperatorFactory extends VMRelationalOperatorFacto
 			} else {
 				return (opOne.evaluateLong(env) <= nTwo.longValue());
 			}
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -318,6 +357,11 @@ public final class VMLessEqualsOperatorFactory extends VMRelationalOperatorFacto
 			} else {
 				return (nOne.longValue() <= nTwo.longValue());
 			}
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 }

@@ -127,6 +127,11 @@ public final class VMLogicalAndOperatorFactory extends
 		public Boolean evaluateBoolean(VMEnvironment env) {
 			return (opOne && opTwo);
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class BooleanCompAnd extends VMRelationalOperator {
@@ -141,6 +146,11 @@ public final class VMLogicalAndOperatorFactory extends
 		@Override
 		public Boolean evaluateBoolean(VMEnvironment env) {
 			return (opOne && opTwo.evaluateBoolean(env));
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -157,6 +167,11 @@ public final class VMLogicalAndOperatorFactory extends
 		public Boolean evaluateBoolean(VMEnvironment env) {
 			return (opOne.evaluateBoolean(env) && opTwo.evaluateBoolean(env));
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class BooleanVariableAnd extends VMRelationalOperator {
@@ -171,6 +186,11 @@ public final class VMLogicalAndOperatorFactory extends
 		@Override
 		public Boolean evaluateBoolean(VMEnvironment env) {
 			return (opOne && getBindingValue(opTwo, Boolean.class, env));
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -188,6 +208,11 @@ public final class VMLogicalAndOperatorFactory extends
 			final Boolean bOne = getBindingValue(opOne, Boolean.class, env);
 			return (bOne && opTwo.evaluateBoolean(env));
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class VariableVariableAnd extends VMRelationalOperator {
@@ -204,6 +229,11 @@ public final class VMLogicalAndOperatorFactory extends
 			final Boolean bOne = getBindingValue(opOne, Boolean.class, env);
 			final Boolean bTwo = getBindingValue(opTwo, Boolean.class, env);
 			return (bOne && bTwo);
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 }

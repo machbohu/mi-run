@@ -35,4 +35,9 @@ public final class VariableNumberBinaryPlus extends AbstractBinaryPlus {
 		final Number n = getBindingValue(opOne, Number.class, env);
 		return (short) (n.shortValue() + opTwo.shortValue());
 	}
+
+	@Override
+	public Object evaluate(VMEnvironment env) {
+		return evaluateInt(env);
+	}
 }

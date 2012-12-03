@@ -36,4 +36,9 @@ public final class CompVariableBinaryMinus extends AbstractBinaryMinus {
 		final Number n = getBindingValue(opTwo, Number.class, env);
 		return (short) (opOne.evaluateShort(env).shortValue() - n.shortValue());
 	}
+
+	@Override
+	public Object evaluate(VMEnvironment env) {
+		return evaluateInt(env);
+	}
 }

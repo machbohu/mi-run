@@ -42,4 +42,9 @@ public final class VMStringVMStringBinaryPlus extends AbstractBinaryPlus {
 	public VMString evaluateString(VMEnvironment env) {
 		return opOne.concat(opTwo);
 	}
+
+	@Override
+	public Object evaluate(VMEnvironment env) {
+		return evaluateInt(env);
+	}
 }

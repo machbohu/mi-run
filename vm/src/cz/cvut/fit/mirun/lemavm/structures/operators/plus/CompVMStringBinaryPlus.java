@@ -50,4 +50,9 @@ public final class CompVMStringBinaryPlus extends AbstractBinaryPlus {
 		return new VMString(opOne.evaluateLong(env).toString()
 				+ opTwo.getValue());
 	}
+	
+	@Override
+	public Object evaluate(VMEnvironment env) {
+		return evaluateInt(env);
+	}
 }

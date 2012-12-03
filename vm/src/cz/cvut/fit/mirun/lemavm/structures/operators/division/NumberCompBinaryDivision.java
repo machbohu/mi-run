@@ -45,4 +45,9 @@ public final class NumberCompBinaryDivision extends AbstractBinaryDivision {
 		}
 		return (short) (opOne.shortValue() / n);
 	}
+
+	@Override
+	public Object evaluate(VMEnvironment env) {
+		return evaluateInt(env);
+	}
 }

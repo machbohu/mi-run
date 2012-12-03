@@ -42,4 +42,9 @@ public final class NumberVMStringBinaryPlus extends AbstractBinaryPlus {
 	public VMString evaluateString(VMEnvironment env) {
 		return new VMString(opOne.toString() + opTwo.getValue());
 	}
+
+	@Override
+	public Object evaluate(VMEnvironment env) {
+		return evaluateInt(env);
+	}
 }

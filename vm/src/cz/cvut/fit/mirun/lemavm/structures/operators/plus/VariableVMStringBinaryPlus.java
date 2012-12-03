@@ -44,4 +44,8 @@ public final class VariableVMStringBinaryPlus extends AbstractBinaryPlus {
 		return new VMString(ob.toString() + opTwo.getValue());
 	}
 
+	@Override
+	public Object evaluate(VMEnvironment env) {
+		return evaluateInt(env);
+	}
 }

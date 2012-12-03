@@ -94,6 +94,11 @@ public final class VMEqualsOperatorFactory extends VMRelationalOperatorFactory {
 		public Boolean evaluateBoolean(VMEnvironment env) {
 			return (opOne.equals(opTwo));
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	/**
@@ -115,6 +120,11 @@ public final class VMEqualsOperatorFactory extends VMRelationalOperatorFactory {
 		public Boolean evaluateBoolean(VMEnvironment env) {
 			return (opOne.equals(opTwo));
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class NumberCompEquals extends VMRelationalOperator {
@@ -135,6 +145,11 @@ public final class VMEqualsOperatorFactory extends VMRelationalOperatorFactory {
 						.longValue());
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class BooleanCompEquals extends VMRelationalOperator {
@@ -149,6 +164,11 @@ public final class VMEqualsOperatorFactory extends VMRelationalOperatorFactory {
 		@Override
 		public Boolean evaluateBoolean(VMEnvironment env) {
 			return (opOne.equals(opTwo.evaluateBoolean(env)));
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -171,6 +191,11 @@ public final class VMEqualsOperatorFactory extends VMRelationalOperatorFactory {
 						.evaluateBoolean(env)));
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class VMGeneralEquals extends VMRelationalOperator {
@@ -185,6 +210,11 @@ public final class VMEqualsOperatorFactory extends VMRelationalOperatorFactory {
 		@Override
 		public Boolean evaluateBoolean(VMEnvironment env) {
 			return oOne.equals(oTwo);
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -205,6 +235,11 @@ public final class VMEqualsOperatorFactory extends VMRelationalOperatorFactory {
 			final Number t = getBindingValue(opOne, Number.class, env);
 			return (t.equals(opTwo));
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class VMVariableBooleanEquals extends
@@ -223,6 +258,11 @@ public final class VMEqualsOperatorFactory extends VMRelationalOperatorFactory {
 		public Boolean evaluateBoolean(VMEnvironment env) {
 			final Boolean t = getBindingValue(opOne, Boolean.class, env);
 			return (t.equals(opTwo));
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -262,6 +302,11 @@ public final class VMEqualsOperatorFactory extends VMRelationalOperatorFactory {
 				}
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class VMVariableObjEquals extends VMRelationalOperator {
@@ -279,6 +324,11 @@ public final class VMEqualsOperatorFactory extends VMRelationalOperatorFactory {
 		public Boolean evaluateBoolean(VMEnvironment env) {
 			final Object t = getBindingValue(opOne, opTwo.getClass(), env);
 			return (t.equals(opTwo));
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -298,6 +348,11 @@ public final class VMEqualsOperatorFactory extends VMRelationalOperatorFactory {
 			final Object oOne = getBindingValue(opOne, Object.class, env);
 			final Object oTwo = getBindingValue(opTwo, Object.class, env);
 			return (oOne.equals(oTwo));
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 }

@@ -34,4 +34,8 @@ public final class CompNumberBinaryMinus extends AbstractBinaryMinus {
 				.shortValue());
 	}
 
+	@Override
+	public Object evaluate(VMEnvironment env) {
+		return evaluateInt(env);
+	}
 }

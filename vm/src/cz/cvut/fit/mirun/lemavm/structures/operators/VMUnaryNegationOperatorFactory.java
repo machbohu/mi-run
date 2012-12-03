@@ -71,6 +71,11 @@ public final class VMUnaryNegationOperatorFactory extends
 		public VMString evaluateString(VMEnvironment env) {
 			return new VMString(evaluateBoolean(env).toString());
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateInt(env);
+		}
 	}
 
 	public static final class VariableUnaryNegation extends VMOperator {
@@ -113,6 +118,11 @@ public final class VMUnaryNegationOperatorFactory extends
 		@Override
 		public VMString evaluateString(VMEnvironment env) {
 			return new VMString(evaluateBoolean(env).toString());
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateInt(env);
 		}
 	}
 }

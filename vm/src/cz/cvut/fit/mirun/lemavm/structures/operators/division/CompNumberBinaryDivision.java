@@ -44,4 +44,8 @@ public final class CompNumberBinaryDivision extends AbstractBinaryDivision {
 				.shortValue());
 	}
 
+	@Override
+	public Object evaluate(VMEnvironment env) {
+		return evaluateInt(env);
+	}
 }

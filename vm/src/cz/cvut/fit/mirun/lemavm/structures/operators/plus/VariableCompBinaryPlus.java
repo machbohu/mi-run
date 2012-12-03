@@ -36,4 +36,9 @@ public final class VariableCompBinaryPlus extends AbstractBinaryPlus {
 		final Number n = getBindingValue(opOne, Number.class, env);
 		return (short) (n.shortValue() + opTwo.evaluateShort(env).shortValue());
 	}
+
+	@Override
+	public Object evaluate(VMEnvironment env) {
+		return evaluateInt(env);
+	}
 }

@@ -33,4 +33,9 @@ public final class NumberCompBinaryPlus extends AbstractBinaryPlus {
 		return (short) (opOne.shortValue() + opTwo.evaluateShort(env)
 				.shortValue());
 	}
+
+	@Override
+	public Object evaluate(VMEnvironment env) {
+		return evaluateInt(env);
+	}
 }

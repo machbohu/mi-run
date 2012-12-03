@@ -137,10 +137,8 @@ public final class VMGreaterEqualsOperatorFactory extends
 				+ opOne.getClass().getName() + ", "
 				+ opTwo.getClass().getName());
 	}
-	
 
 	// Operators definitions
-
 
 	public static final class NumberGreaterEquals extends VMRelationalOperator {
 		private final Number opOne;
@@ -158,6 +156,11 @@ public final class VMGreaterEqualsOperatorFactory extends
 			} else {
 				return (opOne.longValue() >= opTwo.longValue());
 			}
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -179,6 +182,11 @@ public final class VMGreaterEqualsOperatorFactory extends
 				return (opOne.longValue() >= opTwo.evaluateLong(env));
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class CompNumberGreaterEquals extends
@@ -199,6 +207,11 @@ public final class VMGreaterEqualsOperatorFactory extends
 				return (opOne.evaluateLong(env) >= opTwo.longValue());
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class CompCompGreaterEquals extends
@@ -216,6 +229,11 @@ public final class VMGreaterEqualsOperatorFactory extends
 			Double rOne = opOne.evaluateDouble(env);
 			Double rTwo = opTwo.evaluateDouble(env);
 			return (rOne >= rTwo);
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -238,6 +256,11 @@ public final class VMGreaterEqualsOperatorFactory extends
 				return (opOne.longValue() >= nTwo.longValue());
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class VariableNumberGreaterEquals extends
@@ -258,6 +281,11 @@ public final class VMGreaterEqualsOperatorFactory extends
 			} else {
 				return (nOne.longValue() >= opTwo.longValue());
 			}
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -280,6 +308,11 @@ public final class VMGreaterEqualsOperatorFactory extends
 				return (nOne.longValue() >= opTwo.evaluateLong(env));
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class CompVariableGreaterEquals extends
@@ -300,6 +333,11 @@ public final class VMGreaterEqualsOperatorFactory extends
 			} else {
 				return (opOne.evaluateLong(env) >= nTwo.longValue());
 			}
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -322,6 +360,11 @@ public final class VMGreaterEqualsOperatorFactory extends
 			} else {
 				return (nOne.longValue() >= nTwo.longValue());
 			}
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 }

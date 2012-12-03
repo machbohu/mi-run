@@ -50,4 +50,9 @@ public final class VariableVariableBinaryDivision extends
 		}
 		return (short) (valOne.shortValue() / valTwo.shortValue());
 	}
+
+	@Override
+	public Object evaluate(VMEnvironment env) {
+		return evaluateInt(env);
+	}
 }

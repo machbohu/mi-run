@@ -157,6 +157,11 @@ public final class VMLessThanOperatorFactory extends
 				return (opOne.longValue() < opTwo.longValue());
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class NumberCompLessThan extends VMRelationalOperator {
@@ -175,6 +180,11 @@ public final class VMLessThanOperatorFactory extends
 			} else {
 				return (opOne.longValue() < opTwo.evaluateLong(env));
 			}
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -195,6 +205,11 @@ public final class VMLessThanOperatorFactory extends
 				return (opOne.evaluateLong(env) < opTwo.longValue());
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class CompCompLessThan extends VMRelationalOperator {
@@ -211,6 +226,11 @@ public final class VMLessThanOperatorFactory extends
 			Double rOne = opOne.evaluateDouble(env);
 			Double rTwo = opTwo.evaluateDouble(env);
 			return (rOne < rTwo);
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -233,6 +253,11 @@ public final class VMLessThanOperatorFactory extends
 				return (opOne.longValue() < nTwo.longValue());
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class VariableNumberLessThan extends
@@ -254,6 +279,11 @@ public final class VMLessThanOperatorFactory extends
 				return (nOne.longValue() < opTwo.longValue());
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class VariableCompLessThan extends VMRelationalOperator {
@@ -274,6 +304,11 @@ public final class VMLessThanOperatorFactory extends
 				return (nOne.longValue() < opTwo.evaluateLong(env));
 			}
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
+		}
 	}
 
 	public static final class CompVariableLessThan extends VMRelationalOperator {
@@ -293,6 +328,11 @@ public final class VMLessThanOperatorFactory extends
 			} else {
 				return (opOne.evaluateLong(env) < nTwo.longValue());
 			}
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -315,6 +355,11 @@ public final class VMLessThanOperatorFactory extends
 			} else {
 				return (nOne.longValue() < nTwo.longValue());
 			}
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateBoolean(env);
 		}
 	}
 }

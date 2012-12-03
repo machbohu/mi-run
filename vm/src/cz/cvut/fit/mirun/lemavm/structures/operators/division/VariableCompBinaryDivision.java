@@ -49,4 +49,9 @@ public final class VariableCompBinaryDivision extends AbstractBinaryDivision {
 		}
 		return (short) (n.shortValue() / nTwo);
 	}
+
+	@Override
+	public Object evaluate(VMEnvironment env) {
+		return evaluateInt(env);
+	}
 }

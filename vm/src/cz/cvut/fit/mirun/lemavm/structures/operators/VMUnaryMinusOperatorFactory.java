@@ -66,6 +66,11 @@ public final class VMUnaryMinusOperatorFactory extends VMUnaryOperatorFactory {
 		public VMString evaluateString(VMEnvironment env) {
 			return new VMString(evaluateInt(env).toString());
 		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateInt(env);
+		}
 	}
 
 	public static final class VariableUnaryMinus extends VMOperator {
@@ -108,6 +113,11 @@ public final class VMUnaryMinusOperatorFactory extends VMUnaryOperatorFactory {
 		@Override
 		public VMString evaluateString(VMEnvironment env) {
 			return new VMString(evaluateInt(env).toString());
+		}
+
+		@Override
+		public Object evaluate(VMEnvironment env) {
+			return evaluateInt(env);
 		}
 	}
 }

@@ -2,7 +2,8 @@ package cz.cvut.fit.mirun.lemavm.structures.operators.multiplication;
 
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 
-public final class NumberNumberBinaryMultiplication extends AbstractBinaryMultiplication {
+public final class NumberNumberBinaryMultiplication extends
+		AbstractBinaryMultiplication {
 
 	private final Number opOne;
 	private final Number opTwo;
@@ -30,5 +31,10 @@ public final class NumberNumberBinaryMultiplication extends AbstractBinaryMultip
 	@Override
 	public Short evaluateShort(VMEnvironment env) {
 		return (short) (opOne.intValue() * opTwo.intValue());
+	}
+
+	@Override
+	public Object evaluate(VMEnvironment env) {
+		return evaluateInt(env);
 	}
 }
