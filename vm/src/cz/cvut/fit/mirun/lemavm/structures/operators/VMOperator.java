@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
-import cz.cvut.fit.mirun.lemavm.structures.VMHeader;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 
@@ -18,13 +17,10 @@ public abstract class VMOperator {
 
 	protected static final Logger LOG = Logger.getLogger(VMOperator.class);
 
-	private final VMHeader header;
 	protected ObjectType returnType;
 
 	public VMOperator() {
 		super();
-		header = new VMHeader();
-		header.setType(ObjectType.OPERATOR);
 	}
 
 	/**
@@ -68,14 +64,6 @@ public abstract class VMOperator {
 	 * @return VMString
 	 */
 	public abstract VMString evaluateString(VMEnvironment env);
-
-	public ObjectType getType() {
-		return header.getType();
-	}
-
-	public VMHeader getHeader() {
-		return header;
-	}
 
 	public ObjectType getReturnType() {
 		return returnType;

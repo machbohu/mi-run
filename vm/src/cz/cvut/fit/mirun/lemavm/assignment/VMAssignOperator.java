@@ -3,7 +3,9 @@ package cz.cvut.fit.mirun.lemavm.assignment;
 import org.apache.log4j.Logger;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMUnknownTypeException;
 import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 
@@ -70,6 +72,28 @@ public abstract class VMAssignOperator implements Evaluable {
 				throw new VMEvaluationException(
 						"Incompatible types in assigment. Expected " + declType
 								+ ", but got string");
+			}
+		case VMConstants.ARRAY:
+			if (!declType.equals(VMConstants.ARRAY)
+					&& !declType.equals(VMConstants.NULL)) {
+				throw new VMEvaluationException(
+						"Incompatible types in assigment. Expected " + declType
+								+ ", but got an array");
+			}
+		default:
+			// Check class compatibility
+			VMClass decl = VMClass.getClasses().get(declType);
+			if (decl == null) {
+				throw new VMUnknownTypeException(declType);
+			}
+			VMClass runt = VMClass.getClasses().get(runtimeType);
+			if (runt == null) {
+				throw new VMUnknownTypeException(runtimeType);
+			}
+			if (!decl.isAssignableFrom(runt)) {
+				throw new VMEvaluationException(
+						"Incompatible types in assigment. Expected " + declType
+								+ ", but got " + runtimeType);
 			}
 		}
 
