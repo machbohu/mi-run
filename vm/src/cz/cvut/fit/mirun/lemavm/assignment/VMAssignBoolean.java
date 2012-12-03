@@ -7,21 +7,21 @@ public final class VMAssignBoolean extends VMAssignOperator {
 
 	private final boolean value;
 
-	public VMAssignBoolean(String name, String type, VMEnvironment environment,
-			boolean isFinal, boolean value) {
-		super(name, type, environment, isFinal);
+	public VMAssignBoolean(String name, String type, boolean isFinal,
+			boolean value) {
+		super(name, type, isFinal);
 		this.value = value;
 	}
 
 	@Override
-	public void evaluate() {
-		resolveType();
+	public Object evaluate(VMEnvironment env) {
+		resolveType(env);
 		checkTypeCompatibility(type, VMConstants.BOOLEAN);
 		if (isFinal) {
-			environment.addPrimitiveFinalBinding(name, Boolean.valueOf(value),
-					type);
+			env.addPrimitiveFinalBinding(name, Boolean.valueOf(value), type);
 		} else {
-			environment.addPrimitiveBinding(name, Boolean.valueOf(value), type);
+			env.addPrimitiveBinding(name, Boolean.valueOf(value), type);
 		}
+		return null;
 	}
 }

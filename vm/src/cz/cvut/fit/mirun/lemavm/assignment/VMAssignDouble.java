@@ -7,22 +7,22 @@ public final class VMAssignDouble extends VMAssignOperator {
 
 	private final double value;
 
-	public VMAssignDouble(String name, String type, VMEnvironment environment,
-			boolean isFinal, double value) {
-		super(name, type, environment, isFinal);
+	public VMAssignDouble(String name, String type, boolean isFinal,
+			double value) {
+		super(name, type, isFinal);
 		this.value = value;
 	}
 
 	@Override
-	public void evaluate() {
-		resolveType();
+	public Object evaluate(VMEnvironment env) {
+		resolveType(env);
 		checkTypeCompatibility(type, VMConstants.DOUBLE);
 		if (isFinal) {
-			environment.addPrimitiveFinalBinding(name, Double.valueOf(value),
-					type);
+			env.addPrimitiveFinalBinding(name, Double.valueOf(value), type);
 		} else {
-			environment.addPrimitiveBinding(name, Double.valueOf(value), type);
+			env.addPrimitiveBinding(name, Double.valueOf(value), type);
 		}
+		return null;
 	}
 
 }

@@ -23,16 +23,22 @@ public class VMInterpreter {
 
 	private static final Logger LOG = Logger.getLogger(VMInterpreter.class);
 
+	private static final VMInterpreter instance = new VMInterpreter();
+
 	private final Stack<VMEnvironment> stackFrames;
 	private VMEnvironment currentEnvironment;
 
 	/** Method in-line cache */
 	private VMMethod ilc;
 
-	public VMInterpreter() {
+	private VMInterpreter() {
 		this.stackFrames = new Stack<>();
 		// This is the top level environment
 		this.currentEnvironment = new VMEnvironment();
+	}
+
+	public static VMInterpreter getInstance() {
+		return instance;
 	}
 
 	/**

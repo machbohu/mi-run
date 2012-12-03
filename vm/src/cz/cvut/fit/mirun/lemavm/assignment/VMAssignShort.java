@@ -7,22 +7,21 @@ public final class VMAssignShort extends VMAssignOperator {
 
 	private final short value;
 
-	public VMAssignShort(String name, String type, VMEnvironment environment,
-			boolean isFinal, short value) {
-		super(name, type, environment, isFinal);
+	public VMAssignShort(String name, String type, boolean isFinal, short value) {
+		super(name, type, isFinal);
 		this.value = value;
 	}
 
 	@Override
-	public void evaluate() {
-		resolveType();
+	public Object evaluate(VMEnvironment env) {
+		resolveType(env);
 		checkTypeCompatibility(type, VMConstants.SHORT);
 		if (isFinal) {
-			environment.addPrimitiveFinalBinding(name, Short.valueOf(value),
-					type);
+			env.addPrimitiveFinalBinding(name, Short.valueOf(value), type);
 		} else {
-			environment.addPrimitiveBinding(name, Short.valueOf(value), type);
+			env.addPrimitiveBinding(name, Short.valueOf(value), type);
 		}
+		return null;
 	}
 
 }

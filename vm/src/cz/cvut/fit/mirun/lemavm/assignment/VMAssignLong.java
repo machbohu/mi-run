@@ -7,21 +7,20 @@ public final class VMAssignLong extends VMAssignOperator {
 
 	private final long value;
 
-	public VMAssignLong(String name, String type, VMEnvironment environment,
-			boolean isFinal, long value) {
-		super(name, type, environment, isFinal);
+	public VMAssignLong(String name, String type, boolean isFinal, long value) {
+		super(name, type, isFinal);
 		this.value = value;
 	}
 
 	@Override
-	public void evaluate() {
-		resolveType();
+	public Object evaluate(VMEnvironment env) {
+		resolveType(env);
 		checkTypeCompatibility(type, VMConstants.LONG);
 		if (isFinal) {
-			environment.addPrimitiveFinalBinding(name, Long.valueOf(value),
-					type);
+			env.addPrimitiveFinalBinding(name, Long.valueOf(value), type);
 		} else {
-			environment.addPrimitiveBinding(name, Long.valueOf(value), type);
+			env.addPrimitiveBinding(name, Long.valueOf(value), type);
 		}
+		return null;
 	}
 }

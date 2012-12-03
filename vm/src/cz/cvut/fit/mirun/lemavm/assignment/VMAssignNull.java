@@ -9,15 +9,14 @@ public final class VMAssignNull extends VMAssignOperator {
 
 	private final VMNull value;
 
-	public VMAssignNull(String name, String type, VMEnvironment environment,
-			boolean isFinal, VMNull value) {
-		super(name, type, environment, isFinal);
+	public VMAssignNull(String name, String type, boolean isFinal, VMNull value) {
+		super(name, type, isFinal);
 		this.value = value;
 	}
 
 	@Override
-	public void evaluate() {
-		resolveType();
+	public Object evaluate(VMEnvironment env) {
+		resolveType(env);
 		switch (type) {
 		case VMConstants.DOUBLE:
 		case VMConstants.LONG:
@@ -31,11 +30,12 @@ public final class VMAssignNull extends VMAssignOperator {
 			if (isFinal) {
 				// This is quite curious, who would assign null to a final
 				// variable:)
-				environment.addFinalBinding(name, value, type);
+				env.addFinalBinding(name, value, type);
 			} else {
-				environment.addBinding(name, value, type);
+				env.addBinding(name, value, type);
 			}
 		}
+		return null;
 	}
 
 }

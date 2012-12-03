@@ -8,21 +8,22 @@ public final class VMAssignString extends VMAssignOperator {
 
 	private final VMString value;
 
-	public VMAssignString(String name, String type, VMEnvironment environment,
-			boolean isFinal, VMString value) {
-		super(name, type, environment, isFinal);
+	public VMAssignString(String name, String type, boolean isFinal,
+			VMString value) {
+		super(name, type, isFinal);
 		this.value = value;
 	}
 
 	@Override
-	public void evaluate() {
-		resolveType();
+	public Object evaluate(VMEnvironment env) {
+		resolveType(env);
 		checkTypeCompatibility(type, VMConstants.STRING);
 		if (isFinal) {
-			environment.addFinalBinding(name, value, type);
+			env.addFinalBinding(name, value, type);
 		} else {
-			environment.addBinding(name, value, type);
+			env.addBinding(name, value, type);
 		}
+		return null;
 	}
 
 }

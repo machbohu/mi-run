@@ -10,23 +10,23 @@ public final class VMAssignReference extends VMAssignOperator {
 
 	private final VMObject value;
 
-	public VMAssignReference(String name, String type,
-			VMEnvironment environment, boolean isFinal, VMObject value) {
-		super(name, type, environment, isFinal);
+	public VMAssignReference(String name, String type, boolean isFinal,
+			VMObject value) {
+		super(name, type, isFinal);
 		this.value = value;
 	}
 
 	@Override
-	public void evaluate() {
-		resolveType();
+	public Object evaluate(VMEnvironment env) {
+		resolveType(env);
 		if (value instanceof VMClassInstance) {
 			final VMClassInstance inst = (VMClassInstance) value;
 			final VMClass declClass = VMClass.getClasses().get(type);
 			if (declClass.isAssignableFrom(inst.getVMClass())) {
 				if (isFinal) {
-					environment.addFinalBinding(name, value, type);
+					env.addFinalBinding(name, value, type);
 				} else {
-					environment.addBinding(name, value, type);
+					env.addBinding(name, value, type);
 				}
 			} else {
 				throw new VMEvaluationException(
@@ -39,6 +39,7 @@ public final class VMAssignReference extends VMAssignOperator {
 			throw new VMEvaluationException(
 					"Unknown object encountered in assignment: " + value);
 		}
+		return null;
 	}
 
 }

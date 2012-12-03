@@ -7,21 +7,20 @@ public final class VMAssignInt extends VMAssignOperator {
 
 	private final int value;
 
-	public VMAssignInt(String name, String type, VMEnvironment environment,
-			boolean isFinal, int value) {
-		super(name, type, environment, isFinal);
+	public VMAssignInt(String name, String type, boolean isFinal, int value) {
+		super(name, type, isFinal);
 		this.value = value;
 	}
 
 	@Override
-	public void evaluate() {
-		resolveType();
+	public Object evaluate(VMEnvironment env) {
+		resolveType(env);
 		checkTypeCompatibility(type, VMConstants.INT);
 		if (isFinal) {
-			environment.addPrimitiveFinalBinding(name, Integer.valueOf(value),
-					type);
+			env.addPrimitiveFinalBinding(name, Integer.valueOf(value), type);
 		} else {
-			environment.addPrimitiveBinding(name, Integer.valueOf(value), type);
+			env.addPrimitiveBinding(name, Integer.valueOf(value), type);
 		}
+		return null;
 	}
 }

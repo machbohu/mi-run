@@ -10,67 +10,62 @@ public final class VMAssignExpr extends VMAssignOperator {
 
 	private final VMOperator value;
 
-	public VMAssignExpr(String name, String type, VMEnvironment environment,
-			boolean isFinal, VMOperator value) {
-		super(name, type, environment, isFinal);
+	public VMAssignExpr(String name, String type, boolean isFinal,
+			VMOperator value) {
+		super(name, type, isFinal);
 		this.value = value;
 	}
 
 	@Override
-	public void evaluate() {
-		resolveType();
+	public Object evaluate(VMEnvironment env) {
+		resolveType(env);
 		switch (type) {
 		case VMConstants.BOOLEAN:
-			final boolean b = value.evaluateBoolean(environment);
+			final boolean b = value.evaluateBoolean(env);
 			if (isFinal) {
-				environment.addPrimitiveFinalBinding(name, Boolean.valueOf(b),
-						type);
+				env.addPrimitiveFinalBinding(name, Boolean.valueOf(b), type);
 			} else {
-				environment.addPrimitiveBinding(name, Boolean.valueOf(b), type);
+				env.addPrimitiveBinding(name, Boolean.valueOf(b), type);
 			}
 			break;
 		case VMConstants.SHORT:
-			final short s = value.evaluateShort(environment);
+			final short s = value.evaluateShort(env);
 			if (isFinal) {
-				environment.addPrimitiveFinalBinding(name, Short.valueOf(s),
-						type);
+				env.addPrimitiveFinalBinding(name, Short.valueOf(s), type);
 			} else {
-				environment.addPrimitiveBinding(name, Short.valueOf(s), type);
+				env.addPrimitiveBinding(name, Short.valueOf(s), type);
 			}
 			break;
 		case VMConstants.INT:
-			final int i = value.evaluateInt(environment);
+			final int i = value.evaluateInt(env);
 			if (isFinal) {
-				environment.addPrimitiveFinalBinding(name, Integer.valueOf(i),
-						type);
+				env.addPrimitiveFinalBinding(name, Integer.valueOf(i), type);
 			} else {
-				environment.addPrimitiveBinding(name, Integer.valueOf(i), type);
+				env.addPrimitiveBinding(name, Integer.valueOf(i), type);
 			}
 			break;
 		case VMConstants.LONG:
-			final long l = value.evaluateLong(environment);
+			final long l = value.evaluateLong(env);
 			if (isFinal) {
-				environment.addPrimitiveFinalBinding(name, Long.valueOf(l),
-						type);
+				env.addPrimitiveFinalBinding(name, Long.valueOf(l), type);
 			} else {
-				environment.addPrimitiveBinding(name, Long.valueOf(l), type);
+				env.addPrimitiveBinding(name, Long.valueOf(l), type);
 			}
 			break;
 		case VMConstants.DOUBLE:
-			final double d = value.evaluateDouble(environment);
+			final double d = value.evaluateDouble(env);
 			if (isFinal) {
-				environment.addPrimitiveFinalBinding(name, Double.valueOf(d),
-						type);
+				env.addPrimitiveFinalBinding(name, Double.valueOf(d), type);
 			} else {
-				environment.addPrimitiveBinding(name, Double.valueOf(d), type);
+				env.addPrimitiveBinding(name, Double.valueOf(d), type);
 			}
 			break;
 		case VMConstants.STRING:
-			final VMString str = value.evaluateString(environment);
+			final VMString str = value.evaluateString(env);
 			if (isFinal) {
-				environment.addFinalBinding(name, str, type);
+				env.addFinalBinding(name, str, type);
 			} else {
-				environment.addBinding(name, str, type);
+				env.addBinding(name, str, type);
 			}
 		default:
 			// This shouldn't happen
@@ -78,6 +73,7 @@ public final class VMAssignExpr extends VMAssignOperator {
 					"Incopatible types in assignment. Expected " + type
 							+ ", but got " + value);
 		}
+		return null;
 	}
 
 }
