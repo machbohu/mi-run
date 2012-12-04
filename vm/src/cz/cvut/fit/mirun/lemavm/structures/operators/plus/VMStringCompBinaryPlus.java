@@ -41,18 +41,12 @@ public final class VMStringCompBinaryPlus extends AbstractBinaryPlus {
 
 	@Override
 	public VMString evaluateString(VMEnvironment env) {
-		final Double d = opTwo.evaluateDouble(env);
-		if (Math.abs(d.doubleValue()) - Math.abs(d.longValue()) != 0) {
-			// It is a double
-			return new VMString(opOne.getValue() + d.toString());
-		}
-		// It is an integral number
 		return new VMString(opOne.getValue()
-				+ opTwo.evaluateLong(env).toString());
+				+ opTwo.evaluateString(env).getValue());
 	}
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		return evaluateString(env);
 	}
 }

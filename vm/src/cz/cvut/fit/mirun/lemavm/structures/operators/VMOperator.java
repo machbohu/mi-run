@@ -85,7 +85,8 @@ public abstract class VMOperator implements Evaluable {
 			return n;
 		} catch (ClassCastException e) {
 			throw new VMEvaluationException(
-					"Incompatible types in postfix decrement. Expected a number, but got "
+					"Incompatible types in operator. Expected "
+							+ type.getName() + ", but got "
 							+ env.getNameType(name));
 		}
 	}
