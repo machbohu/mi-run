@@ -288,6 +288,7 @@ public abstract class VMBuilder {
 			switch (child.toString()) {
 			case "LOCAL_MODIFIER_LIST":
 			case "MODIFIER_LIST":
+				// TODO check for final
 				if (child.getChildCount() > 0) {
 					visibility = VMVisibilityModifier.fromString(child
 							.getChild(0).toString());

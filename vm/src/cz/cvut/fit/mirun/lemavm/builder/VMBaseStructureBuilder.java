@@ -88,7 +88,7 @@ public class VMBaseStructureBuilder extends VMBuilder {
 			case "MODIFIER_LIST":
 				if(child.getChildCount() > 0){
 					visibility = VMVisibilityModifier.fromString(child.getChild(0).toString());
-					isStatic = (child.getChildren().indexOf("static") != -1);
+					isStatic = (child.toStringTree().contains("static"));
 				}
 				break;
 			case "TYPE":
