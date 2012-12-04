@@ -272,7 +272,8 @@ public abstract class VMBuilder {
 	 * 
 	 * @param node
 	 * @return List of VMField (VMField.val contains 
-	 * String(var_name, number, "string"), VMOperator or null)
+	 * String(var_name, number, "string"), VMOperator or 
+	 * if not initialized VMUtils.getTypeDefaultValue)
 	 */
 	protected List<VMField> buildVarFromTree(CommonTree node) {
 		List<VMField> fields = new ArrayList<>();
@@ -308,7 +309,6 @@ public abstract class VMBuilder {
 					} else if (child.toString().equals("VAR_DECLARATOR")
 							&& child.getChildCount() == 1) {
 						name = child.getChild(0).toString();
-//						val = null;
 						val = VMUtils.getTypeDefaultValue(type);
 					} else {
 						throw new VMParsingException(
