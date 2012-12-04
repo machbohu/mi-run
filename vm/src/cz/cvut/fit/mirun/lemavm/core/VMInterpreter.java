@@ -11,12 +11,15 @@ import org.apache.log4j.Logger;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMMethodNotFoundException;
+import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
+import cz.cvut.fit.mirun.lemavm.structures.VMArray;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClassInstance;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMMethod;
+import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public class VMInterpreter {
@@ -46,11 +49,47 @@ public class VMInterpreter {
 	 * Execute the specified code block in the current environment
 	 * 
 	 * @param block
+	 *            The block to execute
 	 */
 	private void executeCodeBlock(VMCodeBlock block) {
 		// TODO There will probably a big switch or if else to execute correct
 		// action for node in the block.
 		// Maybe a unified evaluate function would help
+		for (Object node : block.getCode()) {
+			if (node instanceof Evaluable) {
+				final Evaluable e = (Evaluable) node;
+				final Object res = e.evaluate(currentEnvironment);
+				if (res instanceof VMCodeBlock) {
+					// VMControl structures
+					executeCodeBlock((VMCodeBlock) res);
+				}
+			}
+			// TODO some other types of nodes may come here
+		}
+	}
+
+	/**
+	 * Execute this application. </p>
+	 * 
+	 * This is the main entry point of the interpreter. It gets an array of
+	 * arguments that should be passed to the application's main method. The
+	 * main method is looked up in all discovered classes and invoked.
+	 * 
+	 * @param args
+	 *            Arguments to pass to the interpreted application's main method
+	 */
+	public void executeApplication(String[] args) {
+		VMMethod main = VMUtils.getMainMethod();
+		if (main == null) {
+			throw new VMMethodNotFoundException(
+					"Cannot find the main method of this application.");
+		}
+		final Map<String, String> params = main.getArguments();
+		final String argsName = params.keySet().iterator().next();
+		final VMArray<String> argArr = new VMArray<>(args, VMConstants.STRING);
+		currentEnvironment.addBinding(argsName, argArr, VMConstants.ARRAY);
+		// TODO Build the main method code block
+		executeCodeBlock(main.getCode());
 	}
 
 	/**

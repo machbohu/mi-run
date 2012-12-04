@@ -1,5 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators.plus;
 
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
@@ -36,6 +37,10 @@ public final class NumberCompBinaryPlus extends AbstractBinaryPlus {
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		Object res = opTwo.evaluate(env);
+		if (res instanceof VMString) {
+			return new VMString(opOne.toString() + ((VMString) res).getValue());
+		}
+		return (opOne.intValue() + ((Number) res).intValue());
 	}
 }

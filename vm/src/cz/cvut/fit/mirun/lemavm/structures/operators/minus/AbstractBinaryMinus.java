@@ -14,7 +14,7 @@ public abstract class AbstractBinaryMinus extends VMOperator {
 
 	@Override
 	public VMString evaluateString(VMEnvironment env) {
-		return new VMString(evaluateInt(env).toString());
+		return new VMString(evaluate(env).toString());
 	}
 
 }

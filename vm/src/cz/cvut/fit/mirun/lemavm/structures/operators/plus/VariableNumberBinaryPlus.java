@@ -1,5 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators.plus;
 
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 
 public final class VariableNumberBinaryPlus extends AbstractBinaryPlus {
@@ -37,7 +38,23 @@ public final class VariableNumberBinaryPlus extends AbstractBinaryPlus {
 	}
 
 	@Override
+	public VMString evaluateString(VMEnvironment env) {
+		final Object ob = getBindingValue(opOne, Object.class, env);
+		String str = null;
+		if (ob instanceof VMString) {
+			str = ((VMString) ob).getValue();
+		} else {
+			str = ob.toString();
+		}
+		return new VMString(str + opTwo.toString());
+	}
+
+	@Override
 	public Object evaluate(VMEnvironment env) {
+		final Object ob = getBindingValue(opOne, Object.class, env);
+		if (ob instanceof VMString) {
+			return evaluateString(env);
+		}
 		return evaluateInt(env);
 	}
 }

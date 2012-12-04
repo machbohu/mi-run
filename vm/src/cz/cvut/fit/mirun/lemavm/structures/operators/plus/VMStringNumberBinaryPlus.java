@@ -45,6 +45,6 @@ public final class VMStringNumberBinaryPlus extends AbstractBinaryPlus {
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		return evaluateString(env);
 	}
 }
