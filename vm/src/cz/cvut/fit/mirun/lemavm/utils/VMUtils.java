@@ -2,13 +2,17 @@ package cz.cvut.fit.mirun.lemavm.utils;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
+import java.util.Map.Entry;
 
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMNull;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMMethod;
 
 public class VMUtils {
 	private VMUtils() {
@@ -45,7 +49,7 @@ public class VMUtils {
 		case "boolean":
 			return Boolean.parseBoolean(value);
 		case "string":
-			if(value.equals(VMConstants.NULL)){
+			if (value.equals(VMConstants.NULL)) {
 				return VMNull.getInstance();
 			}
 			if (value.startsWith("\"") && value.endsWith("\"")) {
@@ -54,9 +58,9 @@ public class VMUtils {
 				throw new ParseException("", 0);
 			}
 		default:
-			if(value.equals(VMConstants.NULL)){
+			if (value.equals(VMConstants.NULL)) {
 				return VMNull.getInstance();
-			}else{
+			} else {
 				throw new ParseException("", 0);
 			}
 		}
@@ -116,5 +120,32 @@ public class VMUtils {
 		}
 		// Can add more built in types here
 		return false;
+	}
+
+	/**
+	 * Find the main method for the executed application.
+	 * 
+	 * @return Main method or null
+	 */
+	public static VMMethod getMainMethod() {
+		final Collection<VMClass> classes = VMClass.getClasses().values();
+		for (VMClass cls : classes) {
+			final List<VMMethod> mains = cls
+					.getStaticMethodsForName(VMConstants.MAIN_METHOD);
+			if (mains.isEmpty()) {
+				continue;
+			}
+			for (VMMethod m : mains) {
+				if (m.getArgumentCount() != 1) {
+					break;
+				}
+				final Entry<String, String> param = m.getArguments().entrySet()
+						.iterator().next();
+				if (param.getValue().equals(VMConstants.ARRAY)) {
+					return m;
+				}
+			}
+		}
+		return null;
 	}
 }

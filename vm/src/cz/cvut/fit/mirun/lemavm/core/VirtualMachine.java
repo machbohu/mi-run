@@ -1,6 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.core;
 
 import java.io.IOException;
+import java.util.Arrays;
 
 import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.TokenRewriteStream;
@@ -34,6 +35,8 @@ public class VirtualMachine {
 			TokenRewriteStream tokens = new TokenRewriteStream(lex);
 			LeMaVMParser grammar = new LeMaVMParser(tokens);
 			// TODO Get the AST from the grammar
+			final String[] appArgs = Arrays.copyOfRange(args, 1, args.length);
+			VMInterpreter.getInstance().executeApplication(appArgs);
 		} catch (IOException e) {
 			LOG.error("Unable to read the specified file.", e);
 			System.exit(2);

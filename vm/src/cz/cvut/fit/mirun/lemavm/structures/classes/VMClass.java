@@ -262,6 +262,11 @@ public final class VMClass {
 		return hash;
 	}
 
+	@Override
+	public String toString() {
+		return name;
+	}
+
 	/**
 	 * Create class with the specified parameters. </p>
 	 * 
@@ -297,10 +302,5 @@ public final class VMClass {
 	 */
 	public static Map<String, VMClass> getClasses() {
 		return classes;
-	}
-
-	@Override
-	public String toString() {
-		return name;
 	}
 }

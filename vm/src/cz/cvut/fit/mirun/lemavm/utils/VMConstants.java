@@ -23,6 +23,8 @@ public abstract class VMConstants {
 	public static final String ARRAY = "array";
 
 	public static final String THIS = "this";
-	
+
 	public static final String VOID = "void";
+
+	public static final String MAIN_METHOD = "main";
 }

@@ -1,6 +1,5 @@
 package cz.cvut.fit.mirun.lemavm.builder;
 
-import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +17,6 @@ import cz.cvut.fit.mirun.lemavm.structures.operators.VMBinaryOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMBinaryPlusOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMDivisionOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMMultiplicationOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMPostfixDecrementOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMPostfixIncrementOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMPrefixDecrementOperatorFactory;
@@ -40,6 +38,7 @@ import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public abstract class VMBuilder {
 
+	private static boolean factoriesInitialized = false;
 	// Operator factories
 	protected static VMBinaryOperatorFactory minusFactory;
 	protected static VMBinaryOperatorFactory plusFactory;
@@ -61,17 +60,19 @@ public abstract class VMBuilder {
 	protected static VMRelationalOperatorFactory greaterOrEqualFactory;
 	protected static VMRelationalOperatorFactory logicalAndFactory;
 	protected static VMRelationalOperatorFactory logicalOrFactory;
-	
+
 	protected static AssignOperatorFactory assignFactory;
 
 	/**
 	 * Constructor
 	 */
 	public VMBuilder() {
-		initOperatorFactories();
+		if (!factoriesInitialized) {
+			initOperatorFactories();
+		}
 	}
 
-	private void initOperatorFactories() {
+	private static void initOperatorFactories() {
 		minusFactory = new VMBinaryMinusOperatorFactory();
 		plusFactory = new VMBinaryPlusOperatorFactory();
 		divisionFactory = new VMDivisionOperatorFactory();
@@ -92,6 +93,7 @@ public abstract class VMBuilder {
 		logicalAndFactory = new VMLogicalAndOperatorFactory();
 		logicalOrFactory = new VMLogicalOrOperatorFactory();
 		assignFactory = new AssignOperatorFactory();
+		factoriesInitialized = true;
 	}
 
 	public abstract void build() throws RecognitionException;
@@ -99,8 +101,9 @@ public abstract class VMBuilder {
 	public abstract VMCodeBlock getCodeBlock();
 
 	/**
-	 * Get type (int, string ...) from tree;
-	 * Nodes [TYPE] -> [[QUALIFIED_TYPE_IDENT] ->] [VALUE]
+	 * Get type (int, string ...) from tree; Nodes [TYPE] ->
+	 * [[QUALIFIED_TYPE_IDENT] ->] [VALUE]
+	 * 
 	 * @param node
 	 * @return Type in string representation
 	 */
@@ -111,21 +114,21 @@ public abstract class VMBuilder {
 			return node.getChild(0).getChild(0).toString();
 		}
 	}
-	
+
 	/**
-	 * Build argument list from tree;
-	 * AST node [ARGUMENT_LIST]
+	 * Build argument list from tree; AST node [ARGUMENT_LIST]
+	 * 
 	 * @param node
 	 * @return List of arguments (VMOperator or String as Object)
 	 */
-	protected List<Object> buildArgumentListFromTree(CommonTree node){
+	protected List<Object> buildArgumentListFromTree(CommonTree node) {
 		CommonTree child = null;
 		List<Object> args = new ArrayList<>();
-		
-		for(Object o : node.getChildren()){
+
+		for (Object o : node.getChildren()) {
 			child = (CommonTree) o;
-			
-			switch(child.toString()){
+
+			switch (child.toString()) {
 			case "EXPR":
 				args.add(buildExpressionFromTree(child));
 				break;
@@ -138,9 +141,8 @@ public abstract class VMBuilder {
 	}
 
 	/**
-	 * Build expression from given tree for future evaluation;
-	 * i.e. a = (a + 5) * c, cls.methodCall(a, b);
-	 * AST Tree node [EXPR]
+	 * Build expression from given tree for future evaluation; i.e. a = (a + 5)
+	 * * c, cls.methodCall(a, b); AST Tree node [EXPR]
 	 * 
 	 * @param node
 	 * @return VMOperator or String as Object
@@ -242,22 +244,24 @@ public abstract class VMBuilder {
 			return buildExpressionFromTree((CommonTree) node.getChild(0));
 		case "METHOD_CALL":
 			String receiver = "this";
-			
-			if(node.getChild(0).toString().equals(".")){
-				receiver = node.getChild(0).getChild(0).toString(); // class instance
-				name = node.getChild(0).getChild(1).toString(); // method to call
-			}else{
+
+			if (node.getChild(0).toString().equals(".")) {
+				receiver = node.getChild(0).getChild(0).toString(); // class
+																	// instance
+				name = node.getChild(0).getChild(1).toString(); // method to
+																// call
+			} else {
 				// receiver = this
 				name = node.getChild(0).toString(); // method to call
 			}
-			return new VMMethodCallOperator(receiver, name, 
+			return new VMMethodCallOperator(receiver, name,
 					buildArgumentListFromTree((CommonTree) node.getChild(1)));
 		case "STATIC_ARRAY_CREATOR":
 			// TODO operator new
 			buildTypeFromTree(node);
-			if(node.getChild(0).equals("ARGUMENT_LIST")){
+			if (node.getChild(0).equals("ARGUMENT_LIST")) {
 				buildArgumentListFromTree((CommonTree) node.getChild(1));
-			}else{
+			} else {
 				buildExpressionFromTree((CommonTree) node.getChild(1));
 			}
 			break;
@@ -270,13 +274,13 @@ public abstract class VMBuilder {
 	}
 
 	/**
-	 * Read variable declaration structure from given node and return list of VMField;
-	 * AST Tree node [VAR_DECLARATION]
+	 * Read variable declaration structure from given node and return list of
+	 * VMField; AST Tree node [VAR_DECLARATION]
 	 * 
 	 * @param node
-	 * @return List of VMField (VMField.val contains 
-	 * String(var_name, number, "string"), VMOperator or 
-	 * if not initialized VMUtils.getTypeDefaultValue)
+	 * @return List of VMField (VMField.val contains String(var_name, number,
+	 *         "string"), VMOperator or if not initialized
+	 *         VMUtils.getTypeDefaultValue)
 	 */
 	protected List<VMField> buildVarFromTree(CommonTree node) {
 		List<VMField> fields = new ArrayList<>();
@@ -308,7 +312,8 @@ public abstract class VMBuilder {
 					if (child.toString().equals("VAR_DECLARATOR")
 							&& child.getChildCount() == 2) {
 						name = child.getChild(0).toString();
-						val = buildExpressionFromTree((CommonTree) child.getChild(1));
+						val = buildExpressionFromTree((CommonTree) child
+								.getChild(1));
 					} else if (child.toString().equals("VAR_DECLARATOR")
 							&& child.getChildCount() == 1) {
 						name = child.getChild(0).toString();
