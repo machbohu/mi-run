@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.antlr.runtime.tree.CommonTree;
 
+import cz.cvut.fit.mirun.lemavm.assignment.AssignOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
@@ -19,7 +20,12 @@ public class VMCodeBlockBuilder extends VMBuilder {
 		this.top = node;
 		this.code = new VMCodeBlock();
 	}
-	
+	/**
+	 * Build FOR cycle from AST tree;
+	 * AST tree node [for] 
+	 * @param node
+	 * @return
+	 */
 	private Evaluable buildForFromTree(CommonTree node){
 		CommonTree child = null, codeTree = null;
 		List<Object> inits = null;
@@ -41,8 +47,8 @@ public class VMCodeBlockBuilder extends VMBuilder {
 					inits = new ArrayList<>();
 					
 					for(VMField f : buildVarFromTree(child)){
-						// TODO create assign operator and add it to the for
-//							inits.add(operator);
+						operation = assignFactory.createOperator(f.getName(), f.getType(), false, f.getVal());
+						inits.add(operation);
 					}
 					break;
 				case "EXPR":
@@ -67,9 +73,13 @@ public class VMCodeBlockBuilder extends VMBuilder {
 		return new VMFor(inits, condition, operation, codeTree);
 	}
 	
+	/**
+	 * Build block scope from AST tree;
+	 * AST tree node [BLOCK_SCOPE]
+	 */
 	public void build(){
 		CommonTree child = null;
-		Object condition = null;
+		Object condition = null, operation = null;
 		
 		for(Object o : top.getChildren()){
 			child = (CommonTree) o;
@@ -78,7 +88,8 @@ public class VMCodeBlockBuilder extends VMBuilder {
 			switch(child.toString()){
 			case "VAR_DECLARATION":
 				for(VMField f : buildVarFromTree(child)){
-					// TODO create assign operator and add it to the codeBlock
+					operation = assignFactory.createOperator(f.getName(), f.getType(), false, f.getVal());
+//					add(operation);
 				}
 				break;
 			case "EXPR":

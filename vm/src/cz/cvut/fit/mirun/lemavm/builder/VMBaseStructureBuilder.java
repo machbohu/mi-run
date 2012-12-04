@@ -30,6 +30,11 @@ public class VMBaseStructureBuilder extends VMBuilder {
 		this.cs = cs;
 	}
 	
+	/**
+	 * Parse CharStream with ANTLR LeMaVMLexer and LeMaVMParser
+	 * and get AST tree
+	 * @throws RecognitionException
+	 */
 	private void buildASTTree() throws RecognitionException{
 		LeMaVMLexer lexer = new LeMaVMLexer(cs);
 		TokenRewriteStream tokens = new TokenRewriteStream(lexer);
@@ -62,7 +67,8 @@ public class VMBaseStructureBuilder extends VMBuilder {
 //	}
 
 	/**
-	 * Read method/constructor structure from given node and build VMMethod
+	 * Read method/constructor structure from given node and build VMMethod;
+	 * AST tree nodes [CONSTRUCTOR_DECL], [FUNCTION_METHOD_DECL], [VOID_METHOD_DECL]
 	 * @param node
 	 * @param cls
 	 */
@@ -117,7 +123,8 @@ public class VMBaseStructureBuilder extends VMBuilder {
 	}
 	
 	/**
-	 * Read structure from given node and build variables, constructors and methods for given class
+	 * Read structure from given node and build variables, constructors and methods for given class;
+	 * AST tree node [CLASS_TOP_LEVEL_SCOPE]
 	 * @param node
 	 * @param cls
 	 */
@@ -148,7 +155,8 @@ public class VMBaseStructureBuilder extends VMBuilder {
 	}
 	
 	/**
-	 * Read class structure from node and build VMClass
+	 * Read class structure from node and build VMClass;
+	 * AST tree node [class]
 	 * @param node
 	 */
 	private void buildClassFromTree(CommonTree node){

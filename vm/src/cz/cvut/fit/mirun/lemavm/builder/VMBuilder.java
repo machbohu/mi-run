@@ -7,6 +7,7 @@ import java.util.List;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
 
+import cz.cvut.fit.mirun.lemavm.assignment.AssignOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMField;
@@ -16,6 +17,7 @@ import cz.cvut.fit.mirun.lemavm.structures.operators.VMBinaryOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMBinaryPlusOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMDivisionOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMMultiplicationOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMPostfixDecrementOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMPostfixIncrementOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMPrefixDecrementOperatorFactory;
@@ -59,7 +61,7 @@ public abstract class VMBuilder {
 	protected static VMRelationalOperatorFactory logicalAndFactory;
 	protected static VMRelationalOperatorFactory logicalOrFactory;
 	
-//	protected static AssignOperatorFactory assignFactory
+	protected static AssignOperatorFactory assignFactory;
 
 	/**
 	 * Constructor
@@ -88,6 +90,7 @@ public abstract class VMBuilder {
 		greaterOrEqualFactory = new VMGreaterEqualsOperatorFactory();
 		logicalAndFactory = new VMLogicalAndOperatorFactory();
 		logicalOrFactory = new VMLogicalOrOperatorFactory();
+		assignFactory = new AssignOperatorFactory();
 	}
 
 	public abstract void build() throws RecognitionException;
@@ -112,7 +115,7 @@ public abstract class VMBuilder {
 	 * Build argument list from tree;
 	 * AST node [ARGUMENT_LIST] -> [EXPR]
 	 * @param node
-	 * @return List of arguments
+	 * @return List of arguments (VMOperator or String as Object)
 	 */
 	protected List<Object> buildArgumentListFromTree(CommonTree node){
 		CommonTree child = null;
@@ -139,10 +142,11 @@ public abstract class VMBuilder {
 	 * AST Tree node [EXPR]
 	 * 
 	 * @param node
-	 * @return
+	 * @return VMOperator or String as Object
 	 */
 	protected Object buildExpressionFromTree(CommonTree node) {
-		Object op1 = null, op2 = null;
+		Object op1 = null, op2 = null, operation = null;
+		String name = null;
 
 		if (node.getChildCount() <= 0) {
 			return node.toString();
@@ -184,18 +188,19 @@ public abstract class VMBuilder {
 			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
 			return divisionFactory.createOperator(op1, op2);
 		case "=":
-			// TODO assign op1 = op2
-			break;
+			name = node.getChild(0).toString();
+			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
+			return assignFactory.createOperator(name, null, false, op2);
 		case "-=":
-			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			name = node.getChild(0).toString();
 			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
-			minusFactory.createOperator(op1, op2);
-			// TODO assign
+			operation = minusFactory.createOperator(name, op2);
+			return assignFactory.createOperator(name, null, false, operation);
 		case "+=":
-			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
+			name = node.getChild(0).toString();
 			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
-			plusFactory.createOperator(op1, op2);
-			// TODO assign
+			operation = plusFactory.createOperator(name, op2);
+			return assignFactory.createOperator(name, null, false, operation);
 		case "&&":
 			op1 = buildExpressionFromTree((CommonTree) node.getChild(0));
 			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
@@ -241,7 +246,7 @@ public abstract class VMBuilder {
 				node.getChild(0).getChild(1).toString(); // method to call
 			}else{
 				// class instance = this
-				node.getChild(0).toString(); // method name
+				node.getChild(0).toString(); // method to call
 			}
 			break;
 		case "STATIC_ARRAY_CREATOR":
@@ -262,8 +267,8 @@ public abstract class VMBuilder {
 	}
 
 	/**
-	 * Read variable structure from given node and return list of VMField; AST
-	 * Tree node [VAR_DECLARATION]
+	 * Read variable declaration structure from given node and return list of VMField;
+	 * AST Tree node [VAR_DECLARATION]
 	 * 
 	 * @param node
 	 * @return List of VMField
@@ -274,7 +279,7 @@ public abstract class VMBuilder {
 		VMVisibilityModifier visibility = VMVisibilityModifier.getDefault();
 		boolean isStatic = false;
 		String type = null, name = null, strVal = null;
-		Object val = null;
+		Object val = null, expr = null;
 
 		for (Object o : node.getChildren()) {
 			child = (CommonTree) o;
@@ -298,18 +303,25 @@ public abstract class VMBuilder {
 							&& child.getChildCount() == 2) {
 						name = child.getChild(0).toString();
 						try {
-							// TODO build expression (buildExpressionFromTree)
-							// and evaluate it
-							strVal = child.getChild(1).getChild(0).toString();
-							val = VMUtils.getTypeProperValue(type, strVal);
+							expr = buildExpressionFromTree((CommonTree) child.getChild(1).getChild(0));
+							if(expr instanceof String){
+								// TODO should class instance check value type when initialized?
+								// YES (rebuild VMField Object val -> String val) or
+								val = (String) expr;
+								// NO
+								val = VMUtils.getTypeProperValue(type, (String) expr);
+							}else if(expr instanceof VMOperator){
+								// TODO how to evaluate without env?
+								val = ((VMOperator) expr).evaluate(null);
+							}
 						} catch (NumberFormatException e) {
 							throw new VMParsingException(
 									"Can not assign value '" + strVal
-											+ "' to the type '" + type);
+											+ "' to the type '" + type+"'");
 						} catch (ParseException e1) {
 							throw new VMParsingException(
 									"Can not assign value '" + strVal
-											+ "' to the type '" + type);
+											+ "' to the type '" + type+"'");
 						}
 					} else if (child.toString().equals("VAR_DECLARATOR")
 							&& child.getChildCount() == 1) {
