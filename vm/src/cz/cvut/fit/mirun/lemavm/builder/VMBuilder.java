@@ -307,8 +307,8 @@ public abstract class VMBuilder {
 					} else if (child.toString().equals("VAR_DECLARATOR")
 							&& child.getChildCount() == 1) {
 						name = child.getChild(0).toString();
-						val = null;
-//						val = VMUtils.getTypeDefaultValue(type);
+//						val = null;
+						val = VMUtils.getTypeDefaultValue(type);
 					} else {
 						throw new VMParsingException(
 								"Unexpected program syntax '"

@@ -45,13 +45,20 @@ public class VMUtils {
 		case "boolean":
 			return Boolean.parseBoolean(value);
 		case "string":
+			if(value.equals(VMConstants.NULL)){
+				return VMNull.getInstance();
+			}
 			if (value.startsWith("\"") && value.endsWith("\"")) {
 				return new VMString(value.substring(1, value.length() - 1));
 			} else {
 				throw new ParseException("", 0);
 			}
 		default:
-			return VMNull.getInstance();
+			if(value.equals(VMConstants.NULL)){
+				return VMNull.getInstance();
+			}else{
+				throw new ParseException("", 0);
+			}
 		}
 	}
 

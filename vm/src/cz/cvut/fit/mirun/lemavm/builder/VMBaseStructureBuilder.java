@@ -121,7 +121,12 @@ public class VMBaseStructureBuilder extends VMBuilder {
 		}
 		
 		VMMethod method = new VMMethod(name, cls, isStatic, visibility, returnType, args, block);
-		cls.addMethod(method);
+		
+		if(cls.getName().equals(name)){
+			cls.addConstructor(method);
+		}else{
+			cls.addMethod(method);
+		}
 	}
 	
 	/**
@@ -140,15 +145,11 @@ public class VMBaseStructureBuilder extends VMBuilder {
 			case "VAR_DECLARATION":
 				for(VMField f : buildVarFromTree(child)){
 					try{
-						if(f.getVal() == null){
-							f.setVal(VMUtils.getTypeDefaultValue(f.getType()));
-						}else{
-							// TODO what will happen with VMOperator instead of String val?
-							f.setVal(VMUtils.getTypeProperValue(f.getType(), f.getVal().toString()));
-						}
+						// TODO what will happen with VMOperator instead of String val?
+						f.setVal(VMUtils.getTypeProperValue(f.getType(), f.getVal().toString()));
 						cls.addField(f);
-					}catch(ParseException e){
-						throw new VMParsingException("Class '"+cls.toString()
+					}catch(NumberFormatException | ParseException e){
+						throw new VMParsingException("Class '"+cls
 								+"': Can not assign value '" + f.getVal()
 								+ "' to the type '"+f.getType()+"'");
 					}
