@@ -111,7 +111,7 @@ public abstract class VMBinaryOperatorFactory {
 	private VMOperator createOperatorFirstString(String opOne, Object opTwo) {
 		if (opOne.startsWith("\"")) {
 			// The first operand is a string literal
-			VMString v = new VMString(opOne.substring(1, opOne.length()));
+			VMString v = new VMString(opOne.substring(1, opOne.length() - 1));
 			if (opTwo instanceof VMOperator) {
 				// The second operand is an operator
 				return createOperator(v, (VMOperator) opTwo);
@@ -123,8 +123,9 @@ public abstract class VMBinaryOperatorFactory {
 				final String strOp = (String) opTwo;
 				if (strOp.startsWith("\"")) {
 					// The second operand is a string literal
-					return createOperator(v,
-							new VMString(strOp.substring(1, strOp.length())));
+					return createOperator(
+							v,
+							new VMString(strOp.substring(1, strOp.length() - 1)));
 				}
 				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
 				if (b != null) {
@@ -155,8 +156,9 @@ public abstract class VMBinaryOperatorFactory {
 				final String strOp = (String) opTwo;
 				if (strOp.startsWith("\"")) {
 					// The second operand is a string literal
-					return createOperator(bOne,
-							new VMString(strOp.substring(1, strOp.length())));
+					return createOperator(
+							bOne,
+							new VMString(strOp.substring(1, strOp.length() - 1)));
 				}
 				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
 				if (b != null) {
@@ -188,8 +190,9 @@ public abstract class VMBinaryOperatorFactory {
 				final String strOp = (String) opTwo;
 				if (strOp.startsWith("\"")) {
 					// The second operand is a string literal
-					return createOperator(nOne,
-							new VMString(strOp.substring(1, strOp.length())));
+					return createOperator(
+							nOne,
+							new VMString(strOp.substring(1, strOp.length() - 1)));
 				}
 				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
 				if (b != null) {
@@ -218,8 +221,9 @@ public abstract class VMBinaryOperatorFactory {
 				final String strOp = (String) opTwo;
 				if (strOp.startsWith("\"")) {
 					// The second operand is a string literal
-					return createOperator(opOne,
-							new VMString(strOp.substring(1, strOp.length())));
+					return createOperator(
+							opOne,
+							new VMString(strOp.substring(1, strOp.length() - 1)));
 				}
 				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
 				if (b != null) {

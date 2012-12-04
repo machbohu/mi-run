@@ -30,6 +30,7 @@ public class VMInterpreter {
 
 	/** Method in-line cache */
 	private VMMethod ilc;
+	private VMMethod staticIlc;
 
 	private VMInterpreter() {
 		this.stackFrames = new Stack<>();
@@ -94,13 +95,7 @@ public class VMInterpreter {
 		final VMMethod ctor = lookupConstructor(instance.getVMClass(),
 				arguments);
 		final VMEnvironment instEnv = instance.getEnvironment();
-		final VMEnvironment ctorEnv = new VMEnvironment(instEnv);
-		pushArgsToEnvironment(instEnv, ctor.getArguments(), arguments);
-		setCurrentEnvironment(ctorEnv);
-		// TODO Build code block for the constructor if it has not been build
-		// yet
-		executeCodeBlock(ctor.getCode());
-		this.currentEnvironment = stackFrames.pop();
+		invokeMethodImpl(ctor, instEnv, arguments);
 	}
 
 	/**
@@ -134,15 +129,7 @@ public class VMInterpreter {
 		final VMClassInstance inst = (VMClassInstance) receiver;
 		final VMMethod m = lookupMethod(inst, methodName, arguments);
 		final VMEnvironment instEnv = inst.getEnvironment();
-		final VMEnvironment methodEnv = new VMEnvironment(instEnv);
-		pushArgsToEnvironment(instEnv, m.getArguments(), arguments);
-		setCurrentEnvironment(methodEnv);
-		// TODO Build code block for the constructor if it has not been build
-		// yet
-		executeCodeBlock(m.getCode());
-		final Object res = methodEnv.getReturnValue();
-		this.currentEnvironment = stackFrames.pop();
-		return res;
+		return invokeMethodImpl(m, instEnv, arguments);
 	}
 
 	/**
@@ -161,8 +148,40 @@ public class VMInterpreter {
 	 */
 	public Object invokeStaticMethod(VMClass receiver, String methodName,
 			List<Object> arguments) {
-		// TODO
-		return null;
+		if (receiver == null || methodName == null || arguments == null) {
+			throw new NullPointerException();
+		}
+		if (LOG.isTraceEnabled()) {
+			LOG.trace("Invoking method named " + methodName + " on instance "
+					+ receiver);
+		}
+		final VMMethod m = lookupStaticMethod(receiver, methodName, arguments);
+		final VMEnvironment classEnv = receiver.getClassEnvironment();
+		return invokeMethodImpl(m, classEnv, arguments);
+	}
+
+	/**
+	 * Invoke the specified method. </p>
+	 * 
+	 * @param method
+	 *            The method to invoke
+	 * @param parentEnv
+	 *            Parent environment for the method
+	 * @param args
+	 *            List of method arguments
+	 * @return Return value of the method or null if there is none
+	 */
+	private Object invokeMethodImpl(VMMethod method, VMEnvironment parentEnv,
+			List<Object> args) {
+		final VMEnvironment methodEnv = new VMEnvironment(parentEnv);
+		pushArgsToEnvironment(parentEnv, method.getArguments(), args);
+		setCurrentEnvironment(methodEnv);
+		// TODO Build code block for the constructor if it has not been build
+		// yet
+		executeCodeBlock(method.getCode());
+		final Object res = methodEnv.getReturnValue();
+		this.currentEnvironment = stackFrames.pop();
+		return res;
 	}
 
 	/**
@@ -207,13 +226,39 @@ public class VMInterpreter {
 		List<VMMethod> methods = cls.getMethodsForName(methodName);
 		for (VMMethod m : methods) {
 			if (m.doesMethodMatch(methodName, argTypes)) {
-				ilc = m;
+				this.ilc = m;
 				return m;
 			}
 		}
 		throw new VMMethodNotFoundException("Method with name " + methodName
 				+ " and parameter types " + argTypes + " not found in type "
 				+ cls.getName());
+	}
+
+	private VMMethod lookupStaticMethod(VMClass receiver, String methodName,
+			List<Object> args) {
+		assert receiver != null;
+		assert methodName != null;
+		assert args != null;
+		final List<String> argTypes = VMUtils.getArgumentTypes(args,
+				currentEnvironment);
+		if (staticIlc != null) {
+			if (staticIlc.getOwner().equals(receiver)
+					&& staticIlc.doesMethodMatch(methodName, argTypes)) {
+				return staticIlc;
+			}
+		}
+		final List<VMMethod> methods = receiver
+				.getStaticMethodsForName(methodName);
+		for (VMMethod m : methods) {
+			if (m.doesMethodMatch(methodName, argTypes)) {
+				this.staticIlc = m;
+				return m;
+			}
+		}
+		throw new VMMethodNotFoundException("Static method with name "
+				+ methodName + " and parameter types " + argTypes
+				+ " not found in type " + receiver.getName());
 	}
 
 	/**
