@@ -10,6 +10,7 @@ import org.antlr.runtime.tree.CommonTree;
 import cz.cvut.fit.mirun.lemavm.assignment.AssignOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
+import cz.cvut.fit.mirun.lemavm.structures.VMMethodCallOperator;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMField;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMVisibilityModifier;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMBinaryMinusOperatorFactory;
@@ -113,7 +114,7 @@ public abstract class VMBuilder {
 	
 	/**
 	 * Build argument list from tree;
-	 * AST node [ARGUMENT_LIST] -> [EXPR]
+	 * AST node [ARGUMENT_LIST]
 	 * @param node
 	 * @return List of arguments (VMOperator or String as Object)
 	 */
@@ -240,15 +241,17 @@ public abstract class VMBuilder {
 		case "PARENTESIZED_EXPR":
 			return buildExpressionFromTree((CommonTree) node.getChild(0));
 		case "METHOD_CALL":
-			// TODO method call
+			String receiver = "this";
+			
 			if(node.getChild(0).toString().equals(".")){
-				node.getChild(0).getChild(0).toString(); // class instance
-				node.getChild(0).getChild(1).toString(); // method to call
+				receiver = node.getChild(0).getChild(0).toString(); // class instance
+				name = node.getChild(0).getChild(1).toString(); // method to call
 			}else{
-				// class instance = this
-				node.getChild(0).toString(); // method to call
+				// receiver = this
+				name = node.getChild(0).toString(); // method to call
 			}
-			break;
+			return new VMMethodCallOperator(receiver, name, 
+					buildArgumentListFromTree((CommonTree) node.getChild(1)));
 		case "STATIC_ARRAY_CREATOR":
 			// TODO operator new
 			buildTypeFromTree(node);
