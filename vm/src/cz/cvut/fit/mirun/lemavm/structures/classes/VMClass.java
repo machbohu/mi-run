@@ -7,8 +7,10 @@ import java.util.List;
 import java.util.Map;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMAmbiguousMethodDeclaration;
-import cz.cvut.fit.mirun.lemavm.exceptions.VMNullPointerException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMNull;
+import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 /**
  * Meta class representing classes defined in the VM.
@@ -24,10 +26,13 @@ public final class VMClass {
 	private final VMClass superClass;
 	private final Map<String, VMField> fields;
 	private final List<VMMethod> constructors;
-	// Need to use list to support method overloading
+	// Contains all defined methods (static and instance)
 	private final Map<String, List<VMMethod>> methods;
+	// Contains only static methods
+	private final Map<String, List<VMMethod>> staticMethods;
 
-	// TODO What about static fields and methods?
+	// Contains static field values
+	private final VMEnvironment classEnv;
 
 	private VMClass(String name, VMClass superClass) {
 		this.name = name;
@@ -35,28 +40,11 @@ public final class VMClass {
 		this.fields = new HashMap<>();
 		this.constructors = new ArrayList<>();
 		this.methods = new HashMap<>();
-	}
-
-	private VMClass(String name, VMClass superClass,
-			Map<String, VMField> fields, List<VMMethod> constructors,
-			Map<String, List<VMMethod>> methods) {
-		this.name = name;
-		this.superClass = superClass;
-
-		if (fields == null) {
-			this.fields = new HashMap<>();
+		this.staticMethods = new HashMap<>();
+		if (superClass != null) {
+			this.classEnv = new VMEnvironment(superClass.classEnv);
 		} else {
-			this.fields = fields;
-		}
-		if (constructors.isEmpty()) {
-			this.constructors = new ArrayList<>();
-		} else {
-			this.constructors = constructors;
-		}
-		if (methods.isEmpty()) {
-			this.methods = new HashMap<>();
-		} else {
-			this.methods = methods;
+			this.classEnv = new VMEnvironment();
 		}
 	}
 
@@ -82,19 +70,56 @@ public final class VMClass {
 	 */
 	public void addField(VMField field) {
 		if (field == null) {
-			throw new VMNullPointerException();
+			throw new NullPointerException();
 		}
 		if (fields.containsKey(field.getName())) {
 			throw new VMParsingException("Field with name " + field.getName()
 					+ " already exists in class " + name);
 		}
 		fields.put(field.getName(), field);
+		if (field.isStatic()) {
+			addStaticFieldValue(field);
+		}
+	}
+
+	/**
+	 * Add a value binding for the specified static field.
+	 * 
+	 * @param field
+	 */
+	private void addStaticFieldValue(VMField field) {
+		final String name = field.getName();
+		final Object val = field.getVal();
+		final String type = field.getType();
+		if (val == null) {
+			if (VMUtils.isTypePrimitive(type)) {
+				classEnv.addPrimitiveBinding(name,
+						VMUtils.getTypeDefaultValue(type), type);
+			} else {
+				classEnv.addBinding(name, VMNull.getInstance(), type);
+			}
+		} else {
+			if (VMUtils.isTypePrimitive(type)) {
+				classEnv.addPrimitiveBinding(name, val, type);
+			} else {
+				classEnv.addBinding(name, (VMObject) val, type);
+			}
+		}
 	}
 
 	public Map<String, List<VMMethod>> getMethods() {
 		return methods;
 	}
 
+	/**
+	 * Get a list of methods with the specified name. </p>
+	 * 
+	 * If there are no method with this name, an empty list is returned.
+	 * 
+	 * @param methodName
+	 *            Name of the method
+	 * @return List of methods or an empty list
+	 */
 	public List<VMMethod> getMethodsForName(String methodName) {
 		if (methodName == null) {
 			throw new NullPointerException();
@@ -106,8 +131,32 @@ public final class VMClass {
 		return res;
 	}
 
+	/**
+	 * Get a list of static methods with the specified name. </p>
+	 * 
+	 * If there are none such, an empty list is returned.
+	 * 
+	 * @param methodName
+	 *            Name of the method
+	 * @return List of methods or an empty list
+	 */
+	public List<VMMethod> getStaticMethodsForName(String methodName) {
+		if (methodName == null) {
+			throw new NullPointerException();
+		}
+		List<VMMethod> res = staticMethods.get(methodName);
+		if (res == null) {
+			res = Collections.emptyList();
+		}
+		return res;
+	}
+
 	public List<VMMethod> getDeclaredConstructors() {
 		return constructors;
+	}
+
+	public VMEnvironment getClassEnvironment() {
+		return classEnv;
 	}
 
 	/**
@@ -132,6 +181,14 @@ public final class VMClass {
 			ms = new ArrayList<>();
 			ms.add(newMethod);
 			methods.put(newMethod.getName(), ms);
+		}
+		if (newMethod.isMethodStatic()) {
+			List<VMMethod> statics = staticMethods.get(newMethod.getName());
+			if (statics == null) {
+				statics = new ArrayList<>();
+				staticMethods.put(newMethod.getName(), statics);
+			}
+			statics.add(newMethod);
 		}
 		newMethod.setOwner(this);
 	}
@@ -228,39 +285,6 @@ public final class VMClass {
 					+ name + " already exists.");
 		}
 		final VMClass newClass = new VMClass(name, superClass);
-		classes.put(name, newClass);
-		VMEnvironment.addType(name);
-		return newClass;
-	}
-
-	/**
-	 * Create class with the specified parameters. </p>
-	 * 
-	 * @param name
-	 *            Name of the new class
-	 * @param superClass
-	 *            Super class of the new class. Can be null
-	 * @param fields
-	 *            Fields of the new class
-	 * @param methods
-	 *            Methods of the new class
-	 * @return The new meta class
-	 * @see #createClass(String, VMClass)
-	 */
-	public static VMClass createClass(String name, VMClass superClass,
-			Map<String, VMField> fields, List<VMMethod> constructors,
-			Map<String, List<VMMethod>> methods) {
-		if (name == null || name.isEmpty()) {
-			throw new VMParsingException(
-					"Invalid VMClass constructor parameters: " + name);
-		}
-		if (classes.containsKey(name)) {
-			// return classes.get(name);
-			throw new VMParsingException("Definition of class with name "
-					+ name + " already exists.");
-		}
-		final VMClass newClass = new VMClass(name, superClass, fields,
-				constructors, methods);
 		classes.put(name, newClass);
 		VMEnvironment.addType(name);
 		return newClass;

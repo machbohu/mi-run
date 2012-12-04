@@ -12,17 +12,21 @@ public class VMInstanceEnvironment extends VMEnvironment {
 
 	private final VMClassInstance owner;
 
+	private final VMEnvironment classEnvironment;
+
 	// TODO Do visibility checking
 
 	public VMInstanceEnvironment(VMClassInstance owner) {
 		super();
 		this.owner = owner;
+		this.classEnvironment = owner.getVMClass().getClassEnvironment();
 		init();
 	}
 
 	public VMInstanceEnvironment(VMEnvironment parent, VMClassInstance owner) {
 		super(parent);
 		this.owner = owner;
+		this.classEnvironment = owner.getVMClass().getClassEnvironment();
 		init();
 	}
 
@@ -39,8 +43,35 @@ public class VMInstanceEnvironment extends VMEnvironment {
 			}
 			return cls.cast(owner);
 		} else {
-			return super.getBinding(name, cls);
+			T res = super.getBinding(name, cls);
+			if (res == null) {
+				// Try looking into static fields
+				res = classEnvironment.getBinding(name, cls);
+			}
+			return res;
 		}
+	}
+
+	@Override
+	public void addBinding(String name, VMObject value, String type) {
+		if (!containsBinding(name) && classEnvironment.containsBinding(name)) {
+			classEnvironment.addBinding(name, value, type);
+		} else if (!containsBinding(name)) {
+			throw new VMEvaluationException("Field with the name " + name
+					+ " not found in type " + owner.getTypeName());
+		}
+		super.addBinding(name, value, type);
+	}
+
+	@Override
+	public void addPrimitiveBinding(String name, Object value, String type) {
+		if (!containsBinding(name) && classEnvironment.containsBinding(name)) {
+			classEnvironment.addPrimitiveBinding(name, value, type);
+		} else if (!containsBinding(name)) {
+			throw new VMEvaluationException("Field with the name " + name
+					+ " not found in type " + owner.getTypeName());
+		}
+		super.addPrimitiveBinding(name, value, type);
 	}
 
 	/**

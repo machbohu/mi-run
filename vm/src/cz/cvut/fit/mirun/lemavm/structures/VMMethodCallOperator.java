@@ -6,6 +6,7 @@ import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
@@ -43,6 +44,11 @@ public final class VMMethodCallOperator extends VMOperator implements Evaluable 
 	public Object evaluate(VMEnvironment env) {
 		final VMObject recv = env.getBinding(receiver, VMObject.class);
 		if (recv == null) {
+			final VMClass cls = VMClass.getClasses().get(receiver);
+			if (cls != null) {
+				return VMInterpreter.getInstance().invokeStaticMethod(cls,
+						methodName, arguments);
+			}
 			throw new VMEvaluationException("Receiver " + receiver
 					+ " of the method call " + methodName
 					+ " not found in this environment.");

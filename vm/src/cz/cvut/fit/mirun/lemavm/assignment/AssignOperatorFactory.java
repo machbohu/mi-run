@@ -59,8 +59,11 @@ public final class AssignOperatorFactory {
 		return new VMAssignReference(name, type, isFinal, value);
 	}
 
-	protected VMAssignOperator createOpeator(String name, String type,
+	protected VMAssignOperator createOperator(String name, String type,
 			boolean isFinal, String value) {
+		if (value.startsWith("\"")) {
+			return new VMAssignString(name, type, isFinal, value);
+		}
 		return new VMAssignVariable(name, type, isFinal, value);
 	}
 
