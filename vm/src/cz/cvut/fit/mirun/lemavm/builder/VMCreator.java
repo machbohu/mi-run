@@ -7,17 +7,17 @@ import org.antlr.runtime.tree.CommonTree;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 
 public class VMCreator {
-	private static VMCodeBlock create(VMBuilder b) throws RecognitionException{
+	private static VMCodeBlock create(VMBuilder b){
 		b.build();
 		return b.getCodeBlock();
 	}
 	
-	public static VMCodeBlock createBaseStructureFromTree(CharStream cs) throws RecognitionException{
+	public static VMCodeBlock createBaseStructureFromTree(CharStream cs){
 		return create(new VMBaseStructureBuilder(cs));
 
 	}
 	
-	public static VMCodeBlock createCodeBlockFromTree(CommonTree node) throws RecognitionException{
+	public static VMCodeBlock createCodeBlockFromTree(CommonTree node){
 		return create(new VMCodeBlockBuilder(node));
 	}
 }

@@ -94,7 +94,7 @@ public abstract class VMBuilder {
 		assignFactory = new AssignOperatorFactory();
 	}
 
-	public abstract void build() throws RecognitionException;
+	public abstract void build();
 
 	public abstract VMCodeBlock getCodeBlock();
 

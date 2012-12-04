@@ -123,8 +123,6 @@ public class ASTTreeTest {
         	VMBaseStructureBuilder b = new VMBaseStructureBuilder(chs);
         	b.build();
         	b.printTreeToDot();
-		} catch (RecognitionException e) {
-			e.printStackTrace();
 		} catch (VMParsingException e) {
 			System.err.println(e.getMessage());
 		}

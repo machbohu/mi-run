@@ -64,8 +64,6 @@ public class VMBaseStructureTest {
 		
 		try {
         	VMCreator.createBaseStructureFromTree(cs); 
-		} catch (RecognitionException e) {
-			e.printStackTrace();
 		} catch (VMParsingException e) {
 			System.err.println(e.getMessage());
 		}

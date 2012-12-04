@@ -47,7 +47,7 @@ public class VMInterpreter {
 	 * 
 	 * @param block
 	 */
-	public void executeCodeBlock(VMCodeBlock block) {
+	private void executeCodeBlock(VMCodeBlock block) {
 		// TODO There will probably a big switch or if else to execute correct
 		// action for node in the block.
 		// Maybe a unified evaluate function would help
@@ -66,12 +66,27 @@ public class VMInterpreter {
 	 * @param newEnv
 	 *            The environment to use as the current
 	 */
-	public void setCurrentEnvironment(VMEnvironment newEnv) {
+	private void setCurrentEnvironment(VMEnvironment newEnv) {
 		if (newEnv == null) {
 			throw new NullPointerException();
 		}
 		stackFrames.push(currentEnvironment);
 		this.currentEnvironment = newEnv;
+	}
+	
+	/**
+	 * Set top of the stack as current environment 
+	 */
+	private void unsetCurrentEnvironment(){
+		// TODO if parent (= not method but block) write return symptom to it
+		// and also return value
+		this.currentEnvironment = stackFrames.pop();
+	}
+	
+	public void invokeCodeBlock(VMEnvironment newEnv, VMCodeBlock code){
+		setCurrentEnvironment(newEnv);
+		executeCodeBlock(code);
+		unsetCurrentEnvironment();
 	}
 
 	/**
@@ -180,7 +195,7 @@ public class VMInterpreter {
 		// yet
 		executeCodeBlock(method.getCode());
 		final Object res = methodEnv.getReturnValue();
-		this.currentEnvironment = stackFrames.pop();
+		unsetCurrentEnvironment();
 		return res;
 	}
 

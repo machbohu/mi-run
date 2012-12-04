@@ -5,12 +5,13 @@ import java.util.List;
 
 import org.antlr.runtime.tree.CommonTree;
 
-import cz.cvut.fit.mirun.lemavm.assignment.AssignOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMField;
 import cz.cvut.fit.mirun.lemavm.structures.control.VMFor;
+import cz.cvut.fit.mirun.lemavm.structures.control.VMIfElse;
+import cz.cvut.fit.mirun.lemavm.structures.control.VMWhile;
 
 public class VMCodeBlockBuilder extends VMBuilder {
 	private CommonTree top;
@@ -84,26 +85,29 @@ public class VMCodeBlockBuilder extends VMBuilder {
 		for(Object o : top.getChildren()){
 			child = (CommonTree) o;
 			
-			// TODO add every case to codeBlock
 			switch(child.toString()){
 			case "VAR_DECLARATION":
 				for(VMField f : buildVarFromTree(child)){
 					operation = assignFactory.createOperator(f.getName(), f.getType(), false, f.getVal());
-//					add(operation);
+					// TODO add operation to codeBlock
 				}
 				break;
 			case "EXPR":
+				// TODO add to codeBlock
 				buildExpressionFromTree(child);
 				break;
 			case "if":
+				// TODO add to codeBlock
 				condition = buildExpressionFromTree((CommonTree) child.getChild(0));
-//				new VMIfElse(condition, (CommonTree) child.getChild(1), (CommonTree) child.getChild(2));
+				new VMIfElse(condition, (CommonTree) child.getChild(1), (CommonTree) child.getChild(2));
 				break;
 			case "while":
+				// TODO add to codeBlock
 				condition = buildExpressionFromTree((CommonTree) child.getChild(0));
-//				new VMWhile(condition, (CommonTree) child.getChild(1));
+				new VMWhile(condition, (CommonTree) child.getChild(1));
 				break;
 			case "for":
+				// TODO add to codeBlock
 				buildForFromTree(child);
 				break;
 			case "return":

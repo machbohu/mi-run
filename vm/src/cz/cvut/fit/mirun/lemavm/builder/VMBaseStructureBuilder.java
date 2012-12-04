@@ -37,13 +37,17 @@ public class VMBaseStructureBuilder extends VMBuilder {
 	 * and get AST tree
 	 * @throws RecognitionException
 	 */
-	private void buildASTTree() throws RecognitionException{
+	private void buildASTTree(){
 		LeMaVMLexer lexer = new LeMaVMLexer(cs);
 		TokenRewriteStream tokens = new TokenRewriteStream(lexer);
 		LeMaVMParser parser = new LeMaVMParser(tokens);
 		parser.enableErrorMessageCollection(true);
 		
-		tree = (CommonTree)parser.javaSource().getTree();
+		try {
+			tree = (CommonTree)parser.javaSource().getTree();
+		} catch (RecognitionException e) {
+			throw new VMParsingException(e.getMessage());
+		}
 		
 		if(parser.getMessages().size() > 0){
 			throw new VMParsingException(parser.getMessages().toString());
@@ -224,7 +228,7 @@ public class VMBaseStructureBuilder extends VMBuilder {
 		}
 	}
 	
-	public void build() throws RecognitionException{
+	public void build(){
 		buildASTTree();
 		buildBaseStructureFromTree();
 	}

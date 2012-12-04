@@ -1,7 +1,11 @@
 package cz.cvut.fit.mirun.lemavm.structures.control;
 
+import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
 
+import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
+import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
@@ -12,39 +16,43 @@ public final class VMWhile extends VMControlStructure {
 
 	private final VMRelationalOperator condition;
 	private final CommonTree whileTree;
-	private final VMCodeBlock whilePart;
+	private VMCodeBlock whilePart;
 
 	/**
 	 * Constructor for this while statement.</p>
 	 * 
 	 * @param condition
 	 *            Condition
-	 * @param whilePart
-	 *            While part
+	 * @param whileTree
+	 *            While AST subtree
 	 */
-	public VMWhile(VMRelationalOperator condition, CommonTree whileTree) {
+	public VMWhile(Object condition, CommonTree whileTree) {
 		super(ObjectType.WHILE);
-		if (condition == null || whileTree == null) {
+		if (condition == null || !(condition instanceof VMRelationalOperator) 
+				|| whileTree == null) {
 			throw new VMParsingException(
 					"Illegal arguments passed to VMWhile constructor: "
 							+ condition + ", " + whileTree);
 		}
-		this.condition = condition;
+		this.condition = (VMRelationalOperator) condition;
 		this.whileTree = whileTree;
 		this.whilePart = null;
 	}
 
 	@Override
 	public VMCodeBlock evaluate(VMEnvironment env) {
-		final boolean res = condition.evaluateBoolean(env);
-		if (res) {
-			// TODO build codeBlock from AST and
-			// prepend this instance of while to the CodeBlock whilePart
-			// for later repeated evaluation
-			return whilePart;
-		} else {
-			return null;
+		if(whilePart == null){
+			whilePart = VMCreator.createCodeBlockFromTree(whileTree);
 		}
+		
+		final VMEnvironment newEnv = new VMEnvironment(env);
+		
+		// TODO check return symptom in env
+		while(condition.evaluateBoolean(env)){
+			VMInterpreter.getInstance().invokeCodeBlock(newEnv, whilePart);
+		}
+		
+		return null;
 	}
 
 }
