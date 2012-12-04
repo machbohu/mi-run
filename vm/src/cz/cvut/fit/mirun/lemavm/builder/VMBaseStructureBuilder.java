@@ -1,5 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.builder;
 
+import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,6 +20,7 @@ import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMField;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMMethod;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMVisibilityModifier;
+import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public class VMBaseStructureBuilder extends VMBuilder {
 	private static final Logger LOG = Logger.getLogger(VMBaseStructureBuilder.class);
@@ -137,7 +139,19 @@ public class VMBaseStructureBuilder extends VMBuilder {
 			switch(child.toString()){
 			case "VAR_DECLARATION":
 				for(VMField f : buildVarFromTree(child)){
-					cls.addField(f);
+					try{
+						if(f.getVal() == null){
+							f.setVal(VMUtils.getTypeDefaultValue(f.getType()));
+						}else{
+							// TODO what will happen with VMOperator instead of String val?
+							f.setVal(VMUtils.getTypeProperValue(f.getType(), f.getVal().toString()));
+						}
+						cls.addField(f);
+					}catch(ParseException e){
+						throw new VMParsingException("Class '"+cls.toString()
+								+"': Can not assign value '" + f.getVal()
+								+ "' to the type '"+f.getType()+"'");
+					}
 				}
 				break;
 			case "CONSTRUCTOR_DECL":

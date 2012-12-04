@@ -271,7 +271,8 @@ public abstract class VMBuilder {
 	 * AST Tree node [VAR_DECLARATION]
 	 * 
 	 * @param node
-	 * @return List of VMField
+	 * @return List of VMField (VMField.val contains 
+	 * String(var_name, number, "string"), VMOperator or null)
 	 */
 	protected List<VMField> buildVarFromTree(CommonTree node) {
 		List<VMField> fields = new ArrayList<>();
@@ -302,31 +303,12 @@ public abstract class VMBuilder {
 					if (child.toString().equals("VAR_DECLARATOR")
 							&& child.getChildCount() == 2) {
 						name = child.getChild(0).toString();
-						try {
-							expr = buildExpressionFromTree((CommonTree) child.getChild(1).getChild(0));
-							if(expr instanceof String){
-								// TODO should class instance check value type when initialized?
-								// YES (rebuild VMField Object val -> String val) or
-								val = (String) expr;
-								// NO
-								val = VMUtils.getTypeProperValue(type, (String) expr);
-							}else if(expr instanceof VMOperator){
-								// TODO how to evaluate without env?
-								val = ((VMOperator) expr).evaluate(null);
-							}
-						} catch (NumberFormatException e) {
-							throw new VMParsingException(
-									"Can not assign value '" + strVal
-											+ "' to the type '" + type+"'");
-						} catch (ParseException e1) {
-							throw new VMParsingException(
-									"Can not assign value '" + strVal
-											+ "' to the type '" + type+"'");
-						}
+						val = buildExpressionFromTree((CommonTree) child.getChild(1));
 					} else if (child.toString().equals("VAR_DECLARATOR")
 							&& child.getChildCount() == 1) {
 						name = child.getChild(0).toString();
-						val = VMUtils.getTypeDefaultValue(type);
+						val = null;
+//						val = VMUtils.getTypeDefaultValue(type);
 					} else {
 						throw new VMParsingException(
 								"Unexpected program syntax '"

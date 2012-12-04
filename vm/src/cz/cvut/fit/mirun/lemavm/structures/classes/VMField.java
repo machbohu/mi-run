@@ -32,6 +32,10 @@ public class VMField {
 	public Object getVal() {
 		return val;
 	}
+	
+	public void setVal(Object val){
+		this.val = val;
+	}
 
 	public boolean isStatic() {
 		return isStatic;
