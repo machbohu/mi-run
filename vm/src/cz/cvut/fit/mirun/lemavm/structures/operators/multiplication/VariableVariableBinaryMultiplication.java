@@ -43,6 +43,8 @@ public final class VariableVariableBinaryMultiplication extends
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		Number nOne = getBindingValue(opOne, Number.class, env);
+		Number nTwo = getBindingValue(opTwo, Number.class, env);
+		return multiplyNumbers(nOne, nTwo);
 	}
 }

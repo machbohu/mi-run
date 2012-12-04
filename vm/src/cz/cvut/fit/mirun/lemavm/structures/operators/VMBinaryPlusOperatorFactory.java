@@ -1,11 +1,11 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators;
 
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
-import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMCompoundPlus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.plus.CompVMStringBinaryPlus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.plus.NumberCompBinaryPlus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.plus.NumberNumberBinaryPlus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.plus.NumberVMStringBinaryPlus;
+import cz.cvut.fit.mirun.lemavm.structures.operators.plus.VMCompoundPlus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.plus.VMStringCompBinaryPlus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.plus.VMStringNumberBinaryPlus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.plus.VMStringVMStringBinaryPlus;

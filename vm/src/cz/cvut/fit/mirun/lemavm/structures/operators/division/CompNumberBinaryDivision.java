@@ -46,6 +46,7 @@ public final class CompNumberBinaryDivision extends AbstractBinaryDivision {
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		final Number nOne = (Number) opOne.evaluate(env);
+		return divideNumbers(nOne, opTwo);
 	}
 }

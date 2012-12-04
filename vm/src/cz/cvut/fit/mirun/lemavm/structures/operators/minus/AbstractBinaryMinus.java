@@ -17,4 +17,15 @@ public abstract class AbstractBinaryMinus extends VMOperator {
 		return new VMString(evaluate(env).toString());
 	}
 
+	protected Number subtractNumbers(Number nOne, Number nTwo) {
+		assert nOne != null;
+		assert nTwo != null;
+		if (nOne instanceof Double || nTwo instanceof Double) {
+			return Double.valueOf(nOne.doubleValue() - nTwo.doubleValue());
+		} else if (nOne instanceof Long || nTwo instanceof Long) {
+			return Long.valueOf(nOne.longValue() - nTwo.longValue());
+		} else {
+			return Integer.valueOf(nOne.intValue() - nTwo.intValue());
+		}
+	}
 }

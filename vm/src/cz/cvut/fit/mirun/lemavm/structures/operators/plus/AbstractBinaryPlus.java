@@ -14,7 +14,18 @@ public abstract class AbstractBinaryPlus extends VMOperator {
 
 	@Override
 	public VMString evaluateString(VMEnvironment env) {
-		return new VMString(evaluateInt(env).toString());
+		return new VMString(evaluate(env).toString());
 	}
 
+	protected Number addNumbers(Number nOne, Number nTwo) {
+		assert nOne != null;
+		assert nTwo != null;
+		if (nOne instanceof Double || nTwo instanceof Double) {
+			return Double.valueOf(nOne.doubleValue() + nTwo.doubleValue());
+		} else if (nOne instanceof Long || nTwo instanceof Long) {
+			return Long.valueOf(nOne.longValue() + nTwo.longValue());
+		} else {
+			return Integer.valueOf(nOne.intValue() + nTwo.intValue());
+		}
+	}
 }

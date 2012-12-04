@@ -16,4 +16,16 @@ public abstract class AbstractBinaryMultiplication extends VMOperator {
 	public VMString evaluateString(VMEnvironment env) {
 		return new VMString(evaluateInt(env).toString());
 	}
+
+	protected Number multiplyNumbers(Number nOne, Number nTwo) {
+		assert nOne != null;
+		assert nTwo != null;
+		if (nOne instanceof Double || nTwo instanceof Double) {
+			return Double.valueOf(nOne.doubleValue() * nTwo.doubleValue());
+		} else if (nOne instanceof Long || nTwo instanceof Long) {
+			return Long.valueOf(nOne.longValue() * nTwo.longValue());
+		} else {
+			return Integer.valueOf(nOne.intValue() * nTwo.intValue());
+		}
+	}
 }

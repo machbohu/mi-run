@@ -66,7 +66,7 @@ public final class VariableVariableBinaryPlus extends AbstractBinaryPlus {
 		if (valOne instanceof VMString || valTwo instanceof VMString) {
 			return evaluateString(env);
 		} else {
-			return evaluateInt(env);
+			return addNumbers((Number) valOne, (Number) valTwo);
 		}
 	}
 }

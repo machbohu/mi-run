@@ -35,6 +35,6 @@ public final class NumberNumberBinaryMultiplication extends
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		return multiplyNumbers(opOne, opTwo);
 	}
 }

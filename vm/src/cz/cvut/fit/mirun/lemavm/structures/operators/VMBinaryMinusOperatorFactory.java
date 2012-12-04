@@ -2,12 +2,12 @@ package cz.cvut.fit.mirun.lemavm.structures.operators;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
-import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMCompoundMinus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.minus.CompNumberBinaryMinus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.minus.CompVariableBinaryMinus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.minus.NumberCompBinaryMinus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.minus.NumberNumberBinaryMinus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.minus.NumberVariableBinaryMinus;
+import cz.cvut.fit.mirun.lemavm.structures.operators.minus.VMCompoundMinus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.minus.VariableCompBinaryMinus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.minus.VariableNumberBinaryMinus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.minus.VariableVariableBinaryMinus;

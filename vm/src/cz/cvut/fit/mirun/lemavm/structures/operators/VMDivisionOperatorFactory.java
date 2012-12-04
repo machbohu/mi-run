@@ -2,12 +2,12 @@ package cz.cvut.fit.mirun.lemavm.structures.operators;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
-import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMCompoundDivide;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.CompNumberBinaryDivision;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.CompVariableBinaryDivision;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.NumberCompBinaryDivision;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.NumberNumberBinaryDivision;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.NumberVariableBinaryDivision;
+import cz.cvut.fit.mirun.lemavm.structures.operators.division.VMCompoundDivision;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.VariableCompBinaryDivision;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.VariableNumberBinaryDivision;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.VariableVariableBinaryDivision;
@@ -16,7 +16,7 @@ public final class VMDivisionOperatorFactory extends VMBinaryOperatorFactory {
 
 	@Override
 	protected VMOperator createOperator(VMOperator opOne, VMOperator opTwo) {
-		return new VMCompoundDivide(opOne, opTwo);
+		return new VMCompoundDivision(opOne, opTwo);
 	}
 
 	@Override

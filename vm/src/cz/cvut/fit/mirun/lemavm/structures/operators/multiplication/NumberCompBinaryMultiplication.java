@@ -37,6 +37,7 @@ public final class NumberCompBinaryMultiplication extends
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		final Number nTwo = (Number) opTwo.evaluate(env);
+		return multiplyNumbers(opOne, nTwo);
 	}
 }

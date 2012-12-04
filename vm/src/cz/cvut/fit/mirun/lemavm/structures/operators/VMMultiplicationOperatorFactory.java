@@ -2,12 +2,12 @@ package cz.cvut.fit.mirun.lemavm.structures.operators;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
-import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMCompoundMultiply;
 import cz.cvut.fit.mirun.lemavm.structures.operators.multiplication.CompNumberBinaryMultiplication;
 import cz.cvut.fit.mirun.lemavm.structures.operators.multiplication.CompVariableBinaryMultiplication;
 import cz.cvut.fit.mirun.lemavm.structures.operators.multiplication.NumberCompBinaryMultiplication;
 import cz.cvut.fit.mirun.lemavm.structures.operators.multiplication.NumberNumberBinaryMultiplication;
 import cz.cvut.fit.mirun.lemavm.structures.operators.multiplication.NumberVariableBinaryMultiplication;
+import cz.cvut.fit.mirun.lemavm.structures.operators.multiplication.VMCompoundMultiplication;
 import cz.cvut.fit.mirun.lemavm.structures.operators.multiplication.VariableCompBinaryMultiplication;
 import cz.cvut.fit.mirun.lemavm.structures.operators.multiplication.VariableNumberBinaryMultiplication;
 import cz.cvut.fit.mirun.lemavm.structures.operators.multiplication.VariableVariableBinaryMultiplication;
@@ -17,7 +17,7 @@ public final class VMMultiplicationOperatorFactory extends
 
 	@Override
 	protected VMOperator createOperator(VMOperator opOne, VMOperator opTwo) {
-		return new VMCompoundMultiply(opOne, opTwo);
+		return new VMCompoundMultiplication(opOne, opTwo);
 	}
 
 	@Override

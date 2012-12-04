@@ -50,6 +50,12 @@ public abstract class ParsingUtils {
 		Number n = null;
 		try {
 			n = numberParser.parse(str);
+			if (n instanceof Long) {
+				if (n.longValue() <= Integer.MAX_VALUE
+						&& n.longValue() >= Integer.MIN_VALUE) {
+					return Integer.valueOf(n.intValue());
+				}
+			}
 		} catch (ParseException e) {
 			// There is nothing we can do
 		}

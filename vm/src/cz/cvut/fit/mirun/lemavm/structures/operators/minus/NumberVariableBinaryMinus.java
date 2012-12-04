@@ -38,6 +38,7 @@ public final class NumberVariableBinaryMinus extends AbstractBinaryMinus {
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		final Number nTwo = getBindingValue(opTwo, Number.class, env);
+		return subtractNumbers(opOne, nTwo);
 	}
 }

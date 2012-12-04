@@ -55,6 +55,6 @@ public final class VariableNumberBinaryPlus extends AbstractBinaryPlus {
 		if (ob instanceof VMString) {
 			return evaluateString(env);
 		}
-		return evaluateInt(env);
+		return addNumbers((Number) ob, opTwo);
 	}
 }

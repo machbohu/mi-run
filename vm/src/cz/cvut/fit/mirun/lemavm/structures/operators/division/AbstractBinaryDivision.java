@@ -1,5 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.structures.operators.division;
 
+import cz.cvut.fit.mirun.lemavm.exceptions.VMDivisionByZeroException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
@@ -14,7 +15,24 @@ public abstract class AbstractBinaryDivision extends VMOperator {
 
 	@Override
 	public VMString evaluateString(VMEnvironment env) {
-		return new VMString(evaluateInt(env).toString());
+		return new VMString(evaluate(env).toString());
 	}
 
+	protected Number divideNumbers(Number nOne, Number nTwo) {
+		assert nOne != null;
+		assert nTwo != null;
+		if (nOne instanceof Double || nTwo instanceof Double) {
+			return Double.valueOf(nOne.doubleValue() / nTwo.doubleValue());
+		} else if (nOne instanceof Long || nTwo instanceof Long) {
+			if (nTwo.longValue() == 0) {
+				throw new VMDivisionByZeroException();
+			}
+			return Long.valueOf(nOne.longValue() / nTwo.longValue());
+		} else {
+			if (nTwo.longValue() == 0) {
+				throw new VMDivisionByZeroException();
+			}
+			return Integer.valueOf(nOne.intValue() / nTwo.intValue());
+		}
+	}
 }

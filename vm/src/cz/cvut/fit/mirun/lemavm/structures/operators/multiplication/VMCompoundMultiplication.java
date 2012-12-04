@@ -1,14 +1,19 @@
-package cz.cvut.fit.mirun.lemavm.structures.operators.compounds;
+package cz.cvut.fit.mirun.lemavm.structures.operators.multiplication;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
-public final class VMCompoundMultiply extends VMBinaryComposedOperator {
+public final class VMCompoundMultiplication extends
+		AbstractBinaryMultiplication {
 
-	public VMCompoundMultiply(VMOperator opOne, VMOperator opTwo) {
-		super(opOne, opTwo);
+	private final VMOperator opOne;
+	private final VMOperator opTwo;
+
+	public VMCompoundMultiplication(VMOperator opOne, VMOperator opTwo) {
+		this.opOne = opOne;
+		this.opTwo = opTwo;
 	}
 
 	@Override
@@ -46,11 +51,13 @@ public final class VMCompoundMultiply extends VMBinaryComposedOperator {
 
 	@Override
 	public VMString evaluateString(VMEnvironment env) {
-		return new VMString(evaluateInt(env).toString());
+		return new VMString(evaluate(env).toString());
 	}
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		final Number nOne = (Number) opOne.evaluate(env);
+		final Number nTwo = (Number) opTwo.evaluate(env);
+		return multiplyNumbers(nOne, nTwo);
 	}
 }

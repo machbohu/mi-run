@@ -48,6 +48,6 @@ public final class VMCompoundNegation extends VMUnaryCompoundOperator {
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		return evaluateBoolean(env);
 	}
 }

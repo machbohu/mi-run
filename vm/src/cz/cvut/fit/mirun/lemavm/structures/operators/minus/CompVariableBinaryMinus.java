@@ -39,6 +39,8 @@ public final class CompVariableBinaryMinus extends AbstractBinaryMinus {
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		final Number nOne = (Number) opOne.evaluate(env);
+		final Number nTwo = getBindingValue(opTwo, Number.class, env);
+		return subtractNumbers(nOne, nTwo);
 	}
 }

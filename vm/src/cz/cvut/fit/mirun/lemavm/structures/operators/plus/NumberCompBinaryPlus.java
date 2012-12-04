@@ -41,6 +41,6 @@ public final class NumberCompBinaryPlus extends AbstractBinaryPlus {
 		if (res instanceof VMString) {
 			return new VMString(opOne.toString() + ((VMString) res).getValue());
 		}
-		return (opOne.intValue() + ((Number) res).intValue());
+		return addNumbers(opOne, (Number) res);
 	}
 }

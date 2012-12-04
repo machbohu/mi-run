@@ -34,6 +34,6 @@ public final class NumberNumberBinaryPlus extends AbstractBinaryPlus {
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		return addNumbers(opOne, opTwo);
 	}
 }

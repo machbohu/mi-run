@@ -48,6 +48,7 @@ public final class NumberVariableBinaryDivision extends AbstractBinaryDivision {
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		final Number nTwo = getBindingValue(opTwo, Number.class, env);
+		return divideNumbers(opOne, nTwo);
 	}
 }

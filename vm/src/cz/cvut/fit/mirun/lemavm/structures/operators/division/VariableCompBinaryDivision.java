@@ -52,6 +52,8 @@ public final class VariableCompBinaryDivision extends AbstractBinaryDivision {
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		final Number nOne = getBindingValue(opOne, Number.class, env);
+		final Number nTwo = (Number) opTwo.evaluate(env);
+		return divideNumbers(nOne, nTwo);
 	}
 }

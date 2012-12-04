@@ -60,6 +60,6 @@ public final class VariableCompBinaryPlus extends AbstractBinaryPlus {
 		if (res instanceof VMString) {
 			return new VMString(ob.toString() + ((VMString) res).getValue());
 		}
-		return (((Number) ob).intValue() + ((Number) res).intValue());
+		return addNumbers((Number) ob, (Number) res);
 	}
 }

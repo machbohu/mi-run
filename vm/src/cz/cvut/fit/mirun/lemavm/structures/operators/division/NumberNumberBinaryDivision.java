@@ -41,9 +41,9 @@ public final class NumberNumberBinaryDivision extends AbstractBinaryDivision {
 		}
 		return (short) (opOne.intValue() / opTwo.intValue());
 	}
-	
+
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		return divideNumbers(opOne, opTwo);
 	}
 }
