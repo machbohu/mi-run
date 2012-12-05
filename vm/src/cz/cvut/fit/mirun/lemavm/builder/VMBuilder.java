@@ -3,10 +3,10 @@ package cz.cvut.fit.mirun.lemavm.builder;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
 
 import cz.cvut.fit.mirun.lemavm.assignment.AssignOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.core.VMNewOperator;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.VMMethodCallOperator;
@@ -246,31 +246,31 @@ public abstract class VMBuilder {
 			String receiver = "this";
 
 			if (node.getChild(0).toString().equals(".")) {
-				receiver = node.getChild(0).getChild(0).toString(); // class
-																	// instance
-				name = node.getChild(0).getChild(1).toString(); // method to
-																// call
+				// class instance
+				receiver = node.getChild(0).getChild(0).toString();
+				// method to call
+				name = node.getChild(0).getChild(1).toString();
 			} else {
-				// receiver = this
-				name = node.getChild(0).toString(); // method to call
+				// receiver = "this"
+				// method to call
+				name = node.getChild(0).toString();
 			}
 			return new VMMethodCallOperator(receiver, name,
 					buildArgumentListFromTree((CommonTree) node.getChild(1)));
 		case "STATIC_ARRAY_CREATOR":
-			// TODO operator new
-			buildTypeFromTree(node);
+			String type = buildTypeFromTree(node);
+			
 			if (node.getChild(0).equals("ARGUMENT_LIST")) {
-				buildArgumentListFromTree((CommonTree) node.getChild(1));
+				List<Object> args = buildArgumentListFromTree((CommonTree) node.getChild(1));
+				return new VMNewOperator(type, args); // new Constructor()
 			} else {
-				buildExpressionFromTree((CommonTree) node.getChild(1));
+				Object len = buildExpressionFromTree((CommonTree) node.getChild(1));
+				return new VMNewOperator(type, len); // new double[5]
 			}
-			break;
 		default:
 			throw new VMParsingException("Unsupported operation '"
 					+ node.toString() + "'");
 		}
-
-		return null;
 	}
 
 	/**
@@ -287,8 +287,8 @@ public abstract class VMBuilder {
 		CommonTree child = null;
 		VMVisibilityModifier visibility = VMVisibilityModifier.getDefault();
 		boolean isStatic = false;
-		String type = null, name = null, strVal = null;
-		Object val = null, expr = null;
+		String type = null, name = null;
+		Object val = null;
 
 		for (Object o : node.getChildren()) {
 			child = (CommonTree) o;
