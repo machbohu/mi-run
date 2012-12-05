@@ -82,6 +82,10 @@ public class VMCodeBlockBuilder extends VMBuilder {
 		CommonTree child = null;
 		Object condition = null, operation = null;
 		
+		if(top.getChildCount() <= 0){
+			return;
+		}
+		
 		for(Object o : top.getChildren()){
 			child = (CommonTree) o;
 			

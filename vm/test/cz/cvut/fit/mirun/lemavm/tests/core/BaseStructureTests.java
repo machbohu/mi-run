@@ -62,11 +62,7 @@ public class BaseStructureTests {
 			"}"
 		);
 		
-		try {
-        	VMCreator.createBaseStructureFromTree(cs); 
-		} catch (VMParsingException e) {
-			System.err.println(e.getMessage());
-		}
+    	VMCreator.createBaseStructureFromTree(cs); 
 	}
 	
 	@Test

@@ -10,6 +10,7 @@ import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMField;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMVisibilityModifier;
+import cz.cvut.fit.mirun.lemavm.structures.operators.VMArrayAccessOperator;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMMethodCallOperator;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMNewOperator;
 import cz.cvut.fit.mirun.lemavm.structures.operators.control.NotEqualsOperatorFactory;
@@ -196,8 +197,7 @@ public abstract class VMBuilder {
 			if(node.getChild(0).toString().equals("ARRAY_ELEMENT_ACCESS")){
 				name = node.getChild(0).getChild(0).toString();
 				index = buildExpressionFromTree((CommonTree) node.getChild(0).getChild(1));
-				// TODO create assign operator with index
-//				return assignFactory.createOperator(name, index, null, false, op2);
+				return assignFactory.createOperator(name, null, index, op2);
 			}else{
 				name = node.getChild(0).toString();
 				return assignFactory.createOperator(name, null, false, op2);
@@ -280,7 +280,7 @@ public abstract class VMBuilder {
 		case "ARRAY_ELEMENT_ACCESS":
 			name = node.getChild(0).toString();
 			index = buildExpressionFromTree((CommonTree) node.getChild(1));
-			// TODO create and return array access operator
+			return new VMArrayAccessOperator(name, index);
 		default:
 			throw new VMParsingException("Unsupported operation '"
 					+ node.toString() + "'");

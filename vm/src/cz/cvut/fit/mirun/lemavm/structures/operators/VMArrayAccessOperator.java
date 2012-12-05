@@ -11,6 +11,11 @@ public final class VMArrayAccessOperator implements Evaluable {
 	private final String array;
 	private final Object index;
 
+	/**
+	 * 
+	 * @param array Array name
+	 * @param index Index of value in array
+	 */
 	public VMArrayAccessOperator(String array, Object index) {
 		if (array == null || index == null) {
 			throw new NullPointerException();

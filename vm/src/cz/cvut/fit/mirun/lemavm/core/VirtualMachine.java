@@ -1,9 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.core;
 
-import java.io.IOException;
 import java.util.Arrays;
 
-import org.antlr.runtime.ANTLRFileStream;
 import org.apache.log4j.Logger;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
