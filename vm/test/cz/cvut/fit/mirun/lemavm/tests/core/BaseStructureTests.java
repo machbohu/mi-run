@@ -17,7 +17,7 @@ import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMVisibilityModifier;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 
-public class BaseStructureTest {
+public class BaseStructureTests {
 	private static CharStream cs;
 	
 	@BeforeClass
