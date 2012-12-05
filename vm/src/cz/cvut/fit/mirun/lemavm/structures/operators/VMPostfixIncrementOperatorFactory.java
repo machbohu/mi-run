@@ -4,14 +4,14 @@ import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
-import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMCompoundPostfixIncrement;
 
 public final class VMPostfixIncrementOperatorFactory extends
 		VMUnaryOperatorFactory {
 
 	@Override
 	protected VMOperator createOperator(VMOperator op) {
-		return new VMCompoundPostfixIncrement(op);
+		throw new VMParsingException(
+				"The postfix increment operator is not applicable for operation result.");
 	}
 
 	@Override
