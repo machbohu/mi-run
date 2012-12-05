@@ -118,6 +118,9 @@ public class VMUtils {
 		if (instance.getType().equals(ObjectType.STRING)) {
 			return true;
 		}
+		if (instance.getType().equals(ObjectType.FILE)) {
+			return true;
+		}
 		// Can add more built in types here
 		return false;
 	}

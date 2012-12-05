@@ -12,6 +12,7 @@ import cz.cvut.fit.mirun.lemavm.exceptions.VMFinalBindingExistsException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMUnknownTypeException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 
 public class VMEnvironment {
 
@@ -213,8 +214,8 @@ public class VMEnvironment {
 	public void setReturnValue(Object returnValue) {
 		this.returnValue = returnValue;
 		this.shouldReturn = true;
-		
-		if(parent != null){
+
+		if (parent != null) {
 			parent.setReturnValue(returnValue);
 		}
 	}
@@ -245,12 +246,13 @@ public class VMEnvironment {
 
 	private static Set<String> initTypes() {
 		final Set<String> types = new HashSet<>();
-		types.add(ObjectType.BOOLEAN.toString());
-		types.add(ObjectType.SHORT.toString());
-		types.add(ObjectType.INTEGER.toString());
-		types.add(ObjectType.LONG.toString());
-		types.add(ObjectType.DOUBLE.toString());
+		types.add(VMConstants.BOOLEAN);
+		types.add(VMConstants.SHORT);
+		types.add(VMConstants.INT);
+		types.add(VMConstants.LONG);
+		types.add(VMConstants.STRING);
 		types.add(ObjectType.STRING.toString());
+		types.add(ObjectType.FILE.toString());
 		return types;
 	}
 
@@ -274,8 +276,8 @@ public class VMEnvironment {
 	public static Set<String> getKnownTypes() {
 		return knownTypes;
 	}
-	
-	public boolean shouldReturn(){
+
+	public boolean shouldReturn() {
 		return shouldReturn;
 	}
 }

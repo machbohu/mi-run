@@ -7,10 +7,13 @@ import org.apache.log4j.Logger;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMClassNotFoundException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMMethodNotFoundException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMUnknownTypeException;
 import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
+import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMArray;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMFile;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMNull;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
@@ -131,6 +134,14 @@ public final class VMNewOperator implements Evaluable {
 				instance = new VMString("");
 			} else {
 				instance = new VMString(args.get(0).toString());
+			}
+		}
+		if (typeName.equals(ObjectType.FILE.toString())) {
+			if (args.size() < 1 || !(args.get(0) instanceof VMString)) {
+				throw new VMMethodNotFoundException(
+						"No-arg constructor not found in type File.");
+			} else {
+				instance = new VMFile((VMString) args.get(0));
 			}
 		}
 		return instance;

@@ -6,10 +6,8 @@ import org.antlr.runtime.tree.CommonTree;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
 import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
-import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
-import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
@@ -36,17 +34,15 @@ public final class VMFor extends VMControlStructure {
 	 */
 	public VMFor(List<Object> inits, Object condition, Object operation,
 			CommonTree forTree) {
-		super(ObjectType.FOR);
-		if (checkInits(inits) || 
-				condition == null || !(condition instanceof Evaluable) || 
-				operation == null || !(operation instanceof Evaluable) ||
-				forTree == null) {
+		if (checkInits(inits) || condition == null
+				|| !(condition instanceof Evaluable) || operation == null
+				|| !(operation instanceof Evaluable) || forTree == null) {
 			throw new VMParsingException(
-					"Illegal arguments passed to VMFor constructor: "
-					 + inits + ", " + condition + ", " + operation + ", "
+					"Illegal arguments passed to VMFor constructor: " + inits
+							+ ", " + condition + ", " + operation + ", "
 							+ forTree);
 		}
-		
+
 		this.inits = inits;
 		this.condition = (Evaluable) condition;
 		this.operation = (Evaluable) operation;
@@ -56,36 +52,37 @@ public final class VMFor extends VMControlStructure {
 
 	@Override
 	public VMObject evaluate(VMEnvironment env) {
-		if(forPart == null){
+		if (forPart == null) {
 			forPart = VMCreator.createCodeBlockFromTree(forTree);
 		}
-		
+
 		final VMEnvironment newEnv = new VMEnvironment(env);
 		Evaluable init = null;
-		
-		for(Object o : inits){
+
+		for (Object o : inits) {
 			init = (Evaluable) o;
 			init.evaluate(newEnv);
 		}
-		
-		for(;checkCondition(condition, env) && !env.shouldReturn();operation.evaluate(env)){
+
+		for (; checkCondition(condition, env) && !env.shouldReturn(); operation
+				.evaluate(env)) {
 			VMInterpreter.getInstance().invokeCodeBlock(newEnv, forPart);
 		}
-		
+
 		return null;
 	}
-	
-	private boolean checkInits(List<Object> inits){
-		if(inits == null || inits.size() <= 0){
+
+	private boolean checkInits(List<Object> inits) {
+		if (inits == null || inits.size() <= 0) {
 			return false;
 		}
-		
-		for(Object o : inits){
-			if(!(o instanceof Evaluable)){
+
+		for (Object o : inits) {
+			if (!(o instanceof Evaluable)) {
 				return false;
 			}
 		}
-		
+
 		return true;
 	}
 

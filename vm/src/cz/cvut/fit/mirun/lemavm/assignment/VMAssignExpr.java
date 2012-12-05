@@ -21,43 +21,43 @@ public final class VMAssignExpr extends VMAssignOperator {
 		resolveType(env);
 		switch (type) {
 		case VMConstants.BOOLEAN:
-			final boolean b = value.evaluateBoolean(env);
+			final Boolean b = value.evaluateBoolean(env);
 			if (isFinal) {
-				env.addPrimitiveFinalBinding(name, Boolean.valueOf(b), type);
+				env.addPrimitiveFinalBinding(name, b, type);
 			} else {
-				env.addPrimitiveBinding(name, Boolean.valueOf(b), type);
+				env.addPrimitiveBinding(name, b, type);
 			}
 			break;
 		case VMConstants.SHORT:
-			final short s = value.evaluateShort(env);
+			final Short s = value.evaluateShort(env);
 			if (isFinal) {
-				env.addPrimitiveFinalBinding(name, Short.valueOf(s), type);
+				env.addPrimitiveFinalBinding(name, s, type);
 			} else {
-				env.addPrimitiveBinding(name, Short.valueOf(s), type);
+				env.addPrimitiveBinding(name, s, type);
 			}
 			break;
 		case VMConstants.INT:
-			final int i = value.evaluateInt(env);
+			final Integer i = value.evaluateInt(env);
 			if (isFinal) {
-				env.addPrimitiveFinalBinding(name, Integer.valueOf(i), type);
+				env.addPrimitiveFinalBinding(name, i, type);
 			} else {
-				env.addPrimitiveBinding(name, Integer.valueOf(i), type);
+				env.addPrimitiveBinding(name, i, type);
 			}
 			break;
 		case VMConstants.LONG:
-			final long l = value.evaluateLong(env);
+			final Long l = value.evaluateLong(env);
 			if (isFinal) {
-				env.addPrimitiveFinalBinding(name, Long.valueOf(l), type);
+				env.addPrimitiveFinalBinding(name, l, type);
 			} else {
-				env.addPrimitiveBinding(name, Long.valueOf(l), type);
+				env.addPrimitiveBinding(name, l, type);
 			}
 			break;
 		case VMConstants.DOUBLE:
-			final double d = value.evaluateDouble(env);
+			final Double d = value.evaluateDouble(env);
 			if (isFinal) {
-				env.addPrimitiveFinalBinding(name, Double.valueOf(d), type);
+				env.addPrimitiveFinalBinding(name, d, type);
 			} else {
-				env.addPrimitiveBinding(name, Double.valueOf(d), type);
+				env.addPrimitiveBinding(name, d, type);
 			}
 			break;
 		case VMConstants.STRING:
