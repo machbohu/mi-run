@@ -10,22 +10,20 @@ import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public class VMInstanceEnvironment extends VMEnvironment {
 
-	private final VMClassInstance owner;
+//	private final VMClassInstance owner;
 
 	private final VMEnvironment classEnvironment;
 
 	// TODO Do visibility checking
 
 	public VMInstanceEnvironment(VMClassInstance owner) {
-		super();
-		this.owner = owner;
+		super(owner);
 		this.classEnvironment = owner.getVMClass().getClassEnvironment();
 		init();
 	}
 
 	public VMInstanceEnvironment(VMEnvironment parent, VMClassInstance owner) {
-		super(parent);
-		this.owner = owner;
+		super(parent, owner);
 		this.classEnvironment = owner.getVMClass().getClassEnvironment();
 		init();
 	}

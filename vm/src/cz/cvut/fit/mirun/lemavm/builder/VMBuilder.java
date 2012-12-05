@@ -125,17 +125,19 @@ public abstract class VMBuilder {
 	protected List<Object> buildArgumentListFromTree(CommonTree node) {
 		CommonTree child = null;
 		List<Object> args = new ArrayList<>();
-
-		for (Object o : node.getChildren()) {
-			child = (CommonTree) o;
-
-			switch (child.toString()) {
-			case "EXPR":
-				args.add(buildExpressionFromTree(child));
-				break;
-			default:
-				throw new VMParsingException("Unsupported operation '"
-						+ node.toString() + "'");
+		
+		if(node.getChildCount() > 0){
+			for (Object o : node.getChildren()) {
+				child = (CommonTree) o;
+	
+				switch (child.toString()) {
+				case "EXPR":
+					args.add(buildExpressionFromTree(child));
+					break;
+				default:
+					throw new VMParsingException("Unsupported operation '"
+							+ node.toString() + "'");
+				}
 			}
 		}
 		return args;
@@ -304,46 +306,48 @@ public abstract class VMBuilder {
 		String type = null, name = null;
 		Object val = null;
 
-		for (Object o : node.getChildren()) {
-			child = (CommonTree) o;
-
-			switch (child.toString()) {
-			case "LOCAL_MODIFIER_LIST":
-			case "MODIFIER_LIST":
-				// TODO check for final
-				if (child.getChildCount() > 0) {
-					visibility = VMVisibilityModifier.fromString(child
-							.getChild(0).toString());
-					isStatic = (child.getChildren().indexOf("static") != -1);
-				}
-				break;
-			case "TYPE":
-				type = buildTypeFromTree(child);
-				break;
-			case "VAR_DECLARATOR_LIST":
-				for (Object o1 : child.getChildren()) {
-					child = (CommonTree) o1;
-					if (child.toString().equals("VAR_DECLARATOR")
-							&& child.getChildCount() == 2) {
-						name = child.getChild(0).toString();
-						val = buildExpressionFromTree((CommonTree) child
-								.getChild(1));
-					} else if (child.toString().equals("VAR_DECLARATOR")
-							&& child.getChildCount() == 1) {
-						name = child.getChild(0).toString();
-						val = VMUtils.getTypeDefaultValue(type);
-					} else {
-						throw new VMParsingException(
-								"Unexpected program syntax '"
-										+ child.toString());
+		if(node.getChildCount() > 0){
+			for (Object o : node.getChildren()) {
+				child = (CommonTree) o;
+	
+				switch (child.toString()) {
+				case "LOCAL_MODIFIER_LIST":
+				case "MODIFIER_LIST":
+					// TODO check for final
+					if (child.getChildCount() > 0) {
+						visibility = VMVisibilityModifier.fromString(child
+								.getChild(0).toString());
+						isStatic = (child.getChildren().indexOf("static") != -1);
 					}
-					fields.add(new VMField(name, isStatic, visibility, type,
-							val));
+					break;
+				case "TYPE":
+					type = buildTypeFromTree(child);
+					break;
+				case "VAR_DECLARATOR_LIST":
+					for (Object o1 : child.getChildren()) {
+						child = (CommonTree) o1;
+						if (child.toString().equals("VAR_DECLARATOR")
+								&& child.getChildCount() == 2) {
+							name = child.getChild(0).toString();
+							val = buildExpressionFromTree((CommonTree) child
+									.getChild(1));
+						} else if (child.toString().equals("VAR_DECLARATOR")
+								&& child.getChildCount() == 1) {
+							name = child.getChild(0).toString();
+							val = VMUtils.getTypeDefaultValue(type);
+						} else {
+							throw new VMParsingException(
+									"Unexpected program syntax '"
+											+ child.toString());
+						}
+						fields.add(new VMField(name, isStatic, visibility, type,
+								val));
+					}
+					break;
+				default:
+					throw new VMParsingException("Unexpected program syntax '"
+							+ child.toString());
 				}
-				break;
-			default:
-				throw new VMParsingException("Unexpected program syntax '"
-						+ child.toString());
 			}
 		}
 

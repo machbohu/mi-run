@@ -106,15 +106,17 @@ public class VMBaseStructureBuilder extends VMBuilder {
 				if(child.getChildCount() > 0){
 					args = new HashMap<>();
 					
-					for(Object o1 : child.getChildren()){
-						child = (CommonTree) o1;
-						if(child.toString().equals("FORMAL_PARAM_STD_DECL")){
-							argType = child.getChild(1).getChild(0).toString();
-							argName = child.getChild(2).toString();
-							args.put(argName, argType);
-						}else{
-							throw new VMParsingException("Class'"+cls.getName()+"': method '"
-									+name+"': Unexpected program syntax '"+child.toString()+"'");
+					if(child.getChildCount() > 0){
+						for(Object o1 : child.getChildren()){
+							child = (CommonTree) o1;
+							if(child.toString().equals("FORMAL_PARAM_STD_DECL")){
+								argType = child.getChild(1).getChild(0).toString();
+								argName = child.getChild(2).toString();
+								args.put(argName, argType);
+							}else{
+								throw new VMParsingException("Class'"+cls.getName()+"': method '"
+										+name+"': Unexpected program syntax '"+child.toString()+"'");
+							}
 						}
 					}
 				}

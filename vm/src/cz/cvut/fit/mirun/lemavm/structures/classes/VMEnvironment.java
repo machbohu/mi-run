@@ -19,7 +19,8 @@ public class VMEnvironment {
 	private static final Logger LOG = Logger.getLogger(VMEnvironment.class);
 
 	private static final Set<String> knownTypes = initTypes();
-
+	protected final VMClassInstance owner;
+	
 	// Contains all reference bindings (including final ones)
 	protected final Map<String, VMObject> bindings;
 	// Contains all binding types
@@ -36,6 +37,7 @@ public class VMEnvironment {
 
 	public VMEnvironment() {
 		super();
+		this.owner = null;
 		this.bindings = new HashMap<>();
 		this.finalBindings = new HashMap<>();
 		this.bindingTypes = new HashMap<>();
@@ -44,9 +46,32 @@ public class VMEnvironment {
 		this.parent = null;
 		this.shouldReturn = false;
 	}
-
+	
+	public VMEnvironment(VMClassInstance owner) {
+		super();
+		this.owner = owner;
+		this.bindings = new HashMap<>();
+		this.finalBindings = new HashMap<>();
+		this.bindingTypes = new HashMap<>();
+		this.primitiveBindings = new HashMap<>();
+		this.parent = null;
+		this.shouldReturn = false;
+	}
+	
 	public VMEnvironment(VMEnvironment parent) {
 		super();
+		this.owner = null;
+		this.bindings = new HashMap<>();
+		this.finalBindings = new HashMap<>();
+		this.bindingTypes = new HashMap<>();
+		this.primitiveBindings = new HashMap<>();
+		this.parent = parent;
+		this.shouldReturn = false;
+	}
+	
+	public VMEnvironment(VMEnvironment parent, VMClassInstance owner) {
+		super();
+		this.owner = owner;
 		this.bindings = new HashMap<>();
 		this.finalBindings = new HashMap<>();
 		this.bindingTypes = new HashMap<>();
@@ -76,14 +101,22 @@ public class VMEnvironment {
 	 *             If the returned value cannot be cast to the specified class
 	 */
 	public <T> T getBinding(String name, Class<T> cls) {
-		Object res = bindings.get(name);
-		if (res == null) {
-			res = primitiveBindings.get(name);
+		if (name.equals(VMConstants.THIS)) {
+			if (!cls.equals(VMObject.class)) {
+				throw new VMEvaluationException(
+						"The this keyword can be used only on VMObject instances.");
+			}
+			return cls.cast(owner);
+		} else {
+			Object res = bindings.get(name);
+			if (res == null) {
+				res = primitiveBindings.get(name);
+			}
+			if (res == null && parent != null) {
+				res = parent.getBinding(name, cls);
+			}
+			return cls.cast(res);
 		}
-		if (res == null && parent != null) {
-			res = parent.getBinding(name, cls);
-		}
-		return cls.cast(res);
 	}
 
 	/**

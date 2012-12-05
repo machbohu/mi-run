@@ -55,6 +55,8 @@ public class VMCodeBlockBuilder extends VMBuilder {
 				case "EXPR":
 					inits.add(buildExpressionFromTree(child));
 					break;
+				default:
+					throw new VMParsingException("FOR init: Unsupported operation '"+child+"'");
 				}
 				break;
 			case "FOR_CONDITION":
@@ -67,7 +69,7 @@ public class VMCodeBlockBuilder extends VMBuilder {
 				codeTree = child;
 				break;
 			default:
-				throw new VMParsingException("Unsupported operation '"+child.toString()+"'");
+				throw new VMParsingException("FOR init: Unsupported operation '"+child+"'");
 			}
 		}
 		
@@ -115,7 +117,7 @@ public class VMCodeBlockBuilder extends VMBuilder {
 				// TODO return operation
 				break;
 			default:
-				throw new VMParsingException("Unsupported operation '"+child.toString()+"'");
+				throw new VMParsingException("Unsupported operation '"+child+"'");
 			}
 		}
 	}

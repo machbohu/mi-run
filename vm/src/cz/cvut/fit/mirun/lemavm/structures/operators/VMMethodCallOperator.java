@@ -54,9 +54,9 @@ public final class VMMethodCallOperator extends VMOperator {
 				return VMInterpreter.getInstance().invokeStaticMethod(cls,
 						methodName, arguments);
 			}
-			throw new VMEvaluationException("Receiver " + receiver
-					+ " of the method call " + methodName
-					+ " not found in this environment.");
+			throw new VMEvaluationException("Receiver '" + receiver
+					+ "' of the method call '" + methodName
+					+ "' not found in this environment.");
 		}
 		return VMInterpreter.getInstance().invokeMethod(recv, methodName,
 				arguments);
