@@ -1,6 +1,7 @@
-package cz.cvut.fit.mirun.lemavm.structures.operators;
+package cz.cvut.fit.mirun.lemavm.structures.operators.factories;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 import cz.cvut.fit.mirun.lemavm.utils.ParsingUtils;
 
 public abstract class VMUnaryOperatorFactory {

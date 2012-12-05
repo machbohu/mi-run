@@ -5,6 +5,8 @@ import java.lang.reflect.Array;
 import cz.cvut.fit.mirun.lemavm.core.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMArrayIndexOutOfBoundsException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMFile;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClassInstance;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
@@ -42,11 +44,12 @@ public final class VMArray<T> extends VMObject {
 	 * @param value
 	 *            The value to set
 	 * @throws VMArrayIndexOutOfBoundsException
+	 * @throws VMEvaluationException
 	 */
-	public void set(int index, T value) {
+	public void set(int index, Object value) {
 		checkIndex(index);
 		checkType(value);
-		this.array[index] = value;
+		this.array[index] = (T) value;
 	}
 
 	public int getLength() {
@@ -93,7 +96,7 @@ public final class VMArray<T> extends VMObject {
 		}
 	}
 
-	private void checkType(T value) {
+	private void checkType(Object value) {
 		if (value instanceof VMClassInstance) {
 			final VMClass cls = ((VMClassInstance) value).getVMClass();
 			if (!(VMClass.getClasses().get(typeName)).isAssignableFrom(cls)) {
@@ -119,6 +122,14 @@ public final class VMArray<T> extends VMObject {
 						+ typeName + " but got " + value.getClass().getName());
 			} else if (typeName.equals(VMConstants.SHORT)
 					&& !(value instanceof Short)) {
+				throw new VMEvaluationException("Incompatible types. Expected "
+						+ typeName + " but got " + value.getClass().getName());
+			} else if (typeName.equals(VMConstants.STRING)
+					&& !(value instanceof VMString)) {
+				throw new VMEvaluationException("Incompatible types. Expected "
+						+ typeName + " but got " + value.getClass().getName());
+			} else if (typeName.equals(ObjectType.FILE.toString())
+					&& !(value instanceof VMFile)) {
 				throw new VMEvaluationException("Incompatible types. Expected "
 						+ typeName + " but got " + value.getClass().getName());
 			} else {

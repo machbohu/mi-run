@@ -7,8 +7,8 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMMultiplicationOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMMultiplicationOperatorFactory;
 
 public class MultiplicationTests {
 

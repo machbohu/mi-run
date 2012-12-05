@@ -12,13 +12,13 @@ import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMFinalBindingExistsException;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMPostfixDecrementOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMPostfixIncrementOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMPrefixDecrementOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMPrefixIncrementOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMUnaryMinusOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMUnaryNegationOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMUnaryPlusOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMPostfixDecrementOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMPostfixIncrementOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMPrefixDecrementOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMPrefixIncrementOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMUnaryMinusOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMUnaryNegationOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMUnaryPlusOperatorFactory;
 
 public class UnaryOperatorTests {
 

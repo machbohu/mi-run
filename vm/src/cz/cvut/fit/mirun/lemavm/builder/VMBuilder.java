@@ -6,25 +6,12 @@ import java.util.List;
 import org.antlr.runtime.tree.CommonTree;
 
 import cz.cvut.fit.mirun.lemavm.assignment.AssignOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.core.VMNewOperator;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
-import cz.cvut.fit.mirun.lemavm.structures.VMMethodCallOperator;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMField;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMVisibilityModifier;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMBinaryMinusOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMBinaryOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMBinaryPlusOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMDivisionOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMMultiplicationOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMPostfixDecrementOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMPostfixIncrementOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMPrefixDecrementOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMPrefixIncrementOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMUnaryMinusOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMUnaryNegationOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMUnaryOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMUnaryPlusOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.VMMethodCallOperator;
+import cz.cvut.fit.mirun.lemavm.structures.operators.VMNewOperator;
 import cz.cvut.fit.mirun.lemavm.structures.operators.control.NotEqualsOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMEqualsOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMGreaterEqualsOperatorFactory;
@@ -34,6 +21,19 @@ import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMLessThanOperatorF
 import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMLogicalAndOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMLogicalOrOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMRelationalOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMBinaryMinusOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMBinaryOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMBinaryPlusOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMDivisionOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMMultiplicationOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMPostfixDecrementOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMPostfixIncrementOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMPrefixDecrementOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMPrefixIncrementOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMUnaryMinusOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMUnaryNegationOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMUnaryOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMUnaryPlusOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public abstract class VMBuilder {

@@ -1,7 +1,8 @@
-package cz.cvut.fit.mirun.lemavm.structures.operators;
+package cz.cvut.fit.mirun.lemavm.structures.operators.factories;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
+import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.CompNumberBinaryDivision;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.CompVariableBinaryDivision;
 import cz.cvut.fit.mirun.lemavm.structures.operators.division.NumberCompBinaryDivision;

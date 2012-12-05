@@ -1,23 +1,24 @@
-package cz.cvut.fit.mirun.lemavm.structures.operators;
+package cz.cvut.fit.mirun.lemavm.structures.operators.factories;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
+import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
-public final class VMPostfixIncrementOperatorFactory extends
+public final class VMPostfixDecrementOperatorFactory extends
 		VMUnaryOperatorFactory {
 
 	@Override
-	protected VMOperator createOperator(VMOperator op) {
+	public VMOperator createOperator(VMOperator op) {
 		throw new VMParsingException(
-				"The postfix increment operator is not applicable for operation result.");
+				"The postfix decrement operator is not applicable for operation result.");
 	}
 
 	@Override
 	protected VMOperator createOperator(Boolean op) {
 		throw new VMParsingException(
-				"The postfix increment operator is not applicable for type boolean.");
+				"The postfix decrement operator is not applicable for type boolean.");
 	}
 
 	@Override
@@ -28,14 +29,14 @@ public final class VMPostfixIncrementOperatorFactory extends
 
 	@Override
 	protected VMOperator createOperator(String op) {
-		return new VariablePostfixIncrement(op);
+		return new VariablePostfixDecrement(op);
 	}
 
-	public static final class VariablePostfixIncrement extends VMOperator {
+	public static final class VariablePostfixDecrement extends VMOperator {
 
 		private final String op;
 
-		public VariablePostfixIncrement(String op) {
+		public VariablePostfixDecrement(String op) {
 			this.op = op;
 		}
 
@@ -43,7 +44,7 @@ public final class VMPostfixIncrementOperatorFactory extends
 		public Double evaluateDouble(VMEnvironment env) {
 			Number n = getBindingValue(op, Number.class, env);
 			final double d = n.doubleValue();
-			env.addPrimitiveBinding(op, Double.valueOf(d + 1),
+			env.addPrimitiveBinding(op, Double.valueOf(d - 1),
 					env.getNameType(op));
 			return d;
 		}
@@ -52,7 +53,7 @@ public final class VMPostfixIncrementOperatorFactory extends
 		public Long evaluateLong(VMEnvironment env) {
 			Number n = getBindingValue(op, Number.class, env);
 			final long d = n.longValue();
-			env.addPrimitiveBinding(op, Long.valueOf(d + 1),
+			env.addPrimitiveBinding(op, Long.valueOf(d - 1),
 					env.getNameType(op));
 			return d;
 		}
@@ -61,7 +62,7 @@ public final class VMPostfixIncrementOperatorFactory extends
 		public Integer evaluateInt(VMEnvironment env) {
 			Number n = getBindingValue(op, Number.class, env);
 			final int d = n.intValue();
-			env.addPrimitiveBinding(op, Integer.valueOf(d + 1),
+			env.addPrimitiveBinding(op, Integer.valueOf(d - 1),
 					env.getNameType(op));
 			return d;
 		}
@@ -70,7 +71,7 @@ public final class VMPostfixIncrementOperatorFactory extends
 		public Short evaluateShort(VMEnvironment env) {
 			Number n = getBindingValue(op, Number.class, env);
 			final short d = n.shortValue();
-			env.addPrimitiveBinding(op, Short.valueOf((short) (d + 1)),
+			env.addPrimitiveBinding(op, Short.valueOf((short) (d - 1)),
 					env.getNameType(op));
 			return d;
 		}

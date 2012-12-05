@@ -1,8 +1,9 @@
-package cz.cvut.fit.mirun.lemavm.structures.operators;
+package cz.cvut.fit.mirun.lemavm.structures.operators.factories;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
+import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 import cz.cvut.fit.mirun.lemavm.structures.operators.compounds.VMCompoundNegation;
 
 public final class VMUnaryNegationOperatorFactory extends

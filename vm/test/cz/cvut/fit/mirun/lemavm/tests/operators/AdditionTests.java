@@ -10,8 +10,8 @@ import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMBinaryPlusOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMBinaryPlusOperatorFactory;
 
 public class AdditionTests {
 

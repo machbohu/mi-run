@@ -1,10 +1,12 @@
-package cz.cvut.fit.mirun.lemavm.core;
+package cz.cvut.fit.mirun.lemavm.structures.operators;
 
 import java.util.Arrays;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
+import cz.cvut.fit.mirun.lemavm.core.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMClassNotFoundException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMMethodNotFoundException;

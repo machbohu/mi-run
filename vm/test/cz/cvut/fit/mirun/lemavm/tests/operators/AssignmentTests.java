@@ -13,10 +13,10 @@ import cz.cvut.fit.mirun.lemavm.assignment.VMAssignOperator;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMFinalBindingExistsException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMBinaryPlusOperatorFactory;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMMultiplicationOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMEqualsOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMBinaryPlusOperatorFactory;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMMultiplicationOperatorFactory;
 
 public class AssignmentTests {
 

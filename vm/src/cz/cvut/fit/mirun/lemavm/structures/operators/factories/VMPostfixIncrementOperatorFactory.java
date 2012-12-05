@@ -1,73 +1,78 @@
-package cz.cvut.fit.mirun.lemavm.structures.operators;
+package cz.cvut.fit.mirun.lemavm.structures.operators.factories;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
+import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
-public final class VMPrefixDecrementOperatorFactory extends
+public final class VMPostfixIncrementOperatorFactory extends
 		VMUnaryOperatorFactory {
 
 	@Override
 	protected VMOperator createOperator(VMOperator op) {
 		throw new VMParsingException(
-				"The prefix decrement operator is not applicable for operation result.");
+				"The postfix increment operator is not applicable for operation result.");
 	}
 
 	@Override
 	protected VMOperator createOperator(Boolean op) {
 		throw new VMParsingException(
-				"The prefix decrement operator is not applicable for type boolean.");
+				"The postfix increment operator is not applicable for type boolean.");
 	}
 
 	@Override
 	protected VMOperator createOperator(Number op) {
 		throw new VMParsingException(
-				"The prefix decrement operator is not applicable for a number literal value.");
+				"The postfix decrement operator is not applicable for a number literal value.");
 	}
 
 	@Override
 	protected VMOperator createOperator(String op) {
-		return new VariablePrefixDecrement(op);
+		return new VariablePostfixIncrement(op);
 	}
 
-	public static final class VariablePrefixDecrement extends VMOperator {
+	public static final class VariablePostfixIncrement extends VMOperator {
 
 		private final String op;
 
-		public VariablePrefixDecrement(String op) {
+		public VariablePostfixIncrement(String op) {
 			this.op = op;
 		}
 
 		@Override
 		public Double evaluateDouble(VMEnvironment env) {
 			Number n = getBindingValue(op, Number.class, env);
-			final Double d = Double.valueOf(n.doubleValue() - 1);
-			env.addPrimitiveBinding(op, d, env.getNameType(op));
+			final double d = n.doubleValue();
+			env.addPrimitiveBinding(op, Double.valueOf(d + 1),
+					env.getNameType(op));
 			return d;
 		}
 
 		@Override
 		public Long evaluateLong(VMEnvironment env) {
 			Number n = getBindingValue(op, Number.class, env);
-			final Long d = Long.valueOf(n.longValue() - 1);
-			env.addPrimitiveBinding(op, d, env.getNameType(op));
+			final long d = n.longValue();
+			env.addPrimitiveBinding(op, Long.valueOf(d + 1),
+					env.getNameType(op));
 			return d;
 		}
 
 		@Override
 		public Integer evaluateInt(VMEnvironment env) {
 			Number n = getBindingValue(op, Number.class, env);
-			final Integer d = Integer.valueOf(n.intValue() - 1);
-			env.addPrimitiveBinding(op, d, env.getNameType(op));
+			final int d = n.intValue();
+			env.addPrimitiveBinding(op, Integer.valueOf(d + 1),
+					env.getNameType(op));
 			return d;
 		}
 
 		@Override
 		public Short evaluateShort(VMEnvironment env) {
 			Number n = getBindingValue(op, Number.class, env);
-			final Short d = Short.valueOf((short) (n.shortValue() - 1));
-			env.addPrimitiveBinding(op, d, env.getNameType(op));
+			final short d = n.shortValue();
+			env.addPrimitiveBinding(op, Short.valueOf((short) (d + 1)),
+					env.getNameType(op));
 			return d;
 		}
 

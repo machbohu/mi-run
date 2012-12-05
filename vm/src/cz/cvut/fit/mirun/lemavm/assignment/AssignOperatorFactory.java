@@ -20,7 +20,7 @@ public final class AssignOperatorFactory {
 	 *            True if the binding should be final
 	 * @param value
 	 *            Value to assign
-	 * @return Null
+	 * @return VMAssignOperator
 	 */
 	public VMAssignOperator createOperator(String name, String type,
 			boolean isFinal, Object value) {
@@ -37,6 +37,24 @@ public final class AssignOperatorFactory {
 		} else {
 			return createOperator(name, type, isFinal, (String) value);
 		}
+	}
+
+	/**
+	 * Create operator for assigning array element values. </p>
+	 * 
+	 * @param name
+	 *            Name of the array
+	 * @param type
+	 *            Type of elements in the array
+	 * @param index
+	 *            Index expression
+	 * @param value
+	 *            The value to set
+	 * @return VMAssignOperator
+	 */
+	public VMAssignOperator createOperator(String name, String type,
+			Object index, Object value) {
+		return createArrayAssignOperator(name, type, index, value);
 	}
 
 	protected VMAssignOperator createOperator(String name, String type,
@@ -70,5 +88,10 @@ public final class AssignOperatorFactory {
 	protected VMAssignOperator createOperator(String name, String type,
 			boolean isFinal, Evaluable value) {
 		return new VMAssignEvaluationResult(name, type, isFinal, value);
+	}
+
+	protected VMAssignOperator createArrayAssignOperator(String name,
+			String type, Object index, Object value) {
+		return new VMArrayAssignOperator(name, type, index, value);
 	}
 }

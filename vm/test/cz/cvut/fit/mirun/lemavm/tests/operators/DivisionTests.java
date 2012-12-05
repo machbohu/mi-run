@@ -8,8 +8,8 @@ import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMDivisionByZeroException;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMDivisionOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
+import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMDivisionOperatorFactory;
 
 public class DivisionTests {
 
