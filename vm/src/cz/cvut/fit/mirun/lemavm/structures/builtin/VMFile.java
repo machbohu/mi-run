@@ -16,7 +16,7 @@ import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.Printable;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 
-public class VMFile extends VMObject {
+public final class VMFile extends VMObject {
 
 	private static final Logger LOG = Logger.getLogger(VMFile.class);
 
@@ -51,6 +51,9 @@ public class VMFile extends VMObject {
 		return (file.canWrite() && writerOpen);
 	}
 
+	/**
+	 * Create new file (with parent directories, if necessary). </p>
+	 */
 	public void createFile() {
 		if (!file.exists()) {
 			try {
@@ -78,6 +81,9 @@ public class VMFile extends VMObject {
 				reader = new BufferedReader(new FileReader(file));
 			}
 			final String s = reader.readLine();
+			if (LOG.isTraceEnabled()) {
+				LOG.trace("Line " + s + " read from file " + fileName);
+			}
 			if (s == null) {
 				return VMNull.getInstance();
 			} else {
@@ -114,11 +120,17 @@ public class VMFile extends VMObject {
 			if (writer == null) {
 				this.writer = new BufferedWriter(new FileWriter(file));
 			}
+			String toWrite = null;
 			if (str instanceof Printable) {
-				writer.write(((Printable) str).printValue());
+				toWrite = ((Printable) str).printValue();
 			} else {
-				writer.write(str.toString());
+				toWrite = str.toString();
 			}
+			if (LOG.isTraceEnabled()) {
+				LOG.trace("Writing string " + toWrite + " into the file "
+						+ fileName);
+			}
+			writer.write(toWrite);
 			writer.newLine();
 		} catch (IOException e) {
 			LOG.error("Unable to write to file " + fileName, e);
@@ -126,6 +138,11 @@ public class VMFile extends VMObject {
 		}
 	}
 
+	/**
+	 * Close the file reader. </p>
+	 * 
+	 * Closing already closed reader does nothing.
+	 */
 	public void closeReader() {
 		if (reader != null && readerOpen) {
 			try {
@@ -138,6 +155,11 @@ public class VMFile extends VMObject {
 		}
 	}
 
+	/**
+	 * Close the file writer. </p>
+	 * 
+	 * Closing already closed writer does nothing.
+	 */
 	public void closeWriter() {
 		if (writer != null && writerOpen) {
 			try {
@@ -151,6 +173,12 @@ public class VMFile extends VMObject {
 		}
 	}
 
+	/**
+	 * Close this file. </p>
+	 * 
+	 * This operation cannot be undone, both reader and writer are closed and
+	 * cannot be used any more.
+	 */
 	public void close() {
 		closeReader();
 		closeWriter();

@@ -2,6 +2,7 @@ package cz.cvut.fit.mirun.lemavm.core;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -15,10 +16,13 @@ import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
 import cz.cvut.fit.mirun.lemavm.structures.VMArray;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMSystem;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClassInstance;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMMethod;
+import cz.cvut.fit.mirun.lemavm.utils.ParsingUtils;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
@@ -56,17 +60,17 @@ public class VMInterpreter {
 		// action for node in the block.
 		// Maybe a unified evaluate function would help
 		for (Object node : block.getCode()) {
-			if(currentEnvironment.shouldReturn()){
+			if (currentEnvironment.shouldReturn()) {
 				return;
 			}
 			if (node instanceof Evaluable) {
 				final Evaluable e = (Evaluable) node;
 				final Object res = e.evaluate(currentEnvironment);
 				// codeBlock should not be returned
-//				if (res instanceof VMCodeBlock) {
-//					// VMControl structures
-//					executeCodeBlock((VMCodeBlock) res);
-//				}
+				// if (res instanceof VMCodeBlock) {
+				// // VMControl structures
+				// executeCodeBlock((VMCodeBlock) res);
+				// }
 			}
 			// TODO some other types of nodes may come here
 			// or exception in case of bad code block part
@@ -85,16 +89,16 @@ public class VMInterpreter {
 	 */
 	public void executeApplication(String[] args) {
 		VMMethod main = VMUtils.getMainMethod();
-		
+
 		if (main == null) {
 			throw new VMMethodNotFoundException(
 					"Cannot find the main method of this application.");
 		}
-		
+
 		final Map<String, String> params = main.getArguments();
 		final String argsName = params.keySet().iterator().next();
 		final VMArray<String> argArr = new VMArray<>(args, VMConstants.STRING);
-		
+
 		currentEnvironment.addBinding(argsName, argArr, VMConstants.ARRAY);
 		executeCodeBlock(main.getCode());
 	}
@@ -119,15 +123,15 @@ public class VMInterpreter {
 		stackFrames.push(currentEnvironment);
 		this.currentEnvironment = newEnv;
 	}
-	
+
 	/**
 	 * Set top of the stack as current environment (pop it)
 	 */
-	private void unsetCurrentEnvironment(){
+	private void unsetCurrentEnvironment() {
 		this.currentEnvironment = stackFrames.pop();
 	}
-	
-	public void invokeCodeBlock(VMEnvironment newEnv, VMCodeBlock code){
+
+	public void invokeCodeBlock(VMEnvironment newEnv, VMCodeBlock code) {
 		setCurrentEnvironment(newEnv);
 		executeCodeBlock(code);
 		unsetCurrentEnvironment();
@@ -220,6 +224,44 @@ public class VMInterpreter {
 	}
 
 	/**
+	 * Invoke a native method on the {@code VMSystem} class. </p>
+	 * 
+	 * @param methodName
+	 *            Name of the method to invoke
+	 * @param arguments
+	 *            Arguments to pass to the method
+	 * @return Return value of the method
+	 */
+	public Object invokeSystemNativeMethod(String methodName,
+			List<Object> arguments) {
+		if (methodName == null || arguments == null) {
+			throw new NullPointerException();
+		}
+		if (LOG.isTraceEnabled()) {
+			LOG.trace("Invoking system native method " + methodName);
+		}
+		final List<Object> args = resolveArgsForNativeMethod(arguments);
+		Object res = null;
+		final Method[] methods = VMSystem.class.getDeclaredMethods();
+		for (Method m : methods) {
+			if (m.getName().equals(methodName)) {
+				try {
+					res = m.invoke(null, args.toArray());
+					return res;
+				} catch (IllegalAccessException | IllegalArgumentException
+						| InvocationTargetException e) {
+					LOG.error("Unable to invoke method " + methodName, e);
+					throw new VMEvaluationException(
+							"Unable to invoke system static method "
+									+ methodName);
+				}
+			}
+		}
+		throw new VMEvaluationException("System native method named "
+				+ methodName + " not found.");
+	}
+
+	/**
 	 * Invoke the specified method. </p>
 	 * 
 	 * @param method
@@ -233,15 +275,15 @@ public class VMInterpreter {
 	private Object invokeMethodImpl(VMMethod method, VMEnvironment parentEnv,
 			List<Object> args) {
 		final VMEnvironment methodEnv = new VMEnvironment(parentEnv);
-		
+
 		pushArgsToEnvironment(methodEnv, method.getArguments(), args);
 		setCurrentEnvironment(methodEnv);
 		executeCodeBlock(method.getCode());
-		
+
 		final Object res = methodEnv.getReturnValue();
-		
+
 		unsetCurrentEnvironment();
-		
+
 		return res;
 	}
 
@@ -377,11 +419,12 @@ public class VMInterpreter {
 	 */
 	private Object invokeNativeMethod(VMObject receiver, String methodName,
 			List<Object> arguments) {
+		final List<Object> args = resolveArgsForNativeMethod(arguments);
 		Method[] methods = receiver.getClass().getDeclaredMethods();
 		for (Method m : methods) {
 			if (m.getName().equals(methodName)) {
 				try {
-					final Object res = m.invoke(receiver, arguments.toArray());
+					final Object res = m.invoke(receiver, args.toArray());
 					return res;
 				} catch (IllegalAccessException | IllegalArgumentException
 						| InvocationTargetException e) {
@@ -393,5 +436,50 @@ public class VMInterpreter {
 		}
 		throw new VMEvaluationException("Native method named " + methodName
 				+ " not found on receiver " + receiver);
+	}
+
+	/**
+	 * Resolve arguments for native method call. </p>
+	 * 
+	 * This has to be done since for standard method call argument values are
+	 * pushed to the method's environment. Native methods have no explicit
+	 * environment.
+	 * 
+	 * @param arguments
+	 *            The arguments to resolve
+	 * @return List of actual arguments
+	 */
+	private List<Object> resolveArgsForNativeMethod(List<Object> arguments) {
+		final List<Object> args = new ArrayList<>(arguments.size());
+		for (Object o : arguments) {
+			if (o instanceof Evaluable) {
+				args.add(((Evaluable) o).evaluate(currentEnvironment));
+				continue;
+			}
+			if (o instanceof String) {
+				final String s = (String) o;
+				if (s.startsWith("\"")) {
+					args.add(new VMString(s.substring(1, s.length() - 1)));
+					continue;
+				}
+				final Boolean b = ParsingUtils.tryParsingBoolean(s);
+				if (b != null) {
+					args.add(b);
+					continue;
+				}
+				final Number n = ParsingUtils.tryParsingNumber(s);
+				if (n != null) {
+					args.add(n);
+					continue;
+				}
+				final Object arg = currentEnvironment.getBinding(s,
+						Object.class);
+				args.add(arg);
+				continue;
+			} else {
+				args.add(o);
+			}
+		}
+		return args;
 	}
 }
