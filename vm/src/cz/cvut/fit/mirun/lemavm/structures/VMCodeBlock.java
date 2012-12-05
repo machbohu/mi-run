@@ -14,17 +14,26 @@ import java.util.List;
  */
 public final class VMCodeBlock {
 
-	private final List<Object> code;
+	private final List<Evaluable> code;
 
 	public VMCodeBlock() {
 		this.code = new ArrayList<>();
 	}
 
-	public VMCodeBlock(List<Object> code) {
+	public VMCodeBlock(List<Evaluable> code) {
 		this.code = code;
 	}
 
-	public List<Object> getCode() {
+	public List<Evaluable> getCode() {
 		return code;
+	}
+	
+	public void addCodePart(Object codePart){
+		if(codePart instanceof Evaluable){
+			code.add((Evaluable) codePart);
+		}else{
+			throw new IllegalArgumentException(
+					"Illegal argument passed to VMCodeBlock.addCodePart "+codePart);
+		}
 	}
 }

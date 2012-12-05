@@ -89,29 +89,26 @@ public class VMCodeBlockBuilder extends VMBuilder {
 			case "VAR_DECLARATION":
 				for(VMField f : buildVarFromTree(child)){
 					operation = assignFactory.createOperator(f.getName(), f.getType(), false, f.getVal());
-					// TODO add operation to codeBlock
+					code.addCodePart(operation);
 				}
 				break;
 			case "EXPR":
-				// TODO add to codeBlock
-				buildExpressionFromTree(child);
+				code.addCodePart(buildExpressionFromTree(child));
 				break;
 			case "if":
-				// TODO add to codeBlock
 				condition = buildExpressionFromTree((CommonTree) child.getChild(0));
-				new VMIfElse(condition, (CommonTree) child.getChild(1), (CommonTree) child.getChild(2));
+				code.addCodePart(new VMIfElse(condition, (CommonTree) child.getChild(1), 
+						(CommonTree) child.getChild(2)));
 				break;
 			case "while":
-				// TODO add to codeBlock
 				condition = buildExpressionFromTree((CommonTree) child.getChild(0));
-				new VMWhile(condition, (CommonTree) child.getChild(1));
+				code.addCodePart(new VMWhile(condition, (CommonTree) child.getChild(1)));
 				break;
 			case "for":
-				// TODO add to codeBlock
-				buildForFromTree(child);
+				code.addCodePart(buildForFromTree(child));
 				break;
 			case "return":
-				// TODO
+				// TODO return operation
 				break;
 			default:
 				throw new VMParsingException("Unsupported operation '"+child.toString()+"'");

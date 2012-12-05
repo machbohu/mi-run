@@ -1,12 +1,12 @@
 package cz.cvut.fit.mirun.lemavm.structures.control;
 
-import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
 import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
@@ -14,7 +14,7 @@ import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMRelationalOperato
 
 public final class VMWhile extends VMControlStructure {
 
-	private final VMRelationalOperator condition;
+	private final Evaluable condition;
 	private final CommonTree whileTree;
 	private VMCodeBlock whilePart;
 
@@ -28,7 +28,7 @@ public final class VMWhile extends VMControlStructure {
 	 */
 	public VMWhile(Object condition, CommonTree whileTree) {
 		super(ObjectType.WHILE);
-		if (condition == null || !(condition instanceof VMRelationalOperator) 
+		if (condition == null || !(condition instanceof Evaluable) 
 				|| whileTree == null) {
 			throw new VMParsingException(
 					"Illegal arguments passed to VMWhile constructor: "
@@ -48,11 +48,10 @@ public final class VMWhile extends VMControlStructure {
 		final VMEnvironment newEnv = new VMEnvironment(env);
 		
 		// TODO check return symptom in env
-		while(condition.evaluateBoolean(env)){
+		while(checkCondition(condition, env)){
 			VMInterpreter.getInstance().invokeCodeBlock(newEnv, whilePart);
 		}
 		
 		return null;
 	}
-
 }

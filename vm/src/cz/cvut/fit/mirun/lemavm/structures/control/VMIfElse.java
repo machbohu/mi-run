@@ -5,14 +5,14 @@ import org.antlr.runtime.tree.CommonTree;
 import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
 import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
-import cz.cvut.fit.mirun.lemavm.structures.operators.control.VMRelationalOperator;
 
 public final class VMIfElse extends VMControlStructure {
 
-	private final VMRelationalOperator condition;
+	private final Evaluable condition;
 	private final CommonTree ifTree;
 	private VMCodeBlock ifPart;
 	private final CommonTree elseTree;
@@ -34,13 +34,13 @@ public final class VMIfElse extends VMControlStructure {
 	public VMIfElse(Object condition, CommonTree ifTree,
 			CommonTree elseTree) {
 		super(ObjectType.IF_ELSE);
-		if (condition == null || !(condition instanceof VMRelationalOperator) 
+		if (condition == null || !(condition instanceof Evaluable) 
 				|| ifTree == null) {
 			throw new VMParsingException(
 					"Illegal arguments passed to VMIfElse constructor: "
 							+ condition + ", " + ifTree);
 		}
-		this.condition = (VMRelationalOperator) condition;
+		this.condition = (Evaluable) condition;
 		this.ifTree = ifTree;
 		this.ifPart = null;
 		this.elseTree = elseTree;
@@ -50,9 +50,8 @@ public final class VMIfElse extends VMControlStructure {
 	@Override
 	public VMCodeBlock evaluate(VMEnvironment env) {
 		final VMEnvironment newEnv = new VMEnvironment(env);
-		final boolean res = condition.evaluateBoolean(env);
 		
-		if(res){
+		if(checkCondition(condition, env)){
 			if(ifPart == null){
 				ifPart = VMCreator.createCodeBlockFromTree(ifTree);
 			}
