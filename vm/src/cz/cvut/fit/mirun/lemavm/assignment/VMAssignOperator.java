@@ -39,7 +39,8 @@ public abstract class VMAssignOperator implements Evaluable {
 		}
 	}
 
-	protected void checkTypeCompatibility(String declType, String runtimeType) {
+	protected void checkPrimitiveTypeCompatibility(String declType,
+			String runtimeType) {
 		assert declType != null;
 		assert runtimeType != null;
 		switch (runtimeType) {
@@ -66,6 +67,17 @@ public abstract class VMAssignOperator implements Evaluable {
 								+ ", but got boolean");
 			}
 			break;
+		default:
+			throw new VMEvaluationException(
+					"Expected a primitive type, but got " + runtimeType);
+		}
+	}
+
+	protected void checkReferenceTypeCompatibility(String declType,
+			String runtimeType) {
+		assert declType != null;
+		assert runtimeType != null;
+		switch (runtimeType) {
 		case VMConstants.STRING:
 			if (!declType.equals(VMConstants.STRING)
 					&& !declType.equals(VMConstants.NULL)) {
@@ -73,6 +85,7 @@ public abstract class VMAssignOperator implements Evaluable {
 						"Incompatible types in assigment. Expected " + declType
 								+ ", but got string");
 			}
+			break;
 		case VMConstants.ARRAY:
 			if (!declType.equals(VMConstants.ARRAY)
 					&& !declType.equals(VMConstants.NULL)) {
@@ -80,6 +93,7 @@ public abstract class VMAssignOperator implements Evaluable {
 						"Incompatible types in assigment. Expected " + declType
 								+ ", but got an array");
 			}
+			break;
 		default:
 			// Check class compatibility
 			VMClass decl = VMClass.getClasses().get(declType);

@@ -67,6 +67,7 @@ public final class VMAssignExpr extends VMAssignOperator {
 			} else {
 				env.addBinding(name, str, type);
 			}
+			break;
 		default:
 			// This shouldn't happen
 			throw new VMEvaluationException(

@@ -16,7 +16,7 @@ public final class VMAssignBoolean extends VMAssignOperator {
 	@Override
 	public Object evaluate(VMEnvironment env) {
 		resolveType(env);
-		checkTypeCompatibility(type, VMConstants.BOOLEAN);
+		checkReferenceTypeCompatibility(type, VMConstants.BOOLEAN);
 		if (isFinal) {
 			env.addPrimitiveFinalBinding(name, Boolean.valueOf(value), type);
 		} else {

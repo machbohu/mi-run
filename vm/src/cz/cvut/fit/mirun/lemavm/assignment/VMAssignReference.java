@@ -21,7 +21,7 @@ public final class VMAssignReference extends VMAssignOperator {
 		resolveType(env);
 		if (value instanceof VMClassInstance) {
 			final VMClassInstance inst = (VMClassInstance) value;
-			checkTypeCompatibility(type, inst.getTypeName());
+			checkReferenceTypeCompatibility(type, inst.getTypeName());
 			if (isFinal) {
 				env.addFinalBinding(name, value, type);
 			} else {
@@ -30,7 +30,7 @@ public final class VMAssignReference extends VMAssignOperator {
 		} else {
 			switch (value.getTypeName()) {
 			case VMConstants.STRING:
-				checkTypeCompatibility(type, VMConstants.STRING);
+				checkReferenceTypeCompatibility(type, VMConstants.STRING);
 				break;
 			case VMConstants.NULL:
 				break;

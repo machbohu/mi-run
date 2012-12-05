@@ -32,7 +32,7 @@ public class VMAssignVariable extends VMAssignOperator {
 		String runtimeType = VMUtils.getArgumentTypes(
 				Collections.singletonList(val), env).get(0);
 		if (VMUtils.isTypePrimitive(type)) {
-			checkTypeCompatibility(type, runtimeType);
+			checkPrimitiveTypeCompatibility(type, runtimeType);
 			if (isFinal) {
 				env.addPrimitiveFinalBinding(name, value, type);
 			} else {
@@ -40,7 +40,7 @@ public class VMAssignVariable extends VMAssignOperator {
 			}
 		} else {
 			if (!runtimeType.equals(VMConstants.NULL)) {
-				checkTypeCompatibility(type, runtimeType);
+				checkReferenceTypeCompatibility(type, runtimeType);
 			}
 			if (isFinal) {
 				env.addFinalBinding(name, (VMObject) val, type);

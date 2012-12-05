@@ -17,13 +17,13 @@ public final class VMAssignNumber extends VMAssignOperator {
 	public Object evaluate(VMEnvironment env) {
 		resolveType(env);
 		if (value instanceof Double) {
-			checkTypeCompatibility(type, VMConstants.DOUBLE);
+			checkPrimitiveTypeCompatibility(type, VMConstants.DOUBLE);
 		} else if (value instanceof Long) {
-			checkTypeCompatibility(type, VMConstants.LONG);
+			checkPrimitiveTypeCompatibility(type, VMConstants.LONG);
 		} else if (value instanceof Integer) {
-			checkTypeCompatibility(type, VMConstants.INT);
+			checkPrimitiveTypeCompatibility(type, VMConstants.INT);
 		} else {
-			checkTypeCompatibility(type, VMConstants.SHORT);
+			checkPrimitiveTypeCompatibility(type, VMConstants.SHORT);
 		}
 		if (isFinal) {
 			env.addPrimitiveFinalBinding(name, value, type);
