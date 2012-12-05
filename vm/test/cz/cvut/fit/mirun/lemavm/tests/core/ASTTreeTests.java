@@ -63,8 +63,11 @@ public class ASTTreeTests {
 			"        --c;\n" +
 			"        Test t = new Test(a, b);\n" +
 			"        int a = new int[5];\n" +
+			"        a[5] = 5;\n" +
+			"        a[c+5] = 5;\n" +
+			"        c = Test[c+1];\n" +
 			"        a = new Test[5];\n" +
-			"        t.testMethod(a+2, b);\n" +
+			"        t.testMethod(a+2, a[c+5]);\n" +
 			"        a = t.testMethod(a+2, b);\n" +
 			"        while((a != 5 || a <= 5) && a >= 5){\n" +
 			"            if(a + 5){\n" +

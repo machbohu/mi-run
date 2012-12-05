@@ -148,7 +148,7 @@ public abstract class VMBuilder {
 	 * @return VMOperator or String as Object
 	 */
 	protected Object buildExpressionFromTree(CommonTree node) {
-		Object op1 = null, op2 = null, operation = null;
+		Object op1 = null, op2 = null, operation = null, index = null;
 		String name = null;
 
 		if (node.getChildCount() <= 0) {
@@ -191,15 +191,25 @@ public abstract class VMBuilder {
 			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
 			return divisionFactory.createOperator(op1, op2);
 		case "=":
-			name = node.getChild(0).toString();
 			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
-			return assignFactory.createOperator(name, null, false, op2);
+			
+			if(node.getChild(0).toString().equals("ARRAY_ELEMENT_ACCESS")){
+				name = node.getChild(0).getChild(0).toString();
+				index = buildExpressionFromTree((CommonTree) node.getChild(0).getChild(1));
+				// TODO create assign operator with index
+//				return assignFactory.createOperator(name, index, null, false, op2);
+			}else{
+				name = node.getChild(0).toString();
+				return assignFactory.createOperator(name, null, false, op2);
+			}
 		case "-=":
+			// TODO array access
 			name = node.getChild(0).toString();
 			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
 			operation = minusFactory.createOperator(name, op2);
 			return assignFactory.createOperator(name, null, false, operation);
 		case "+=":
+			// TODO array access
 			name = node.getChild(0).toString();
 			op2 = buildExpressionFromTree((CommonTree) node.getChild(1));
 			operation = plusFactory.createOperator(name, op2);
@@ -267,6 +277,10 @@ public abstract class VMBuilder {
 				Object len = buildExpressionFromTree((CommonTree) node.getChild(1));
 				return new VMNewOperator(type, len); // new double[5]
 			}
+		case "ARRAY_ELEMENT_ACCESS":
+			name = node.getChild(0).toString();
+			index = buildExpressionFromTree((CommonTree) node.getChild(1));
+			// TODO create and return array access operator
 		default:
 			throw new VMParsingException("Unsupported operation '"
 					+ node.toString() + "'");

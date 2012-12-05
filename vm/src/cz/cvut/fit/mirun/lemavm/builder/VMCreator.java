@@ -1,7 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.builder;
 
 import org.antlr.runtime.CharStream;
-import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.tree.CommonTree;
 
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
@@ -14,6 +13,11 @@ public class VMCreator {
 	
 	public static VMCodeBlock createBaseStructureFromTree(CharStream cs){
 		return create(new VMBaseStructureBuilder(cs));
+
+	}
+	
+	public static VMCodeBlock createBaseStructureFromTree(String filename){
+		return create(new VMBaseStructureBuilder(filename));
 
 	}
 	

@@ -27,17 +27,12 @@ public class VirtualMachine {
 			System.exit(1);
 		}
 		final String file = args[0];
-		try {
-			// Create base structure (classes = variables + constructors + methods)
-			final ANTLRFileStream fs = new ANTLRFileStream(file);
-			VMCreator.createBaseStructureFromTree(fs);
-			
-			// launch main method if present
-			final String[] appArgs = Arrays.copyOfRange(args, 1, args.length);
-			VMInterpreter.getInstance().executeApplication(appArgs);
-		} catch (IOException e) {
-			LOG.error("Unable to read the specified file.", e);
-			System.exit(2);
-		}
+		// Create base structure (classes = variables + constructors + methods)
+		VMCreator.createBaseStructureFromTree(file);
+		
+		// launch main method if present
+		final String[] appArgs = Arrays.copyOfRange(args, 1, args.length);
+		VMInterpreter.getInstance().executeApplication(appArgs);
+		
 	}
 }

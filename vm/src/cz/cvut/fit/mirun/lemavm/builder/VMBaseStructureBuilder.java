@@ -1,9 +1,11 @@
 package cz.cvut.fit.mirun.lemavm.builder;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.antlr.runtime.ANTLRFileStream;
 import org.antlr.runtime.CharStream;
 import org.antlr.runtime.RecognitionException;
 import org.antlr.runtime.TokenRewriteStream;
@@ -30,6 +32,16 @@ public class VMBaseStructureBuilder extends VMBuilder {
 	
 	public VMBaseStructureBuilder(CharStream cs){
 		this.cs = cs;
+	}
+	
+	public VMBaseStructureBuilder(String filename){
+		try{
+			final ANTLRFileStream fs = new ANTLRFileStream(filename);
+			this.cs = fs;
+		} catch (IOException e) {
+			LOG.error("Unable to read the specified file.", e);
+			System.exit(2);
+		}
 	}
 	
 	/**
