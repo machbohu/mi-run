@@ -68,8 +68,7 @@ public final class VMFor extends VMControlStructure {
 			init.evaluate(newEnv);
 		}
 		
-		// TODO check return symptom in env
-		for(;checkCondition(condition, env);operation.evaluate(env)){
+		for(;checkCondition(condition, env) && !env.shouldReturn();operation.evaluate(env)){
 			VMInterpreter.getInstance().invokeCodeBlock(newEnv, forPart);
 		}
 		

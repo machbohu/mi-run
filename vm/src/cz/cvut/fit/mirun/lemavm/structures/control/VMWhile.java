@@ -47,8 +47,7 @@ public final class VMWhile extends VMControlStructure {
 		
 		final VMEnvironment newEnv = new VMEnvironment(env);
 		
-		// TODO check return symptom in env
-		while(checkCondition(condition, env)){
+		while(checkCondition(condition, env) && !env.shouldReturn()){
 			VMInterpreter.getInstance().invokeCodeBlock(newEnv, whilePart);
 		}
 		

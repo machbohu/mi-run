@@ -56,15 +56,20 @@ public class VMInterpreter {
 		// action for node in the block.
 		// Maybe a unified evaluate function would help
 		for (Object node : block.getCode()) {
+			if(currentEnvironment.shouldReturn()){
+				return;
+			}
 			if (node instanceof Evaluable) {
 				final Evaluable e = (Evaluable) node;
 				final Object res = e.evaluate(currentEnvironment);
-				if (res instanceof VMCodeBlock) {
-					// VMControl structures
-					executeCodeBlock((VMCodeBlock) res);
-				}
+				// codeBlock should not be returned
+//				if (res instanceof VMCodeBlock) {
+//					// VMControl structures
+//					executeCodeBlock((VMCodeBlock) res);
+//				}
 			}
 			// TODO some other types of nodes may come here
+			// or exception in case of bad code block part
 		}
 	}
 
@@ -114,11 +119,9 @@ public class VMInterpreter {
 	}
 	
 	/**
-	 * Set top of the stack as current environment 
+	 * Set top of the stack as current environment (pop it)
 	 */
 	private void unsetCurrentEnvironment(){
-		// TODO if parent (= not method but block) write return symptom to it
-		// and also return value
 		this.currentEnvironment = stackFrames.pop();
 	}
 	

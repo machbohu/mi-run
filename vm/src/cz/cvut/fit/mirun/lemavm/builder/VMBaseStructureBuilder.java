@@ -64,14 +64,6 @@ public class VMBaseStructureBuilder extends VMBuilder {
         System.out.println(st);
 	}
 	
-//	/**
-//	 * Read constructor structure from given node and build it
-//	 * @param node
-//	 * @param cls
-//	 */
-//	private void buildConstructor(CommonTree node, VMClass cls){
-//	}
-
 	/**
 	 * Read method/constructor structure from given node and build VMMethod;
 	 * AST tree nodes [CONSTRUCTOR_DECL], [FUNCTION_METHOD_DECL], [VOID_METHOD_DECL]
@@ -109,8 +101,8 @@ public class VMBaseStructureBuilder extends VMBuilder {
 							argName = child.getChild(2).toString();
 							args.put(argName, argType);
 						}else{
-							throw new VMParsingException("Unexpected program syntax '"+child.toString()+
-									"' in class '"+cls.getName()+"', method '"+name+"'");
+							throw new VMParsingException("Class'"+cls.getName()+"': method '"
+									+name+"': Unexpected program syntax '"+child.toString()+"'");
 						}
 					}
 				}
@@ -191,7 +183,7 @@ public class VMBaseStructureBuilder extends VMBuilder {
 			// TODO extend switch in case of class inheritance
 			switch(child.toString()){
 			case "MODIFIER_LIST":
-				// TODO if has more than two children, throw exception? (i.e. public, static)
+				// TODO if has more than three children, throw exception? (i.e. public, static, final)
 				if(child.getChildCount() > 0){
 					visibility = VMVisibilityModifier.fromString(child.getChild(0).toString());
 					isStatic = (child.getChildren().indexOf("static") != -1);

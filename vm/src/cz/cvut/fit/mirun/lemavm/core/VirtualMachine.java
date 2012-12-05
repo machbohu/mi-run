@@ -4,11 +4,9 @@ import java.io.IOException;
 import java.util.Arrays;
 
 import org.antlr.runtime.ANTLRFileStream;
-import org.antlr.runtime.TokenRewriteStream;
 import org.apache.log4j.Logger;
 
-import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMLexer;
-import cz.cvut.fit.mirun.lemavm.antlr.LeMaVMParser;
+import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
 
 /**
  * This is the main entry point of the LeMaVM virtual machine.
@@ -30,11 +28,11 @@ public class VirtualMachine {
 		}
 		final String file = args[0];
 		try {
+			// Create base structure (classes = variables + constructors + methods)
 			final ANTLRFileStream fs = new ANTLRFileStream(file);
-			LeMaVMLexer lex = new LeMaVMLexer(fs);
-			TokenRewriteStream tokens = new TokenRewriteStream(lex);
-			LeMaVMParser grammar = new LeMaVMParser(tokens);
-			// TODO Get the AST from the grammar
+			VMCreator.createBaseStructureFromTree(fs);
+			
+			// launch main method if present
 			final String[] appArgs = Arrays.copyOfRange(args, 1, args.length);
 			VMInterpreter.getInstance().executeApplication(appArgs);
 		} catch (IOException e) {

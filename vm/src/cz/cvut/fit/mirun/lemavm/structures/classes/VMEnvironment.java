@@ -31,6 +31,7 @@ public class VMEnvironment {
 
 	// Used for method return values
 	protected Object returnValue;
+	protected boolean shouldReturn;
 
 	public VMEnvironment() {
 		super();
@@ -40,6 +41,7 @@ public class VMEnvironment {
 		this.primitiveBindings = new HashMap<>();
 		// This will be the top environment
 		this.parent = null;
+		this.shouldReturn = false;
 	}
 
 	public VMEnvironment(VMEnvironment parent) {
@@ -49,6 +51,7 @@ public class VMEnvironment {
 		this.bindingTypes = new HashMap<>();
 		this.primitiveBindings = new HashMap<>();
 		this.parent = parent;
+		this.shouldReturn = false;
 	}
 
 	/**
@@ -209,6 +212,11 @@ public class VMEnvironment {
 
 	public void setReturnValue(Object returnValue) {
 		this.returnValue = returnValue;
+		this.shouldReturn = true;
+		
+		if(parent != null){
+			parent.setReturnValue(returnValue);
+		}
 	}
 
 	/**
@@ -265,5 +273,9 @@ public class VMEnvironment {
 	 */
 	public static Set<String> getKnownTypes() {
 		return knownTypes;
+	}
+	
+	public boolean shouldReturn(){
+		return shouldReturn;
 	}
 }
