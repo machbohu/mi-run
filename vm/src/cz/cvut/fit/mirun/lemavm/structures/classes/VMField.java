@@ -1,5 +1,13 @@
 package cz.cvut.fit.mirun.lemavm.structures.classes;
 
+/**
+ * Container for storing variables/fields (especially those builded
+ * during AST tree parsing phase)
+ * 
+ * Compatibility between type and value (val) is not guaranteed!
+ * This compatibility should be tested before use. 
+ */
+
 public class VMField {
 	private String name;
 	private boolean isStatic;
@@ -9,7 +17,6 @@ public class VMField {
 
 	public VMField(String newField, boolean isStatic,
 			VMVisibilityModifier visibility, String type, Object val) {
-		// TODO check if value can be stored in this type
 		this.name = newField;
 		this.isStatic = isStatic;
 		this.visibility = visibility;

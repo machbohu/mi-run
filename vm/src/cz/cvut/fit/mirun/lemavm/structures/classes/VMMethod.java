@@ -8,6 +8,7 @@ import java.util.Map;
 
 import org.antlr.runtime.tree.CommonTree;
 
+import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMAmbiguousMethodDeclaration;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
@@ -22,8 +23,7 @@ public class VMMethod {
 	private final String returnType;
 
 	private final CommonTree methodTree;
-	// TODO This may not be the best representation of a code block
-	private final VMCodeBlock code;
+	private VMCodeBlock code;
 
 	/**
 	 * WARNING: Make sure that a order preserving instance of argument map is
@@ -99,6 +99,9 @@ public class VMMethod {
 	}
 
 	public VMCodeBlock getCode() {
+		if(code == null){
+			code = VMCreator.createCodeBlockFromTree(methodTree);
+		}
 		return code;
 	}
 

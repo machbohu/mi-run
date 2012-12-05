@@ -85,15 +85,17 @@ public class VMInterpreter {
 	 */
 	public void executeApplication(String[] args) {
 		VMMethod main = VMUtils.getMainMethod();
+		
 		if (main == null) {
 			throw new VMMethodNotFoundException(
 					"Cannot find the main method of this application.");
 		}
+		
 		final Map<String, String> params = main.getArguments();
 		final String argsName = params.keySet().iterator().next();
 		final VMArray<String> argArr = new VMArray<>(args, VMConstants.STRING);
+		
 		currentEnvironment.addBinding(argsName, argArr, VMConstants.ARRAY);
-		// TODO Build the main method code block
 		executeCodeBlock(main.getCode());
 	}
 
@@ -231,13 +233,15 @@ public class VMInterpreter {
 	private Object invokeMethodImpl(VMMethod method, VMEnvironment parentEnv,
 			List<Object> args) {
 		final VMEnvironment methodEnv = new VMEnvironment(parentEnv);
-		pushArgsToEnvironment(parentEnv, method.getArguments(), args);
+		
+		pushArgsToEnvironment(methodEnv, method.getArguments(), args);
 		setCurrentEnvironment(methodEnv);
-		// TODO Build code block for the constructor if it has not been build
-		// yet
 		executeCodeBlock(method.getCode());
+		
 		final Object res = methodEnv.getReturnValue();
+		
 		unsetCurrentEnvironment();
+		
 		return res;
 	}
 
