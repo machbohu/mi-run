@@ -50,11 +50,31 @@ public final class VMCompoundPlus extends AbstractBinaryPlus {
 
 	@Override
 	public VMString evaluateString(VMEnvironment env) {
-		return new VMString(evaluateInt(env).toString());
+		final Object r = evaluate(env);
+		if (r instanceof VMString) {
+			return (VMString) r;
+		} else {
+			return new VMString(r.toString());
+		}
 	}
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		return evaluateInt(env);
+		final Object resOne = opOne.evaluate(env);
+		final Object resTwo = opTwo.evaluate(env);
+		if (resOne instanceof VMString) {
+			final VMString sOne = (VMString) resOne;
+			if (resTwo instanceof VMString) {
+				return new VMString(sOne.getValue()
+						+ ((VMString) resTwo).getValue());
+			} else {
+				return new VMString(sOne.getValue() + resTwo.toString());
+			}
+		} else if (resTwo instanceof VMString) {
+			return new VMString(resOne.toString()
+					+ ((VMString) resTwo).getValue());
+		} else {
+			return addNumbers((Number) resOne, (Number) resTwo);
+		}
 	}
 }

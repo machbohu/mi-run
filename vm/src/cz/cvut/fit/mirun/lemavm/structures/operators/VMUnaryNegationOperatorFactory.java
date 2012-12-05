@@ -74,7 +74,7 @@ public final class VMUnaryNegationOperatorFactory extends
 
 		@Override
 		public Object evaluate(VMEnvironment env) {
-			return evaluateInt(env);
+			return evaluateBoolean(env);
 		}
 	}
 
@@ -122,7 +122,7 @@ public final class VMUnaryNegationOperatorFactory extends
 
 		@Override
 		public Object evaluate(VMEnvironment env) {
-			return evaluateInt(env);
+			return evaluateBoolean(env);
 		}
 	}
 }

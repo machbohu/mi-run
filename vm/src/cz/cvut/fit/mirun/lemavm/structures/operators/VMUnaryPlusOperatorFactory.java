@@ -66,12 +66,18 @@ public final class VMUnaryPlusOperatorFactory extends VMUnaryOperatorFactory {
 
 		@Override
 		public VMString evaluateString(VMEnvironment env) {
-			return new VMString(evaluateInt(env).toString());
+			return new VMString(evaluate(env).toString());
 		}
 
 		@Override
 		public Object evaluate(VMEnvironment env) {
-			return evaluateInt(env);
+			if (op instanceof Double) {
+				return Double.valueOf(+op.doubleValue());
+			} else if (op instanceof Long) {
+				return Long.valueOf(+op.longValue());
+			} else {
+				return Integer.valueOf(+op.intValue());
+			}
 		}
 	}
 
@@ -119,7 +125,14 @@ public final class VMUnaryPlusOperatorFactory extends VMUnaryOperatorFactory {
 
 		@Override
 		public Object evaluate(VMEnvironment env) {
-			return evaluateInt(env);
+			final Number n = getBindingValue(op, Number.class, env);
+			if (n instanceof Double) {
+				return Double.valueOf(+n.doubleValue());
+			} else if (n instanceof Long) {
+				return Long.valueOf(+n.longValue());
+			} else {
+				return Integer.valueOf(+n.intValue());
+			}
 		}
 	}
 }
