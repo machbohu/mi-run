@@ -7,11 +7,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
-import java.util.Vector;
 
 import org.apache.log4j.Logger;
 
-import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMMethodNotFoundException;
 import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
@@ -67,12 +65,7 @@ public class VMInterpreter {
 			}
 			if (node instanceof Evaluable) {
 				final Evaluable e = (Evaluable) node;
-				final Object res = e.evaluate(currentEnvironment);
-				// codeBlock should not be returned
-				// if (res instanceof VMCodeBlock) {
-				// // VMControl structures
-				// executeCodeBlock((VMCodeBlock) res);
-				// }
+				e.evaluate(currentEnvironment);
 			}
 			// TODO some other types of nodes may come here
 			// or exception in case of bad code block part

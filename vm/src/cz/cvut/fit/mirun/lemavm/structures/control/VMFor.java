@@ -59,15 +59,11 @@ public final class VMFor extends VMControlStructure {
 		final VMEnvironment newEnv = new VMEnvironment(env);
 		Evaluable init = null;
 		
-		System.out.println(newEnv.getPrimitiveBindings());
-
 		for (Object o : inits) {
 			init = (Evaluable) o;
 			init.evaluate(newEnv);
 		}
 		
-		System.out.println(newEnv.getPrimitiveBindings());
-
 		for (; checkCondition(condition, newEnv) && !env.shouldReturn(); operation
 				.evaluate(newEnv)) {
 			VMInterpreter.getInstance().invokeCodeBlock(newEnv, forPart);
