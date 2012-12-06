@@ -2,6 +2,7 @@ package cz.cvut.fit.mirun.lemavm.structures.classes;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 
@@ -287,6 +288,17 @@ public class VMEnvironment {
 		types.add(ObjectType.STRING.toString());
 		types.add(ObjectType.FILE.toString());
 		return types;
+	}
+	
+	/**
+	 * Reset VMEnvironment when reseting Virtual machine
+	 */
+	public static void resetPartVM(){
+		Iterator<String> it = VMClass.getClasses().keySet().iterator();
+		
+		while(it.hasNext()){
+			knownTypes.remove(it.next());
+		}
 	}
 
 	/**

@@ -27,4 +27,6 @@ public abstract class VMConstants {
 	public static final String VOID = "void";
 
 	public static final String MAIN_METHOD = "main";
+	
+	public static final String SYSTEM = "System";
 }

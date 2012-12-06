@@ -482,4 +482,14 @@ public class VMInterpreter {
 		}
 		return args;
 	}
+	
+	/**
+	 * Reset whole Virtual machine
+	 * Reseting order is important!
+	 */
+	public void resetVM(){
+		stackFrames.clear();
+		VMEnvironment.resetPartVM();
+		VMClass.resetPartVM();
+	}
 }

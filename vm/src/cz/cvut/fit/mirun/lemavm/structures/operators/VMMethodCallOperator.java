@@ -45,7 +45,7 @@ public final class VMMethodCallOperator extends VMOperator {
 	public Object evaluate(VMEnvironment env) {
 		final VMObject recv = env.getBinding(receiver, VMObject.class);
 		if (recv == null) {
-			if (receiver.equals(VMSystem.class.getName())) {
+			if (receiver.equals(VMConstants.SYSTEM)) {
 				return VMInterpreter.getInstance().invokeSystemNativeMethod(
 						methodName, arguments);
 			}
