@@ -2,6 +2,7 @@ package cz.cvut.fit.mirun.lemavm.structures.builtin;
 
 import org.apache.log4j.Logger;
 
+import cz.cvut.fit.mirun.lemavm.observers.StaticObservable;
 import cz.cvut.fit.mirun.lemavm.structures.Printable;
 
 /**
@@ -13,7 +14,7 @@ import cz.cvut.fit.mirun.lemavm.structures.Printable;
  * @author kidney
  * 
  */
-public final class VMSystem {
+public final class VMSystem extends StaticObservable {
 
 	private static final Logger LOG = Logger.getLogger(VMSystem.class);
 
@@ -29,6 +30,7 @@ public final class VMSystem {
 			LOG.trace("Printing out value: " + toPrint);
 		}
 		System.out.print(toPrint);
+		notifyObservers(toPrint);
 	}
 
 	/**
@@ -43,6 +45,7 @@ public final class VMSystem {
 			LOG.trace("Printing out line: " + toPrint);
 		}
 		System.out.println(toPrint);
+		notifyObservers(toPrint);
 	}
 
 	/**
@@ -57,6 +60,7 @@ public final class VMSystem {
 			LOG.trace("Error line: " + toPrint);
 		}
 		System.err.println(toPrint);
+		notifyObservers(toPrint);
 	}
 
 	private static String extractValue(Object str) {
