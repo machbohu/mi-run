@@ -335,6 +335,12 @@ public class VMEnvironment {
 		types.add(VMConstants.STRING);
 		types.add(ObjectType.STRING.toString());
 		types.add(ObjectType.FILE.toString());
+		types.add(VMConstants.BOOLEAN + "[]");
+		types.add(VMConstants.SHORT + "[]");
+		types.add(VMConstants.INT + "[]");
+		types.add(VMConstants.LONG + "[]");
+		types.add(VMConstants.STRING + "[]");
+		types.add(ObjectType.FILE.toString() + "[]");
 		return types;
 	}
 	

@@ -48,7 +48,7 @@ public final class VMMemoryManager {
 	}
 
 	private void allocateObjectImpl(VMObject object) {
-		if (heapPtr + 1 >= spaceSize) {
+		if (heapPtr >= spaceSize) {
 			gc.runGC();
 		}
 		object.getHeader().setHeapPtr(heapPtr);

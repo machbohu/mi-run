@@ -32,13 +32,13 @@ public final class VMAssignEvaluationResult extends VMAssignOperator {
 		if (VMUtils.isTypePrimitive(type)) {
 			checkPrimitiveTypeCompatibility(type, runtimeType);
 			if (isFinal) {
-				env.addPrimitiveFinalBinding(name, value, type);
+				env.addPrimitiveFinalBinding(name, res, type);
 			} else {
-				env.addPrimitiveBinding(name, value, type);
+				env.addPrimitiveBinding(name, res, type);
 			}
 		} else {
 			if (!runtimeType.equals(VMConstants.NULL)) {
-				checkReferenceTypeCompatibility(type, runtimeType, value);
+				checkReferenceTypeCompatibility(type, runtimeType, res);
 			}
 			if (isFinal) {
 				env.addFinalBinding(name, (VMObject) res, type);

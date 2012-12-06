@@ -292,6 +292,7 @@ public final class VMClass {
 		final VMClass newClass = new VMClass(name, superClass);
 		classes.put(name, newClass);
 		VMEnvironment.addType(name);
+		VMEnvironment.addType(name + "[]");
 		return newClass;
 	}
 
@@ -303,11 +304,11 @@ public final class VMClass {
 	public static Map<String, VMClass> getClasses() {
 		return classes;
 	}
-	
+
 	/**
 	 * Reset VMClass when reseting Virtual machine
 	 */
-	public static void resetPartVM(){
+	public static void resetPartVM() {
 		classes.clear();
 	}
 }
