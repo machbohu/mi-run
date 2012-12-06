@@ -34,7 +34,7 @@ public final class VMFor extends VMControlStructure {
 	 */
 	public VMFor(List<Object> inits, Object condition, Object operation,
 			CommonTree forTree) {
-		if (checkInits(inits) || condition == null
+		if (!initsLegal(inits) || condition == null
 				|| !(condition instanceof Evaluable) || operation == null
 				|| !(operation instanceof Evaluable) || forTree == null) {
 			throw new VMParsingException(
@@ -58,21 +58,25 @@ public final class VMFor extends VMControlStructure {
 
 		final VMEnvironment newEnv = new VMEnvironment(env);
 		Evaluable init = null;
+		
+		System.out.println(newEnv.getPrimitiveBindings());
 
 		for (Object o : inits) {
 			init = (Evaluable) o;
 			init.evaluate(newEnv);
 		}
+		
+		System.out.println(newEnv.getPrimitiveBindings());
 
-		for (; checkCondition(condition, env) && !env.shouldReturn(); operation
-				.evaluate(env)) {
+		for (; checkCondition(condition, newEnv) && !env.shouldReturn(); operation
+				.evaluate(newEnv)) {
 			VMInterpreter.getInstance().invokeCodeBlock(newEnv, forPart);
 		}
 
 		return null;
 	}
 
-	private boolean checkInits(List<Object> inits) {
+	private boolean initsLegal(List<Object> inits) {
 		if (inits == null || inits.size() <= 0) {
 			return false;
 		}

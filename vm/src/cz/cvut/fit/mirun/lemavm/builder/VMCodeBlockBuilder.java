@@ -42,11 +42,10 @@ public class VMCodeBlockBuilder extends VMBuilder {
 			switch(child.toString()){
 			case "FOR_INIT":
 				child = (CommonTree) child.getChild(0);
+				inits = new ArrayList<>();
 				
 				switch(child.toString()){
 				case "VAR_DECLARATION":
-					inits = new ArrayList<>();
-					
 					for(VMField f : buildVarFromTree(child)){
 						operation = assignFactory.createOperator(f.getName(), f.getType(), false, f.getVal());
 						inits.add(operation);

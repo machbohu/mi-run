@@ -79,8 +79,8 @@ public abstract class VMOperator implements Evaluable {
 		try {
 			T n = env.getBinding(name, type);
 			if (n == null) {
-				throw new VMEvaluationException("Variable with name " + name
-						+ " not found.");
+				throw new VMEvaluationException("Variable with name '" + name
+						+ "' not found.");
 			}
 			return n;
 		} catch (ClassCastException e) {
