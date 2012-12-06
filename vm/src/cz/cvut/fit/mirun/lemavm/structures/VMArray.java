@@ -2,7 +2,7 @@ package cz.cvut.fit.mirun.lemavm.structures;
 
 import java.lang.reflect.Array;
 
-import cz.cvut.fit.mirun.lemavm.core.VMMemoryManager;
+import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMArrayIndexOutOfBoundsException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMFile;

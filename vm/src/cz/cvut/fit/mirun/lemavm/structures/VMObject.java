@@ -13,9 +13,6 @@ public abstract class VMObject implements Recognizable {
 
 	private final VMHeader header;
 
-	/** Used by GC to be able to get the previous reference of this object */
-	private VMObject oldReference;
-
 	public VMObject(ObjectType type) {
 		super();
 		assert type != null;
@@ -26,14 +23,6 @@ public abstract class VMObject implements Recognizable {
 	@Override
 	public final VMHeader getHeader() {
 		return header;
-	}
-
-	public VMObject getOldReference() {
-		return oldReference;
-	}
-
-	public void setOldReference(VMObject oldReference) {
-		this.oldReference = oldReference;
 	}
 
 	/**

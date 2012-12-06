@@ -1,6 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.structures.builtin;
 
-import cz.cvut.fit.mirun.lemavm.core.VMMemoryManager;
+import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 
 public class VMString extends VMPrimitive {
