@@ -44,7 +44,6 @@ public final class VMWhile extends VMControlStructure {
 
 		final VMEnvironment newEnv = new VMEnvironment(env);
 		
-		System.out.println(env.getBindings());
 		while (checkCondition(condition, env) && !env.shouldReturn()) {
 			VMInterpreter.getInstance().invokeCodeBlock(newEnv, whilePart);
 		}

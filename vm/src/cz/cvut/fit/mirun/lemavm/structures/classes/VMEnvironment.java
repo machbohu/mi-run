@@ -146,6 +146,22 @@ public class VMEnvironment {
 		}
 		return true;
 	}
+	
+	private VMEnvironment getEnvironmentWithBinding(String name){
+		VMEnvironment env = this;
+		while(env != null && !env.getBindings().containsKey(name)){
+			env = env.getParent();
+		}
+		return env;
+	}
+	
+	private VMEnvironment getEnvironmentWithPrimitiveBinding(String name){
+		VMEnvironment env = this;
+		while(env != null && !env.getPrimitiveBindings().containsKey(name)){
+			env = env.getParent();
+		}
+		return env;
+	}
 
 	/**
 	 * Add new binding. </p>
@@ -173,10 +189,17 @@ public class VMEnvironment {
 			LOG.debug("Creating binding for name " + name + " and value "
 					+ value);
 		}
-		checkParams(name, value, type);
-		checkFinalBinding(name);
-		bindings.put(name, value);
-		bindingTypes.put(name, type);
+		
+		VMEnvironment env = getEnvironmentWithBinding(name);
+		
+		if(env == this || env == null){
+			checkParams(name, value, type);
+			checkFinalBinding(name);
+			bindings.put(name, value);
+			bindingTypes.put(name, type);
+		}else{
+			env.addBinding(name, value, type);
+		}
 	}
 
 	/**
@@ -193,11 +216,18 @@ public class VMEnvironment {
 			LOG.debug("Creating final binding for name " + name + " and value "
 					+ value);
 		}
-		checkParams(name, value, type);
-		checkFinalBinding(name);
-		bindings.put(name, value);
-		bindingTypes.put(name, type);
-		finalBindings.put(name, value);
+		
+		VMEnvironment env = getEnvironmentWithBinding(name);
+		
+		if(env == this || env == null){
+			checkParams(name, value, type);
+			checkFinalBinding(name);
+			bindings.put(name, value);
+			bindingTypes.put(name, type);
+			finalBindings.put(name, value);
+		}else{
+			env.addFinalBinding(name, value, type);
+		}
 	}
 
 	/**
@@ -210,12 +240,19 @@ public class VMEnvironment {
 			LOG.debug("Creating primitive binding for name " + name
 					+ " and value " + value);
 		}
-		checkParams(name, value, type);
-		checkFinalBinding(name);
-		primitiveBindings.put(name, value);
-		bindingTypes.put(name, type);
+		
+		VMEnvironment env = getEnvironmentWithPrimitiveBinding(name);
+		
+		if(env == this || env == null){
+			checkParams(name, value, type);
+			checkFinalBinding(name);
+			primitiveBindings.put(name, value);
+			bindingTypes.put(name, type);
+		}else{
+			env.addPrimitiveBinding(name, value, type);
+		}
 	}
-
+	
 	/**
 	 * Add a new final binding for the specified primitive value (boxed). </p>
 	 * 
@@ -226,15 +263,26 @@ public class VMEnvironment {
 			LOG.debug("Creating primitive final binding for name " + name
 					+ " and value " + value);
 		}
-		checkParams(name, value, type);
-		checkFinalBinding(name);
-		primitiveBindings.put(name, value);
-		bindingTypes.put(name, type);
-		finalBindings.put(name, value);
+		
+		VMEnvironment env = getEnvironmentWithPrimitiveBinding(name);
+		
+		if(env == this || env == null){
+			checkParams(name, value, type);
+			checkFinalBinding(name);
+			primitiveBindings.put(name, value);
+			bindingTypes.put(name, type);
+			finalBindings.put(name, value);
+		}else{
+			env.addPrimitiveFinalBinding(name, value, type);
+		}
 	}
 
 	public Map<String, VMObject> getBindings() {
 		return bindings;
+	}
+	
+	public Map<String, Object> getPrimitiveBindings() {
+		return primitiveBindings;
 	}
 
 	public VMEnvironment getParent() {

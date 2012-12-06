@@ -37,7 +37,6 @@ public class WhileTests {
 			"        int a = 0;\n" +
 			"        while(a < 5){\n" +
 			"            a = a + 1;\n" +
-			"            System.println(a);\n" +
 			"        }\n" +
 			
 			"        System.println(a);\n" +

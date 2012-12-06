@@ -102,7 +102,7 @@ public abstract class VMBuilder {
 	public abstract VMCodeBlock getCodeBlock();
 
 	/**
-	 * Get type (int, string ...) from tree; Nodes [TYPE] ->
+	 * Get type (int (int[]), string ...) from tree; Nodes [TYPE] ->
 	 * [[QUALIFIED_TYPE_IDENT] ->] [VALUE]
 	 * 
 	 * @param node
