@@ -8,20 +8,16 @@ import org.junit.After;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
-import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
 import cz.cvut.fit.mirun.lemavm.core.VirtualMachine;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMSystem;
 import cz.cvut.fit.mirun.lemavm.tests.TestOutput;
 
 public class NewTests {
 	private CharStream cs;
-	private static VMInterpreter i;
 	private static TestOutput out;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		i = VMInterpreter.getInstance();
 		out = new TestOutput();
 		VMSystem.addObserver(out);
 	}
@@ -29,7 +25,7 @@ public class NewTests {
 	@After
 	public void setUpAfterTest(){
 		out.clearVals();
-		i.resetVM();
+		VirtualMachine.reset();
 	}
 	
 	@Test

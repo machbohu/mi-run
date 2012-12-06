@@ -25,6 +25,10 @@ public class TestOutput implements ConsoleObserver{
 		return vals.get(i);
 	}
 	
+	public boolean isEmpty(){
+		return vals.isEmpty();
+	}
+	
 	public void clearVals(){
 		vals.clear();
 	}

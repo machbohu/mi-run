@@ -23,8 +23,8 @@ public final class VMAssignEvaluationResult extends VMAssignOperator {
 	public Object evaluate(VMEnvironment env) {
 		final Object res = value.evaluate(env);
 		if (res == null) {
-			throw new VMEvaluationException("Method invocation " + value
-					+ " did not return any value.");
+			throw new VMEvaluationException("Method invocation '" + value
+					+ "' did not return any value.");
 		}
 		resolveType(env);
 		String runtimeType = VMUtils.getArgumentTypes(

@@ -36,17 +36,17 @@ public class VirtualMachine {
 	}
 
 	public static void initAndLaunch(String file, String[] args) {
+		VMMemoryManager.initializeMemoryManager(DEFAULT_HEAP_SIZE);
 		// Create base structure (classes = variables + constructors + methods)
 		VMCreator.createBaseStructureFromTree(file);
-		VMMemoryManager.initializeMemoryManager(DEFAULT_HEAP_SIZE);
 		// launch main method if present
 		VMInterpreter.getInstance().executeApplication(args);
 	}
 
 	public static void initAndLaunch(CharStream stream) {
+		VMMemoryManager.initializeMemoryManager(DEFAULT_HEAP_SIZE);
 		// Create base structure (classes = variables + constructors + methods)
 		VMCreator.createBaseStructureFromTree(stream);
-		VMMemoryManager.initializeMemoryManager(DEFAULT_HEAP_SIZE);
 		// launch main method if present
 		VMInterpreter.getInstance().executeApplication(null);
 	}

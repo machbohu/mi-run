@@ -49,7 +49,7 @@ public final class VMArrayAccessOperator implements Evaluable {
 							+ str + " found in this environment.");
 				}
 			}
-			if (!(n instanceof Integer) || !(n instanceof Short)) {
+			if (!(n instanceof Integer) && !(n instanceof Short)) {
 				throw new VMEvaluationException(
 						"Arrays can be indexed only by int or short numbers.");
 			}

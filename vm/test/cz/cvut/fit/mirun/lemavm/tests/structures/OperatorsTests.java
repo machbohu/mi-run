@@ -12,7 +12,7 @@ import cz.cvut.fit.mirun.lemavm.core.VirtualMachine;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMSystem;
 import cz.cvut.fit.mirun.lemavm.tests.TestOutput;
 
-public class MethodCallTests {
+public class OperatorsTests {
 	private CharStream cs;
 	private static TestOutput out;
 	
@@ -27,22 +27,24 @@ public class MethodCallTests {
 		out.clearVals();
 		VirtualMachine.reset();
 	}
-
+	
 	@Test
-	public void testStaticMethodLaunch() {
+	public void testOperators(){
 		cs = new ANTLRStringStream(
-			"public static class Main {\n"+
-			"    public static void test() {\n"+
-			"        System.println(\"test\");\n"+
-			"    }\n"+
-
-			"    public static void main(string[] args) {\n"+ 
-			"        Main.test();\n" + 
-			"    }\n" + 
+			"public class Main {\n" +
+			"    public static void main(string[] args) {\n" +
+			"        int a;\n" +
+			"        a = a + 1;\n" +
+			"        a = a + 1;\n" +
+			"        a = a + 1;\n" +
+			"        a = a + 1;\n" +
+			"        System.println(a);\n" +
+			"    }\n" +
 			"}"
 		);
-
+		
 		VirtualMachine.initAndLaunch(cs);
-		assertEquals("test", out.getVal(0));
+
+		assertEquals("4", out.getVal(0));
 	}
 }

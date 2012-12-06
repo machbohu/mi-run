@@ -1,5 +1,6 @@
 package cz.cvut.fit.mirun.lemavm.tests.structures;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.assertEquals;
 
 import org.antlr.runtime.ANTLRStringStream;
@@ -12,7 +13,7 @@ import cz.cvut.fit.mirun.lemavm.core.VirtualMachine;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMSystem;
 import cz.cvut.fit.mirun.lemavm.tests.TestOutput;
 
-public class MethodCallTests {
+public class WhileTests {
 	private CharStream cs;
 	private static TestOutput out;
 	
@@ -27,22 +28,42 @@ public class MethodCallTests {
 		out.clearVals();
 		VirtualMachine.reset();
 	}
-
+	
 	@Test
-	public void testStaticMethodLaunch() {
+	public void testWhileTrue(){
 		cs = new ANTLRStringStream(
-			"public static class Main {\n"+
-			"    public static void test() {\n"+
-			"        System.println(\"test\");\n"+
-			"    }\n"+
-
-			"    public static void main(string[] args) {\n"+ 
-			"        Main.test();\n" + 
-			"    }\n" + 
+			"public class Main {\n" +
+			"    public static void main(string[] args) {\n" +
+			"        int a;\n" +
+			"        while(a < 5){\n" +
+			"            a = a + 1;\n" +
+			"            System.println(a);\n" +
+			"        }\n" +
+			
+			"        System.println(a);\n" +
+			"    }\n" +
 			"}"
 		);
-
+		
 		VirtualMachine.initAndLaunch(cs);
-		assertEquals("test", out.getVal(0));
+
+		assertEquals("5", out.getVal(0));
+	}
+	
+	@Test
+	public void testWhileFalse(){
+		cs = new ANTLRStringStream(
+			"public class Main {\n" +
+			"    public static void main(string[] args) {\n" +
+			"        while(5 == 4){\n" +
+			"            System.println(\"while\");\n" +
+			"        }\n" +
+			"    }\n" +
+			"}"
+		);
+		
+		VirtualMachine.initAndLaunch(cs);
+
+		assertTrue(out.isEmpty());
 	}
 }

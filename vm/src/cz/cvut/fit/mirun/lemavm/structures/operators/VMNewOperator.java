@@ -121,7 +121,7 @@ public final class VMNewOperator implements Evaluable {
 		VMInterpreter.getInstance().invokeConstructor(
 				(VMClassInstance) newInstance, args);
 		VMMemoryManager.allocateObject(newInstance);
-		return null;
+		return newInstance;
 	}
 
 	private VMObject checkForBuiltInTypes() {
@@ -153,28 +153,31 @@ public final class VMNewOperator implements Evaluable {
 		if (LOG.isDebugEnabled()) {
 			LOG.debug("Creating array of type " + typeName);
 		}
-		Long arrSize = null;
-		if (arrayLength instanceof Number) {
-			arrSize = ((Number) arrayLength).longValue();
-		} else {
-			if (!(arrayLength instanceof String)) {
-				throw new VMEvaluationException("Cannot use instance of type "
-						+ arrayLength.getClass() + " in array initialization.");
-			}
-			try {
-				Number n = env.getBinding((String) arrayLength, Number.class);
-				if (n == null) {
-					throw new VMEvaluationException("No binding with name "
-							+ arrayLength + " found.");
-				}
-				arrSize = n.longValue();
-			} catch (ClassCastException e) {
-				throw new VMEvaluationException(
-						"Incompatible types found. Expected an integer number, but got "
-								+ env.getNameType((String) arrayLength));
-			}
-		}
-		final int size = arrSize.intValue();
+//		Long arrSize = null;
+//		VMArrayAccessOperator.resolveArrayIndex(arrayLength, env);
+//		
+//		if (arrayLength instanceof Number) {
+//			arrSize = ((Number) arrayLength).longValue();
+//		} else {
+//			if (!(arrayLength instanceof String)) {
+//				throw new VMEvaluationException("Cannot use instance of type "
+//						+ arrayLength.getClass() + " in array initialization.");
+//			}
+//			try {
+//				Number n = env.getBinding((String) arrayLength, Number.class);
+//				if (n == null) {
+//					throw new VMEvaluationException("No binding with name "
+//							+ arrayLength + " found.");
+//				}
+//				arrSize = n.longValue();
+//			} catch (ClassCastException e) {
+//				throw new VMEvaluationException(
+//						"Incompatible types found. Expected an integer number, but got "
+//								+ env.getNameType((String) arrayLength));
+//			}
+//		}
+		final int size = VMArrayAccessOperator.resolveArrayIndex(arrayLength, env);
+		
 		if (VMUtils.isTypePrimitive(typeName)) {
 			switch (typeName) {
 			case VMConstants.BOOLEAN:

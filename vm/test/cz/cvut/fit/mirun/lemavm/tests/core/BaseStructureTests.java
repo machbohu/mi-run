@@ -11,6 +11,7 @@ import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
 import cz.cvut.fit.mirun.lemavm.core.VirtualMachine;
+import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMNull;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
@@ -58,12 +59,13 @@ public class BaseStructureTests {
 			"\n" +
 			"public static class Main {\n" +
 			"\n" +
-			"    public void main() {\n" +
+			"    public static void main() {\n" +
 			"    }\n" +
 			"}"
 		);
 		
-		VirtualMachine.initAndLaunch(cs);
+		VMMemoryManager.initializeMemoryManager(5);
+		VMCreator.createBaseStructureFromTree(cs);
 	}
 	
 	@Test
@@ -148,6 +150,6 @@ public class BaseStructureTests {
 		assertTrue(cls.getMethods().get("main").get(0).getArguments().isEmpty());
 		assertEquals(VMConstants.VOID, cls.getMethods().get("main").get(0).getReturnType());
 		assertEquals(VMVisibilityModifier.PUBLIC, cls.getMethods().get("main").get(0).getVisibility());
-		assertEquals(false, cls.getMethods().get("main").get(0).isMethodStatic());
+		assertEquals(true, cls.getMethods().get("main").get(0).isMethodStatic());
 	}
 }

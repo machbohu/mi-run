@@ -24,6 +24,7 @@ public final class AssignOperatorFactory {
 	 */
 	public VMAssignOperator createOperator(String name, String type,
 			boolean isFinal, Object value) {
+		// TODO number/boolean can come here like String, not only Number
 		if (value instanceof Number) {
 			return createOperator(name, type, isFinal, (Number) value);
 		} else if (value instanceof Boolean) {
