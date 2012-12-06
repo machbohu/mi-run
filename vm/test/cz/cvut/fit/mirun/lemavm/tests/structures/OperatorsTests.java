@@ -33,7 +33,7 @@ public class OperatorsTests {
 		cs = new ANTLRStringStream(
 			"public class Main {\n" +
 			"    public static void main(string[] args) {\n" +
-			"        int a;\n" +
+			"        int a = 0;\n" +
 			"        a = a + 1;\n" +
 			"        a = a + 1;\n" +
 			"        a = a + 1;\n" +

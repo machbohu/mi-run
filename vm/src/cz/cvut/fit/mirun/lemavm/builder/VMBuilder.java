@@ -109,11 +109,20 @@ public abstract class VMBuilder {
 	 * @return Type in string representation
 	 */
 	protected String buildTypeFromTree(CommonTree node) {
+		String type = null;
+		
 		if (node.getChild(0).getChildCount() == 0) {
-			return node.getChild(0).toString();
+			type = node.getChild(0).toString();
 		} else {
-			return node.getChild(0).getChild(0).toString();
+			type = node.getChild(0).getChild(0).toString();
 		}
+		
+		if(node.getChildCount() > 1 && 
+				node.getChild(1).toString().equals("ARRAY_DECLARATOR_LIST")){
+			type += "[]";
+		}
+		
+		return type;
 	}
 
 	/**
