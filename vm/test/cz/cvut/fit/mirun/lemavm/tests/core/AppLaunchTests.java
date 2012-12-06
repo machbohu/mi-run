@@ -7,6 +7,7 @@ import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
 import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
+import cz.cvut.fit.mirun.lemavm.core.VirtualMachine;
 
 public class AppLaunchTests {
 	private static CharStream cs;
@@ -19,12 +20,10 @@ public class AppLaunchTests {
 			"    }\n" +
 			"}"
 		);
-		
-    	VMCreator.createBaseStructureFromTree(cs); 
 	}
 	
 	@Test
 	public void testMainMethodLaunch(){
-		VMInterpreter.getInstance().executeApplication(null);
+		VirtualMachine.initAndLaunch(cs);
 	}
 }

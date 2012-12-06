@@ -10,25 +10,24 @@ import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
 import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
+import cz.cvut.fit.mirun.lemavm.core.VirtualMachine;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMSystem;
 import cz.cvut.fit.mirun.lemavm.tests.TestOutput;
 
 public class SystemMethodsTests {
 	private CharStream cs;
-	private static VMInterpreter i;
 	private static TestOutput out;
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		i = VMInterpreter.getInstance();
 		out = new TestOutput();
 		VMSystem.addObserver(out);
 	}
 	
 	@After
-	public void setUpAfterTest(){
+	public void clearAfterTest(){
 		out.clearVals();
-		i.resetVM();
+		VirtualMachine.reset();
 	}
 	
 	@Test
@@ -43,8 +42,8 @@ public class SystemMethodsTests {
 			"}"
 		);
 		
-    	VMCreator.createBaseStructureFromTree(cs);
-		i.executeApplication(null);
+		VirtualMachine.initAndLaunch(cs);
+
 		assertEquals("Print!", out.getVal(0));
 		assertEquals("5", out.getVal(1));
 		assertEquals("5.5", out.getVal(2));
@@ -60,8 +59,8 @@ public class SystemMethodsTests {
 			"}"
 		);
 		
-    	VMCreator.createBaseStructureFromTree(cs); 
-		i.executeApplication(null);
+		VirtualMachine.initAndLaunch(cs);
+
 		assertEquals("Println!", out.getVal(0));
 	}
 	
@@ -75,8 +74,8 @@ public class SystemMethodsTests {
 			"}"
 		);
 		
-    	VMCreator.createBaseStructureFromTree(cs); 
-		i.executeApplication(null);
+		VirtualMachine.initAndLaunch(cs);
+
 		assertEquals("Errorln!", out.getVal(0));
 	}
 }

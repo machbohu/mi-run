@@ -10,6 +10,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
+import cz.cvut.fit.mirun.lemavm.core.VirtualMachine;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMNull;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
@@ -62,7 +63,7 @@ public class BaseStructureTests {
 			"}"
 		);
 		
-    	VMCreator.createBaseStructureFromTree(cs); 
+		VirtualMachine.initAndLaunch(cs);
 	}
 	
 	@Test

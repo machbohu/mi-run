@@ -499,12 +499,9 @@ public class VMInterpreter {
 	}
 
 	/**
-	 * Reset whole Virtual machine Reseting order is important!
+	 * Reset VMInterpreter part when reseting Virtual machine
 	 */
-	public void resetVM() {
+	public void resetPartVM() {
 		stackFrames.clear();
-		VMEnvironment.resetPartVM();
-		VMClass.resetPartVM();
-		VMMemoryManager.resetMemoryManager();
 	}
 }

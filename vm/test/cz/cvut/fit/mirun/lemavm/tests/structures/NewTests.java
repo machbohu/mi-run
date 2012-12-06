@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
 import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
+import cz.cvut.fit.mirun.lemavm.core.VirtualMachine;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMSystem;
 import cz.cvut.fit.mirun.lemavm.tests.TestOutput;
 
@@ -52,8 +53,8 @@ public class NewTests {
 			"}"
 		);
 		
-    	VMCreator.createBaseStructureFromTree(cs);
-		i.executeApplication(null);
+		VirtualMachine.initAndLaunch(cs);
+
 		assertEquals("Constructor", out.getVal(0));
 		assertEquals("Method", out.getVal(1));
 	}

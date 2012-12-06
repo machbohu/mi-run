@@ -272,7 +272,7 @@ public abstract class VMBuilder {
 		case "STATIC_ARRAY_CREATOR":
 			String type = buildTypeFromTree(node);
 			
-			if (node.getChild(0).equals("ARGUMENT_LIST")) {
+			if (node.getChild(1).toString().equals("ARGUMENT_LIST")) {
 				List<Object> args = buildArgumentListFromTree((CommonTree) node.getChild(1));
 				return new VMNewOperator(type, args); // new Constructor()
 			} else {

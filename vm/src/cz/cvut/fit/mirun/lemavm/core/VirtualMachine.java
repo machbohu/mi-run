@@ -7,6 +7,8 @@ import org.apache.log4j.Logger;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
 import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 
 /**
  * This is the main entry point of the LeMaVM virtual machine.
@@ -47,5 +49,16 @@ public class VirtualMachine {
 		VMMemoryManager.initializeMemoryManager(DEFAULT_HEAP_SIZE);
 		// launch main method if present
 		VMInterpreter.getInstance().executeApplication(null);
+	}
+	
+	/**
+	 * Reset whole VM - reseting order is important!
+	 */
+	public static void reset(){
+		VMInterpreter.getInstance().resetPartVM();
+		VMEnvironment.resetPartVM();
+		VMClass.resetPartVM();
+		VMMemoryManager.resetMemoryManager();
+		System.out.println("t");
 	}
 }
