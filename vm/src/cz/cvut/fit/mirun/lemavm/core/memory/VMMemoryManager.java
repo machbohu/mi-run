@@ -85,7 +85,6 @@ public final class VMMemoryManager {
 			throw new IllegalStateException("Manager was never initialized.");
 		}
 		initialized = false;
-		initializeMemoryManager(manager.spaceSize * 2);
 	}
 
 	/**
