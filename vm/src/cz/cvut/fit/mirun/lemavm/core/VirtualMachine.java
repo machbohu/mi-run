@@ -59,6 +59,5 @@ public class VirtualMachine {
 		VMEnvironment.resetPartVM();
 		VMClass.resetPartVM();
 		VMMemoryManager.resetMemoryManager();
-		System.out.println("t");
 	}
 }
