@@ -140,9 +140,6 @@ public final class VMArray<T> extends VMObject {
 					&& !(value instanceof VMFile)) {
 				throw new VMEvaluationException("Incompatible types. Expected "
 						+ typeName + " but got " + value.getClass().getName());
-			} else {
-				throw new VMEvaluationException("Incompatible types. Expected "
-						+ typeName + " but got " + value.getClass().getName());
 			}
 		}
 	}

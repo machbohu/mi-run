@@ -42,7 +42,7 @@ public final class VMArrayAssignOperator extends VMAssignOperator {
 			val = ((VMOperator) value).evaluate(env);
 			return val;
 		} else if (value instanceof String) {
-			final String str = (String) index;
+			final String str = (String) value;
 			if (str.startsWith("\"")) {
 				val = new VMString(str.substring(1, str.length() - 1));
 				return val;

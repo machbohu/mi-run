@@ -1,5 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.tests.gc;
 
+import static org.junit.Assert.*;
+
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
@@ -46,9 +48,9 @@ public class GarbageCollectorTests {
 	@Test
 	public void testGarbageCollection() throws NoSuchFieldException,
 			SecurityException, IllegalArgumentException, IllegalAccessException {
+		int i = 0;
 		env.addBinding("a", new VMString("test"), "string");
-		int i;
-		for (i = 0; i < HEAP_SIZE / 2; i++) {
+		for (i = 1; i < HEAP_SIZE / 2 + 1; i++) {
 			// Just create it and throw away
 			VMString s = new VMString("string" + i);
 		}
@@ -56,7 +58,7 @@ public class GarbageCollectorTests {
 				.getDeclaredField("heapPtr");
 		ptrField.setAccessible(true);
 		final int ptr = ptrField.getInt(manager);
-		// TODO
+		assertEquals((i % (HEAP_SIZE / 2)), ptr);
 	}
 
 }

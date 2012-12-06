@@ -143,10 +143,12 @@ public abstract class VMAssignOperator implements Evaluable {
 	private void checkArrayElementType(String declType, String runtimeType) {
 		String elemType = declType.substring(0, declType.indexOf("["));
 		elemType = elemType.trim();
-		if (VMUtils.isTypePrimitive(declType) && !elemType.equals(runtimeType)) {
-			throw new VMEvaluationException(
-					"Incompatible types in array assignment. Expected "
-							+ elemType + ", but got " + runtimeType);
+		if (VMUtils.isTypePrimitive(elemType)) {
+			if (!elemType.equals(runtimeType)) {
+				throw new VMEvaluationException(
+						"Incompatible types in array assignment. Expected "
+								+ elemType + ", but got " + runtimeType);
+			}
 		} else {
 			checkClassTypes(elemType, runtimeType);
 		}
