@@ -34,9 +34,9 @@ public class VMAssignVariable extends VMAssignOperator {
 		if (VMUtils.isTypePrimitive(type)) {
 			checkPrimitiveTypeCompatibility(type, runtimeType);
 			if (isFinal) {
-				env.addPrimitiveFinalBinding(name, value, type);
+				env.addPrimitiveFinalBinding(name, val, type);
 			} else {
-				env.addPrimitiveBinding(name, value, type);
+				env.addPrimitiveBinding(name, val, type);
 			}
 		} else {
 			if (!runtimeType.equals(VMConstants.NULL)) {
