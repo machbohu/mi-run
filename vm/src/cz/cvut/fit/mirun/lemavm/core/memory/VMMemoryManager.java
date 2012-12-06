@@ -1,5 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.core.memory;
 
+import org.apache.log4j.Logger;
+
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 
 /**
@@ -10,6 +12,8 @@ import cz.cvut.fit.mirun.lemavm.structures.VMObject;
  * 
  */
 public final class VMMemoryManager {
+
+	private static final Logger LOG = Logger.getLogger(VMMemoryManager.class);
 
 	private static VMMemoryManager manager;
 	private static boolean initialized = false;
@@ -47,12 +51,16 @@ public final class VMMemoryManager {
 		if (heapPtr + 1 >= spaceSize) {
 			gc.runGC();
 		}
+		object.getHeader().setHeapPtr(heapPtr);
 		if (first) {
 			heapOne[heapPtr++] = object;
 		} else {
 			heapTwo[heapPtr++] = object;
 		}
-		object.getHeader().setHeapPtr(heapPtr);
+		if (LOG.isTraceEnabled()) {
+			LOG.trace("Allocated new object. Free heap space left = "
+					+ (spaceSize - heapPtr));
+		}
 	}
 
 	/**
@@ -68,6 +76,9 @@ public final class VMMemoryManager {
 		if (initialized) {
 			throw new IllegalStateException(
 					"The memory manager is already initialized.");
+		}
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Initializing memory manager.");
 		}
 		if (heapSize < 2) {
 			throw new IllegalArgumentException(
@@ -104,7 +115,7 @@ public final class VMMemoryManager {
 		manager.allocateObjectImpl(object);
 	}
 
-	protected VMMemoryManager getInstance() {
+	protected static VMMemoryManager getInstance() {
 		if (!initialized) {
 			throw new IllegalStateException(
 					"The memory manager is not initialized.");

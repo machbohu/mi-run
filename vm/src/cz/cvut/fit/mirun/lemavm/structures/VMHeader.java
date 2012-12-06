@@ -14,12 +14,10 @@ public class VMHeader {
 	private ObjectType type;
 	// Needed by GC
 	private byte age;
-	private int forwardPtr;
 	private int heapPtr;
 
 	public VMHeader() {
 		this.id = ++ID_CNT;
-		forwardPtr = -1;
 		heapPtr = -1;
 	}
 
@@ -70,13 +68,5 @@ public class VMHeader {
 
 	public void setHeapPtr(int heapPtr) {
 		this.heapPtr = heapPtr;
-	}
-
-	public int getForwardPtr() {
-		return forwardPtr;
-	}
-
-	public void setForwardPtr(int forwardPtr) {
-		this.forwardPtr = forwardPtr;
 	}
 }

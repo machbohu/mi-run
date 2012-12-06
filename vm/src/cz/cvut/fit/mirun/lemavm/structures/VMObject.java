@@ -13,6 +13,15 @@ public abstract class VMObject implements Recognizable {
 
 	private final VMHeader header;
 
+	/**
+	 * This is not a general purpose constructor. It should be used only by the
+	 * GC.
+	 */
+	protected VMObject() {
+		super();
+		this.header = null;
+	}
+
 	public VMObject(ObjectType type) {
 		super();
 		assert type != null;

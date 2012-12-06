@@ -1,5 +1,10 @@
 package cz.cvut.fit.mirun.lemavm.core.memory;
 
+import org.apache.log4j.Logger;
+
+import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
+import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+
 /**
  * Base class for garbage collectors. </p>
  * 
@@ -10,6 +15,9 @@ package cz.cvut.fit.mirun.lemavm.core.memory;
  * 
  */
 abstract class VMGarbageCollector {
+
+	protected static final Logger LOG = Logger
+			.getLogger(VMGarbageCollector.class);
 
 	protected VMMemoryManager manager;
 
@@ -24,4 +32,25 @@ abstract class VMGarbageCollector {
 	 * Run the garbage collection.
 	 */
 	protected abstract void runGC();
+
+	protected static class ForwardPointer extends VMObject {
+
+		private static final ObjectType TYPE = ObjectType.FORWARD_POINTER;
+
+		private final int pointer;
+
+		public ForwardPointer(int pointer) {
+			super();
+			this.pointer = pointer;
+		}
+
+		@Override
+		public ObjectType getType() {
+			return TYPE;
+		}
+
+		public int getPointer() {
+			return pointer;
+		}
+	}
 }

@@ -14,7 +14,7 @@ import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 public enum ObjectType {
 	META_CLASS("meta_class"), OBJECT("object"), METHOD("method"), STRING(
 			VMConstants.STRING), CODE_BLOCK("code"), NULL("null"), VOID("void"), ARRAY(
-			"array"), FILE("File");
+			"array"), FILE("File"), FORWARD_POINTER("fwd");
 
 	private final String name;
 

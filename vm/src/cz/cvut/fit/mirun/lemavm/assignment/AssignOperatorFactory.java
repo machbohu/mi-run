@@ -3,6 +3,7 @@ package cz.cvut.fit.mirun.lemavm.assignment;
 import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
+import cz.cvut.fit.mirun.lemavm.utils.ParsingUtils;
 
 public final class AssignOperatorFactory {
 
@@ -24,12 +25,7 @@ public final class AssignOperatorFactory {
 	 */
 	public VMAssignOperator createOperator(String name, String type,
 			boolean isFinal, Object value) {
-		// TODO number/boolean can come here like String, not only Number
-		if (value instanceof Number) {
-			return createOperator(name, type, isFinal, (Number) value);
-		} else if (value instanceof Boolean) {
-			return createOperator(name, type, isFinal, (Boolean) value);
-		} else if (value instanceof VMOperator) {
+		if (value instanceof VMOperator) {
 			return createOperator(name, type, isFinal, (VMOperator) value);
 		} else if (value instanceof VMObject) {
 			return createOperator(name, type, isFinal, (VMObject) value);
@@ -83,6 +79,17 @@ public final class AssignOperatorFactory {
 		if (value.startsWith("\"")) {
 			return new VMAssignString(name, type, isFinal, value);
 		}
+		final Boolean b = ParsingUtils.tryParsingBoolean(value);
+		if (b != null) {
+			// Assign boolean
+			return createOperator(name, type, isFinal, b);
+		}
+		final Number n = ParsingUtils.tryParsingNumber(value);
+		if (n != null) {
+			// Assign number
+			return createOperator(name, type, isFinal, n);
+		}
+		// Assign variable
 		return new VMAssignVariable(name, type, isFinal, value);
 	}
 

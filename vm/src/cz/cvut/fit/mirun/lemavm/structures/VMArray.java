@@ -23,6 +23,14 @@ public final class VMArray<T> extends VMObject {
 		VMMemoryManager.allocateObject(this);
 	}
 
+	public String getElementTypeName() {
+		return typeName;
+	}
+
+	public T[] getAll() {
+		return array;
+	}
+
 	/**
 	 * Get value at the specified index.
 	 * 
