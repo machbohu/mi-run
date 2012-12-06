@@ -35,7 +35,7 @@ public final class VMMemoryManager {
 		this.gc = new CopyingGarbageCollector(this);
 	}
 
-	private void reallocateSpace(boolean first) {
+	void reallocateSpace(boolean first) {
 		if (first) {
 			heapOne = new VMObject[spaceSize];
 		} else {
@@ -75,6 +75,17 @@ public final class VMMemoryManager {
 		}
 		manager = new VMMemoryManager(heapSize);
 		initialized = true;
+	}
+
+	/**
+	 * Reset the memory manager.
+	 */
+	public static void resetMemoryManager() {
+		if (manager == null) {
+			throw new IllegalStateException("Manager was never initialized.");
+		}
+		initialized = false;
+		initializeMemoryManager(manager.spaceSize * 2);
 	}
 
 	/**

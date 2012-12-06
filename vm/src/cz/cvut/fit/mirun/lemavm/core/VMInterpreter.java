@@ -7,9 +7,11 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Stack;
+import java.util.Vector;
 
 import org.apache.log4j.Logger;
 
+import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMMethodNotFoundException;
 import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
@@ -482,14 +484,27 @@ public class VMInterpreter {
 		}
 		return args;
 	}
-	
+
 	/**
-	 * Reset whole Virtual machine
-	 * Reseting order is important!
+	 * Get all tracked environments. </p>
+	 * 
+	 * This is to be used by the GC.
+	 * 
+	 * @return Vector of environments
 	 */
-	public void resetVM(){
+	public List<VMEnvironment> getEnvironments() {
+		List<VMEnvironment> envs = new ArrayList<>(stackFrames);
+		envs.add(currentEnvironment);
+		return envs;
+	}
+
+	/**
+	 * Reset whole Virtual machine Reseting order is important!
+	 */
+	public void resetVM() {
 		stackFrames.clear();
 		VMEnvironment.resetPartVM();
 		VMClass.resetPartVM();
+		VMMemoryManager.resetMemoryManager();
 	}
 }

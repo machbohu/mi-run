@@ -12,7 +12,8 @@ final class CopyingGarbageCollector extends VMGarbageCollector {
 	protected void runGC() {
 		final VMObject[] from;
 		final VMObject[] to;
-		if (manager.first) {
+		boolean first = manager.first;
+		if (first) {
 			from = manager.heapOne;
 			to = manager.heapTwo;
 		} else {
@@ -20,6 +21,9 @@ final class CopyingGarbageCollector extends VMGarbageCollector {
 			to = manager.heapOne;
 		}
 		// TODO
+
+		// Flip the spaces
+		manager.first = !first;
 	}
 
 }
