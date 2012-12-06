@@ -54,4 +54,32 @@ public class NewTests {
 		assertEquals("Constructor", out.getVal(0));
 		assertEquals("Method", out.getVal(1));
 	}
+	
+	@Test
+	public void testNewWithArgs(){
+		cs = new ANTLRStringStream(
+			"public class Test {\n" +
+			"    public Test(int a){\n" +
+			"        System.print(a);\n" +
+			"    }\n" +
+			
+			"    public void testMethod(int a){\n" +
+			"        System.print(a);\n" +
+			"    }\n" +
+			"}\n" +
+			
+			"public class Main {\n" +
+			"    public static void main(string[] args) {\n" +
+			"        int a = 5;\n" +
+			"        Test t = new Test(a);\n" +
+			"        t.testMethod(a);\n" +
+			"    }\n" +
+			"}"
+		);
+		
+		VirtualMachine.initAndLaunch(cs);
+
+		assertEquals("5", out.getVal(0));
+		assertEquals("5", out.getVal(1));
+	}
 }
