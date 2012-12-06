@@ -40,7 +40,7 @@ public class VMAssignVariable extends VMAssignOperator {
 			}
 		} else {
 			if (!runtimeType.equals(VMConstants.NULL)) {
-				checkReferenceTypeCompatibility(type, runtimeType);
+				checkReferenceTypeCompatibility(type, runtimeType, val);
 			}
 			if (isFinal) {
 				env.addFinalBinding(name, (VMObject) val, type);

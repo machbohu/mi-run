@@ -38,7 +38,7 @@ public final class VMAssignEvaluationResult extends VMAssignOperator {
 			}
 		} else {
 			if (!runtimeType.equals(VMConstants.NULL)) {
-				checkReferenceTypeCompatibility(type, runtimeType);
+				checkReferenceTypeCompatibility(type, runtimeType, value);
 			}
 			if (isFinal) {
 				env.addFinalBinding(name, (VMObject) res, type);

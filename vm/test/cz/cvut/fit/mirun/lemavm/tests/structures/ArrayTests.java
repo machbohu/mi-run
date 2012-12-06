@@ -33,7 +33,7 @@ public class ArrayTests {
 		cs = new ANTLRStringStream(
 			"public class Main {\n" +
 			"    public static void main(string[] args) {\n" +
-			"        int t = new int[5];\n" +
+			"        int [] t = new int[5];\n" +
 			"        t[0] = 5;\n" +
 			"        System.println(t[0]);\n" +
 			"    }\n" +

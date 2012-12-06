@@ -5,9 +5,11 @@ import org.apache.log4j.Logger;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMUnknownTypeException;
 import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
+import cz.cvut.fit.mirun.lemavm.structures.VMArray;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
+import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public abstract class VMAssignOperator implements Evaluable {
 
@@ -74,41 +76,27 @@ public abstract class VMAssignOperator implements Evaluable {
 	}
 
 	protected void checkReferenceTypeCompatibility(String declType,
-			String runtimeType) {
+			String runtimeType, Object value) {
 		assert declType != null;
 		assert runtimeType != null;
 		switch (runtimeType) {
 		case VMConstants.STRING:
-			if (!declType.equals(VMConstants.STRING)
-					&& !declType.equals(VMConstants.NULL)) {
-				throw new VMEvaluationException(
-						"Incompatible types in assigment. Expected " + declType
-								+ ", but got string");
-			}
-			break;
-		case VMConstants.ARRAY:
-			if (!declType.equals(VMConstants.ARRAY)
-					&& !declType.equals(VMConstants.NULL)) {
-				throw new VMEvaluationException(
-						"Incompatible types in assigment. Expected " + declType
-								+ ", but got an array");
-			}
-			break;
-		default:
-			// Check class compatibility
-			VMClass decl = VMClass.getClasses().get(declType);
-			if (decl == null) {
-				throw new VMUnknownTypeException(declType);
-			}
-			VMClass runt = VMClass.getClasses().get(runtimeType);
-			if (runt == null) {
-				throw new VMUnknownTypeException(runtimeType);
-			}
-			if (!decl.isAssignableFrom(runt)) {
+			if (!declType.equals(VMConstants.STRING)) {
 				throw new VMEvaluationException(
 						"Incompatible types in assigment. Expected " + declType
 								+ ", but got " + runtimeType);
 			}
+			break;
+		case VMConstants.ARRAY:
+			final VMArray<?> arr = (VMArray<?>) value;
+			checkArrayElementType(declType, arr.getElementTypeName());
+			break;
+		case VMConstants.NULL:
+			// Null can be assigned to any reference type
+			break;
+		default:
+			// Check class compatibility
+			checkClassTypes(declType, runtimeType);
 		}
 
 	}
@@ -149,6 +137,34 @@ public abstract class VMAssignOperator implements Evaluable {
 			throw new VMEvaluationException(
 					"Incompatible types in assigment. Expected " + declType
 							+ ", but got long");
+		}
+	}
+
+	private void checkArrayElementType(String declType, String runtimeType) {
+		String elemType = declType.substring(0, declType.indexOf("["));
+		elemType = elemType.trim();
+		if (VMUtils.isTypePrimitive(declType) && !elemType.equals(runtimeType)) {
+			throw new VMEvaluationException(
+					"Incompatible types in array assignment. Expected "
+							+ elemType + ", but got " + runtimeType);
+		} else {
+			checkClassTypes(elemType, runtimeType);
+		}
+	}
+
+	private void checkClassTypes(String elemType, String runtimeType) {
+		VMClass decl = VMClass.getClasses().get(elemType);
+		if (decl == null) {
+			throw new VMUnknownTypeException(elemType);
+		}
+		VMClass runt = VMClass.getClasses().get(runtimeType);
+		if (runt == null) {
+			throw new VMUnknownTypeException(runtimeType);
+		}
+		if (!decl.isAssignableFrom(runt)) {
+			throw new VMEvaluationException(
+					"Incompatible types in assigment. Expected " + elemType
+							+ ", but got " + runtimeType);
 		}
 	}
 }
