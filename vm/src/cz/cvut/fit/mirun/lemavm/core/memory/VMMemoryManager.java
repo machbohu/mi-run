@@ -28,15 +28,19 @@ public final class VMMemoryManager {
 
 	private VMMemoryManager(int heapSize) {
 		this.spaceSize = heapSize / 2;
-		reallocateSpace(heapOne);
-		reallocateSpace(heapTwo);
+		reallocateSpace(true);
+		reallocateSpace(false);
 		this.first = true;
 		this.heapPtr = 0;
 		this.gc = new CopyingGarbageCollector(this);
 	}
 
-	private void reallocateSpace(VMObject[] space) {
-		space = new VMObject[spaceSize];
+	private void reallocateSpace(boolean first) {
+		if (first) {
+			heapOne = new VMObject[spaceSize];
+		} else {
+			heapTwo = new VMObject[spaceSize];
+		}
 	}
 
 	private void allocateObjectImpl(VMObject object) {

@@ -2,9 +2,11 @@ package cz.cvut.fit.mirun.lemavm.core;
 
 import java.util.Arrays;
 
+import org.antlr.runtime.CharStream;
 import org.apache.log4j.Logger;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
+import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 
 /**
  * This is the main entry point of the LeMaVM virtual machine.
@@ -15,6 +17,7 @@ import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
 public class VirtualMachine {
 
 	private static final Logger LOG = Logger.getLogger(VirtualMachine.class);
+	private static final int DEFAULT_HEAP_SIZE = 1000;
 
 	/**
 	 * @param args
@@ -25,12 +28,24 @@ public class VirtualMachine {
 			System.exit(1);
 		}
 		final String file = args[0];
+		final String[] appArgs = Arrays.copyOfRange(args, 1, args.length);
+		initAndLaunch(file, appArgs);
+
+	}
+
+	public static void initAndLaunch(String file, String[] args) {
 		// Create base structure (classes = variables + constructors + methods)
 		VMCreator.createBaseStructureFromTree(file);
-		
+		VMMemoryManager.initializeMemoryManager(DEFAULT_HEAP_SIZE);
 		// launch main method if present
-		final String[] appArgs = Arrays.copyOfRange(args, 1, args.length);
-		VMInterpreter.getInstance().executeApplication(appArgs);
-		
+		VMInterpreter.getInstance().executeApplication(args);
+	}
+
+	public static void initAndLaunch(CharStream stream) {
+		// Create base structure (classes = variables + constructors + methods)
+		VMCreator.createBaseStructureFromTree(stream);
+		VMMemoryManager.initializeMemoryManager(DEFAULT_HEAP_SIZE);
+		// launch main method if present
+		VMInterpreter.getInstance().executeApplication(null);
 	}
 }
