@@ -26,6 +26,33 @@ class Item{
     public boolean isSolution(){
         return isSolution;
     }
+    
+    public int compare(Item other){
+        int comp1 = price/weight;
+        int comp2 = other.getPrice()/other.getWeight();
+        
+        if(comp1 < comp2){
+            return -1;
+        }
+        if(comp1 == comp2){
+            return 0;
+        }
+        if(comp1 > comp2){
+            return 1;
+        }
+    }
+    
+    public static void sort(Item[] items){
+        for(int ii = 1;ii < items.getLength;ii++) {
+            for(int jj = items.getLength-1; jj >= ii;jj--) {
+                if(items[jj].compare(items[jj-1]) == 1) {
+                    int tmp = items[jj-1];
+                    items[jj-1] = items[jj];
+                    items[jj] = tmp;
+                }
+            }
+        }
+    }
 }
 
 class Main{
@@ -52,25 +79,23 @@ class Main{
             items[ii] = new Item(weight, price);
         }
         
-        // TODO sort
+        Item.sort(items);
         
         weight = 0;
         price = 0;
         
         for(int ii=0;ii<itemsCnt;ii++){
-            Item item = items[ii];
-            if((weight + item.getWeight()) <= capacity){
-                weight = weight + item.getWeight();
-                price = price + item.getPrice();
-                item.setAsSolution();
+            if((weight + items[ii].getWeight()) <= capacity){
+                weight = weight + items[ii].getWeight();
+                price = price + items[ii].getPrice();
+                items[ii].setAsSolution();
             }
         }
         
         string solution = id + " " + weight + " " + price;
         
         for(int ii=0;ii<itemsCnt;ii++){
-            Item item = items[ii];
-            if(item.isSolution()){
+            if(items[ii].isSolution()){
                 solution = solution + " 1";
             }else{
                 solution = solution + " 0";

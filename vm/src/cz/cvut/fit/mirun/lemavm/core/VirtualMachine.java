@@ -44,11 +44,12 @@ public class VirtualMachine {
 	}
 
 	public static void initAndLaunch(CharStream stream) {
+		String[] args = {};
 		VMMemoryManager.initializeMemoryManager(DEFAULT_HEAP_SIZE);
 		// Create base structure (classes = variables + constructors + methods)
 		VMCreator.createBaseStructureFromTree(stream);
 		// launch main method if present
-		VMInterpreter.getInstance().executeApplication(null);
+		VMInterpreter.getInstance().executeApplication(args);
 	}
 	
 	/**

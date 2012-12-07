@@ -268,11 +268,11 @@ public abstract class VMBuilder {
 		case "PARENTESIZED_EXPR":
 			return buildExpressionFromTree((CommonTree) node.getChild(0));
 		case "METHOD_CALL":
-			String receiver = "this";
+			Object receiver = "this";
 
 			if (node.getChild(0).toString().equals(".")) {
 				// class instance
-				receiver = node.getChild(0).getChild(0).toString();
+				receiver = buildExpressionFromTree((CommonTree) node.getChild(0).getChild(0));
 				// method to call
 				name = node.getChild(0).getChild(1).toString();
 			} else {
