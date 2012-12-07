@@ -41,6 +41,11 @@ public abstract class VMBinaryOperatorFactory {
 			} else if (opTwo instanceof String) {
 				// The second operand is a literal or a variable name
 				final String strOp = (String) opTwo;
+				if (strOp.startsWith("\"")) {
+					// The second operand is a string literal
+					return createOperator(oOne,
+							new VMString(strOp.substring(1, strOp.length())));
+				}
 				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
 				if (b != null) {
 					return createOperator(oOne, b);

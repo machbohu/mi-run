@@ -5,6 +5,7 @@ import java.util.List;
 import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
+import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
@@ -20,11 +21,11 @@ import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
  */
 public final class VMMethodCallOperator extends VMOperator {
 
-	private final String receiver;
+	private final Object receiver;
 	private final String methodName;
 	private final List<Object> arguments;
 
-	public VMMethodCallOperator(String receiver, String methodName,
+	public VMMethodCallOperator(Object receiver, String methodName,
 			List<Object> arguments) {
 		if (methodName == null || methodName.isEmpty() || arguments == null) {
 			throw new VMParsingException(
@@ -42,7 +43,18 @@ public final class VMMethodCallOperator extends VMOperator {
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		final VMObject recv = env.getBinding(receiver, VMObject.class);
+		VMObject recv = null;
+		if (receiver instanceof Evaluable) {
+			// support for e. g. items[i].methodCall()
+			recv = (VMObject) ((Evaluable) receiver).evaluate(env);
+		} else {
+			if (!(receiver instanceof String)) {
+				throw new VMEvaluationException(
+						"Unsupported method call receiver type. Receiver: "
+								+ receiver);
+			}
+			recv = env.getBinding((String) receiver, VMObject.class);
+		}
 		if (recv == null) {
 			if (receiver.equals(VMConstants.SYSTEM)) {
 				return VMInterpreter.getInstance().invokeSystemNativeMethod(
@@ -72,7 +84,8 @@ public final class VMMethodCallOperator extends VMOperator {
 	public Double evaluateDouble(VMEnvironment env) {
 		Object res = evaluate(env);
 		try {
-			return Double.class.cast(res);
+			final Number n = (Number) res;
+			return Double.valueOf(n.doubleValue());
 		} catch (ClassCastException e) {
 			throw new VMEvaluationException(
 					"The return value of invocation of " + methodName
@@ -84,7 +97,8 @@ public final class VMMethodCallOperator extends VMOperator {
 	public Long evaluateLong(VMEnvironment env) {
 		Object res = evaluate(env);
 		try {
-			return Long.class.cast(res);
+			final Number n = (Number) res;
+			return Long.valueOf(n.longValue());
 		} catch (ClassCastException e) {
 			throw new VMEvaluationException(
 					"The return value of invocation of " + methodName
@@ -96,7 +110,8 @@ public final class VMMethodCallOperator extends VMOperator {
 	public Integer evaluateInt(VMEnvironment env) {
 		Object res = evaluate(env);
 		try {
-			return Integer.class.cast(res);
+			final Number n = (Number) res;
+			return Integer.valueOf(n.intValue());
 		} catch (ClassCastException e) {
 			throw new VMEvaluationException(
 					"The return value of invocation of " + methodName
@@ -108,7 +123,8 @@ public final class VMMethodCallOperator extends VMOperator {
 	public Short evaluateShort(VMEnvironment env) {
 		Object res = evaluate(env);
 		try {
-			return Short.class.cast(res);
+			final Number n = (Number) res;
+			return Short.valueOf(n.shortValue());
 		} catch (ClassCastException e) {
 			throw new VMEvaluationException(
 					"The return value of invocation of " + methodName
@@ -120,7 +136,8 @@ public final class VMMethodCallOperator extends VMOperator {
 	public Boolean evaluateBoolean(VMEnvironment env) {
 		Object res = evaluate(env);
 		try {
-			return Boolean.class.cast(res);
+			Boolean b = (Boolean) res;
+			return b;
 		} catch (ClassCastException e) {
 			throw new VMEvaluationException(
 					"The return value of invocation of " + methodName
@@ -132,7 +149,11 @@ public final class VMMethodCallOperator extends VMOperator {
 	public VMString evaluateString(VMEnvironment env) {
 		Object res = evaluate(env);
 		try {
-			return VMString.class.cast(res);
+			if (res instanceof VMString) {
+				return (VMString) res;
+			} else {
+				return new VMString(res.toString());
+			}
 		} catch (ClassCastException e) {
 			throw new VMEvaluationException(
 					"The return value of invocation of " + methodName
