@@ -2,14 +2,11 @@ package cz.cvut.fit.mirun.lemavm.tests.core;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.tree.CommonTree;
 import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMBaseStructureBuilder;
 import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
-import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public class ASTTreeTests {
 
