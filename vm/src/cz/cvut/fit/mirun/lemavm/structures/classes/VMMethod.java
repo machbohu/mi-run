@@ -12,6 +12,7 @@ import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMAmbiguousMethodDeclaration;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.VMCodeBlock;
+import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public class VMMethod {
 
@@ -99,7 +100,7 @@ public class VMMethod {
 	}
 
 	public VMCodeBlock getCode() {
-		if(code == null){
+		if (code == null) {
 			code = VMCreator.createCodeBlockFromTree(methodTree);
 		}
 		return code;
@@ -153,10 +154,8 @@ public class VMMethod {
 	/**
 	 * Check if this method matches the specified name and arguments. </p>
 	 * 
-	 * This method will be used by the method lookup. </p>
-	 * 
-	 * NOTE: the current implementation checks only for exact argument type
-	 * match, inheritance or conversions are not taken into account.
+	 * This method will be used by the method lookup. The current implementation
+	 * does support primitive type widening and class inheritance.
 	 * 
 	 * @param name
 	 *            Name of the method
@@ -174,7 +173,7 @@ public class VMMethod {
 		final Iterator<String> it = arguments.keySet().iterator();
 		for (String type : argTypes) {
 			assert it.hasNext();
-			if (!type.equals(arguments.get(it.next()))) {
+			if (!VMUtils.areTypesCompatible(it.next(), type)) {
 				return false;
 			}
 		}

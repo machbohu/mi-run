@@ -24,6 +24,7 @@ import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMUnaryNegationOp
 import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMUnaryOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.structures.operators.factories.VMUnaryPlusOperatorFactory;
 
+@SuppressWarnings("unused")
 public class OperatorCombinationsTests {
 
 	private static VMBinaryOperatorFactory minusFactory;
