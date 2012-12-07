@@ -5,7 +5,6 @@ import static org.junit.Assert.assertEquals;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -13,7 +12,6 @@ import java.io.IOException;
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
 import org.junit.After;
-import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -115,5 +113,43 @@ public class FileTests {
 		assertEquals(br.readLine(), out.getVal(3));
 		assertEquals(br.readLine(), out.getVal(4));
 		assertEquals("null", out.getVal(5));
+	}
+	
+	@Test
+	public void testFileCreate() throws IOException{
+		String filename = tmp.getCanonicalPath().toString();
+		tmp.deleteOnExit();
+
+		cs = new ANTLRStringStream(
+			"public class Main {\n" +
+			"    public static void main(string[] args) {\n" +
+			"        File f = new File(\""+filename+"\");\n" +
+			"        f.createFile();\n" +
+			"        System.println(f.doesFileExist());\n" +
+			"        System.println(f.canWrite() && f.canRead());\n" +
+			"        f.writeLine(\"Out1\");\n" +
+			"        f.writeLine(\"Out2\");\n" +
+			"        f.writeLine(\"Out3 lorem ipsum        dolor\");\n" +
+			"        f.closeWriter();\n" +
+			"        System.println(f.readLine());\n" +
+			"        System.println(f.readLine());\n" +
+			"        System.println(f.readLine());\n" +
+			"        System.println(f.readLine());\n" +
+			"        f.closeReader();\n" +
+			"        \n" +
+			"    }\n" +
+			"}"
+		);
+		
+		VirtualMachine.initAndLaunch(cs);
+
+		assertEquals("true", out.getVal(0));
+		assertEquals("true", out.getVal(1));
+		assertEquals(br.readLine(), out.getVal(2));
+		assertEquals(br.readLine(), out.getVal(3));
+		assertEquals(br.readLine(), out.getVal(4));
+		assertEquals("null", out.getVal(5));
+		
+		tmp = new File(filename);
 	}
 }

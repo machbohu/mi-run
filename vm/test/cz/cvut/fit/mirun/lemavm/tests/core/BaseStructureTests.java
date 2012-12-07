@@ -5,14 +5,11 @@ import static org.junit.Assert.assertTrue;
 
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CharStream;
-import org.antlr.runtime.RecognitionException;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
-import cz.cvut.fit.mirun.lemavm.core.VirtualMachine;
 import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
-import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMNull;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;

@@ -5,8 +5,6 @@ import org.antlr.runtime.CharStream;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
-import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
 import cz.cvut.fit.mirun.lemavm.core.VirtualMachine;
 
 public class AppLaunchTests {
