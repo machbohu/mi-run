@@ -21,7 +21,7 @@ public class VMEnvironment {
 
 	private static final Set<String> knownTypes = initTypes();
 	protected final VMClassInstance owner;
-	
+
 	// Contains all reference bindings (including final ones)
 	protected final Map<String, VMObject> bindings;
 	// Contains all binding types
@@ -34,6 +34,7 @@ public class VMEnvironment {
 
 	// Used for method return values
 	protected Object returnValue;
+	protected String returnType;
 	protected boolean shouldReturn;
 
 	public VMEnvironment() {
@@ -47,7 +48,7 @@ public class VMEnvironment {
 		this.parent = null;
 		this.shouldReturn = false;
 	}
-	
+
 	public VMEnvironment(VMClassInstance owner) {
 		super();
 		this.owner = owner;
@@ -58,7 +59,7 @@ public class VMEnvironment {
 		this.parent = null;
 		this.shouldReturn = false;
 	}
-	
+
 	public VMEnvironment(VMEnvironment parent) {
 		super();
 		this.owner = null;
@@ -69,7 +70,7 @@ public class VMEnvironment {
 		this.parent = parent;
 		this.shouldReturn = false;
 	}
-	
+
 	public VMEnvironment(VMEnvironment parent, VMClassInstance owner) {
 		super();
 		this.owner = owner;
@@ -138,7 +139,7 @@ public class VMEnvironment {
 	}
 
 	public boolean containsBinding(String name) {
-		if (!bindings.containsKey(name)) {
+		if (!bindings.containsKey(name) && !primitiveBindings.containsKey(name)) {
 			if (parent != null) {
 				return parent.containsBinding(name);
 			}
@@ -146,18 +147,18 @@ public class VMEnvironment {
 		}
 		return true;
 	}
-	
-	private VMEnvironment getEnvironmentWithBinding(String name){
+
+	private VMEnvironment getEnvironmentWithBinding(String name) {
 		VMEnvironment env = this;
-		while(env != null && !env.getBindings().containsKey(name)){
+		while (env != null && !env.getBindings().containsKey(name)) {
 			env = env.getParent();
 		}
 		return env;
 	}
-	
-	private VMEnvironment getEnvironmentWithPrimitiveBinding(String name){
+
+	private VMEnvironment getEnvironmentWithPrimitiveBinding(String name) {
 		VMEnvironment env = this;
-		while(env != null && !env.getPrimitiveBindings().containsKey(name)){
+		while (env != null && !env.getPrimitiveBindings().containsKey(name)) {
 			env = env.getParent();
 		}
 		return env;
@@ -189,15 +190,15 @@ public class VMEnvironment {
 			LOG.debug("Creating binding for name " + name + " and value "
 					+ value);
 		}
-		
+
 		VMEnvironment env = getEnvironmentWithBinding(name);
-		
-		if(env == this || env == null){
+
+		if (env == this || env == null) {
 			checkParams(name, value, type);
 			checkFinalBinding(name);
 			bindings.put(name, value);
 			bindingTypes.put(name, type);
-		}else{
+		} else {
 			env.addBinding(name, value, type);
 		}
 	}
@@ -216,16 +217,16 @@ public class VMEnvironment {
 			LOG.debug("Creating final binding for name " + name + " and value "
 					+ value);
 		}
-		
+
 		VMEnvironment env = getEnvironmentWithBinding(name);
-		
-		if(env == this || env == null){
+
+		if (env == this || env == null) {
 			checkParams(name, value, type);
 			checkFinalBinding(name);
 			bindings.put(name, value);
 			bindingTypes.put(name, type);
 			finalBindings.put(name, value);
-		}else{
+		} else {
 			env.addFinalBinding(name, value, type);
 		}
 	}
@@ -240,19 +241,19 @@ public class VMEnvironment {
 			LOG.debug("Creating primitive binding for name " + name
 					+ " and value " + value);
 		}
-		
+
 		VMEnvironment env = getEnvironmentWithPrimitiveBinding(name);
-		
-		if(env == this || env == null){
+
+		if (env == this || env == null) {
 			checkParams(name, value, type);
 			checkFinalBinding(name);
 			primitiveBindings.put(name, value);
 			bindingTypes.put(name, type);
-		}else{
+		} else {
 			env.addPrimitiveBinding(name, value, type);
 		}
 	}
-	
+
 	/**
 	 * Add a new final binding for the specified primitive value (boxed). </p>
 	 * 
@@ -263,16 +264,16 @@ public class VMEnvironment {
 			LOG.debug("Creating primitive final binding for name " + name
 					+ " and value " + value);
 		}
-		
+
 		VMEnvironment env = getEnvironmentWithPrimitiveBinding(name);
-		
-		if(env == this || env == null){
+
+		if (env == this || env == null) {
 			checkParams(name, value, type);
 			checkFinalBinding(name);
 			primitiveBindings.put(name, value);
 			bindingTypes.put(name, type);
 			finalBindings.put(name, value);
-		}else{
+		} else {
 			env.addPrimitiveFinalBinding(name, value, type);
 		}
 	}
@@ -280,7 +281,7 @@ public class VMEnvironment {
 	public Map<String, VMObject> getBindings() {
 		return bindings;
 	}
-	
+
 	public Map<String, Object> getPrimitiveBindings() {
 		return primitiveBindings;
 	}
@@ -300,6 +301,24 @@ public class VMEnvironment {
 		if (parent != null) {
 			parent.setReturnValue(returnValue);
 		}
+	}
+
+	public String getReturnType() {
+		if (returnType != null) {
+			return returnType;
+		}
+		if (parent != null) {
+			return parent.getReturnType();
+		}
+		// Fail safe
+		return VMConstants.VOID;
+	}
+
+	public void setReturnType(String returnType) {
+		if (returnType == null) {
+			throw new NullPointerException();
+		}
+		this.returnType = returnType;
 	}
 
 	/**
@@ -343,14 +362,14 @@ public class VMEnvironment {
 		types.add(ObjectType.FILE.toString() + "[]");
 		return types;
 	}
-	
+
 	/**
 	 * Reset VMEnvironment when reseting Virtual machine
 	 */
-	public static void resetPartVM(){
+	public static void resetPartVM() {
 		Iterator<String> it = VMClass.getClasses().keySet().iterator();
-		
-		while(it.hasNext()){
+
+		while (it.hasNext()) {
 			knownTypes.remove(it.next());
 		}
 	}

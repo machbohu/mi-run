@@ -274,6 +274,7 @@ public class VMInterpreter {
 	private Object invokeMethodImpl(VMMethod method, VMEnvironment parentEnv,
 			List<Object> args) {
 		final VMEnvironment methodEnv = new VMEnvironment(parentEnv);
+		methodEnv.setReturnType(method.getReturnType());
 
 		pushArgsToEnvironment(methodEnv, method.getArguments(), args);
 		setCurrentEnvironment(methodEnv);
