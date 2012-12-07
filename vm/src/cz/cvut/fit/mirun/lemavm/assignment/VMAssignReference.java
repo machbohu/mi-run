@@ -2,9 +2,8 @@ package cz.cvut.fit.mirun.lemavm.assignment;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
-import cz.cvut.fit.mirun.lemavm.structures.classes.VMClassInstance;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
-import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
+import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public final class VMAssignReference extends VMAssignOperator {
 
@@ -19,33 +18,15 @@ public final class VMAssignReference extends VMAssignOperator {
 	@Override
 	public Object evaluate(VMEnvironment env) {
 		resolveType(env);
-		if (value instanceof VMClassInstance) {
-			final VMClassInstance inst = (VMClassInstance) value;
-			checkReferenceTypeCompatibility(type, inst.getTypeName(), value);
-			if (isFinal) {
-				env.addFinalBinding(name, value, type);
-			} else {
-				env.addBinding(name, value, type);
-			}
+		if (!VMUtils.isReferenceTypeCompatible(type, value)) {
+			throw new VMEvaluationException(
+					"Incompatible types found. Expected " + type + ", but got "
+							+ value.getTypeName());
+		}
+		if (isFinal) {
+			env.addFinalBinding(name, value, type);
 		} else {
-			switch (value.getTypeName()) {
-			case VMConstants.STRING:
-				checkReferenceTypeCompatibility(type, VMConstants.STRING, value);
-				break;
-			case VMConstants.NULL:
-				break;
-			case VMConstants.ARRAY:
-				checkReferenceTypeCompatibility(type, VMConstants.ARRAY, value);
-				break;
-			default:
-				throw new VMEvaluationException(
-						"Unknown object encountered in assignment: " + value);
-			}
-			if (isFinal) {
-				env.addFinalBinding(name, value, type);
-			} else {
-				env.addBinding(name, value, type);
-			}
+			env.addBinding(name, value, type);
 		}
 		return null;
 	}

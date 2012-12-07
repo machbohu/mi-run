@@ -1,7 +1,8 @@
 package cz.cvut.fit.mirun.lemavm.assignment;
 
+import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
-import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
+import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public final class VMAssignNumber extends VMAssignOperator {
 
@@ -16,14 +17,10 @@ public final class VMAssignNumber extends VMAssignOperator {
 	@Override
 	public Object evaluate(VMEnvironment env) {
 		resolveType(env);
-		if (value instanceof Double) {
-			checkPrimitiveTypeCompatibility(type, VMConstants.DOUBLE);
-		} else if (value instanceof Long) {
-			checkPrimitiveTypeCompatibility(type, VMConstants.LONG);
-		} else if (value instanceof Integer) {
-			checkPrimitiveTypeCompatibility(type, VMConstants.INT);
-		} else {
-			checkPrimitiveTypeCompatibility(type, VMConstants.SHORT);
+		if (!VMUtils.isPrimitiveTypeCompatible(type, value)) {
+			throw new VMEvaluationException(
+					"Incompatible types found. Expected " + type
+							+ ", but got value " + value.getClass().toString());
 		}
 		if (isFinal) {
 			env.addPrimitiveFinalBinding(name, value, type);

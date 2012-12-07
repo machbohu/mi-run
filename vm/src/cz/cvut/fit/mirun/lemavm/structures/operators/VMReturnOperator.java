@@ -2,9 +2,7 @@ package cz.cvut.fit.mirun.lemavm.structures.operators;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
-import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMNull;
-import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.utils.ParsingUtils;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
@@ -62,28 +60,12 @@ public final class VMReturnOperator implements Evaluable {
 					"Unsupported argument for File constructor. Argument: "
 							+ expr);
 		}
-		checkTypeCompatibility(retType, res);
+		if (!VMUtils.isTypeCompatible(retType, res)) {
+			throw new VMEvaluationException(
+					"Incompatible types found. Expected " + retType
+							+ ", but got a value" + res);
+		}
 		env.setReturnValue(res);
 		return null;
-	}
-
-	private void checkTypeCompatibility(String type, Object value) {
-		if (VMUtils.isTypePrimitive(type)) {
-			if (!type.equals(value.getClass().getSimpleName().toLowerCase())) {
-				throw new VMEvaluationException("Incompatible types. Expected "
-						+ type + ", but got "
-						+ value.getClass().getSimpleName());
-			} else {
-				return;
-			}
-		}
-		assert (value instanceof VMObject);
-		final VMObject o = (VMObject) value;
-		final VMClass decl = VMClass.getClasses().get(type);
-		final VMClass runtime = VMClass.getClasses().get(o.getTypeName());
-		if (!decl.isAssignableFrom(runtime)) {
-			throw new VMEvaluationException("Incompatible types. Expected "
-					+ type + ", but got " + runtime.getName());
-		}
 	}
 }

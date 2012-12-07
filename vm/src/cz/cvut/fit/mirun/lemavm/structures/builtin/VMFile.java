@@ -31,6 +31,7 @@ public final class VMFile extends VMObject {
 
 	private boolean readerOpen;
 	private boolean writerOpen;
+	private boolean open;
 
 	public VMFile(Object fileName, VMEnvironment env) {
 		super(ObjectType.FILE);
@@ -39,7 +40,7 @@ public final class VMFile extends VMObject {
 		}
 		this.fileName = getFileName(fileName, env);
 		this.file = new File(this.fileName);
-		this.readerOpen = this.writerOpen = true;
+		this.readerOpen = this.writerOpen = this.open = true;
 	}
 
 	public Boolean doesFileExist() {
@@ -47,11 +48,11 @@ public final class VMFile extends VMObject {
 	}
 
 	public Boolean canRead() {
-		return (file.canRead() && readerOpen);
+		return (file.canRead() && readerOpen && open);
 	}
 
 	public Boolean canWrite() {
-		return (file.canWrite() && writerOpen);
+		return (file.canWrite() && writerOpen && open);
 	}
 
 	/**
@@ -60,7 +61,7 @@ public final class VMFile extends VMObject {
 	public void createFile() {
 		if (!file.exists()) {
 			try {
-//				file.mkdirs();
+				// file.mkdirs();
 				file.createNewFile();
 			} catch (IOException e) {
 				LOG.error("Unable to create file.", e);
@@ -185,17 +186,18 @@ public final class VMFile extends VMObject {
 	public void close() {
 		closeReader();
 		closeWriter();
+		open = false;
 	}
 
 	private void ensureReaderOpen() {
-		if (!readerOpen) {
+		if (!readerOpen || !open) {
 			throw new VMIllegalStateException(
 					"Cannot read from already closed file.");
 		}
 	}
 
 	private void ensureWriterOpen() {
-		if (!writerOpen) {
+		if (!writerOpen || !open) {
 			throw new VMIllegalStateException(
 					"Cannot write to already closed file.");
 		}

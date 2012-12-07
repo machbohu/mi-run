@@ -247,12 +247,13 @@ public class VMInterpreter {
 				try {
 					res = m.invoke(null, args.toArray());
 					return res;
-				} catch (IllegalAccessException | IllegalArgumentException
-						| InvocationTargetException e) {
+				} catch (IllegalAccessException | IllegalArgumentException e) {
 					LOG.error("Unable to invoke method " + methodName, e);
 					throw new VMEvaluationException(
 							"Unable to invoke system static method "
 									+ methodName);
+				} catch (InvocationTargetException e) {
+					throw new VMEvaluationException(e.getTargetException());
 				}
 			}
 		}
@@ -426,11 +427,12 @@ public class VMInterpreter {
 				try {
 					final Object res = m.invoke(receiver, args.toArray());
 					return res;
-				} catch (IllegalAccessException | IllegalArgumentException
-						| InvocationTargetException e) {
+				} catch (IllegalAccessException | IllegalArgumentException e) {
 					LOG.error("Unable to invoke method " + methodName, e);
 					throw new VMEvaluationException("Unable to invoke method "
 							+ methodName + " on instance " + receiver);
+				} catch (InvocationTargetException e) {
+					throw new VMEvaluationException(e.getTargetException());
 				}
 			}
 		}

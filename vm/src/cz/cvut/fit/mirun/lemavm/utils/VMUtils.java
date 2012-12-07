@@ -6,11 +6,16 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map.Entry;
 
+import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMUnknownTypeException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
+import cz.cvut.fit.mirun.lemavm.structures.VMArray;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMFile;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMNull;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMClassInstance;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMMethod;
 
@@ -151,4 +156,134 @@ public class VMUtils {
 		}
 		return null;
 	}
+
+	/**
+	 * Check if the specified value is compatible with the specified declared
+	 * type. </p>
+	 * 
+	 * This methods internally calls
+	 * {@link #isPrimitiveTypeCompatible(String, Object)} or
+	 * {@link #isReferenceTypeCompatible(String, Object)} according to whether
+	 * the declared type is primitive or not.
+	 * 
+	 * @param declType
+	 *            Declared type
+	 * @param value
+	 *            The value to check
+	 * @return True if the types are compatible
+	 */
+	public static boolean isTypeCompatible(String declType, Object value) {
+		if (isTypePrimitive(declType)) {
+			return isPrimitiveTypeCompatible(declType, value);
+		} else {
+			return isReferenceTypeCompatible(declType, value);
+		}
+	}
+
+	/**
+	 * Check if the specified value is or can be converted to the specified
+	 * declared type. </p>
+	 * 
+	 * @param declType
+	 *            Declared type
+	 * @param value
+	 *            Value to check
+	 * @return True if the value and type are compatible, false otherwise
+	 */
+	public static boolean isPrimitiveTypeCompatible(String declType,
+			Object value) {
+		if (declType.equals(VMConstants.BOOLEAN)) {
+			if (value instanceof Boolean) {
+				return true;
+			} else {
+				return false;
+			}
+		}
+		if (!(value instanceof Number)) {
+			return false;
+		}
+		final Number n = (Number) value;
+		switch (declType) {
+		case VMConstants.SHORT:
+			Short s = n.shortValue();
+			return n.equals(s);
+		case VMConstants.INT:
+			return ((n instanceof Integer) || (n instanceof Short));
+		case VMConstants.LONG:
+			return ((n instanceof Integer) || (n instanceof Short) || (n instanceof Long));
+		default:
+			// Double
+			return true;
+		}
+	}
+
+	/**
+	 * Check if the specified value can be stored in the variable of the
+	 * declared type. </p>
+	 * 
+	 * I. e. that the declared type is either the same class or a superclass of
+	 * the specified instance.
+	 * 
+	 * @param declType
+	 *            Declared type
+	 * @param value
+	 *            Value
+	 * @return True if the types are compatible
+	 */
+	public static boolean isReferenceTypeCompatible(String declType,
+			Object value) {
+		if (value instanceof VMNull) {
+			return true;
+		}
+		if (declType.equals(VMConstants.STRING)) {
+			return (value instanceof VMString);
+		}
+		if (declType.equals(VMConstants.FILE)) {
+			return (value instanceof VMFile);
+		}
+		if (value instanceof VMArray) {
+			return checkArrayCompatibility(declType, (VMArray<?>) value);
+		}
+		if (!(value instanceof VMClassInstance)) {
+			return false;
+		}
+		VMClassInstance inst = (VMClassInstance) value;
+		return checkClassTypeCompatibility(declType, inst.getVMClass());
+	}
+
+	private static boolean checkArrayCompatibility(String declType,
+			VMArray<?> arr) {
+		String runtimeType = arr.getElementTypeName();
+		String elemType = declType.substring(0, declType.indexOf("["));
+		elemType = elemType.trim();
+		if (VMUtils.isTypePrimitive(elemType)) {
+			if (!elemType.equals(runtimeType)) {
+				throw new VMEvaluationException(
+						"Incompatible types in array assignment. Expected "
+								+ elemType + ", but got " + runtimeType);
+			}
+			return true;
+		} else {
+			return checkClassTypeCompatibility(elemType, VMClass.getClasses()
+					.get(runtimeType));
+		}
+	}
+
+	private static boolean checkClassTypeCompatibility(String declType,
+			VMClass runtime) {
+		if (runtime == null) {
+			throw new VMUnknownTypeException();
+		}
+		VMClass decl = VMClass.getClasses().get(declType);
+		if (decl == null) {
+			throw new VMUnknownTypeException(declType);
+		}
+		if (!decl.isAssignableFrom(runtime)) {
+			throw new VMEvaluationException(
+					"Incompatible types in assigment. Expected " + declType
+							+ ", but got " + runtime.getName());
+		}
+		return true;
+	}
+
 }

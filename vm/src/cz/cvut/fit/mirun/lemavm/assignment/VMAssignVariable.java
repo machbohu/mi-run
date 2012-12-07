@@ -1,11 +1,8 @@
 package cz.cvut.fit.mirun.lemavm.assignment;
 
-import java.util.Collections;
-
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
-import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public class VMAssignVariable extends VMAssignOperator {
@@ -29,18 +26,22 @@ public class VMAssignVariable extends VMAssignOperator {
 					+ " not found.");
 		}
 		resolveType(env);
-		String runtimeType = VMUtils.getArgumentTypes(
-				Collections.singletonList(val), env).get(0);
 		if (VMUtils.isTypePrimitive(type)) {
-			checkPrimitiveTypeCompatibility(type, runtimeType);
+			if (!VMUtils.isPrimitiveTypeCompatible(type, val)) {
+				throw new VMEvaluationException(
+						"Incompatible types found. Expected " + type
+								+ ", but got value " + val);
+			}
 			if (isFinal) {
 				env.addPrimitiveFinalBinding(name, val, type);
 			} else {
 				env.addPrimitiveBinding(name, val, type);
 			}
 		} else {
-			if (!runtimeType.equals(VMConstants.NULL)) {
-				checkReferenceTypeCompatibility(type, runtimeType, val);
+			if (!VMUtils.isReferenceTypeCompatible(type, val)) {
+				throw new VMEvaluationException(
+						"Incompatible types found. Expected " + type
+								+ ", but got value " + val);
 			}
 			if (isFinal) {
 				env.addFinalBinding(name, (VMObject) val, type);
