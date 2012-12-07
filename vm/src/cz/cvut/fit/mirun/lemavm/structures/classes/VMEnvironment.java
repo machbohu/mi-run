@@ -11,7 +11,6 @@ import org.apache.log4j.Logger;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMFinalBindingExistsException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMUnknownTypeException;
-import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 
@@ -159,13 +158,14 @@ public class VMEnvironment {
 	private VMEnvironment getEnvironmentWithPrimitiveBinding(String name) {
 		VMEnvironment env = this;
 		while (env != null && !env.getPrimitiveBindings().containsKey(name)) {
-			if(env instanceof VMInstanceEnvironment){
+			if (env instanceof VMInstanceEnvironment) {
 				VMInstanceEnvironment ienv = ((VMInstanceEnvironment) env);
-				if(ienv.getClassEnvironment().getPrimitiveBindings().containsKey(name)){
+				if (ienv.getClassEnvironment().getPrimitiveBindings()
+						.containsKey(name)) {
 					return ienv;
 				}
 			}
-			
+
 			env = env.getParent();
 		}
 		return env;
@@ -359,14 +359,13 @@ public class VMEnvironment {
 		types.add(VMConstants.INT);
 		types.add(VMConstants.LONG);
 		types.add(VMConstants.STRING);
-		types.add(ObjectType.STRING.toString());
-		types.add(ObjectType.FILE.toString());
-		types.add(VMConstants.BOOLEAN + "[]");
-		types.add(VMConstants.SHORT + "[]");
-		types.add(VMConstants.INT + "[]");
-		types.add(VMConstants.LONG + "[]");
-		types.add(VMConstants.STRING + "[]");
-		types.add(ObjectType.FILE.toString() + "[]");
+		types.add(VMConstants.FILE);
+		types.add(VMConstants.BOOLEAN_ARR);
+		types.add(VMConstants.SHORT_ARR);
+		types.add(VMConstants.INT_ARR);
+		types.add(VMConstants.LONG_ARR);
+		types.add(VMConstants.STRING_ARR);
+		types.add(VMConstants.FILE_ARR);
 		return types;
 	}
 

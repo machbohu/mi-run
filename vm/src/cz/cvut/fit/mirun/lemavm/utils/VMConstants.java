@@ -31,4 +31,20 @@ public abstract class VMConstants {
 	public static final String SYSTEM = "System";
 
 	public static final String FILE = "File";
+
+	// Arrays
+
+	public static final String DOUBLE_ARR = "double[]";
+
+	public static final String LONG_ARR = "long[]";
+
+	public static final String INT_ARR = "int[]";
+
+	public static final String SHORT_ARR = "short[]";
+
+	public static final String BOOLEAN_ARR = "boolean[]";
+
+	public static final String STRING_ARR = "string[]";
+
+	public static final String FILE_ARR = "File[]";
 }

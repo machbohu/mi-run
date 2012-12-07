@@ -152,7 +152,7 @@ public class VMUtils {
 				}
 				final Entry<String, String> param = m.getArguments().entrySet()
 						.iterator().next();
-				if (param.getValue().equals(VMConstants.STRING)) {
+				if (param.getValue().equals(VMConstants.STRING_ARR)) {
 					return m;
 				}
 			}
