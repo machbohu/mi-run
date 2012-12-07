@@ -126,6 +126,9 @@ public class VMUtils {
 		if (instance.getType().equals(ObjectType.FILE)) {
 			return true;
 		}
+		if (instance.getType().equals(ObjectType.ARRAY)) {
+			return true;
+		}
 		// Can add more built in types here
 		return false;
 	}

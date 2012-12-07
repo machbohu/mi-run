@@ -75,4 +75,6 @@ public final class VMSystem extends StaticObservable {
 		}
 		return value;
 	}
+	
+//	public static 
 }

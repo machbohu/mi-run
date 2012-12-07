@@ -1,6 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.structures.builtin;
 
 import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 
 public class VMString extends VMPrimitive {
@@ -80,5 +81,13 @@ public class VMString extends VMPrimitive {
 			b.append(s.value);
 		}
 		return new VMString(b.toString());
+	}
+	
+	public int toInt(){
+		try{
+			return Integer.parseInt(value);
+		}catch(NumberFormatException e){
+			throw new VMParsingException("Cannot parse string value '"+value+"' as int.");
+		}
 	}
 }

@@ -36,6 +36,7 @@ public class ArrayTests {
 			"        int [] t = new int[5];\n" +
 			"        t[0] = 5;\n" +
 			"        System.println(t[0]);\n" +
+			"        System.println(t.getLength());\n" +
 			"    }\n" +
 			"}"
 		);
@@ -43,5 +44,6 @@ public class ArrayTests {
 		VirtualMachine.initAndLaunch(cs);
 
 		assertEquals("5", out.getVal(0));
+		assertEquals("5", out.getVal(1));
 	}
 }

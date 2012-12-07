@@ -23,7 +23,7 @@ public class VariablesTests {
 	}
 	
 	@After
-	public void setUpAfterTest(){
+	public void clearAfterTest(){
 		out.clearVals();
 		VirtualMachine.reset();
 	}
@@ -76,7 +76,7 @@ public class VariablesTests {
 			"    }\n" +
 			
 			"    public void testMethod(){\n" +
-//			"        a--;\n" +
+			"        a--;\n" +
 			"        a = a - 1;\n" +
 			"        System.print(a);\n" +
 			"    }\n" +
@@ -99,12 +99,12 @@ public class VariablesTests {
 		VirtualMachine.initAndLaunch(cs);
 
 		assertEquals("10", out.getVal(0));
-		assertEquals("9", out.getVal(1));
-		assertEquals("8", out.getVal(2));
+		assertEquals("8", out.getVal(1));
+		assertEquals("6", out.getVal(2));
 		assertEquals("10", out.getVal(3));
-		assertEquals("9", out.getVal(4));
-		assertEquals("8", out.getVal(5));
-		assertEquals("7", out.getVal(6));
-		assertEquals("7", out.getVal(7));
+		assertEquals("8", out.getVal(4));
+		assertEquals("6", out.getVal(5));
+		assertEquals("4", out.getVal(6));
+		assertEquals("4", out.getVal(7));
 	}
 }

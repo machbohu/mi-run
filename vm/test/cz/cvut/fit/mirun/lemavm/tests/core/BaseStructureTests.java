@@ -1,6 +1,7 @@
 package cz.cvut.fit.mirun.lemavm.tests.core;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import org.antlr.runtime.ANTLRStringStream;
@@ -22,6 +23,7 @@ public class BaseStructureTests {
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
 		cs = new ANTLRStringStream(
+			"// Comment\n" +
 			"public class Test {\n" +
 			"    string strDef; \n" +
 			"    string strNull = null; \n" +
@@ -77,7 +79,7 @@ public class BaseStructureTests {
 		VMClass cls = VMClass.getClasses().get("Test");
 		assertTrue(cls.getFields().containsKey("strDef"));
 		assertTrue(cls.getFields().containsKey("strNull"));
-		assertTrue(cls.getFields().containsKey("str"));
+		assertFalse(cls.getFields().containsKey("str"));
 		assertTrue(cls.getFields().containsKey("testDef"));
 		assertTrue(cls.getFields().containsKey("test"));
 		assertTrue(cls.getFields().containsKey("iDef"));
@@ -93,9 +95,9 @@ public class BaseStructureTests {
 		
 		assertEquals(VMNull.getInstance(), cls.getFields().get("strDef").getVal());
 		assertEquals(VMNull.getInstance(), cls.getFields().get("strNull").getVal());
-		assertTrue(cls.getFields().get("str").isStatic());
-		assertTrue(cls.getFields().get("str").getVal() instanceof VMString);
-		assertTrue(new VMString("str").valueEquals((VMString) cls.getFields().get("str").getVal()));
+		assertEquals("string", cls.getClassEnvironment().getNameType("str"));
+//		assertTrue(cls.getFields().get("str").getVal() instanceof VMString);
+//		assertTrue(new VMString("str").valueEquals((VMString) cls.getFields().get("str").getVal()));
 		assertEquals(VMNull.getInstance(), cls.getFields().get("testDef").getVal());
 		assertEquals(VMNull.getInstance(), cls.getFields().get("test").getVal());
 		assertEquals(0, cls.getFields().get("iDef").getVal());

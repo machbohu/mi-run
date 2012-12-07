@@ -503,5 +503,8 @@ public class VMInterpreter {
 	 */
 	public void resetPartVM() {
 		stackFrames.clear();
+		this.currentEnvironment = new VMEnvironment();
+		this.ilc = null;
+		this.staticIlc = null;
 	}
 }
