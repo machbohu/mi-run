@@ -83,8 +83,7 @@ public class GarbageCollectorTests {
 	@Test
 	public void testRunGCWithReferencedObjects() throws NoSuchFieldException,
 			SecurityException, IllegalArgumentException, IllegalAccessException {
-		final VMArray<VMString> arr = new VMArray<VMString>(new VMString[3],
-				"string");
+		final VMArray arr = new VMArray(new VMString[3], "string");
 		env.addBinding("arr", arr, "string[]");
 		arr.set(0, new VMString("1"));
 		arr.set(1, new VMString("2"));

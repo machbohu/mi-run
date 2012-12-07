@@ -1,8 +1,8 @@
 package cz.cvut.fit.mirun.lemavm.core.memory;
 
-import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map.Entry;
 import java.util.Set;
 
 import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
@@ -34,7 +34,7 @@ final class CopyingGarbageCollector extends VMGarbageCollector {
 			from = manager.heapTwo;
 			to = manager.heapOne;
 		}
-		final Set<VMObject> rootSet = resolveRootSet();
+		final Set<Entry<String, VMObject>> rootSet = resolveRootSet();
 		int freeInd = moveRootsToNewSpace(rootSet, from, to);
 		int scanInd = 0;
 		while (scanInd < freeInd) {
@@ -57,21 +57,25 @@ final class CopyingGarbageCollector extends VMGarbageCollector {
 	 * 
 	 * @return Root nodes set
 	 */
-	private Set<VMObject> resolveRootSet() {
+	private Set<Entry<String, VMObject>> resolveRootSet() {
 		final List<VMEnvironment> envs = VMInterpreter.getInstance()
 				.getEnvironments();
-		final Set<VMObject> roots = new HashSet<>();
+		final Set<Entry<String, VMObject>> roots = new HashSet<>();
 		for (VMEnvironment e : envs) {
-			roots.addAll(e.getBindings().values());
+			roots.addAll(e.getBindings().entrySet());
 		}
 		return roots;
 	}
 
-	private int moveRootsToNewSpace(Set<VMObject> rootSet,
+	private int moveRootsToNewSpace(Set<Entry<String, VMObject>> rootSet,
 			VMObject[] fromSpace, VMObject[] toSpace) {
 		int i = 0;
-		for (VMObject o : rootSet) {
-			i = moveObject(o, fromSpace, toSpace, i);
+		for (Entry<String, VMObject> o : rootSet) {
+			VMObject moved = moveObject(o.getValue(), fromSpace, toSpace, i);
+			if (moved != null) {
+				o.setValue(moved);
+				i++;
+			}
 		}
 		return i;
 	}
@@ -88,11 +92,16 @@ final class CopyingGarbageCollector extends VMGarbageCollector {
 		}
 		if (object.getType().equals(ObjectType.ARRAY)) {
 			// The object is an array, check for element types
-			final VMArray<?> arr = (VMArray<?>) object;
+			final VMArray arr = (VMArray) object;
 			if (!VMUtils.isTypePrimitive(arr.getElementTypeName())) {
 				final VMObject[] elems = (VMObject[]) arr.getAll();
-				for (VMObject o : elems) {
-					freeInd = moveObject(o, fromSpace, toSpace, freeInd);
+				for (int i = 0; i < elems.length; i++) {
+					VMObject moved = moveObject(elems[i], fromSpace, toSpace,
+							freeInd);
+					if (moved != null) {
+						elems[i] = moved;
+						freeInd++;
+					}
 				}
 			}
 			// Otherwise do nothing, primitives are stored in the array and
@@ -100,10 +109,15 @@ final class CopyingGarbageCollector extends VMGarbageCollector {
 		} else {
 			// Look for reference type field values
 			VMClassInstance inst = (VMClassInstance) object;
-			final Collection<VMObject> refs = inst.getEnvironment()
-					.getBindings().values();
-			for (VMObject o : refs) {
-				freeInd = moveObject(o, fromSpace, toSpace, freeInd);
+			final Set<Entry<String, VMObject>> refs = inst.getEnvironment()
+					.getBindings().entrySet();
+			for (Entry<String, VMObject> o : refs) {
+				VMObject moved = moveObject(o.getValue(), fromSpace, toSpace,
+						freeInd);
+				if (moved != null) {
+					o.setValue(moved);
+					freeInd++;
+				}
 			}
 		}
 		return freeInd;
@@ -123,24 +137,26 @@ final class CopyingGarbageCollector extends VMGarbageCollector {
 	 *            Index of the first free slot in toSpace
 	 * @return The new first free slot index in toSpace
 	 */
-	private int moveObject(VMObject object, VMObject[] fromSpace,
+	private VMObject moveObject(VMObject object, VMObject[] fromSpace,
 			VMObject[] toSpace, int freeInd) {
 		if (object.getType().equals(ObjectType.NULL)) {
 			// Null does not have to be moved, it cannot be collected
-			return freeInd;
+			return null;
 		}
 		int oldPtr = object.getHeader().getHeapPtr();
 		if (fromSpace[oldPtr] == null
 				|| fromSpace[oldPtr].getType().equals(
 						ObjectType.FORWARD_POINTER)) {
 			// The object has already been moved
-			return freeInd;
+			final ForwardPointer ptr = (ForwardPointer) fromSpace[oldPtr];
+			return toSpace[ptr.getPointer()];
 		}
 		// Move the reference
-		toSpace[freeInd] = object;
+		final VMObject clone = object.clone();
+		toSpace[freeInd] = clone;
 		// set forward pointer
 		fromSpace[object.getHeader().getHeapPtr()] = new ForwardPointer(freeInd);
 		object.getHeader().setHeapPtr(freeInd);
-		return (freeInd + 1);
+		return clone;
 	}
 }

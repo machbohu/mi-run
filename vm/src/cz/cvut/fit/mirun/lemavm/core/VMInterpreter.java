@@ -92,7 +92,7 @@ public class VMInterpreter {
 
 		final Map<String, String> params = main.getArguments();
 		final String argsName = params.keySet().iterator().next();
-		final VMArray<String> argArr = new VMArray<>(args, VMConstants.STRING);
+		final VMArray argArr = new VMArray(args, VMConstants.STRING);
 
 		currentEnvironment.addBinding(argsName, argArr, VMConstants.STRING);
 		executeCodeBlock(main.getCode());

@@ -9,7 +9,7 @@ package cz.cvut.fit.mirun.lemavm.structures;
  * @author kidney
  * 
  */
-public abstract class VMObject implements Recognizable {
+public abstract class VMObject implements Recognizable, Cloneable {
 
 	private final VMHeader header;
 
@@ -76,5 +76,15 @@ public abstract class VMObject implements Recognizable {
 	@Override
 	public String toString() {
 		return header.toString();
+	}
+
+	@Override
+	public VMObject clone() {
+		try {
+			return (VMObject) super.clone();
+		} catch (CloneNotSupportedException e) {
+			System.out.println("Unable to clone object.");
+			return null;
+		}
 	}
 }

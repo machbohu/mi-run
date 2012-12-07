@@ -1,7 +1,5 @@
 package cz.cvut.fit.mirun.lemavm.structures;
 
-import java.lang.reflect.Array;
-
 import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMArrayIndexOutOfBoundsException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
@@ -11,12 +9,12 @@ import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClassInstance;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 
-public final class VMArray<T> extends VMObject {
+public final class VMArray extends VMObject {
 
-	private final T[] array;
+	private final Object[] array;
 	private final String typeName;
 
-	public VMArray(T[] array, String typeName) {
+	public VMArray(Object[] array, String typeName) {
 		super(ObjectType.ARRAY);
 		this.array = array;
 		this.typeName = typeName;
@@ -27,7 +25,7 @@ public final class VMArray<T> extends VMObject {
 		return typeName;
 	}
 
-	public T[] getAll() {
+	public Object[] getAll() {
 		return array;
 	}
 
@@ -39,7 +37,7 @@ public final class VMArray<T> extends VMObject {
 	 * @return Value at the specified index
 	 * @throws VMArrayIndexOutOfBoundsException
 	 */
-	public T get(int index) {
+	public Object get(int index) {
 		checkIndex(index);
 		return array[index];
 	}
@@ -57,7 +55,7 @@ public final class VMArray<T> extends VMObject {
 	public void set(int index, Object value) {
 		checkIndex(index);
 		checkType(value);
-		this.array[index] = (T) value;
+		this.array[index] = value;
 	}
 
 	public int getLength() {
@@ -74,27 +72,22 @@ public final class VMArray<T> extends VMObject {
 	 *            The array to concatenate this array with
 	 * @return New array containing elements from both arrays
 	 */
-	public VMArray<T> concat(VMArray<T> other) {
+	public VMArray concat(VMArray other) {
 		checkType(other.get(0));
 		int totalLen = array.length + other.getLength();
-		@SuppressWarnings("unchecked")
-		T[] all = (T[]) Array.newInstance(array.getClass().getComponentType()
-				.getComponentType(), totalLen);
+		Object[] all = new Object[totalLen];
 		System.arraycopy(array, 0, all, 0, array.length);
 		System.arraycopy(other.array, 0, all, array.length, other.getLength());
-		return new VMArray<T>(all, typeName);
+		return new VMArray(all, typeName);
 	}
 
 	/**
 	 * Clone this array.
 	 */
-	@Override
-	public VMArray<T> clone() {
-		@SuppressWarnings("unchecked")
-		T[] newArr = (T[]) Array.newInstance(array.getClass()
-				.getComponentType().getComponentType(), array.length);
+	public VMArray cloneArray() {
+		Object[] newArr = new Object[array.length];
 		System.arraycopy(array, 0, newArr, 0, array.length);
-		return new VMArray<T>(newArr, typeName);
+		return new VMArray(newArr, typeName);
 	}
 
 	private void checkIndex(int index) {

@@ -13,8 +13,10 @@ public final class VMArrayAccessOperator implements Evaluable {
 
 	/**
 	 * 
-	 * @param array Array name
-	 * @param index Index of value in array
+	 * @param array
+	 *            Array name
+	 * @param index
+	 *            Index of value in array
 	 */
 	public VMArrayAccessOperator(String array, Object index) {
 		if (array == null || index == null) {
@@ -26,7 +28,7 @@ public final class VMArrayAccessOperator implements Evaluable {
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		final VMArray<?> arr = env.getBinding(array, VMArray.class);
+		final VMArray arr = env.getBinding(array, VMArray.class);
 		if (arr == null) {
 			throw new VMEvaluationException("Array with name " + array
 					+ " not found.");

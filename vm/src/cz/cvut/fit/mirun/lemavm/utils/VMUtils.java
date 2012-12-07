@@ -126,6 +126,9 @@ public class VMUtils {
 		if (instance.getType().equals(ObjectType.FILE)) {
 			return true;
 		}
+		if (instance.getType().equals(ObjectType.ARRAY)) {
+			return true;
+		}
 		// Can add more built in types here
 		return false;
 	}
@@ -242,7 +245,7 @@ public class VMUtils {
 			return (value instanceof VMFile);
 		}
 		if (value instanceof VMArray) {
-			return checkArrayCompatibility(declType, (VMArray<?>) value);
+			return checkArrayCompatibility(declType, (VMArray) value);
 		}
 		if (!(value instanceof VMClassInstance)) {
 			return false;
@@ -251,8 +254,7 @@ public class VMUtils {
 		return checkClassTypeCompatibility(declType, inst.getVMClass());
 	}
 
-	private static boolean checkArrayCompatibility(String declType,
-			VMArray<?> arr) {
+	private static boolean checkArrayCompatibility(String declType, VMArray arr) {
 		String runtimeType = arr.getElementTypeName();
 		String elemType = declType.substring(0, declType.indexOf("["));
 		elemType = elemType.trim();
