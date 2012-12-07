@@ -62,6 +62,7 @@ public class ASTTreeTests {
 			"        Test t = new Test(a, b);\n" +
 			"        int[] a = new int[5];\n" +
 			"        a[5] = 5;\n" +
+			"        c = a[5].method();\n" +
 			"        a[c+5] = 5;\n" +
 			"        c = Test[c+1];\n" +
 			"        a = new Test[5];\n" +

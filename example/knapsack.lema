@@ -1,0 +1,80 @@
+// Example program for LeMaVM solving knapsack problem with heuristic
+// file with instances: id, itemsCnt, capacity, weight, price, weight, price, ...
+
+class Item{
+    private int weight;
+    private int price;
+    private boolean isSolution;
+    
+    public Item(int w, int p){
+        weight = w;
+        price = p;
+    }
+    
+    public int getWeight(){
+        return weight;
+    }
+    
+    public int getPrice(){
+        return price;
+    }
+    
+    public void setAsSolution(){
+        isSolution = true;
+    }
+    
+    public boolean isSolution(){
+        return isSolution;
+    }
+}
+
+class Main{
+    public static void main(string[] args){
+        File f = new File(args[0]);
+        
+        string line = f.readLine();
+        int id = line.toInt();
+        
+        line = f.readLine();
+        int itemsCnt = line.toInt();
+        
+        line = f.readLine();
+        int capacity = line.toInt();
+        
+        Item[] items = new Item[itemsCnt];
+        int weight = 0, price = 0;
+        
+        for(int ii=0;ii<itemsCnt;ii++){
+            line = f.readLine();
+            weight = line.toInt();
+            line = f.readLine();
+            price = line.toInt();
+            items[ii] = new Item(weight, price);
+        }
+        
+        // TODO sort
+        
+        weight = 0;
+        price = 0;
+        
+        for(int ii=0;ii<itemsCnt;ii++){
+            if(weight + items[ii].getWeight()){
+                weight = weight + item[ii].getWeight();
+                price = price + item[ii].getPrice();
+                item[ii].setAsSolution();
+            }
+        }
+        
+        string solution = id + " " + weight + " " + price;
+        
+        for(int ii=0;ii<itemsCnt;ii++){
+            if(items[ii].isSolution()){
+                solution = solution + " 1";
+            }else{
+                solution = solution + " 0";
+            }
+        }
+        
+        System.println(solution);
+    }
+}

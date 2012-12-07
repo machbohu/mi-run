@@ -211,6 +211,8 @@ public final class VMFile extends VMObject {
 				throw new VMEvaluationException(
 						"File got constructor argument that cannot be cast to string. Argument: "
 								+ res);
+			}else{
+				name = ((VMString) res).getValue();
 			}
 		} else if (file instanceof String) {
 			final String s = (String) file;

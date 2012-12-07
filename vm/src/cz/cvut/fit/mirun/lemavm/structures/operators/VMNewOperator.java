@@ -172,7 +172,7 @@ public final class VMNewOperator implements Evaluable {
 				throw new VMUnknownTypeException("Unknown type " + typeName);
 			}
 		} else {
-			VMClassInstance[] arr = new VMClassInstance[size];
+			VMObject[] arr = new VMObject[size];
 			VMNull n = VMNull.getInstance();
 			// Init the array with nulls
 			Arrays.fill(arr, n);

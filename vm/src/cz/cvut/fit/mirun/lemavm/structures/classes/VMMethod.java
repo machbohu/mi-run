@@ -170,7 +170,7 @@ public class VMMethod {
 		if (!this.name.equals(name) || arguments.size() != argTypes.size()) {
 			return false;
 		}
-		final Iterator<String> it = arguments.keySet().iterator();
+		final Iterator<String> it = arguments.values().iterator();
 		for (String type : argTypes) {
 			assert it.hasNext();
 			if (!VMUtils.areTypesCompatible(it.next(), type)) {
