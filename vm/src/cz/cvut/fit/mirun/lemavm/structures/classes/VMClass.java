@@ -76,10 +76,10 @@ public final class VMClass {
 			throw new VMParsingException("Field with name " + field.getName()
 					+ " already exists in class " + name);
 		}
-//		fields.put(field.getName(), field);
+		// fields.put(field.getName(), field);
 		if (field.isStatic()) {
 			addStaticFieldValue(field);
-		}else{
+		} else {
 			fields.put(field.getName(), field);
 		}
 	}
@@ -281,7 +281,7 @@ public final class VMClass {
 	 *            Super class of the new class. Can be null
 	 * @return The new meta class
 	 */
-	public static VMClass createClass(String name, VMClass superClass) {
+	public static VMClass createClass(String name, String superClass) {
 		if (name == null || name.isEmpty()) {
 			throw new VMParsingException(
 					"Invalid VMClass constructor parameters: " + name);
@@ -291,7 +291,12 @@ public final class VMClass {
 			throw new VMParsingException("Definition of class with name "
 					+ name + " already exists.");
 		}
-		final VMClass newClass = new VMClass(name, superClass);
+		final VMClass parent = classes.get(superClass);
+		if (parent == null) {
+			throw new VMParsingException("Superclass " + superClass
+					+ " not found.");
+		}
+		final VMClass newClass = new VMClass(name, parent);
 		classes.put(name, newClass);
 		VMEnvironment.addType(name);
 		VMEnvironment.addType(name + "[]");
