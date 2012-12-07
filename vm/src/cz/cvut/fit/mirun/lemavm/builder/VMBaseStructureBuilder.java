@@ -185,7 +185,7 @@ public class VMBaseStructureBuilder extends VMBuilder {
 	private void buildClassFromTree(CommonTree node){
 		CommonTree child = null;
 		VMClass cls = null;
-		String name = null;
+		String name = null, parent = null;
 		VMVisibilityModifier visibility = VMVisibilityModifier.getDefault();
 		boolean isStatic = false;
 		
@@ -203,8 +203,11 @@ public class VMBaseStructureBuilder extends VMBuilder {
 				break;
 			case "CLASS_TOP_LEVEL_SCOPE":
 				// null == no parent
-				cls = VMClass.createClass(name, null);
+				cls = VMClass.createClass(name, parent);
 				buildVarsAndMethodsFromTree(child, cls);
+				break;
+			case "EXTENDS_CLAUSE":
+				parent = buildTypeFromTree((CommonTree) child.getChild(0));
 				break;
 			default:
 				if(name == null){

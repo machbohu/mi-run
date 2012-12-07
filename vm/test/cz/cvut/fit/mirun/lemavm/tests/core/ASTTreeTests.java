@@ -14,7 +14,7 @@ public class ASTTreeTests {
 	public void test() {
 		CharStream chs = new ANTLRStringStream(
 //			"public static int a = 5;\n" +
-			"public class Test {\n" +
+			"public class Test extends Parent {\n" +
 //			"    int b = 5 + 6 * 6 + 2; \n" +
 			"    public static string str = \"a\"; \n" +
 			"    int num = 5; \n" +
