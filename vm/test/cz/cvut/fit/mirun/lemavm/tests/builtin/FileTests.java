@@ -89,7 +89,7 @@ public class FileTests {
 		cs = new ANTLRStringStream(
 			"public class Main {\n" +
 			"    public static void main(string[] args) {\n" +
-			"        File f = new File(\"/tmp/vmfile.out\");\n" +
+			"        File f = new File(\""+filename+"\");\n" +
 			"        f.createFile();\n" +
 			"        System.println(f.doesFileExist());\n" +
 			"        System.println(f.canWrite() && f.canRead());\n" +
