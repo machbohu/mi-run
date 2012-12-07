@@ -58,17 +58,19 @@ class Main{
         price = 0;
         
         for(int ii=0;ii<itemsCnt;ii++){
-            if(weight + items[ii].getWeight()){
-                weight = weight + item[ii].getWeight();
-                price = price + item[ii].getPrice();
-                item[ii].setAsSolution();
+            Item item = items[ii];
+            if((weight + item.getWeight()) <= capacity){
+                weight = weight + item.getWeight();
+                price = price + item.getPrice();
+                item.setAsSolution();
             }
         }
         
         string solution = id + " " + weight + " " + price;
         
         for(int ii=0;ii<itemsCnt;ii++){
-            if(items[ii].isSolution()){
+            Item item = items[ii];
+            if(item.isSolution()){
                 solution = solution + " 1";
             }else{
                 solution = solution + " 0";
