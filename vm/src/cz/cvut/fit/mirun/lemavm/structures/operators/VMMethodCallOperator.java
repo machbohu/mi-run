@@ -7,7 +7,6 @@ import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
-import cz.cvut.fit.mirun.lemavm.structures.builtin.VMSystem;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;

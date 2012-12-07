@@ -87,6 +87,13 @@ public abstract class VMAssignOperator implements Evaluable {
 								+ ", but got " + runtimeType);
 			}
 			break;
+		case VMConstants.FILE:
+			if (!declType.equals(VMConstants.FILE)) {
+				throw new VMEvaluationException(
+						"Incompatible types in assigment. Expected " + declType
+								+ ", but got " + runtimeType);
+			}
+			break;
 		case VMConstants.ARRAY:
 			final VMArray<?> arr = (VMArray<?>) value;
 			checkArrayElementType(declType, arr.getElementTypeName());

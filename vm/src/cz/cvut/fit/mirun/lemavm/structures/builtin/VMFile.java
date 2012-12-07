@@ -9,12 +9,15 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 
+import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMIOException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMIllegalStateException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMNullPointerException;
+import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.Printable;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 
 public final class VMFile extends VMObject {
 
@@ -29,12 +32,12 @@ public final class VMFile extends VMObject {
 	private boolean readerOpen;
 	private boolean writerOpen;
 
-	public VMFile(VMString fileName) {
+	public VMFile(Object fileName, VMEnvironment env) {
 		super(ObjectType.FILE);
 		if (fileName == null) {
 			throw new NullPointerException();
 		}
-		this.fileName = fileName.getValue();
+		this.fileName = getFileName(fileName, env);
 		this.file = new File(this.fileName);
 		this.readerOpen = this.writerOpen = true;
 	}
@@ -196,5 +199,30 @@ public final class VMFile extends VMObject {
 			throw new VMIllegalStateException(
 					"Cannot write to already closed file.");
 		}
+	}
+
+	private String getFileName(Object file, VMEnvironment env) {
+		String name = null;
+		if (file instanceof Evaluable) {
+			Object res = ((Evaluable) file).evaluate(env);
+			if (!(res instanceof VMString)) {
+				throw new VMEvaluationException(
+						"File got constructor argument that cannot be cast to string. Argument: "
+								+ res);
+			}
+		} else if (file instanceof String) {
+			final String s = (String) file;
+			if (s.startsWith("\"")) {
+				name = s.substring(1, s.length() - 1);
+			} else {
+				final VMString var = env.getBinding(s, VMString.class);
+				name = var.getValue();
+			}
+		} else {
+			throw new VMEvaluationException(
+					"Unsupported argument for File constructor. Argument: "
+							+ file);
+		}
+		return name;
 	}
 }

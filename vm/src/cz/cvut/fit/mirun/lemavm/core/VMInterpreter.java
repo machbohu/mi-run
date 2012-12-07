@@ -98,6 +98,10 @@ public class VMInterpreter {
 		executeCodeBlock(main.getCode());
 	}
 
+	public VMEnvironment getCurrentEnvironment() {
+		return currentEnvironment;
+	}
+
 	/**
 	 * Set the current environment. </p>
 	 * 

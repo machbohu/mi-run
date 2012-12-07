@@ -111,7 +111,7 @@ public final class VMNewOperator implements Evaluable {
 				LOG.trace("Arguments: " + args);
 			}
 		}
-		VMObject newInstance = checkForBuiltInTypes();
+		VMObject newInstance = checkForBuiltInTypes(env);
 		if (newInstance != null) {
 			return newInstance;
 		}
@@ -124,7 +124,7 @@ public final class VMNewOperator implements Evaluable {
 		return newInstance;
 	}
 
-	private VMObject checkForBuiltInTypes() {
+	private VMObject checkForBuiltInTypes(VMEnvironment env) {
 		VMObject instance = null;
 		if (VMUtils.isTypePrimitive(typeName)) {
 			throw new VMEvaluationException(
@@ -139,11 +139,11 @@ public final class VMNewOperator implements Evaluable {
 			}
 		}
 		if (typeName.equals(ObjectType.FILE.toString())) {
-			if (args.size() < 1 || !(args.get(0) instanceof VMString)) {
+			if (args.size() < 1) {
 				throw new VMMethodNotFoundException(
 						"No-arg constructor not found in type File.");
 			} else {
-				instance = new VMFile((VMString) args.get(0));
+				instance = new VMFile(args.get(0), env);
 			}
 		}
 		return instance;
@@ -153,31 +153,9 @@ public final class VMNewOperator implements Evaluable {
 		if (LOG.isDebugEnabled()) {
 			LOG.debug("Creating array of type " + typeName);
 		}
-//		Long arrSize = null;
-//		VMArrayAccessOperator.resolveArrayIndex(arrayLength, env);
-//		
-//		if (arrayLength instanceof Number) {
-//			arrSize = ((Number) arrayLength).longValue();
-//		} else {
-//			if (!(arrayLength instanceof String)) {
-//				throw new VMEvaluationException("Cannot use instance of type "
-//						+ arrayLength.getClass() + " in array initialization.");
-//			}
-//			try {
-//				Number n = env.getBinding((String) arrayLength, Number.class);
-//				if (n == null) {
-//					throw new VMEvaluationException("No binding with name "
-//							+ arrayLength + " found.");
-//				}
-//				arrSize = n.longValue();
-//			} catch (ClassCastException e) {
-//				throw new VMEvaluationException(
-//						"Incompatible types found. Expected an integer number, but got "
-//								+ env.getNameType((String) arrayLength));
-//			}
-//		}
-		final int size = VMArrayAccessOperator.resolveArrayIndex(arrayLength, env);
-		
+		final int size = VMArrayAccessOperator.resolveArrayIndex(arrayLength,
+				env);
+
 		if (VMUtils.isTypePrimitive(typeName)) {
 			switch (typeName) {
 			case VMConstants.BOOLEAN:
