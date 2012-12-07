@@ -159,16 +159,15 @@ public final class VMNewOperator implements Evaluable {
 		if (VMUtils.isTypePrimitive(typeName)) {
 			switch (typeName) {
 			case VMConstants.BOOLEAN:
-				return new VMArray<Boolean>(new Boolean[size],
-						VMConstants.BOOLEAN);
+				return new VMArray(new Boolean[size], VMConstants.BOOLEAN);
 			case VMConstants.SHORT:
-				return new VMArray<Short>(new Short[size], VMConstants.SHORT);
+				return new VMArray(new Short[size], VMConstants.SHORT);
 			case VMConstants.INT:
-				return new VMArray<Integer>(new Integer[size], VMConstants.INT);
+				return new VMArray(new Integer[size], VMConstants.INT);
 			case VMConstants.LONG:
-				return new VMArray<Long>(new Long[size], VMConstants.LONG);
+				return new VMArray(new Long[size], VMConstants.LONG);
 			case VMConstants.DOUBLE:
-				return new VMArray<Double>(new Double[size], VMConstants.DOUBLE);
+				return new VMArray(new Double[size], VMConstants.DOUBLE);
 			default:
 				throw new VMUnknownTypeException("Unknown type " + typeName);
 			}
@@ -177,8 +176,7 @@ public final class VMNewOperator implements Evaluable {
 			VMNull n = VMNull.getInstance();
 			// Init the array with nulls
 			Arrays.fill(arr, n);
-			return new VMArray<VMClassInstance>(new VMClassInstance[size],
-					typeName);
+			return new VMArray(new VMClassInstance[size], typeName);
 		}
 	}
 }

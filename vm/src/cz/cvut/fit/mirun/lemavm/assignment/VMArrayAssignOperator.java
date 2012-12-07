@@ -25,7 +25,7 @@ public final class VMArrayAssignOperator extends VMAssignOperator {
 
 	@Override
 	public Object evaluate(VMEnvironment env) {
-		final VMArray<?> arr = env.getBinding(name, VMArray.class);
+		final VMArray arr = env.getBinding(name, VMArray.class);
 		if (arr == null) {
 			throw new VMEvaluationException("Array with name " + name
 					+ " not found.");

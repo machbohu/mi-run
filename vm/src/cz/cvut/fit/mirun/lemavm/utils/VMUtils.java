@@ -245,7 +245,7 @@ public class VMUtils {
 			return (value instanceof VMFile);
 		}
 		if (value instanceof VMArray) {
-			return checkArrayCompatibility(declType, (VMArray<?>) value);
+			return checkArrayCompatibility(declType, (VMArray) value);
 		}
 		if (!(value instanceof VMClassInstance)) {
 			return false;
@@ -254,8 +254,7 @@ public class VMUtils {
 		return checkClassTypeCompatibility(declType, inst.getVMClass());
 	}
 
-	private static boolean checkArrayCompatibility(String declType,
-			VMArray<?> arr) {
+	private static boolean checkArrayCompatibility(String declType, VMArray arr) {
 		String runtimeType = arr.getElementTypeName();
 		String elemType = declType.substring(0, declType.indexOf("["));
 		elemType = elemType.trim();
@@ -289,4 +288,48 @@ public class VMUtils {
 		return true;
 	}
 
+	/**
+	 * Check if the two specified types are compatible. </p>
+	 * 
+	 * The compatibility check includes widening conversion for primitive
+	 * numbers and class inheritance for reference types.
+	 * 
+	 * @param declType
+	 *            Declared type
+	 * @param runtimeType
+	 *            Runtime type
+	 * @return True if the types are compatible (runtime type can be cast to
+	 *         declared type without precision loss)
+	 */
+	public static boolean areTypesCompatible(String declType, String runtimeType) {
+		if (isTypePrimitive(declType)) {
+			switch (declType) {
+			case VMConstants.BOOLEAN:
+				return runtimeType.equals(VMConstants.BOOLEAN);
+			case VMConstants.SHORT:
+				return runtimeType.equals(VMConstants.SHORT);
+			case VMConstants.INT:
+				return (runtimeType.equals(VMConstants.INT) || runtimeType
+						.equals(VMConstants.SHORT));
+			case VMConstants.LONG:
+				return (runtimeType.equals(VMConstants.LONG)
+						|| runtimeType.equals(VMConstants.INT) || runtimeType
+							.equals(VMConstants.SHORT));
+			default:
+				return true;
+			}
+		} else {
+			// Built in types are handled separately
+			final VMClass declCls = VMClass.getClasses().get(declType);
+			final VMClass runtimeCls = VMClass.getClasses().get(runtimeType);
+			if (declCls != null || runtimeCls != null) {
+				return declCls.isAssignableFrom(runtimeCls);
+			} else if (declCls == null && runtimeCls == null) {
+				return declType.equals(runtimeType);
+			} else {
+				throw new VMUnknownTypeException("One of the types " + declType
+						+ ", " + runtimeType + " wasn't found.");
+			}
+		}
+	}
 }
