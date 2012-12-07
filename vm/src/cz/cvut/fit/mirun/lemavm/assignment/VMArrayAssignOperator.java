@@ -65,6 +65,6 @@ public final class VMArrayAssignOperator extends VMAssignOperator {
 		} else {
 			val = value;
 		}
-		return value;
+		return val;
 	}
 }

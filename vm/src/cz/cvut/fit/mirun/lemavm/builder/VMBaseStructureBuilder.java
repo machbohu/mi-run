@@ -2,7 +2,7 @@ package cz.cvut.fit.mirun.lemavm.builder;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 import org.antlr.runtime.ANTLRFileStream;
@@ -104,19 +104,17 @@ public class VMBaseStructureBuilder extends VMBuilder {
 				break;
 			case "FORMAL_PARAM_LIST":
 				if(child.getChildCount() > 0){
-					args = new HashMap<>();
+					args = new LinkedHashMap<>();
 					
-					if(child.getChildCount() > 0){
-						for(Object o1 : child.getChildren()){
-							child = (CommonTree) o1;
-							if(child.toString().equals("FORMAL_PARAM_STD_DECL")){
-								argType = child.getChild(1).getChild(0).toString();
-								argName = child.getChild(2).toString();
-								args.put(argName, argType);
-							}else{
-								throw new VMParsingException("Class'"+cls.getName()+"': method '"
-										+name+"': Unexpected program syntax '"+child.toString()+"'");
-							}
+					for(Object o1 : child.getChildren()){
+						child = (CommonTree) o1;
+						if(child.toString().equals("FORMAL_PARAM_STD_DECL")){
+							argType = buildTypeFromTree((CommonTree) child.getChild(1));
+							argName = child.getChild(2).toString();
+							args.put(argName, argType);
+						}else{
+							throw new VMParsingException("Class'"+cls.getName()+"': method '"
+									+name+"': Unexpected program syntax '"+child.toString()+"'");
 						}
 					}
 				}

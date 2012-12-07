@@ -29,7 +29,7 @@ public class ASTTreeTests {
 			"        this.b = a;\n" +
 			"        return a;\n" +
 			"    }\n" +
-			"    static int testMethod(int a) {\n" +
+			"    static int testMethod(Test[] a) {\n" +
 			"        if(a == 0){\n" +
 			"            a = 1;\n" +
 			"        }\n" +
@@ -46,19 +46,6 @@ public class ASTTreeTests {
 			"public static class Main {\n" +
 			"\n" +
 			"    public void main() {\n" +
-			"        int a = 5, b = 2;\n" +
-			"        c = 2;\n" +
-			"        c += 2;\n" +
-			"        c = +2 + 2;\n" +
-			"        c = -2;\n" +
-			"        c = !c;\n" +
-			"        c = 2 + a == b;\n" +
-			"        (c = 2 + a == b);\n" +
-			"        c++;\n" +
-			"        c--;\n" +
-			"        c+2;\n" +
-			"        ++c;\n" +
-			"        --c;\n" +
 			"        Test t = new Test(a, b);\n" +
 			"        int[] a = new int[5];\n" +
 			"        a[5] = 5;\n" +
@@ -66,7 +53,7 @@ public class ASTTreeTests {
 			"        a[c+5] = 5;\n" +
 			"        c = Test[c+1];\n" +
 			"        a = new Test[5];\n" +
-			"        t.testMethod(a+2, a[c+5]);\n" +
+			"        Test.testMethod(a+2, a[c+5]);\n" +
 			"        a = t.testMethod(a+2, b);\n" +
 			"        while((a != 5 || a <= 5) && a >= 5){\n" +
 			"            if(a + 5){\n" +

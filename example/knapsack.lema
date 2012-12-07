@@ -43,12 +43,14 @@ class Item{
     }
     
     public static void sort(Item[] items){
-        for(int ii = 1;ii < items.getLength;ii++) {
-            for(int jj = items.getLength-1; jj >= ii;jj--) {
-                if(items[jj].compare(items[jj-1]) == 1) {
-                    int tmp = items[jj-1];
+        for(int ii = 1;ii < items.getLength();ii++) {
+            for(int jj = items.getLength()-1; jj >= ii;jj--) {
+                Item other = items[jj-1];
+                if(items[jj].compare(other) == 1) {
+                    Item tmp = items[jj-1];
                     items[jj-1] = items[jj];
                     items[jj] = tmp;
+                    System.println(items[jj].compare(other));
                 }
             }
         }
