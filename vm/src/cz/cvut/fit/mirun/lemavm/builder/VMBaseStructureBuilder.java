@@ -96,7 +96,7 @@ public class VMBaseStructureBuilder extends VMBuilder {
 			case "MODIFIER_LIST":
 				if(child.getChildCount() > 0){
 					visibility = VMVisibilityModifier.fromString(child.getChild(0).toString());
-					isStatic = (child.toStringTree().contains("static"));
+					isStatic = buildIsStatic(child);
 				}
 				break;
 			case "TYPE":
@@ -200,7 +200,7 @@ public class VMBaseStructureBuilder extends VMBuilder {
 				// TODO if has more than three children, throw exception? (i.e. public, static, final)
 				if(child.getChildCount() > 0){
 					visibility = VMVisibilityModifier.fromString(child.getChild(0).toString());
-					isStatic = (child.getChildren().indexOf("static") != -1);
+					isStatic = buildIsStatic(child);
 				}
 				break;
 			case "CLASS_TOP_LEVEL_SCOPE":

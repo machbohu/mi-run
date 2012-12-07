@@ -151,6 +151,10 @@ public abstract class VMBuilder {
 		}
 		return args;
 	}
+	
+	protected boolean buildIsStatic(CommonTree node){
+		return node.toStringTree().contains("static");
+	}
 
 	/**
 	 * Build expression from given tree for future evaluation; i.e. a = (a + 5)
@@ -326,7 +330,7 @@ public abstract class VMBuilder {
 					if (child.getChildCount() > 0) {
 						visibility = VMVisibilityModifier.fromString(child
 								.getChild(0).toString());
-						isStatic = (child.getChildren().indexOf("static") != -1);
+						isStatic = buildIsStatic(child);
 					}
 					break;
 				case "TYPE":

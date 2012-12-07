@@ -2,6 +2,8 @@ package cz.cvut.fit.mirun.lemavm.structures.classes;
 
 import java.util.Collection;
 
+import org.omg.CORBA.Environment;
+
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMNull;
@@ -49,6 +51,17 @@ public class VMInstanceEnvironment extends VMEnvironment {
 			return res;
 		}
 	}
+	
+	@Override
+	public String getNameType(String name) {
+		String type = super.getNameType(name);
+		
+		if(type == null){
+			type = classEnvironment.getNameType(name);
+		}
+		
+		return type;
+	}
 
 	@Override
 	public void addBinding(String name, VMObject value, String type) {
@@ -72,6 +85,10 @@ public class VMInstanceEnvironment extends VMEnvironment {
 		super.addPrimitiveBinding(name, value, type);
 	}
 
+	public VMEnvironment getClassEnvironment() {
+		return classEnvironment;
+	}
+
 	/**
 	 * Initialize this environment with default field values as defined by the
 	 * owner's class.
@@ -80,21 +97,23 @@ public class VMInstanceEnvironment extends VMEnvironment {
 		final VMClass cls = owner.getVMClass();
 		final Collection<VMField> fields = cls.getFields().values();
 		for (VMField f : fields) {
-			if (VMUtils.isTypePrimitive(f.getType())) {
-				if (f.getVal() != null) {
-					addPrimitiveBinding(f.getName(), f.getVal(), f.getType());
+//			if(!f.isStatic()){
+				if (VMUtils.isTypePrimitive(f.getType())) {
+					if (f.getVal() != null) {
+						super.addPrimitiveBinding(f.getName(), f.getVal(), f.getType());
+					} else {
+						super.addPrimitiveBinding(f.getName(),
+								VMUtils.getTypeDefaultValue(f.getType()),
+								f.getType());
+					}
 				} else {
-					addPrimitiveBinding(f.getName(),
-							VMUtils.getTypeDefaultValue(f.getType()),
-							f.getType());
-				}
-			} else {
-				if (f.getVal() != null) {
-					addBinding(f.getName(), (VMObject) f.getVal(), f.getType());
-				} else {
-					addBinding(f.getName(), VMNull.getInstance(), f.getType());
+					if (f.getVal() != null) {
+						super.addBinding(f.getName(), (VMObject) f.getVal(), f.getType());
+					} else {
+						super.addBinding(f.getName(), VMNull.getInstance(), f.getType());
+					}
 				}
 			}
-		}
+//		}
 	}
 }

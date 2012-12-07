@@ -159,6 +159,13 @@ public class VMEnvironment {
 	private VMEnvironment getEnvironmentWithPrimitiveBinding(String name) {
 		VMEnvironment env = this;
 		while (env != null && !env.getPrimitiveBindings().containsKey(name)) {
+			if(env instanceof VMInstanceEnvironment){
+				VMInstanceEnvironment ienv = ((VMInstanceEnvironment) env);
+				if(ienv.getClassEnvironment().getPrimitiveBindings().containsKey(name)){
+					return ienv;
+				}
+			}
+			
 			env = env.getParent();
 		}
 		return env;

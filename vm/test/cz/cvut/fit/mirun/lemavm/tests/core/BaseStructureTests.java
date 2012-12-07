@@ -96,6 +96,7 @@ public class BaseStructureTests {
 		
 		assertEquals(VMNull.getInstance(), cls.getFields().get("strDef").getVal());
 		assertEquals(VMNull.getInstance(), cls.getFields().get("strNull").getVal());
+		assertTrue(cls.getFields().get("str").isStatic());
 		assertTrue(cls.getFields().get("str").getVal() instanceof VMString);
 		assertTrue(new VMString("str").valueEquals((VMString) cls.getFields().get("str").getVal()));
 		assertEquals(VMNull.getInstance(), cls.getFields().get("testDef").getVal());

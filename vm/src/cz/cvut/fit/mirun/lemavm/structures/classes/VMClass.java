@@ -76,9 +76,11 @@ public final class VMClass {
 			throw new VMParsingException("Field with name " + field.getName()
 					+ " already exists in class " + name);
 		}
-		fields.put(field.getName(), field);
+//		fields.put(field.getName(), field);
 		if (field.isStatic()) {
 			addStaticFieldValue(field);
+		}else{
+			fields.put(field.getName(), field);
 		}
 	}
 

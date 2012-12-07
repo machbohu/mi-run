@@ -4,6 +4,7 @@ import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMInstanceEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 
 public final class VMPostfixDecrementOperatorFactory extends
