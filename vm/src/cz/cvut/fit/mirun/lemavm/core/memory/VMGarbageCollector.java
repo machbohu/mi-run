@@ -39,9 +39,12 @@ abstract class VMGarbageCollector {
 
 		private final int pointer;
 
-		public ForwardPointer(int pointer) {
+		private final boolean tenured;
+
+		public ForwardPointer(int pointer, boolean tenured) {
 			super();
 			this.pointer = pointer;
+			this.tenured = tenured;
 		}
 
 		@Override
@@ -51,6 +54,15 @@ abstract class VMGarbageCollector {
 
 		public int getPointer() {
 			return pointer;
+		}
+
+		/**
+		 * Returns true if the object was moved to the old space.
+		 * 
+		 * @return
+		 */
+		public boolean isTenured() {
+			return tenured;
 		}
 	}
 }

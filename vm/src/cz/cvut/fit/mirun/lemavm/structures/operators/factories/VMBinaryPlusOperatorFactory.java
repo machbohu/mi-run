@@ -2,10 +2,13 @@ package cz.cvut.fit.mirun.lemavm.structures.operators.factories;
 
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
+import cz.cvut.fit.mirun.lemavm.structures.operators.plus.CompNumberBinaryPlus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.plus.CompVMStringBinaryPlus;
+import cz.cvut.fit.mirun.lemavm.structures.operators.plus.CompVariableBinaryPlus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.plus.NumberCompBinaryPlus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.plus.NumberNumberBinaryPlus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.plus.NumberVMStringBinaryPlus;
+import cz.cvut.fit.mirun.lemavm.structures.operators.plus.NumberVariableBinaryPlus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.plus.VMCompoundPlus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.plus.VMStringCompBinaryPlus;
 import cz.cvut.fit.mirun.lemavm.structures.operators.plus.VMStringNumberBinaryPlus;
@@ -25,7 +28,7 @@ public final class VMBinaryPlusOperatorFactory extends VMBinaryOperatorFactory {
 
 	@Override
 	protected VMOperator createOperator(VMOperator opOne, Number opTwo) {
-		return createOperator(opTwo, opOne);
+		return new CompNumberBinaryPlus(opOne, opTwo);
 	}
 
 	@Override
@@ -70,7 +73,7 @@ public final class VMBinaryPlusOperatorFactory extends VMBinaryOperatorFactory {
 
 	@Override
 	protected VMOperator createOperator(VMOperator opOne, String opTwo) {
-		return createOperator(opTwo, opOne);
+		return new CompVariableBinaryPlus(opOne, opTwo);
 	}
 
 	@Override
@@ -80,7 +83,7 @@ public final class VMBinaryPlusOperatorFactory extends VMBinaryOperatorFactory {
 
 	@Override
 	protected VMOperator createOperator(Number opOne, String opTwo) {
-		return createOperator(opTwo, opOne);
+		return new NumberVariableBinaryPlus(opOne, opTwo);
 	}
 
 	@Override

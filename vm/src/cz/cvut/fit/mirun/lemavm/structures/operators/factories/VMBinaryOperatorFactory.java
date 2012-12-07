@@ -43,8 +43,9 @@ public abstract class VMBinaryOperatorFactory {
 				final String strOp = (String) opTwo;
 				if (strOp.startsWith("\"")) {
 					// The second operand is a string literal
-					return createOperator(oOne,
-							new VMString(strOp.substring(1, strOp.length())));
+					return createOperator(
+							oOne,
+							new VMString(strOp.substring(1, strOp.length() - 1)));
 				}
 				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
 				if (b != null) {
@@ -74,8 +75,9 @@ public abstract class VMBinaryOperatorFactory {
 				final String strOp = (String) opTwo;
 				if (strOp.startsWith("\"")) {
 					// The second operand is a string literal
-					return createOperator(sOne,
-							new VMString(strOp.substring(1, strOp.length())));
+					return createOperator(
+							sOne,
+							new VMString(strOp.substring(1, strOp.length() - 1)));
 				}
 				Boolean b = ParsingUtils.tryParsingBoolean(strOp);
 				if (b != null) {
