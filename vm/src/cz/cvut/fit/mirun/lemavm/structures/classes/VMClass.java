@@ -291,10 +291,13 @@ public final class VMClass {
 			throw new VMParsingException("Definition of class with name "
 					+ name + " already exists.");
 		}
-		final VMClass parent = classes.get(superClass);
-		if (parent == null) {
-			throw new VMParsingException("Superclass " + superClass
-					+ " not found.");
+		VMClass parent = null;
+		if (superClass != null) {
+			parent = classes.get(superClass);
+			if (parent == null) {
+				throw new VMParsingException("Superclass " + superClass
+						+ " not found.");
+			}
 		}
 		final VMClass newClass = new VMClass(name, parent);
 		classes.put(name, newClass);
