@@ -9,7 +9,7 @@ import cz.cvut.fit.mirun.lemavm.core.VirtualMachine;
 public class ExampleTests {
 	@Test
 	public void testKnapsack() throws IOException{
-		String[] args = {"../example/knap_04.inst.dat",};
+		String[] args = {"../example/knap_04.inst.dat","../example/knap_04.inst.sol"};
 		
 		VirtualMachine.initAndLaunch("../example/knapsack.lema", args);
 	}

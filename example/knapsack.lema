@@ -60,6 +60,10 @@ class Main{
     public static void main(string[] args){
         File f = new File(args[0]);
         
+        if(!f.doesFileExist()){
+            System.errorln("Input file does not exists.");
+        }
+        
         string line = f.readLine();
         int id = line.toInt();
         
@@ -103,6 +107,19 @@ class Main{
             }
         }
         
+        f.close();
+        
         System.println(solution);
+        
+        f = new File(args[1]);
+        f.createFile();
+        
+        if(f.canWrite()){
+            f.writeLine(solution);
+        }else{
+            System.errorln("Output file is not writable.");
+        }
+        
+        f.close();
     }
 }
