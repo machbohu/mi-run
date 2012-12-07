@@ -115,9 +115,10 @@ public class ASTTreeTests {
 			"                int aa = 5 + 6 * 6 + 2;\n"+
 			"            }else{\n" +
 			"                a = 5 + 6 * 6 + 2;\n" +
+			"                return a + a;\n" +
 			"            }\n" +
 			"        }\n" +
-			"        return 0;\n" +
+			"        return;\n" +
 			"    }\n" +
 			"}"
 		);

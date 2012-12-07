@@ -12,6 +12,7 @@ import cz.cvut.fit.mirun.lemavm.structures.classes.VMField;
 import cz.cvut.fit.mirun.lemavm.structures.control.VMFor;
 import cz.cvut.fit.mirun.lemavm.structures.control.VMIfElse;
 import cz.cvut.fit.mirun.lemavm.structures.control.VMWhile;
+import cz.cvut.fit.mirun.lemavm.structures.operators.VMReturnOperator;
 
 public class VMCodeBlockBuilder extends VMBuilder {
 	private CommonTree top;
@@ -113,7 +114,12 @@ public class VMCodeBlockBuilder extends VMBuilder {
 				code.addCodePart(buildForFromTree(child));
 				break;
 			case "return":
-				// TODO return operation
+				if(child.getChildCount() > 0){
+					operation = buildExpressionFromTree((CommonTree) child.getChild(0));
+					code.addCodePart(new VMReturnOperator(operation));
+				}else{
+					// TODO what about return; in void?
+				}
 				break;
 			default:
 				throw new VMParsingException("Unsupported operation '"+child+"'");

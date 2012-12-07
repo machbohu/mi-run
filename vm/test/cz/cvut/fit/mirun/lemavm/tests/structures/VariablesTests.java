@@ -90,6 +90,8 @@ public class VariablesTests {
 			"        Test t2 = new Test();\n" +
 			"        t2.testMethod();\n" +
 			"        t2.testMethod();\n" +
+			"        t1.testMethod();\n" +
+			"        t2.testMethod();\n" +
 			"    }\n" +
 			"}"
 		);
@@ -102,5 +104,7 @@ public class VariablesTests {
 		assertEquals("10", out.getVal(3));
 		assertEquals("9", out.getVal(4));
 		assertEquals("8", out.getVal(5));
+		assertEquals("7", out.getVal(6));
+		assertEquals("7", out.getVal(7));
 	}
 }

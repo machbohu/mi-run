@@ -60,7 +60,7 @@ public final class VMFile extends VMObject {
 	public void createFile() {
 		if (!file.exists()) {
 			try {
-				file.mkdirs();
+//				file.mkdirs();
 				file.createNewFile();
 			} catch (IOException e) {
 				LOG.error("Unable to create file.", e);
