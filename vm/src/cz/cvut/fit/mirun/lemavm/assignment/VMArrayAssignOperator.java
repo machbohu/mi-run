@@ -1,11 +1,11 @@
 package cz.cvut.fit.mirun.lemavm.assignment;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
+import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
 import cz.cvut.fit.mirun.lemavm.structures.VMArray;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMArrayAccessOperator;
-import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
 import cz.cvut.fit.mirun.lemavm.utils.ParsingUtils;
 
 public final class VMArrayAssignOperator extends VMAssignOperator {
@@ -38,8 +38,8 @@ public final class VMArrayAssignOperator extends VMAssignOperator {
 
 	private Object resolveValue(VMEnvironment env) {
 		Object val = null;
-		if (value instanceof VMOperator) {
-			val = ((VMOperator) value).evaluate(env);
+		if (value instanceof Evaluable) {
+			val = ((Evaluable) value).evaluate(env);
 			return val;
 		} else if (value instanceof String) {
 			final String str = (String) value;
