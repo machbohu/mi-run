@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
@@ -21,6 +22,7 @@ public class AdditionTests {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		VMMemoryManager.resetMemoryManager();
 		factory = new VMBinaryPlusOperatorFactory();
 	}
 

@@ -6,6 +6,7 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
+import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager.WhichSpace;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMArray;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
@@ -26,8 +27,8 @@ final class CopyingGarbageCollector extends VMGarbageCollector {
 		}
 		final VMObject[] from;
 		final VMObject[] to;
-		boolean first = manager.first;
-		if (first) {
+		WhichSpace which = manager.which;
+		if (which.equals(WhichSpace.FIRST)) {
 			from = manager.heapOne;
 			to = manager.heapTwo;
 		} else {
@@ -42,8 +43,7 @@ final class CopyingGarbageCollector extends VMGarbageCollector {
 			scanInd++;
 		}
 		// Flip the spaces
-		manager.reallocateSpace(first);
-		manager.first = !first;
+		manager.flipSpaces();
 		manager.heapPtr = freeInd;
 		if (LOG.isDebugEnabled()) {
 			LOG.debug("Garbage collection finished. Objects survived: "

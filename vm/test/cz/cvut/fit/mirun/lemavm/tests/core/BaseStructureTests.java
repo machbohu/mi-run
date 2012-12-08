@@ -10,9 +10,9 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
+import cz.cvut.fit.mirun.lemavm.core.VirtualMachine;
 import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMNull;
-import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMVisibilityModifier;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
@@ -63,7 +63,8 @@ public class BaseStructureTests {
 			"}"
 		);
 		
-		VMMemoryManager.initializeMemoryManager(5);
+		VMMemoryManager.resetMemoryManager();
+		VirtualMachine.reset();
 		VMCreator.createBaseStructureFromTree(cs);
 	}
 	

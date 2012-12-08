@@ -128,7 +128,13 @@ public final class VMClass {
 		}
 		List<VMMethod> res = methods.get(methodName);
 		if (res == null) {
+			if (superClass != null) {
+				return superClass.getMethodsForName(methodName);
+			}
 			return Collections.emptyList();
+		}
+		if (superClass != null) {
+			res.addAll(superClass.getMethodsForName(methodName));
 		}
 		return res;
 	}
@@ -148,7 +154,13 @@ public final class VMClass {
 		}
 		List<VMMethod> res = staticMethods.get(methodName);
 		if (res == null) {
+			if (superClass != null) {
+				return superClass.getStaticMethodsForName(methodName);
+			}
 			res = Collections.emptyList();
+		}
+		if (superClass != null) {
+			res.addAll(superClass.getStaticMethodsForName(methodName));
 		}
 		return res;
 	}

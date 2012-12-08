@@ -18,6 +18,7 @@ public class NewTests {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		VirtualMachine.reset();
 		out = new TestOutput();
 		VMSystem.addObserver(out);
 	}

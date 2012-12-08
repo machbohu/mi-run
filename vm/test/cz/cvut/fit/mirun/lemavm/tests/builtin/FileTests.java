@@ -17,6 +17,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.core.VirtualMachine;
+import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMSystem;
 import cz.cvut.fit.mirun.lemavm.tests.TestOutput;
 
@@ -28,6 +29,7 @@ public class FileTests {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		VMMemoryManager.resetMemoryManager();
 		out = new TestOutput();
 		VMSystem.addObserver(out);
 	}

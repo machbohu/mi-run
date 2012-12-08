@@ -2,7 +2,11 @@ package cz.cvut.fit.mirun.lemavm.core.memory;
 
 import org.apache.log4j.Logger;
 
+import cz.cvut.fit.mirun.lemavm.core.VMSettings;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMOutOfMemoryException;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 
 /**
  * This class will take care of the memory management and memory allocation and
@@ -24,35 +28,65 @@ public final class VMMemoryManager {
 	protected VMObject[] heapOne;
 	protected VMObject[] heapTwo;
 	protected int heapPtr;
-	protected boolean first;
+	protected WhichSpace which;
 
 	// May be used in generational scavenging
 	protected VMObject[] oldSpace;
 	protected int oldSpacePtr;
 
-	private VMMemoryManager(int heapSize) {
-		this.spaceSize = heapSize / 2;
-		reallocateSpace(true);
-		reallocateSpace(false);
-		this.first = true;
-		this.heapPtr = 0;
-		this.gc = new CopyingGarbageCollector(this);
+	protected enum WhichSpace {
+		FIRST, SECOND, OLD
 	}
 
-	void reallocateSpace(boolean first) {
-		if (first) {
-			heapOne = new VMObject[spaceSize];
-		} else {
-			heapTwo = new VMObject[spaceSize];
+	private VMMemoryManager(int heapSize) {
+		this.spaceSize = heapSize / 2;
+		reallocateSpace(WhichSpace.FIRST);
+		reallocateSpace(WhichSpace.SECOND);
+		this.which = WhichSpace.FIRST;
+		this.heapPtr = 0;
+		final String gcType = (String) VMSettings.get(VMSettings.GC_TYPE);
+		if (LOG.isDebugEnabled()) {
+			LOG.debug("Using garbage collector of type " + gcType);
 		}
+		if (gcType != null
+				&& gcType.equalsIgnoreCase(VMConstants.GC_GENERATIONAL)) {
+			reallocateSpace(WhichSpace.OLD);
+			this.gc = new GenerationalGarbageCollector(this);
+		} else {
+			this.gc = new CopyingGarbageCollector(this);
+		}
+	}
+
+	void reallocateSpace(WhichSpace which) {
+		switch (which) {
+		case FIRST:
+			heapOne = new VMObject[spaceSize];
+			break;
+		case SECOND:
+			heapTwo = new VMObject[spaceSize];
+			break;
+		case OLD:
+			oldSpace = new VMObject[spaceSize
+					* VMConstants.OLD_SPACE_MULTIPLIER];
+			break;
+		}
+	}
+
+	void flipSpaces() {
+		reallocateSpace(which);
+		this.which = which.equals(WhichSpace.FIRST) ? WhichSpace.SECOND
+				: WhichSpace.FIRST;
 	}
 
 	private void allocateObjectImpl(VMObject object) {
 		if (heapPtr >= spaceSize) {
 			gc.runGC();
+			if (heapPtr >= spaceSize) {
+				throw new VMOutOfMemoryException();
+			}
 		}
 		object.getHeader().setHeapPtr(heapPtr);
-		if (first) {
+		if (which.equals(WhichSpace.FIRST)) {
 			heapOne[heapPtr++] = object;
 		} else {
 			heapTwo[heapPtr++] = object;
@@ -69,16 +103,18 @@ public final class VMMemoryManager {
 	 * The specified heap size defines the size of the whole heap, so if a
 	 * semi-space GC is used, each space will have half of the heap.
 	 * 
-	 * @param heapSize
-	 *            Size of the heap
 	 */
-	public static void initializeMemoryManager(int heapSize) {
+	public static void initializeMemoryManager() {
 		if (initialized) {
 			throw new IllegalStateException(
 					"The memory manager is already initialized.");
 		}
 		if (LOG.isDebugEnabled()) {
 			LOG.debug("Initializing memory manager.");
+		}
+		final Integer heapSize = (Integer) VMSettings.get(VMSettings.HEAP_SIZE);
+		if (heapSize == null) {
+			throw new VMParsingException("Heap size not specified.");
 		}
 		if (heapSize < 2) {
 			throw new IllegalArgumentException(
@@ -92,9 +128,6 @@ public final class VMMemoryManager {
 	 * Reset the memory manager.
 	 */
 	public static void resetMemoryManager() {
-		if (manager == null) {
-			throw new IllegalStateException("Manager was never initialized.");
-		}
 		initialized = false;
 	}
 
@@ -109,16 +142,16 @@ public final class VMMemoryManager {
 			throw new NullPointerException();
 		}
 		if (!initialized) {
-			throw new IllegalStateException(
-					"The memory manager is not initialized.");
+			LOG.warn("The memory manager has not been initialized. Initializing with default heap size.");
+			initializeMemoryManager();
 		}
 		manager.allocateObjectImpl(object);
 	}
 
 	protected static VMMemoryManager getInstance() {
 		if (!initialized) {
-			throw new IllegalStateException(
-					"The memory manager is not initialized.");
+			LOG.warn("The memory manager has not been initialized. Initializing with default heap size.");
+			initializeMemoryManager();
 		}
 		return manager;
 	}

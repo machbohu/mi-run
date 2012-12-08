@@ -358,12 +358,14 @@ public class VMEnvironment {
 		types.add(VMConstants.SHORT);
 		types.add(VMConstants.INT);
 		types.add(VMConstants.LONG);
+		types.add(VMConstants.DOUBLE);
 		types.add(VMConstants.STRING);
 		types.add(VMConstants.FILE);
 		types.add(VMConstants.BOOLEAN_ARR);
 		types.add(VMConstants.SHORT_ARR);
 		types.add(VMConstants.INT_ARR);
 		types.add(VMConstants.LONG_ARR);
+		types.add(VMConstants.DOUBLE_ARR);
 		types.add(VMConstants.STRING_ARR);
 		types.add(VMConstants.FILE_ARR);
 		return types;

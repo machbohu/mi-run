@@ -19,7 +19,6 @@ import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 public class VirtualMachine {
 
 	private static final Logger LOG = Logger.getLogger(VirtualMachine.class);
-	private static final int DEFAULT_HEAP_SIZE = 1000;
 
 	/**
 	 * @param args
@@ -36,7 +35,7 @@ public class VirtualMachine {
 	}
 
 	public static void initAndLaunch(String file, String[] args) {
-		VMMemoryManager.initializeMemoryManager(DEFAULT_HEAP_SIZE);
+		VMMemoryManager.initializeMemoryManager();
 		// Create base structure (classes = variables + constructors + methods)
 		VMCreator.createBaseStructureFromTree(file);
 		// launch main method if present
@@ -45,17 +44,17 @@ public class VirtualMachine {
 
 	public static void initAndLaunch(CharStream stream) {
 		String[] args = {};
-		VMMemoryManager.initializeMemoryManager(DEFAULT_HEAP_SIZE);
+		VMMemoryManager.initializeMemoryManager();
 		// Create base structure (classes = variables + constructors + methods)
 		VMCreator.createBaseStructureFromTree(stream);
 		// launch main method if present
 		VMInterpreter.getInstance().executeApplication(args);
 	}
-	
+
 	/**
 	 * Reset whole VM - reseting order is important!
 	 */
-	public static void reset(){
+	public static void reset() {
 		VMInterpreter.getInstance().resetPartVM();
 		VMEnvironment.resetPartVM();
 		VMClass.resetPartVM();

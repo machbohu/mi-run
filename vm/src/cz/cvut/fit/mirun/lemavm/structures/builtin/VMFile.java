@@ -9,6 +9,7 @@ import java.io.IOException;
 
 import org.apache.log4j.Logger;
 
+import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMIOException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMIllegalStateException;
@@ -41,6 +42,7 @@ public final class VMFile extends VMObject {
 		this.fileName = getFileName(fileName, env);
 		this.file = new File(this.fileName);
 		this.readerOpen = this.writerOpen = this.open = true;
+		VMMemoryManager.allocateObject(this);
 	}
 
 	public Boolean doesFileExist() {
@@ -211,7 +213,7 @@ public final class VMFile extends VMObject {
 				throw new VMEvaluationException(
 						"File got constructor argument that cannot be cast to string. Argument: "
 								+ res);
-			}else{
+			} else {
 				name = ((VMString) res).getValue();
 			}
 		} else if (file instanceof String) {

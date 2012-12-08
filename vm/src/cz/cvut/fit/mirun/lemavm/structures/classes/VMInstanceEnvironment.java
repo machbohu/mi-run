@@ -10,8 +10,6 @@ import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public class VMInstanceEnvironment extends VMEnvironment {
 
-	// private final VMClassInstance owner;
-
 	private final VMEnvironment classEnvironment;
 
 	// TODO Do visibility checking
@@ -76,6 +74,7 @@ public class VMInstanceEnvironment extends VMEnvironment {
 	public void addPrimitiveBinding(String name, Object value, String type) {
 		if (!containsBinding(name) && classEnvironment.containsBinding(name)) {
 			classEnvironment.addPrimitiveBinding(name, value, type);
+			return;
 		} else if (!containsBinding(name)) {
 			throw new VMEvaluationException("Field with the name " + name
 					+ " not found in type " + owner.getTypeName());

@@ -10,6 +10,7 @@ import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.assignment.AssignOperatorFactory;
 import cz.cvut.fit.mirun.lemavm.assignment.VMAssignOperator;
+import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMFinalBindingExistsException;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
@@ -29,6 +30,7 @@ public class AssignmentTests {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		VMMemoryManager.resetMemoryManager();
 		factory = new AssignOperatorFactory();
 		plusFactory = new VMBinaryPlusOperatorFactory();
 		multiplyFactory = new VMMultiplicationOperatorFactory();
@@ -44,7 +46,7 @@ public class AssignmentTests {
 	public void testSimpleAssignment() {
 		final Integer exp = 10;
 		final VMAssignOperator op = factory.createOperator("a", "int", false,
-				Integer.valueOf(10));
+				"10");
 		op.evaluate(env);
 		final Integer res = env.getBinding("a", Integer.class);
 		assertNotNull(res);

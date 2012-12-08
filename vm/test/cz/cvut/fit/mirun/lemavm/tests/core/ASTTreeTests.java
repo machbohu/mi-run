@@ -109,7 +109,7 @@ public class ASTTreeTests {
 		);
 		
         try {
-        	VMMemoryManager.initializeMemoryManager(5);
+        	VMMemoryManager.resetMemoryManager();
         	VMBaseStructureBuilder b = new VMBaseStructureBuilder(chs);
         	b.build();
         	b.printTreeToDot();

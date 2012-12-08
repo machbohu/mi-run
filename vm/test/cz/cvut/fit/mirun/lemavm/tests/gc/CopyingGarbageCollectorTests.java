@@ -5,17 +5,20 @@ import static org.junit.Assert.assertEquals;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
+import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
+import cz.cvut.fit.mirun.lemavm.core.VMSettings;
 import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.structures.VMArray;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
+import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 
-public class GarbageCollectorTests {
+public class CopyingGarbageCollectorTests {
 
 	private static final String SET_ENV_METHOD = "setCurrentEnvironment";
 	private static final String MEM_MANAGER_NAME = "manager";
@@ -26,25 +29,34 @@ public class GarbageCollectorTests {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		VMMemoryManager.initializeMemoryManager(SEMI_SIZE * 2);
+		VMSettings.set(VMSettings.HEAP_SIZE, SEMI_SIZE * 2);
+		VMSettings.set(VMSettings.GC_TYPE, VMConstants.GC_COPYING);
+		VMMemoryManager.resetMemoryManager();
+		VMMemoryManager.initializeMemoryManager();
 	}
 
 	@Before
 	public void setUp() throws Exception {
 		env = new VMEnvironment();
 		VMInterpreter i = VMInterpreter.getInstance();
+		i.resetPartVM();
 		// Set the environment
 		final Method m = i.getClass().getDeclaredMethod(SET_ENV_METHOD,
 				VMEnvironment.class);
 		m.setAccessible(true);
 		m.invoke(i, env);
-		i.resetPartVM();
 		VMMemoryManager.resetMemoryManager();
-		VMMemoryManager.initializeMemoryManager(SEMI_SIZE * 2);
+		VMMemoryManager.initializeMemoryManager();
 		final Field f = VMMemoryManager.class
 				.getDeclaredField(MEM_MANAGER_NAME);
 		f.setAccessible(true);
 		manager = (VMMemoryManager) f.get(null);
+	}
+
+	@AfterClass
+	public static void tearDownAfterClass() throws Exception {
+		VMSettings.set(VMSettings.HEAP_SIZE, VMConstants.DEFAULT_HEAP_SIZE);
+		VMSettings.set(VMSettings.GC_TYPE, VMConstants.GC_GENERATIONAL);
 	}
 
 	@Test

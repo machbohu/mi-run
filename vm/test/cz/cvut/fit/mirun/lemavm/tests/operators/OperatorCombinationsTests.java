@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMOperator;
@@ -43,6 +44,7 @@ public class OperatorCombinationsTests {
 
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		VMMemoryManager.resetMemoryManager();
 		minusFactory = new VMBinaryMinusOperatorFactory();
 		plusFactory = new VMBinaryPlusOperatorFactory();
 		divisionFactory = new VMDivisionOperatorFactory();

@@ -47,4 +47,19 @@ public abstract class VMConstants {
 	public static final String STRING_ARR = "string[]";
 
 	public static final String FILE_ARR = "File[]";
+
+	// VM Settings
+
+	public static final int DEFAULT_HEAP_SIZE = 1000;
+
+	/**
+	 * How many times bigger should the old space be
+	 */
+	public static final int OLD_SPACE_MULTIPLIER = 2;
+
+	public static final byte DEFAULT_TENURE_AGE = 2;
+
+	public static final String GC_GENERATIONAL = "generationalScavenging";
+
+	public static final String GC_COPYING = "copyingCollector";
 }

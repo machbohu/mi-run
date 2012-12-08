@@ -2,10 +2,13 @@ package cz.cvut.fit.mirun.lemavm.core.memory;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
 import cz.cvut.fit.mirun.lemavm.core.VMInterpreter;
+import cz.cvut.fit.mirun.lemavm.core.VMSettings;
+import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager.WhichSpace;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMArray;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
@@ -31,6 +34,8 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 	public GenerationalGarbageCollector(VMMemoryManager manager) {
 		super(manager);
 		rememberedSet = new HashSet<>();
+		final Byte ageT = (Byte) VMSettings.get(VMSettings.TENURE_AGE);
+		this.ageThreshold = ageT.byteValue();
 	}
 
 	@Override
@@ -38,8 +43,8 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 		if (LOG.isDebugEnabled()) {
 			LOG.debug("Running garbage collection.");
 		}
-		boolean first = manager.first;
-		if (first) {
+		WhichSpace which = manager.which;
+		if (which.equals(WhichSpace.FIRST)) {
 			this.fromSpace = manager.heapOne;
 			this.toSpace = manager.heapTwo;
 		} else {
@@ -54,20 +59,20 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 			scanObject(toSpace[scanInd]);
 			scanInd++;
 		}
-		scanInd = manager.oldSpacePtr;
+		scanInd = 0;
 		while (scanInd < oldFreeInd) {
 			scanObject(oldSpace[scanInd]);
 			scanInd++;
 		}
 		// Flip the spaces
-		manager.reallocateSpace(first);
-		manager.first = !first;
-		manager.heapPtr = freeInd;
-		cleanUp();
+		manager.flipSpaces();
 		if (LOG.isDebugEnabled()) {
-			LOG.debug("Garbage collection finished. Objects survived: "
-					+ freeInd);
+			LOG.debug("Garbage collection finished. Garbage collector reclaimed "
+					+ (manager.heapPtr - freeInd) + " memory cells.");
 		}
+		manager.heapPtr = freeInd;
+		manager.oldSpacePtr = oldFreeInd;
+		cleanUp();
 	}
 
 	private void cleanUp() {
@@ -92,6 +97,9 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 			VMObject moved = moveObject(o.getValue());
 			if (moved != null) {
 				o.setValue(moved);
+				if (moved.getHeader().getAge() > ageThreshold) {
+					rememberedSet.add(o);
+				}
 			}
 		}
 	}
@@ -114,6 +122,9 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 					VMObject moved = moveObject(elems[i]);
 					if (moved != null) {
 						elems[i] = moved;
+						if (moved.getHeader().getAge() > ageThreshold) {
+							rememberedSet.add(new GCEntry(moved));
+						}
 					}
 				}
 			}
@@ -128,14 +139,20 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 				VMObject moved = moveObject(o.getValue());
 				if (moved != null) {
 					o.setValue(moved);
+					if (moved.getHeader().getAge() > ageThreshold) {
+						rememberedSet.add(new GCEntry(moved));
+					}
 				}
 			}
 		}
 	}
 
 	private VMObject moveObject(VMObject object) {
-		if (object.getType().equals(ObjectType.NULL)) {
+		if (object.getType().equals(ObjectType.NULL)
+				|| object.getHeader().getAge() > ageThreshold) {
 			// Null does not have to be moved, it cannot be collected
+			// If object's age is bigger than the threshold, it has already been
+			// moved to oldspace
 			return null;
 		}
 		int oldPtr = object.getHeader().getHeapPtr();
@@ -149,6 +166,7 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 		}
 		// Move the reference
 		final VMObject clone = object.clone();
+		clone.getHeader().incrementAge();
 		boolean tenured = clone.getHeader().getAge() > ageThreshold;
 		if (tenured) {
 			oldSpace[oldFreeInd] = clone;
@@ -157,6 +175,9 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 					oldFreeInd, tenured);
 			object.getHeader().setHeapPtr(oldFreeInd);
 			oldFreeInd++;
+			if (LOG.isTraceEnabled()) {
+				LOG.trace("Object tenured. Old space heap size = " + oldFreeInd);
+			}
 		} else {
 			toSpace[freeInd] = clone;
 			// set forward pointer
@@ -166,5 +187,35 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 			freeInd++;
 		}
 		return clone;
+	}
+
+	/**
+	 * Entry for the remembered set.
+	 * 
+	 * @author kidney
+	 * 
+	 */
+	private static final class GCEntry implements Map.Entry<String, VMObject> {
+
+		private final VMObject o;
+
+		GCEntry(VMObject o) {
+			this.o = o;
+		}
+
+		@Override
+		public String getKey() {
+			return null; // Not supported
+		}
+
+		@Override
+		public VMObject getValue() {
+			return o;
+		}
+
+		@Override
+		public VMObject setValue(VMObject value) {
+			return null; // Not supported
+		}
 	}
 }
