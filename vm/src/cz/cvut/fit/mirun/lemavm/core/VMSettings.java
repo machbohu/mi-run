@@ -31,9 +31,9 @@ public abstract class VMSettings {
 
 	// Settings names
 
-	public static final String HEAP_SIZE = "heapSize";
+	public static final String HEAP_SIZE = "-lemaHeapSize";
 
-	public static final String TENURE_AGE = "tenureAge";
+	public static final String TENURE_AGE = "-lemaTenureAge";
 
-	public static final String GC_TYPE = "gcType";
+	public static final String GC_TYPE = "-lemaGcType";
 }

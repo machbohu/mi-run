@@ -1,12 +1,15 @@
 package cz.cvut.fit.mirun.lemavm.core;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import org.antlr.runtime.CharStream;
 import org.apache.log4j.Logger;
 
 import cz.cvut.fit.mirun.lemavm.builder.VMCreator;
 import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
+import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 
@@ -29,12 +32,13 @@ public class VirtualMachine {
 			System.exit(1);
 		}
 		final String file = args[0];
-		final String[] appArgs = Arrays.copyOfRange(args, 1, args.length);
+		String[] appArgs = Arrays.copyOfRange(args, 1, args.length);
 		initAndLaunch(file, appArgs);
 
 	}
 
 	public static void initAndLaunch(String file, String[] args) {
+		args = scanForVMSettings(args);
 		VMMemoryManager.initializeMemoryManager();
 		// Create base structure (classes = variables + constructors + methods)
 		VMCreator.createBaseStructureFromTree(file);
@@ -59,5 +63,46 @@ public class VirtualMachine {
 		VMEnvironment.resetPartVM();
 		VMClass.resetPartVM();
 		VMMemoryManager.resetMemoryManager();
+	}
+
+	private static String[] scanForVMSettings(String[] args) {
+		int i = Arrays.binarySearch(args, VMSettings.GC_TYPE);
+		if (i > 0) {
+			String value = args[i + 1];
+			args[i] = "";
+			args[i + 1] = "";
+			VMSettings.set(VMSettings.GC_TYPE, value);
+		}
+		i = Arrays.binarySearch(args, VMSettings.HEAP_SIZE);
+		if (i > 0) {
+			try {
+				Integer value = Integer.valueOf(args[i + 1]);
+				VMSettings.set(VMSettings.HEAP_SIZE, value);
+				args[i] = "";
+				args[i + 1] = "";
+			} catch (NumberFormatException e) {
+				throw new VMParsingException("Invalid heap size parameter.");
+			}
+		}
+		i = Arrays.binarySearch(args, VMSettings.TENURE_AGE);
+		if (i > 0) {
+			try {
+				Integer value = Integer.valueOf(args[i + 1]);
+				VMSettings.set(VMSettings.TENURE_AGE, value);
+				args[i] = "";
+				args[i + 1] = "";
+			} catch (NumberFormatException e) {
+				throw new VMParsingException("Invalid heap size parameter.");
+			}
+		}
+		final List<String> argList = new ArrayList<>(args.length);
+		for (String s : args) {
+			if (!s.isEmpty()) {
+				argList.add(s);
+			}
+		}
+		String[] arr = new String[argList.size()];
+		argList.toArray(arr);
+		return arr;
 	}
 }

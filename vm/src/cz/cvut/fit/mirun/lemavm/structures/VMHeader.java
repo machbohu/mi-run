@@ -37,6 +37,10 @@ public class VMHeader {
 		age++;
 	}
 
+	public void setAge(byte age) {
+		this.age = age;
+	}
+
 	public long getId() {
 		return id;
 	}

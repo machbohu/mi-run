@@ -18,8 +18,6 @@ import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
 
 public final class GenerationalGarbageCollector extends VMGarbageCollector {
 
-	// TODO
-
 	private VMObject[] fromSpace;
 	private VMObject[] toSpace;
 	private VMObject[] oldSpace;
@@ -31,11 +29,17 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 
 	private byte ageThreshold;
 
+	private int oldSpaceGCThreshold;
+	private MarkAndSweepCollector oldSpaceCollector;
+
 	public GenerationalGarbageCollector(VMMemoryManager manager) {
 		super(manager);
 		rememberedSet = new HashSet<>();
 		final Byte ageT = (Byte) VMSettings.get(VMSettings.TENURE_AGE);
 		this.ageThreshold = ageT.byteValue();
+		// Old space threshold is 2/3 of its size
+		this.oldSpaceGCThreshold = manager.oldSpace.length / 3 * 2;
+		this.oldSpaceCollector = new MarkAndSweepCollector();
 	}
 
 	@Override
@@ -72,6 +76,9 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 		}
 		manager.heapPtr = freeInd;
 		manager.oldSpacePtr = oldFreeInd;
+		if (oldFreeInd > oldSpaceGCThreshold) {
+			oldSpaceCollector.runGC(rootSet);
+		}
 		cleanUp();
 	}
 
@@ -216,6 +223,110 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 		@Override
 		public VMObject setValue(VMObject value) {
 			return null; // Not supported
+		}
+	}
+
+	private final class MarkAndSweepCollector {
+
+		private static final byte age = 100;
+
+		private VMObject[] heap;
+		private int heapPtr;
+		private Set<Entry<String, VMObject>> rootSet;
+
+		void runGC(Set<Entry<String, VMObject>> initialRootSet) {
+			init();
+			mark();
+			sweep();
+		}
+
+		private void init() {
+			this.heap = GenerationalGarbageCollector.this.oldSpace;
+			this.heapPtr = GenerationalGarbageCollector.this.oldFreeInd;
+			// Add objects from toSpace to the root set
+			for (VMObject o : GenerationalGarbageCollector.this.toSpace) {
+				rootSet.add(new GCEntry(o));
+			}
+		}
+
+		private void mark() {
+			for (Entry<String, VMObject> e : rootSet) {
+				VMObject obj = e.getValue();
+				if (obj.getHeader().getAge() != age) {
+					if (obj.getHeader().getAge() > ageThreshold) {
+						heap[obj.getHeader().getHeapPtr()].getHeader().setAge(
+								age);
+					}
+					scanObject(obj);
+				}
+			}
+		}
+
+		private void scanObject(VMObject object) {
+			if (object.getType().equals(ObjectType.STRING)
+					|| object.getType().equals(ObjectType.FILE)) {
+				// Strings and files don't contain any references
+				return;
+			}
+			if (object.getType().equals(ObjectType.ARRAY)) {
+				// The object is an array, check for element types
+				final VMArray arr = (VMArray) object;
+				if (!VMUtils.isTypePrimitive(arr.getElementTypeName())) {
+					final VMObject[] elems = (VMObject[]) arr.getAll();
+					for (int i = 0; i < elems.length; i++) {
+						if (elems[i].getHeader().getAge() != age) {
+							if (elems[i].getHeader().getAge() > ageThreshold) {
+								heap[elems[i].getHeader().getHeapPtr()]
+										.getHeader().setAge(age);
+							}
+							scanObject(elems[i]);
+						}
+					}
+				}
+				// Otherwise do nothing, primitives are stored in the array and
+				// those are not allocated on our heap
+			} else {
+				// Look for reference type field values
+				VMClassInstance inst = (VMClassInstance) object;
+				final Set<Entry<String, VMObject>> refs = inst.getEnvironment()
+						.getBindings().entrySet();
+				for (Entry<String, VMObject> e : refs) {
+					final VMObject obj = e.getValue();
+					if (obj.getHeader().getAge() != age) {
+						if (obj.getHeader().getAge() > ageThreshold) {
+							heap[obj.getHeader().getHeapPtr()].getHeader()
+									.setAge(age);
+						}
+						scanObject(obj);
+					}
+				}
+			}
+		}
+
+		private void sweep() {
+			for (int i = 0; i < heapPtr; i++) {
+				if (heap[i].getHeader().getAge() != age) {
+					// Reclaim the memory
+					heap[i] = null;
+				} else {
+					heap[i].getHeader().setAge((byte) 3);
+				}
+			}
+			compact();
+		}
+
+		private void compact() {
+			int freePtr = -1;
+			for (int i = 0; i < heapPtr; i++) {
+				if (heap[i] == null) {
+					freePtr = i;
+				} else if (freePtr != -1) {
+					heap[freePtr] = heap[i];
+					heap[freePtr].getHeader().setHeapPtr(freePtr);
+					heap[i] = null;
+					freePtr = -1;
+				}
+			}
 		}
 	}
 }

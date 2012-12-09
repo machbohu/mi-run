@@ -18,7 +18,8 @@ public class ExampleTests {
 	@Test
 	public void testKnapsack() throws IOException {
 		String[] args = { "../example/knap_04.inst.dat",
-				"../example/knap_04.inst.sol" };
+				"../example/knap_04.inst.sol", "-lemaGcType",
+				"copyingCollector" };
 
 		VirtualMachine.initAndLaunch("../example/knapsack.lema", args);
 	}

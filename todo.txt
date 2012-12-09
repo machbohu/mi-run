@@ -1,2 +1,2 @@
 ﻿- static promenny ve tride se chovaji divne:
- - hodnota operaci se nekdy propise, nekdy ne viz. VariableTests -> testStaticVariable (operace a = a - 1; a--;)
+ - hodnota operaci se nekdy propise, nekdy ne viz. VariableTests -> testStaticVariable (operace a = a - 1; a--;) FIXED
