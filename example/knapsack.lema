@@ -1,5 +1,7 @@
 // Example program for LeMaVM solving knapsack problem with heuristic
-// file with instances: id, itemsCnt, capacity, weight, price, weight, price, ...
+// input file with instance: id, itemsCnt, capacity, weight, price, weight, price, ... one number each line
+// Output file with result: id, total weight, total price, [1,0] for item in/out
+// (heuristic sort items that's why is this information in this case useless)
 
 class Item{
     private int weight;

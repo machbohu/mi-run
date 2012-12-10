@@ -35,3 +35,7 @@ Features:
 How to run:
 -----------
     More inside vm/run.sh
+    
+Example
+-------
+    Example program and instances in example/ (also required input/output files format)
