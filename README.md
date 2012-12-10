@@ -32,11 +32,6 @@ Features:
             - + (also for string concatenation), -, /, *, ++, -- (both prefix and postfix)
             - ==, !=, <, <=, >, >=, !
 
-TODO:
------
-    - building
-    - running
-
 How to run:
 -----------
-    sample run command: java LeMaVM.jar example/knap04.inst.dat example/knap04.inst.sol [-lemaGcType generationalScavenging -lemaHeapSize 100 -lemaTenureAge 2]
+    more inside run.sh
