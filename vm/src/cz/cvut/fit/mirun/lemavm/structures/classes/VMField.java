@@ -59,7 +59,8 @@ public class VMField {
 		String out = "VMField: name = " + name + ", type = " + type
 				+ ", value = " + val.toString() + ", visibility = "
 				+ visibility.toString() + ", isStatic = "
-				+ Boolean.valueOf(isStatic);
+				+ Boolean.valueOf(isStatic) + ", isFinal = "
+						+ Boolean.valueOf(isFinal);
 		return out;
 	}
 }

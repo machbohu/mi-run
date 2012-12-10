@@ -64,6 +64,8 @@ public class VMBaseStructureBuilder extends VMBuilder {
 		if(parser.getMessages().size() > 0){
 			throw new VMParsingException(parser.getMessages().toString());
 		}
+		
+		LOG.debug("Building AST tree");
 	}
 	
 	/**
@@ -135,6 +137,8 @@ public class VMBaseStructureBuilder extends VMBuilder {
 		}else{
 			cls.addMethod(method);
 		}
+		
+		LOG.debug("Creating method "+method+" in class "+cls);
 	}
 	
 	/**
@@ -156,6 +160,7 @@ public class VMBaseStructureBuilder extends VMBuilder {
 						// TODO what will happen with VMOperator instead of String val?
 						f.setVal(VMUtils.getTypeProperValue(f.getType(), f.getVal().toString()));
 						cls.addField(f);
+						LOG.debug("Creating variable declaration "+f+" in class "+cls);
 					}catch(NumberFormatException | ParseException e){
 						throw new VMParsingException("Class '"+cls
 								+"': Can not assign value '" + f.getVal()
@@ -204,6 +209,7 @@ public class VMBaseStructureBuilder extends VMBuilder {
 			case "CLASS_TOP_LEVEL_SCOPE":
 				// null == no parent
 				cls = VMClass.createClass(name, parent);
+				LOG.debug("Creating class" + cls);
 				buildVarsAndMethodsFromTree(child, cls);
 				break;
 			case "EXTENDS_CLAUSE":

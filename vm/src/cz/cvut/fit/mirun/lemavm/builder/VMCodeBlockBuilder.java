@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.antlr.runtime.tree.CommonTree;
+import org.apache.log4j.Logger;
 
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.Evaluable;
@@ -15,6 +16,8 @@ import cz.cvut.fit.mirun.lemavm.structures.control.VMWhile;
 import cz.cvut.fit.mirun.lemavm.structures.operators.VMReturnOperator;
 
 public class VMCodeBlockBuilder extends VMBuilder {
+	private static final Logger LOG = Logger.getLogger(VMCodeBlockBuilder.class);
+	
 	private CommonTree top;
 	private VMCodeBlock code;
 	
@@ -50,6 +53,7 @@ public class VMCodeBlockBuilder extends VMBuilder {
 					for(VMField f : buildVarFromTree(child)){
 						operation = assignFactory.createOperator(f.getName(), f.getType(), false, f.getVal());
 						inits.add(operation);
+						LOG.debug("Creating FOR cycle init declaration "+f);
 					}
 					break;
 				case "EXPR":
@@ -72,6 +76,8 @@ public class VMCodeBlockBuilder extends VMBuilder {
 				throw new VMParsingException("FOR init: Unsupported operation '"+child+"'");
 			}
 		}
+		
+		LOG.debug("Creating FOR cycle "+inits+", "+condition+" "+operation+" "+codeTree);
 		
 		return new VMFor(inits, condition, operation, codeTree);
 	}
@@ -96,19 +102,23 @@ public class VMCodeBlockBuilder extends VMBuilder {
 				for(VMField f : buildVarFromTree(child)){
 					operation = assignFactory.createOperator(f.getName(), f.getType(), f.isFinal(), f.getVal());
 					code.addCodePart(operation);
+					LOG.debug("Creating variable declaration "+f);
 				}
 				break;
 			case "EXPR":
 				code.addCodePart(buildExpressionFromTree(child));
+				LOG.debug("Creating expression");
 				break;
 			case "if":
 				condition = buildExpressionFromTree((CommonTree) child.getChild(0));
 				code.addCodePart(new VMIfElse(condition, (CommonTree) child.getChild(1), 
 						(CommonTree) child.getChild(2)));
+				LOG.debug("Creating IF-ELSE "+condition+" "+child.getChild(1)+" "+child.getChild(2));
 				break;
 			case "while":
 				condition = buildExpressionFromTree((CommonTree) child.getChild(0));
 				code.addCodePart(new VMWhile(condition, (CommonTree) child.getChild(1)));
+				LOG.debug("Creating WHILE cycle "+condition+" "+child.getChild(1));
 				break;
 			case "for":
 				code.addCodePart(buildForFromTree(child));
@@ -120,6 +130,7 @@ public class VMCodeBlockBuilder extends VMBuilder {
 				}else{
 					// TODO what about return; in void?
 				}
+				LOG.debug("Creating return");
 				break;
 			default:
 				throw new VMParsingException("Unsupported operation '"+child+"'");

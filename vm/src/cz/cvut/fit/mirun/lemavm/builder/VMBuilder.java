@@ -360,6 +360,7 @@ public abstract class VMBuilder {
 						}
 						fields.add(new VMField(name, isStatic, isFinal, visibility, type,
 								val));
+						
 					}
 					break;
 				default:
