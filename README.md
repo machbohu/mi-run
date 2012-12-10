@@ -34,4 +34,4 @@ Features:
 
 How to run:
 -----------
-    more inside run.sh
+    More inside run.sh
