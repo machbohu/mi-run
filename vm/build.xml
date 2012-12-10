@@ -7,6 +7,7 @@
 <project basedir="." default="build" name="LeMaVM">
     <property environment="env"/>
     <property name="ECLIPSE_HOME" value="../../../../../../../../usr/lib/eclipse"/>
+    <property name="junit.output.dir" value="junit"/>
     <property name="debuglevel" value="source,lines,vars"/>
     <property name="target" value="1.7"/>
     <property name="source" value="1.7"/>
@@ -63,5 +64,194 @@
     <target description="compile project with Eclipse compiler" name="build-eclipse-compiler">
         <property name="build.compiler" value="org.eclipse.jdt.core.JDTCompilerAdapter"/>
         <antcall target="build"/>
+    </target>
+    <target name="MethodCallTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.structures.MethodCallTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="WhileTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.structures.WhileTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="ASTTreeTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemvm.tests.core.ASTTreeTest" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="VariablesTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.structures.VariablesTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="NewTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.structures.NewTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="AppLaunchTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.core.AppLaunchTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="ASTTreeTests (1)">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.core.ASTTreeTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="OperatorsTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.structures.OperatorsTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="SystemMethodsTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.builtin.SystemMethodsTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="IfElseTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.structures.IfElseTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="VariablesTests.clearAfterTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.structures.VariablesTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="SystemMethodsTests.clearAfterTest">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.builtin.SystemMethodsTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="ForTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.structures.ForTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="ReturnTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.structures.ReturnTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="ExampleTests.testKnapsack">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.core.ExampleTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="ExampleTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.core.ExampleTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="ForTests.testForFalse">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.structures.ForTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="BaseStructureTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.core.BaseStructureTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="VirtualMachine">
+        <java classname="cz.cvut.fit.mirun.lemavm.core.VirtualMachine" failonerror="true" fork="yes">
+            <classpath refid="LeMaVM.classpath"/>
+        </java>
+    </target>
+    <target name="ArrayTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.structures.ArrayTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="InheritanceTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.structures.InheritanceTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="FileTests">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.builtin.FileTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="WhileTests.testWhileTrue">
+        <mkdir dir="${junit.output.dir}"/>
+        <junit fork="yes" printsummary="withOutAndErr">
+            <formatter type="xml"/>
+            <test name="cz.cvut.fit.mirun.lemavm.tests.structures.WhileTests" todir="${junit.output.dir}"/>
+            <classpath refid="LeMaVM.classpath"/>
+        </junit>
+    </target>
+    <target name="junitreport">
+        <junitreport todir="${junit.output.dir}">
+            <fileset dir="${junit.output.dir}">
+                <include name="TEST-*.xml"/>
+            </fileset>
+            <report format="frames" todir="${junit.output.dir}"/>
+        </junitreport>
     </target>
 </project>

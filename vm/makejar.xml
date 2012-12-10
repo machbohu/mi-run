@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="create_run_jar" name="Create Runnable Jar for Project LeMaVM">
+    <!--this file was created by Eclipse Runnable JAR Export Wizard-->
+    <!--ANT 1.7 is required                                        -->
+    <target name="create_run_jar">
+        <jar destfile="/media/data/documents/skola/9.semestr/run/mi-run/vm/jar/lemavm.jar" filesetmanifest="mergewithoutmain">
+            <manifest>
+                <attribute name="Main-Class" value="cz.cvut.fit.mirun.lemavm.core.VirtualMachine"/>
+                <attribute name="Class-Path" value="."/>
+            </manifest>
+            <fileset dir="/media/data/documents/skola/9.semestr/run/mi-run/vm/dist"/>
+            <zipfileset excludes="META-INF/*.SF" src="/media/data/documents/skola/9.semestr/run/mi-run/vm/lib/antlr-3.4-complete.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/media/data/documents/skola/9.semestr/run/mi-run/vm/lib/log4j-1.2.17.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/usr/lib/eclipse/dropins/jdt/plugins/org.junit_4.8.2.v4_8_2_v20110321-1705/junit.jar"/>
+            <zipfileset excludes="META-INF/*.SF" src="/usr/lib/eclipse/dropins/jdt/plugins/org.hamcrest.core_1.1.0.jar"/>
+        </jar>
+    </target>
+</project>

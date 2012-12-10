@@ -30,7 +30,7 @@ public class BaseStructureTests {
 			"    public static string str = \"str\"; \n" +
 			"    Test testDef; \n" +
 			"    Test test = null; \n" +
-			"    int iDef; \n" +
+			"    final int iDef; \n" +
 			"    int i = 5; \n" +
 			"    long lDef; \n" +
 			"    long l = 5; \n" +
@@ -102,6 +102,7 @@ public class BaseStructureTests {
 		assertEquals(VMNull.getInstance(), cls.getFields().get("testDef").getVal());
 		assertEquals(VMNull.getInstance(), cls.getFields().get("test").getVal());
 		assertEquals(0, cls.getFields().get("iDef").getVal());
+		assertTrue(cls.getFields().get("iDef").isFinal());
 		assertEquals(5, cls.getFields().get("i").getVal());
 		assertEquals(0L, cls.getFields().get("lDef").getVal());
 		assertEquals(5L, cls.getFields().get("l").getVal());

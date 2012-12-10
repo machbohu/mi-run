@@ -11,14 +11,16 @@ package cz.cvut.fit.mirun.lemavm.structures.classes;
 public class VMField {
 	private String name;
 	private boolean isStatic;
+	private boolean isFinal;
 	private VMVisibilityModifier visibility;
 	private String type;
 	private Object val;
 
-	public VMField(String newField, boolean isStatic,
+	public VMField(String newField, boolean isStatic, boolean isFinal,
 			VMVisibilityModifier visibility, String type, Object val) {
 		this.name = newField;
 		this.isStatic = isStatic;
+		this.isFinal = isFinal;
 		this.visibility = visibility;
 		this.type = type;
 		this.val = val;
@@ -46,6 +48,10 @@ public class VMField {
 
 	public boolean isStatic() {
 		return isStatic;
+	}
+	
+	public boolean isFinal() {
+		return isFinal;
 	}
 
 	@Override

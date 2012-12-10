@@ -94,7 +94,7 @@ public class VMCodeBlockBuilder extends VMBuilder {
 			switch(child.toString()){
 			case "VAR_DECLARATION":
 				for(VMField f : buildVarFromTree(child)){
-					operation = assignFactory.createOperator(f.getName(), f.getType(), false, f.getVal());
+					operation = assignFactory.createOperator(f.getName(), f.getType(), f.isFinal(), f.getVal());
 					code.addCodePart(operation);
 				}
 				break;

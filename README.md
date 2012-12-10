@@ -1,8 +1,14 @@
 Semestral project for course MI-RUN on ČVUT FIT
+LeMa language + virtual machine
 
 Task:
 -----
     Design and implement a programming language interpreter or compiler and a runtime for it.
+
+Authors:
+--------
+    Martin Ledvinka (ledvima1)
+    Bohuslav Mach (machbohu)
 
 Solution:
 ---------
@@ -10,25 +16,27 @@ Solution:
     2. ANTLR -> token tree
     4. AST interpreter
 
-    Must have:
-    ----------
-    - int, long, short, double
-    - boolean
-    - string
-    - [] (overflow protection)
-    - classes
-    - methods
-    - I/O
-    - Garbage Collector (generational scavenging)
-    - ||, &&, !
-    - if, else, if-else
-    - for, while
-    - final
-    - static methods
+Features:
+---------
+    - Java-like syntax
+    - primitive types: boolean, int, long, double
+    - Built-in types: arrays (with overflow detection), string, File (for I/O)
+    - Built in System class for console I/O
+    - classes, inheritance
+    - static methods and variables
+    - final keyword for variable binding
+    - 2 types of garbage collector - Copying (in lectures called Baker), Generational Scavenging (default)
+            - configurable through application arguments
+    - All basic language constructs: if-else, for, while
+    - All basic operators: 
+            - + (also for string concatenation), -, /, *, ++, -- (both prefix and postfix)
+            - ==, !=, <, <=, >, >=, !
 
-    Nice to have:
-    -------------
-    - switch
-    - inheritance
-    - imports
-    - do-while
+TODO:
+-----
+    - building
+    - running
+
+How to run:
+-----------
+    sample run command: java LeMaVM.jar example/knap04.inst.dat example/knap04.inst.sol [-lemaGcType generationalScavenging -lemaHeapSize 100 -lemaTenureAge 2]

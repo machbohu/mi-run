@@ -155,6 +155,10 @@ public abstract class VMBuilder {
 	protected boolean buildIsStatic(CommonTree node){
 		return node.toStringTree().contains("static");
 	}
+	
+	protected boolean buildIsFinal(CommonTree node){
+		return node.toStringTree().contains("final");
+	}
 
 	/**
 	 * Build expression from given tree for future evaluation; i.e. a = (a + 5)
@@ -315,7 +319,7 @@ public abstract class VMBuilder {
 		List<VMField> fields = new ArrayList<>();
 		CommonTree child = null;
 		VMVisibilityModifier visibility = VMVisibilityModifier.getDefault();
-		boolean isStatic = false;
+		boolean isStatic = false, isFinal = false;
 		String type = null, name = null;
 		Object val = null;
 
@@ -331,6 +335,7 @@ public abstract class VMBuilder {
 						visibility = VMVisibilityModifier.fromString(child
 								.getChild(0).toString());
 						isStatic = buildIsStatic(child);
+						isFinal = buildIsFinal(child);
 					}
 					break;
 				case "TYPE":
@@ -353,7 +358,7 @@ public abstract class VMBuilder {
 									"Unexpected program syntax '"
 											+ child.toString());
 						}
-						fields.add(new VMField(name, isStatic, visibility, type,
+						fields.add(new VMField(name, isStatic, isFinal, visibility, type,
 								val));
 					}
 					break;
