@@ -98,6 +98,9 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 
 	protected void addEntryToRememberedSet(VMEnvironment env, String name,
 			VMObject value) {
+		if (env.getOwner() == null) {
+			return;
+		}
 		if (env.getOwner().getHeader().getAge() > ageThreshold
 				&& value.getHeader().getAge() <= ageThreshold) {
 			// OldSpace->newSpace reference, add to remembered set
