@@ -10,6 +10,7 @@ import cz.cvut.fit.mirun.lemavm.structures.VMObject;
 import cz.cvut.fit.mirun.lemavm.structures.builtin.VMString;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMInlineCache;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 
 /**
@@ -24,6 +25,7 @@ public final class VMMethodCallOperator extends VMOperator {
 	private final Object receiver;
 	private final String methodName;
 	private final List<Object> arguments;
+	private final VMInlineCache ilc;
 
 	public VMMethodCallOperator(Object receiver, String methodName,
 			List<Object> arguments) {
@@ -39,6 +41,7 @@ public final class VMMethodCallOperator extends VMOperator {
 		}
 		this.methodName = methodName;
 		this.arguments = arguments;
+		this.ilc = new VMInlineCache();
 	}
 
 	@Override
@@ -63,14 +66,14 @@ public final class VMMethodCallOperator extends VMOperator {
 			final VMClass cls = VMClass.getClasses().get(receiver);
 			if (cls != null) {
 				return VMInterpreter.getInstance().invokeStaticMethod(cls,
-						methodName, arguments);
+						methodName, arguments, ilc);
 			}
 			throw new VMEvaluationException("Receiver '" + receiver
 					+ "' of the method call '" + methodName
 					+ "' not found in this environment.");
 		}
 		return VMInterpreter.getInstance().invokeMethod(recv, methodName,
-				arguments);
+				arguments, ilc);
 	}
 
 	@Override

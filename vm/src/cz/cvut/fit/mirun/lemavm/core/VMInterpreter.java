@@ -21,6 +21,7 @@ import cz.cvut.fit.mirun.lemavm.structures.builtin.VMSystem;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClass;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClassInstance;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMInlineCache;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMMethod;
 import cz.cvut.fit.mirun.lemavm.utils.ParsingUtils;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
@@ -34,15 +35,17 @@ public class VMInterpreter {
 
 	private final Stack<VMEnvironment> stackFrames;
 	private VMEnvironment currentEnvironment;
+	private boolean useIlc;
 
-	/** Method in-line cache */
-	private VMMethod ilc;
-	private VMMethod staticIlc;
+//	/** Method in-line cache */
+//	private VMMethod ilc;
+//	private VMMethod staticIlc;
 
 	private VMInterpreter() {
 		this.stackFrames = new Stack<>();
 		// This is the top level environment
 		this.currentEnvironment = new VMEnvironment();
+		this.useIlc = true;
 	}
 
 	public static VMInterpreter getInstance() {
@@ -181,7 +184,7 @@ public class VMInterpreter {
 	 *         did not return anything
 	 */
 	public Object invokeMethod(VMObject receiver, String methodName,
-			List<Object> arguments) {
+			List<Object> arguments, VMInlineCache ilc) {
 		if (receiver == null || methodName == null || arguments == null) {
 			throw new NullPointerException();
 		}
@@ -195,7 +198,7 @@ public class VMInterpreter {
 			return res;
 		}
 		final VMClassInstance inst = (VMClassInstance) receiver;
-		final VMMethod m = lookupMethod(inst, methodName, arguments);
+		final VMMethod m = lookupMethod(inst, methodName, arguments, ilc);
 		final VMEnvironment instEnv = inst.getEnvironment();
 		return invokeMethodImpl(m, instEnv, arguments);
 	}
@@ -215,7 +218,7 @@ public class VMInterpreter {
 	 *         return anything
 	 */
 	public Object invokeStaticMethod(VMClass receiver, String methodName,
-			List<Object> arguments) {
+			List<Object> arguments, VMInlineCache ilc) {
 		if (receiver == null || methodName == null || arguments == null) {
 			throw new NullPointerException();
 		}
@@ -223,7 +226,7 @@ public class VMInterpreter {
 			LOG.trace("Invoking method named " + methodName + " on instance "
 					+ receiver);
 		}
-		final VMMethod m = lookupStaticMethod(receiver, methodName, arguments);
+		final VMMethod m = lookupStaticMethod(receiver, methodName, arguments, ilc);
 		final VMEnvironment classEnv = receiver.getClassEnvironment();
 		return invokeMethodImpl(m, classEnv, arguments);
 	}
@@ -320,23 +323,26 @@ public class VMInterpreter {
 	}
 
 	private VMMethod lookupMethod(VMClassInstance receiver, String methodName,
-			List<Object> args) {
+			List<Object> args, VMInlineCache ilc) {
 		assert receiver != null;
 		assert methodName != null;
 		assert args != null;
+		assert ilc != null;
+		
+		final VMMethod method = ilc.getMethod();
 		final List<String> argTypes = VMUtils.getArgumentTypes(args,
 				currentEnvironment);
 		final VMClass cls = receiver.getVMClass();
-		if (ilc != null) {
-			if (ilc.getOwner().equals(cls)
-					&& ilc.doesMethodMatch(methodName, argTypes)) {
-				return ilc;
+		if (method != null && useIlc) {
+			if (method.getOwner().equals(cls)
+					&& method.doesMethodMatch(methodName, argTypes)) {
+				return method;
 			}
 		}
 		List<VMMethod> methods = cls.getMethodsForName(methodName);
 		for (VMMethod m : methods) {
 			if (m.doesMethodMatch(methodName, argTypes)) {
-				this.ilc = m;
+				ilc.setMethod(m);
 				return m;
 			}
 		}
@@ -346,23 +352,26 @@ public class VMInterpreter {
 	}
 
 	private VMMethod lookupStaticMethod(VMClass receiver, String methodName,
-			List<Object> args) {
+			List<Object> args, VMInlineCache ilc) {
 		assert receiver != null;
 		assert methodName != null;
 		assert args != null;
+		assert ilc != null;
+		
+		final VMMethod method = ilc.getMethod();
 		final List<String> argTypes = VMUtils.getArgumentTypes(args,
 				currentEnvironment);
-		if (staticIlc != null) {
-			if (staticIlc.getOwner().equals(receiver)
-					&& staticIlc.doesMethodMatch(methodName, argTypes)) {
-				return staticIlc;
+		if (method != null && useIlc) {
+			if (method.getOwner().equals(receiver)
+					&& method.doesMethodMatch(methodName, argTypes)) {
+				return method;
 			}
 		}
 		final List<VMMethod> methods = receiver
 				.getStaticMethodsForName(methodName);
 		for (VMMethod m : methods) {
 			if (m.doesMethodMatch(methodName, argTypes)) {
-				this.staticIlc = m;
+				ilc.setMethod(m);
 				return m;
 			}
 		}
@@ -503,6 +512,18 @@ public class VMInterpreter {
 		envs.add(currentEnvironment);
 		return envs;
 	}
+	
+	public boolean isIlcUsed() {
+		return useIlc;
+	}
+	
+	public void dontUseIlc() {
+		this.useIlc = false;
+	}
+
+	public void useIlc() {
+		this.useIlc = true;
+	}
 
 	/**
 	 * Reset VMInterpreter part when reseting Virtual machine
@@ -510,7 +531,7 @@ public class VMInterpreter {
 	public void resetPartVM() {
 		stackFrames.clear();
 		this.currentEnvironment = new VMEnvironment();
-		this.ilc = null;
-		this.staticIlc = null;
+//		this.ilc = null;
+//		this.staticIlc = null;
 	}
 }
