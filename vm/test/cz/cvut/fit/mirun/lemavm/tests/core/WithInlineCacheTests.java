@@ -31,14 +31,14 @@ public class WithInlineCacheTests {
 	}
 	
 	@Test
-	public void testNewWithArgs(){
+	public void testWithInlineCache(){
 		cs = new ANTLRStringStream(
 			"public class Test {\n" +
 			"    public Test(int a){\n" +
 			"    }\n" +
 			
 			"    public void testMethod(int a){\n" +
-			"        System.print(a);\n" +
+			"        a = a + 1;\n" +
 			"    }\n" +
 			"}\n" +
 			
@@ -46,31 +46,7 @@ public class WithInlineCacheTests {
 			"    public static void main(string[] args) {\n" +
 			"        int a = 5;\n" +
 			"        Test t = new Test(a);\n" +
-			"        for(int ii=0;ii<10000;ii++){\n" +
-			"            t.testMethod(a);\n" +
-			"        }\n" +
-			"    }\n" +
-			"}"
-		);
-		
-		VirtualMachine.initAndLaunch(cs);
-		VirtualMachine.reset();
-		
-		cs = new ANTLRStringStream(
-			"public class Test {\n" +
-			"    public Test(int a){\n" +
-			"    }\n" +
-			
-			"    public void testMethod(int a){\n" +
-			"        System.print(a);\n" +
-			"    }\n" +
-			"}\n" +
-			
-			"public class Main {\n" +
-			"    public static void main(string[] args) {\n" +
-			"        int a = 5;\n" +
-			"        Test t = new Test(a);\n" +
-			"        for(int ii=0;ii<10000;ii++){\n" +
+			"        for(int ii=0;ii<1000000;ii++){\n" +
 			"            t.testMethod(a);\n" +
 			"        }\n" +
 			"    }\n" +
@@ -80,36 +56,7 @@ public class WithInlineCacheTests {
 		long start = System.currentTimeMillis();
 		VirtualMachine.initAndLaunch(cs);
 		long end = System.currentTimeMillis();
-		VirtualMachine.reset();
 		
-		cs = new ANTLRStringStream(
-			"public class Test {\n" +
-			"    public Test(int a){\n" +
-			"    }\n" +
-			
-			"    public void testMethod(int a){\n" +
-			"        System.print(a);\n" +
-			"    }\n" +
-			"}\n" +
-			
-			"public class Main {\n" +
-			"    public static void main(string[] args) {\n" +
-			"        int a = 5;\n" +
-			"        Test t = new Test(a);\n" +
-			"        for(int ii=0;ii<10000;ii++){\n" +
-			"            t.testMethod(a);\n" +
-			"        }\n" +
-			"    }\n" +
-			"}"
-		);
-			
-		VMInterpreter.getInstance().dontUseIlc();
-		long start2 = System.currentTimeMillis();
-		VirtualMachine.initAndLaunch(cs);
-		long end2 = System.currentTimeMillis();
-		
-		System.out.println();
 		System.out.println("Execution time (ilc) was "+(end-start)+" ms.");
-		System.out.println("Execution time (not ilc) was "+(end2-start2)+" ms.");
 	}
 }

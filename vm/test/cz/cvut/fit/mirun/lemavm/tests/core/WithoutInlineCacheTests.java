@@ -35,11 +35,10 @@ public class WithoutInlineCacheTests {
 		cs = new ANTLRStringStream(
 			"public class Test {\n" +
 			"    public Test(int a){\n" +
-			"        System.print(a);\n" +
 			"    }\n" +
 			
 			"    public void testMethod(int a){\n" +
-			"        System.println(a);\n" +
+			"        a = a + 1;\n" +
 			"    }\n" +
 			"}\n" +
 			
@@ -47,7 +46,7 @@ public class WithoutInlineCacheTests {
 			"    public static void main(string[] args) {\n" +
 			"        int a = 5;\n" +
 			"        Test t = new Test(a);\n" +
-			"        for(int ii=0;ii<10000;ii++){\n" +
+			"        for(int ii=0;ii<1000000;ii++){\n" +
 			"            t.testMethod(a);\n" +
 			"        }\n" +
 			"    }\n" +
@@ -59,6 +58,6 @@ public class WithoutInlineCacheTests {
 		VirtualMachine.initAndLaunch(cs);
 		long end = System.currentTimeMillis();
 		
-		System.out.println("Execution time was "+(end-start)+" ms.");
+		System.out.println("Execution time (not ilc) was "+(end-start)+" ms.");
 	}
 }
