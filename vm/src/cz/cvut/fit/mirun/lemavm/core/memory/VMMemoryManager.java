@@ -6,6 +6,7 @@ import cz.cvut.fit.mirun.lemavm.core.VMSettings;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMOutOfMemoryException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMParsingException;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.utils.VMConstants;
 
 /**
@@ -97,6 +98,16 @@ public final class VMMemoryManager {
 		}
 	}
 
+	private void addEntryToRememberedSet(VMEnvironment env, String name,
+			VMObject value) {
+		if (gc == null) {
+			// We are not running generational scavenging
+			return;
+		}
+		((GenerationalGarbageCollector) gc).addEntryToRememberedSet(env, name,
+				value);
+	}
+
 	/**
 	 * Initialize the memory manager. </p>
 	 * 
@@ -146,6 +157,18 @@ public final class VMMemoryManager {
 			initializeMemoryManager();
 		}
 		manager.allocateObjectImpl(object);
+	}
+
+	public static void tryAddingToRememberedSet(VMEnvironment env, String name,
+			VMObject value) {
+		if (env == null || value == null) {
+			throw new NullPointerException();
+		}
+		if (!initialized) {
+			throw new IllegalStateException(
+					"Memory manager is not initialized.");
+		}
+		manager.addEntryToRememberedSet(env, name, value);
 	}
 
 	protected static VMMemoryManager getInstance() {

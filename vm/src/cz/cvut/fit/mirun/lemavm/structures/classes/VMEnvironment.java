@@ -8,6 +8,7 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMEvaluationException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMFinalBindingExistsException;
 import cz.cvut.fit.mirun.lemavm.exceptions.VMUnknownTypeException;
@@ -233,8 +234,10 @@ public class VMEnvironment {
 			bindings.put(name, value);
 			bindingTypes.put(name, type);
 			finalBindings.put(name, value);
+			VMMemoryManager.tryAddingToRememberedSet(this, name, value);
 		} else {
 			env.addFinalBinding(name, value, type);
+			VMMemoryManager.tryAddingToRememberedSet(env, name, value);
 		}
 	}
 
@@ -295,6 +298,10 @@ public class VMEnvironment {
 
 	public VMEnvironment getParent() {
 		return parent;
+	}
+
+	public VMObject getOwner() {
+		return owner;
 	}
 
 	public Object getReturnValue() {

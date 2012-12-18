@@ -122,6 +122,10 @@ public class GenerationalGarbageCollectorTests {
 				.getDeclaredField("oldSpacePtr");
 		oldPtrField.setAccessible(true);
 		final int oldPtr = oldPtrField.getInt(manager);
+		// It is 4, because string0 stays in the old space despite the fact that
+		// it is not referenced any more
+		// Old space collection would collect it
+		// So the old space contains: arr, "2", "3" and "string0"
 		assertEquals(4, oldPtr);
 	}
 }

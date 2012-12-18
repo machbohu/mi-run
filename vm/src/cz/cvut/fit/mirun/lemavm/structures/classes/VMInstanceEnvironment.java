@@ -26,10 +26,6 @@ public class VMInstanceEnvironment extends VMEnvironment {
 		init();
 	}
 
-	public VMObject getOwner() {
-		return owner;
-	}
-
 	@Override
 	public <T> T getBinding(String name, Class<T> cls) {
 		if (name.equals(VMConstants.THIS)) {
@@ -55,7 +51,6 @@ public class VMInstanceEnvironment extends VMEnvironment {
 		if (type == null) {
 			type = classEnvironment.getNameType(name);
 		}
-
 		return type;
 	}
 

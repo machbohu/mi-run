@@ -1,5 +1,8 @@
 package cz.cvut.fit.mirun.lemavm.core.memory;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
@@ -12,6 +15,7 @@ import cz.cvut.fit.mirun.lemavm.core.memory.VMMemoryManager.WhichSpace;
 import cz.cvut.fit.mirun.lemavm.structures.ObjectType;
 import cz.cvut.fit.mirun.lemavm.structures.VMArray;
 import cz.cvut.fit.mirun.lemavm.structures.VMObject;
+import cz.cvut.fit.mirun.lemavm.structures.builtin.VMNull;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMClassInstance;
 import cz.cvut.fit.mirun.lemavm.structures.classes.VMEnvironment;
 import cz.cvut.fit.mirun.lemavm.utils.VMUtils;
@@ -32,6 +36,8 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 	private int oldSpaceGCThreshold;
 	private MarkAndSweepCollector oldSpaceCollector;
 
+	private Method getEntryMethod;
+
 	public GenerationalGarbageCollector(VMMemoryManager manager) {
 		super(manager);
 		rememberedSet = new HashSet<>();
@@ -40,6 +46,14 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 		// Old space threshold is 2/3 of its size
 		this.oldSpaceGCThreshold = manager.oldSpace.length / 3 * 2;
 		this.oldSpaceCollector = new MarkAndSweepCollector();
+		try {
+			this.getEntryMethod = HashMap.class.getDeclaredMethod("getEntry",
+					Object.class);
+			getEntryMethod.setAccessible(true);
+		} catch (NoSuchMethodException | SecurityException e) {
+			e.printStackTrace();
+			this.getEntryMethod = null;
+		}
 	}
 
 	@Override
@@ -82,6 +96,26 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 		cleanUp();
 	}
 
+	protected void addEntryToRememberedSet(VMEnvironment env, String name,
+			VMObject value) {
+		if (env.getOwner().getHeader().getAge() > ageThreshold
+				&& value.getHeader().getAge() <= ageThreshold) {
+			// OldSpace->newSpace reference, add to remembered set
+			HashMap<String, VMObject> bindings = (HashMap<String, VMObject>) env
+					.getBindings();
+			try {
+				@SuppressWarnings("unchecked")
+				Entry<String, VMObject> e = (Entry<String, VMObject>) getEntryMethod
+						.invoke(bindings, name);
+				rememberedSet.add(e);
+			} catch (IllegalAccessException | IllegalArgumentException
+					| InvocationTargetException e) {
+				LOG.error("Unable to get entry from environment.", e);
+			}
+		}
+		// Otherwise don't add
+	}
+
 	private void cleanUp() {
 		freeInd = 0;
 		this.fromSpace = null;
@@ -101,12 +135,23 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 
 	private void moveRootsToNewSpace(Set<Entry<String, VMObject>> rootSet) {
 		for (Entry<String, VMObject> o : rootSet) {
-			VMObject moved = moveObject(o.getValue());
+			VMObject ob = o.getValue();
+			if (ob == VMNull.getInstance() && rememberedSet.contains(o)) {
+				// Remove this entry from the remembered set, it is no longer
+				// valid
+				// This will be used by arrays
+				rememberedSet.remove(o);
+				continue;
+			}
+			VMObject moved = moveObject(ob);
 			if (moved != null) {
-				o.setValue(moved);
-				if (moved.getHeader().getAge() > ageThreshold) {
-					rememberedSet.add(o);
+				if (moved.getHeader().getAge() > ageThreshold
+						&& rememberedSet.contains(o)) {
+					// This means that an oldspace->newspace relationship has
+					// changed to oldspace->oldspace
+					rememberedSet.remove(o);
 				}
+				o.setValue(moved);
 			}
 		}
 	}
@@ -129,8 +174,10 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 					VMObject moved = moveObject(elems[i]);
 					if (moved != null) {
 						elems[i] = moved;
-						if (moved.getHeader().getAge() > ageThreshold) {
-							rememberedSet.add(new GCEntry(moved));
+						if (moved.getHeader().getAge() < ageThreshold
+								&& object.getHeader().getAge() > ageThreshold) {
+							rememberedSet
+									.add(new GCArrayEntry(elems, i, moved));
 						}
 					}
 				}
@@ -146,8 +193,10 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 				VMObject moved = moveObject(o.getValue());
 				if (moved != null) {
 					o.setValue(moved);
-					if (moved.getHeader().getAge() > ageThreshold) {
-						rememberedSet.add(new GCEntry(moved));
+					if (moved.getHeader().getAge() < ageThreshold
+							&& object.getHeader().getAge() > ageThreshold) {
+						// OldSpace->newSpace reference, add to remembered set
+						rememberedSet.add(o);
 					}
 				}
 			}
@@ -197,16 +246,57 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 	}
 
 	/**
-	 * Entry for the remembered set.
+	 * Entry for the remembered set. Keeps track of its owner so that when the
+	 * element is moved, reference to it is updated in the array.
+	 * 
+	 * @author kidney
+	 * 
+	 */
+	private static final class GCArrayEntry implements
+			Map.Entry<String, VMObject> {
+
+		private final VMObject[] arr;
+		private final int index;
+		private VMObject orig;
+
+		GCArrayEntry(VMObject[] elems, int index, VMObject orig) {
+			this.arr = elems;
+			this.index = index;
+			this.orig = orig;
+		}
+
+		@Override
+		public String getKey() {
+			return null; // Not supported
+		}
+
+		@Override
+		public VMObject getValue() {
+			if (orig != arr[index]) {
+				return VMNull.getInstance();
+			}
+			return arr[index];
+		}
+
+		@Override
+		public VMObject setValue(VMObject value) {
+			this.orig = arr[index];
+			arr[index] = value;
+			return null;
+		}
+	}
+
+	/**
+	 * Entry for mark and compact old space collector.
 	 * 
 	 * @author kidney
 	 * 
 	 */
 	private static final class GCEntry implements Map.Entry<String, VMObject> {
 
-		private final VMObject o;
+		private VMObject o;
 
-		GCEntry(VMObject o) {
+		public GCEntry(VMObject o) {
 			this.o = o;
 		}
 
@@ -222,10 +312,18 @@ public final class GenerationalGarbageCollector extends VMGarbageCollector {
 
 		@Override
 		public VMObject setValue(VMObject value) {
-			return null; // Not supported
+			final VMObject toRet = o;
+			this.o = value;
+			return toRet;
 		}
 	}
 
+	/**
+	 * Mark and compact collector for the old space.
+	 * 
+	 * @author kidney
+	 * 
+	 */
 	private final class MarkAndSweepCollector {
 
 		private static final byte age = 100;
